@@ -12,7 +12,7 @@ export default function NavBar() {
                  </div>
 
                  <div className={s.navCenter}>
-                    <Link className={s.link} to='/salvaUnaHuella'><h4>Adoptar</h4></Link>
+                    <Link className={s.link} to='/adoptar'><h4>Adoptar</h4></Link>
                     <Link className={s.link} to='/donaciones'><h4>Donar</h4></Link>
                     <Link className={s.link} to='/noticias'> <h4>Noticias</h4></Link>
                     <Link className={s.link} to='/nosotros'><h4>Sobre Nosotros</h4></Link>
