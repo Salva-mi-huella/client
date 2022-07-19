@@ -4,7 +4,7 @@ import { GET_FOUNDATION_DETAIL } from "../actions"
 
 
 const initialState = {
-    foundationDetail: {}
+    foundationDetail: []
 
 }
 
