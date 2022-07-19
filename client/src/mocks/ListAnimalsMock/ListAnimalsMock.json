@@ -1,0 +1,112 @@
+{
+  "pet": [
+    {
+      "type": "Perro",
+      "name": "Cafecito",
+      "age": 4,
+      "genre": "Macho",
+      "img": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"],
+      "description": "Ojitos llegó al borde la muerte, con una sentencia de eutanasia pendiendo sobre su cabeza. Víctima del moquillo y de unas infecciones terribles que, literalmente, se lo estaban comiendo vivo. Estuvo internado 52 días, tiempo durante el cual los veterinarios tuvieron que amputarle las patas y la cola para que pudiera salir adelante. Ojitos, hoy, es un canto a la vida, un símbolo de esperanza, siempre alegre, curioso y con mucho amor para dar.",
+      "id": "b21306c7-7463-49d7-b829-72a8e772653b",
+      "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
+      "foundation_name": "refugioelcampito",
+      "post_date": "18-07-2018"
+    },
+    {
+      "type": "Gato",
+      "name": "Yuki",
+      "age": 2,
+      "genre": "Hembra",
+      "img": [
+        "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
+      ],
+      "description": "Muchos ya conocerán a nuestra hermosa Yuki. Ella es una gatita rescatada preñada del predio de Palermo hace casi 2 años. Es vif+ y desde su rescate hasta hoy tuvimos diversas consultas y estuvo bajo distintos tratamientos sin éxito, debido a diarreas intermitentes. Hace poco, Yuki comenzó a bajar de peso y el mes pasado tuvimos consulta con Amelia Gisbert, quien la derivó a la gastroenterologa Marta Zubaldía",
+      "id": "7749561e-0379-4202-993b-703b2c70a552",
+      "foundation_id": "75fa3649-116c-4f0d-bec1-41f8d14a113e",
+      "foundation_name": "GATITOS DE PALERMO",
+      "post_date": "18-07-2017"
+    },
+    {
+      "type": "Perro",
+      "name": "Loba",
+      "age": 6,
+      "genre": "Hembra",
+      "img": [
+        "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"
+      ],
+      "description": "La historia de Loba es una de las más tristes que nos ha tocado enfrentar. Fue rescatada del zoonosis de Morón junto a sus bebés, ya que no podían seguir encerrados en esas jaulas espantosas. Todo parecía ir bien. Sus bebés fueron adoptados y ella también logró cerrar su círculo. Pero esa alegría no duraría mucho debido a que, después de un tiempo, nuestra Lobita escapó de la casa de sus adoptantes. La buscamos muchísimo, movimos cielo y tierra hasta que, por medio de un alerta, nos enteramos que Lobita había sido atropellada por el tren. Lamentablemente, tuvimos que amputarle una de sus patas, aunque esto jamás fue un impedimento para ella ya que siempre se manejó perfectamente, como cualquier otro perrito. Pero en realidad, lo más triste de todo es que no pudimos devolver a Loba a sus adoptantes debido a que ellos jamás se preocuparon por encontrarla. Loba estaba debajo del andén de la estación que se encontraba a tan solo tres cuadras de su hogar, lo cual significa que mientras nosotros recorríamos calles y calles en su búsqueda, sus adoptantes ni siquiera intentaron buscarla. Gracias a Dios, pronto, y luego de la operación, Loba se convirtió en una perra hermosa, fuerte y dulce. Y, como tanto se merecía, encontró una familia que supo ver más allá y que se enamoró perdidamente de ella. Hoy, Loba disfruta, al fin, del calor de un verdadero hogar.",
+      "id": "2b93df3f-3839-4322-b398-36ba469c68d8",
+      "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
+      "foundation_name": "refugioelcampito",
+      "post_date": "8-05-2016"
+    },
+    {
+      "type": "Gato",
+      "name": "Maple",
+      "age": 4,
+      "genre": "Macho",
+      "img": [
+        "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
+      ],
+      "description": "Queremos actualizarles la situación de nuestro pequeño Maple. Quizás recuerden que fue recibido a comienzos de Marzo muy complicado, deshidratado, desnutrido, con lesiones en sus patas, una enteritis aguda (diarrea e intestinos inflamados) y cursando mycoplasma por lo que debió permanecer algunas semanas internado en @veterinariav.q hasta ser estabilizado. Sumado a esto, Maple dio positivo para ambos VIF/VILEF (sida y leucemia felina). A mediados de Marzo lo recibió Majo, su transitante, y pocas semanas después debió ser internado nuevamente. Su caso es complejo, y pese a las medicaciones indicadas, sus valores en sangre siguen dando mal… Maple tiene los glóbulos blancos muy bajos. Por lo pronto se encuentra bajo tratamiento inyectable, comenzó cada 24 y 48 h y múltiples medicaciones vía oral para revertir su cuadro. Está siendo atendido por la especialista en medicina felina, Amelia Gisbert y ayer lo llevamos a una consulta con el hematólogo Joaquín Artese. 🆘 Los gastos de este mes SÓLO en Maple fueron $46.939… esto sumado a los gastos que enfrentamos a diario con los más de 20 gatitxs que tenemos actualmente en tránsito, realizándoles estudios, algunos bajo tratamientos y los gastos de mantenimiento y castraciones en colonias de Palermo y Colegiales. 🌈 VOS PODES AYUDAR A MAPLE, ¿te preguntas cómo? Apadrinándolo! 💘.",
+      "id": "2dc36174-3dc8-42e4-829d-28875d81f893",
+      "foundation_id": "472e0c79-da78-4e59-a39b-5e6c9c47e18b",
+      "foundation_name": "El Campito Felino de Belgrano",
+      "post_date": "20-03-2018"
+    },
+    {
+      "type": "Perro",
+      "name": "Cafecito",
+      "age": 4,
+      "genre": "Macho",
+      "img": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"],
+      "description": "Ojitos llegó al borde la muerte, con una sentencia de eutanasia pendiendo sobre su cabeza. Víctima del moquillo y de unas infecciones terribles que, literalmente, se lo estaban comiendo vivo. Estuvo internado 52 días, tiempo durante el cual los veterinarios tuvieron que amputarle las patas y la cola para que pudiera salir adelante. Ojitos, hoy, es un canto a la vida, un símbolo de esperanza, siempre alegre, curioso y con mucho amor para dar.",
+      "id": "b21306c7-7463-49d7-b829-72a8e772653b",
+      "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
+      "foundation_name": "refugioelcampito",
+      "post_date": "18-07-2018"
+    },
+    {
+      "type": "Gato",
+      "name": "Yuki",
+      "age": 2,
+      "genre": "Hembra",
+      "img": [
+        "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
+      ],
+      "description": "Muchos ya conocerán a nuestra hermosa Yuki. Ella es una gatita rescatada preñada del predio de Palermo hace casi 2 años. Es vif+ y desde su rescate hasta hoy tuvimos diversas consultas y estuvo bajo distintos tratamientos sin éxito, debido a diarreas intermitentes. Hace poco, Yuki comenzó a bajar de peso y el mes pasado tuvimos consulta con Amelia Gisbert, quien la derivó a la gastroenterologa Marta Zubaldía",
+      "id": "7749561e-0379-4202-993b-703b2c70a552",
+      "foundation_id": "75fa3649-116c-4f0d-bec1-41f8d14a113e",
+      "foundation_name": "GATITOS DE PALERMO",
+      "post_date": "18-07-2017"
+    },
+    {
+      "type": "Perro",
+      "name": "Loba",
+      "age": 6,
+      "genre": "Hembra",
+      "img": [
+        "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"
+      ],
+      "description": "La historia de Loba es una de las más tristes que nos ha tocado enfrentar. Fue rescatada del zoonosis de Morón junto a sus bebés, ya que no podían seguir encerrados en esas jaulas espantosas. Todo parecía ir bien. Sus bebés fueron adoptados y ella también logró cerrar su círculo. Pero esa alegría no duraría mucho debido a que, después de un tiempo, nuestra Lobita escapó de la casa de sus adoptantes. La buscamos muchísimo, movimos cielo y tierra hasta que, por medio de un alerta, nos enteramos que Lobita había sido atropellada por el tren. Lamentablemente, tuvimos que amputarle una de sus patas, aunque esto jamás fue un impedimento para ella ya que siempre se manejó perfectamente, como cualquier otro perrito. Pero en realidad, lo más triste de todo es que no pudimos devolver a Loba a sus adoptantes debido a que ellos jamás se preocuparon por encontrarla. Loba estaba debajo del andén de la estación que se encontraba a tan solo tres cuadras de su hogar, lo cual significa que mientras nosotros recorríamos calles y calles en su búsqueda, sus adoptantes ni siquiera intentaron buscarla. Gracias a Dios, pronto, y luego de la operación, Loba se convirtió en una perra hermosa, fuerte y dulce. Y, como tanto se merecía, encontró una familia que supo ver más allá y que se enamoró perdidamente de ella. Hoy, Loba disfruta, al fin, del calor de un verdadero hogar.",
+      "id": "2b93df3f-3839-4322-b398-36ba469c68d8",
+      "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
+      "foundation_name": "refugioelcampito",
+      "post_date": "8-05-2016"
+    },
+    {
+      "type": "Gato",
+      "name": "Maple",
+      "age": 4,
+      "genre": "Macho",
+      "img": [
+        "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
+      ],
+      "description": "Queremos actualizarles la situación de nuestro pequeño Maple. Quizás recuerden que fue recibido a comienzos de Marzo muy complicado, deshidratado, desnutrido, con lesiones en sus patas, una enteritis aguda (diarrea e intestinos inflamados) y cursando mycoplasma por lo que debió permanecer algunas semanas internado en @veterinariav.q hasta ser estabilizado. Sumado a esto, Maple dio positivo para ambos VIF/VILEF (sida y leucemia felina). A mediados de Marzo lo recibió Majo, su transitante, y pocas semanas después debió ser internado nuevamente. Su caso es complejo, y pese a las medicaciones indicadas, sus valores en sangre siguen dando mal… Maple tiene los glóbulos blancos muy bajos. Por lo pronto se encuentra bajo tratamiento inyectable, comenzó cada 24 y 48 h y múltiples medicaciones vía oral para revertir su cuadro. Está siendo atendido por la especialista en medicina felina, Amelia Gisbert y ayer lo llevamos a una consulta con el hematólogo Joaquín Artese. 🆘 Los gastos de este mes SÓLO en Maple fueron $46.939… esto sumado a los gastos que enfrentamos a diario con los más de 20 gatitxs que tenemos actualmente en tránsito, realizándoles estudios, algunos bajo tratamientos y los gastos de mantenimiento y castraciones en colonias de Palermo y Colegiales. 🌈 VOS PODES AYUDAR A MAPLE, ¿te preguntas cómo? Apadrinándolo! 💘.",
+      "id": "2dc36174-3dc8-42e4-829d-28875d81f893",
+      "foundation_id": "472e0c79-da78-4e59-a39b-5e6c9c47e18b",
+      "foundation_name": "El Campito Felino de Belgrano",
+      "post_date": "20-03-2018"
+    }
+  ]
+}
