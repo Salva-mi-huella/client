@@ -5,10 +5,12 @@
     padding: 0 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    height: 10vh;
+
 }
 
 .logo {
-    width: 45px;
+    width: 100px;
 }
 
 .navCenter {
