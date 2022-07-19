@@ -1,0 +1,23 @@
+.DivNav{
+    background-color: aliceblue;
+    height: 15vh;
+}
+
+.containers{
+    width: 300px;
+}
+
+.main section{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main section:nth-child(2){
+    background: rgb(0,108,255);
+    background: linear-gradient(0deg, rgba(0,108,255,1) 47%, rgba(0,212,255,1) 100%);
+}
+
+.main section:nth-child(3){
+    background-color:#ABB2B9;
+}
