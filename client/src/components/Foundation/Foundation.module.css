@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+
+.foundationImage {
+    width: 400px;
+    height: 100%;
+    margin-left: 150px;
+}
+
+.icons {
+    transition:0.3s;
+    width: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+.icons:hover {
+    transition:0.3s;
+    transform: scale(1.05);
+    width: 50px;
+}
+
+.paypal {
+    width: 300px;
+    padding: 30px;
+}
+
+.petImage {
+   transition: 0.3s;
+    width: 350px;
+    height: 300px;
+    border: 1px solid  #00A8FF;
+    border-radius: 40px;
+}
+
+.petImage:hover {
+   transition: 0.3s;
+   transform: scale(1.03);
+}
+
+.containerContact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.containerContact h1 {
+    margin-bottom: 50px;
+}
+
+.containerDonate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.containerDonate button {
+    transition: 0.3s;
+    width: 80px;
+    height: 40px;
+    background-color: #00A8FF;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.containerDonate button:hover {
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.containerDonate input {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+    color: #00A8FF;
+    background-color: white;
+    padding-left: 10px;
+    margin-top: 30px;
+}
+
+.containerPets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 60px;
+
+}
+
+
+.subcontainerPets{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.subcontainerPets div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50px;
+}
