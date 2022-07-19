@@ -1,0 +1,13 @@
+.DivCarousel{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 100px;
+    
+}   
+
+.images{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}

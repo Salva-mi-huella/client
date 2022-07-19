@@ -1,8 +1,9 @@
 import './App.css';
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import {Home} from './components/Home/Home';
+import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
+import Carousel from './components/Carousel/Carousel'
 import PetDetail from './components/PetDetail/PetDetail';
 import { Foundation } from './components/Foundation/Foundation';
 
@@ -20,9 +21,11 @@ function App() {
    {/* <Route path='/salva-una-huella'  component={Adopt}/> */}
    {/* <Route exact path='/donaciones' component={Donate} /> */}
    {/* <Route exact path='/nosotros' component={About} /> */}
-</React.Fragment>
+   {/* <Route component={NotFound}  /> */}
+    </React.Fragment>
 
   );
 }
+
 
 export default App;
