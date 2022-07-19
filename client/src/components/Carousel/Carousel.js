@@ -54,4 +54,5 @@ export default function ControlledCarousel() {
         </Carousel.Item>
         </Carousel>
         );
+
     }
