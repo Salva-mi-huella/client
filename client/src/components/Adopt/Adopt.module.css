@@ -1,0 +1,42 @@
+.banner img{
+    width: 100%;
+}
+.containerFunction{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.containerFunction div{
+    text-align: center;
+    width: 30%;
+}
+.allAnimals{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.allAnimals__filters{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+.filtersBy{
+    display: flex;
+    align-items: center;
+}
+
+
+/* Cards */
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    width: 270px;
+    height: 300px;
+    border: 2px solid black;
+    margin: 20px;
+    background-color: grey;
+}
