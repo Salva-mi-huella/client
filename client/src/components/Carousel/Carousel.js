@@ -4,6 +4,8 @@ import Carousel from 'react-bootstrap/Carousel'
 import img1 from '../../images/rabbit.jpg'
 import img2 from '../../images/dolphin.jpg'
 import img3 from '../../images/rottweiler.jpg'
+import img4 from '../../images/animals.jpg'
+
 
 
 export default function ControlledCarousel() {
@@ -19,6 +21,17 @@ export default function ControlledCarousel() {
         <img
         className={styles.images}
         src={img1}
+        alt="First slide"
+        />
+        <Carousel.Caption>
+        <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+        <img
+        className={styles.images}
+        src={img4}
         alt="First slide"
         />
         <Carousel.Caption>
