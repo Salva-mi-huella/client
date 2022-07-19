@@ -10,8 +10,8 @@ function App() {
   return (
     <React.Fragment>
    <Route path='/'> <NavBar/></Route>
-   <Route exact path='/huella'> <PetDetail/></Route>
    {/* <Route exact path='/home'> <Home/></Route> */}
+  <Route exact path='/huella/:nombreHuella'> <PetDetail/></Route>
    {/* <Route exact path='/perfil'> <Profile/></Route> */}
    {/* <Route path='/fundacion/:fundacionId'  component={Foundation}/> */}
    {/* <Route path='/salva-una-huella'  component={Adopt}/> */}
