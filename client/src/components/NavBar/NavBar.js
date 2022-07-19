@@ -23,5 +23,6 @@ export default function NavBar() {
                     <h4>Registrarse</h4>
                 </div>
             </nav>
+            
        )
  }
