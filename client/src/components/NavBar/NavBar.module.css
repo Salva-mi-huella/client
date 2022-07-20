@@ -12,6 +12,11 @@
     width: 80px;
 }
 
+.icons {
+    width: 40px;
+    margin-left: 20px;
+}
+
 .navCenter {
     display:flex;
     align-items: center;
@@ -37,3 +42,39 @@
     color: black;
     text-decoration: none;
 }
+
+.signUp button {
+    transition: 1s;
+    color: rgb(29, 53, 87);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.signUp button:hover {
+    transition: 1s;
+    color: rgb(29, 101, 201);
+    text-decoration: overline underline;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.profile button {
+    transition: 1s;
+    color: rgb(29, 53, 87);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.profile button:hover {
+    transition: 1s;
+    color: rgb(29, 101, 201);
+    text-decoration: overline underline;
+}
+
