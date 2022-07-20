@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import {  useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
-import logo_1 from '../../logos/Ellipse1.png';
-import logo_2 from '../../logos/Ellipse2.png';
-import logo_3 from '../../logos/Ellipse3.png';
-import logo_4 from '../../logos/Ellipse4.png';
-import logo_5 from '../../logos/Ellipse5.png';
+import { getFoundations } from '../../actions';
 
 export default function Home() {
+
+    const dispatch = useDispatch();
+    const foundations = useSelector(state => state.foundations)
+
+    useEffect(() => { 
+        // const id = this.props.match.params.foundationId
+        dispatch(getFoundations())
+     }, [])
+
+
     return (
         <div className={styles.main}>               
             <div>
@@ -31,36 +39,22 @@ export default function Home() {
                     <button className='btn btn-secondary'>ADOPTAR</button>
                 </div>
             </section>
-            <section>
+            <section className={styles.foundations}>
                 <div>
                     <h1>Nuestras Fundaciones</h1>
                 </div>
                 <div className={styles.logos}>
+                  {foundations.length>0 && foundations.map(foundation => (
                     <div>
-                        <img src={logo_1} alt="logo_1"></img>
-                        <p>Garritas a salvo</p>
+                        <Link to={`/fundacion/${foundation.id}`} ><img src={foundation.img[0]} alt='foundationImage'></img></Link>
+                        <h4>{foundation.name}</h4>  
                     </div>
-                    <div>
-                        <img src={logo_2} alt="logo_1"></img>
-                        <p>Arriba las patitas</p>
-                    </div>
-                    <div>
-                        <img src={logo_3} alt="logo_1"></img>
-                        <p>Arriba las trompitas</p>
-                    </div>
-                    <div>
-                    <img src={logo_4} alt="logo_1"></img>
-                    <p>Rescataditos</p>
-                    </div>
-                    <div>
-                    <img src={logo_5} alt="logo_1"></img>
-                    <p>Patitas glew</p>
-                    </div>
+                    ))}
                 </div>
             </section>
             <section>
                 <div>
-                    <h1>Quienes Somos</h1>                
+                    <h1>Quienes Somos?</h1>                
                 </div>
                 <div className={styles.info}>
                     <div>

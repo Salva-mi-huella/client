@@ -4,13 +4,12 @@
     align-items: center;
     padding: 0 20px;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
     height: 10vh;
-
+    margin-bottom: 30px;
 }
 
 .logo {
-    width: 100px;
+    width: 80px;
 }
 
 .navCenter {
