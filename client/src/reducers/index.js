@@ -6,7 +6,7 @@ import { GET_FOUNDATION_DETAIL, GET_PET_DETAIL, GET_FOUNDATIONS, GET_AllPETS } f
 
 
 const initialState = {
-    petDetail: {}
+    petDetail: {},
     foundationDetail: [],
     foundations:[],
     allPets: []
