@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from './Card.js'
 import banner from '../../assets/adoptBanner.png'
+import {  useDispatch, useSelector } from 'react-redux';
 import style from './Adopt.module.css'
+import { getAllPets, getFoundations } from '../../actions/index.js';
 
 
 export default function Adopt(){
+    
+    const dispatch = useDispatch()
+    
+    useEffect(()=>{
+        dispatch(getAllPets())
+        dispatch(getFoundations())
+    },[dispatch])
+    
+    const arrAllPets = useSelector(state=> state.allPets )
+    const arrFoundationsnames = useSelector(state=> state.foundations).map(foundantions => foundantions.name)
+
     return (
         <>
             <div className={style.banner}>
-                {/* Deberiamos cambiarla por una PNG */}
+                {/* Cambiar esta imagen */}
                 <img src={banner} alt="Banner of animals"/>
             </div>
             <div className={style.containerFunction}>
@@ -39,8 +52,11 @@ export default function Adopt(){
                         <h5>Filtrar por</h5>
                         <select id="foundation">
                             {/* Traer de DB */}
-                            <option value="ej-1">patitas</option>
-                            <option value="ej-2">garritas</option>
+                            {arrFoundationsnames ?
+                                arrFoundationsnames.map(name=>(
+                                    <option value={name}>{name}</option>
+                                )):
+                                <option>Foundations</option>}
                         </select>
                         <select id="gender">
                             <option value="male">Macho</option>
@@ -50,7 +66,18 @@ export default function Adopt(){
                 </div>
             </div>
             <div className={style.cardContainer}>
-                <Card/>
+                {arrAllPets ?
+                    arrAllPets.map(pet => (
+                        <Card 
+                        name={pet.name}
+                        img={pet.images} 
+                        id={pet.id}
+                        />
+                    ))
+                    :
+                    //Add loading component
+                    <h3>Cargando..</h3>
+                }
             </div>
         </>
     )
