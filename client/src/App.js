@@ -15,10 +15,10 @@ function App() {
     <React.Fragment>
       <Route path='/'> <NavBar/></Route>
       <Route exact path='/home'> <Home/></Route>
-       <Route exact path='/huella/:nombreHuella'> <PetDetail/></Route>
+      <Route exact path='/huella/:nombreHuella'> <PetDetail/></Route>
       {/* <Route exact path='/perfil'> <Profile/></Route> */}
-        <Route path='/fundacion/:foundationId'  component={Foundation}/> {/*Cambiar ruta a fundacion/:foundationId una vez que funcione la action*/}
-        <Route path='/adoptar'  component={Adopt}/>
+      <Route path='/fundacion/:foundationId' component={Foundation} />
+      <Route path='/adoptar' component={Adopt} />
       {/* <Route exact path='/donaciones' component={Donate} /> */}
       {/* <Route exact path='/nosotros' component={About} /> */}
       {/* <Route component={NotFound}  /> */}
