@@ -44,6 +44,7 @@ export default function Home() {
                     <h1>Nuestras Fundaciones</h1>
                 </div>
                 <div className={styles.logos}>
+                    {/* CarouselFoundation */}
                   {foundations.length>0 && foundations.map(foundation => (
                     <div>
                         <Link to={`/fundacion/${foundation.id}`} ><img src={foundation.img[0]} alt='foundationImage'></img></Link>
