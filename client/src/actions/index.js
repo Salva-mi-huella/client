@@ -1,9 +1,11 @@
 import axios from 'axios';
 import * as data from "../mocks/ListFundationMock/ListFundationMock.json";
+import * as petsData from "../mocks/ListAnimalsMock/ListAnimalsMock.json";
 
 
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
 export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
+export const GET_AllPETS = 'GET_AllPETS'
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -29,4 +31,9 @@ export function getFoundations(){
         //     }
             return dispatch({ type: GET_FOUNDATIONS, payload: data.foundation})
         } 
+}
+
+export function getAllPets(){
+    //Actualizar ruta cuando tengamos la db
+    return {type:GET_AllPETS, payload: petsData.pet}
 }
