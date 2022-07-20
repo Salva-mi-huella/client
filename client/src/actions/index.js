@@ -5,7 +5,9 @@ import * as data from "../mocks/ListFundationMock/ListFundationMock.json";
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
 export const GET_PET_DETAIL = 'GET_PET_DETAIL';
 export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
-export const GET_AllPETS = 'GET_AllPETS'
+export const GET_All_PETS = 'GET_AllPETS'
+export const FILTERS_CONFIG = 'FILTERS_CONFIG'
+
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -36,7 +38,7 @@ export function getFoundations(){
 
 export function getAllPets(){
     //Actualizar ruta cuando tengamos la db
-    return {type:GET_AllPETS, payload: dataAnimals.pet}
+    return {type:GET_All_PETS, payload: dataAnimals.pet}
 }
 
 
@@ -50,5 +52,12 @@ export function getPetDetail(name){
     }
 }
 
-
+export function filtersConfig(config){
+    return {
+        type: FILTERS_CONFIG,
+        filter : Object.keys(config),
+        payload: config,
+        pets: config.filtered
+    } 
+}
 

@@ -2,6 +2,7 @@ import React from 'react'
 import style from './Adopt.module.css'
 
 export default function Card({id, name,img}){
+ 
     return(
         <div key={id} className={style.card}>
             <h2>{name}</h2>
