@@ -10,9 +10,8 @@ export default function NavBar() {
                  <div>
                     <Link to='/home'><img className={styles.logo} src={logo} alt='logo'></img></Link> 
                  </div>
-
                  <div className={styles.navCenter}>
-                    <Link className={styles.link} to='/salvaUnaHuella'><h4>Adoptar</h4></Link>
+                    <Link className={styles.link} to='/adoptar'><h4>Adoptar</h4></Link>
                     <Link className={styles.link} to='/donaciones'><h4>Donar</h4></Link>
                     <Link className={styles.link} to='/noticias'> <h4>Noticias</h4></Link>
                     <Link className={styles.link} to='/nosotros'><h4>Sobre Nosotros</h4></Link>
@@ -23,5 +22,6 @@ export default function NavBar() {
                     <h4>Registrarse</h4>
                 </div>
             </nav>
+            
        )
  }

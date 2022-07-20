@@ -2,7 +2,7 @@
   "foundation": [
     {
       "id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
-      "name": "refugioelcampito",
+      "name": "Refugio el Campito",
       "location": "Esteban Echeverría, Buenos Aires",
       "telephone_number": "(450) 247-5896",
       "description": "El Campito Refugio es una ONG, sin fines de lucro. Estamos inscriptos, como Asociación Civil, REFUGIO EL CAMPITO personeria juridica n° 6971, Ruta16 Parcela 501 E Monte Grande, Partido de Esteban Echeverría, zona sur del Gran Buenos Aires, en Argentina. El refugio tiene una población que ronda los 750 perros. El trabajo de rescate y recuperación NO TIENE PRECEDENTES EN AMERICA LATINA.  Por ser un REFUGIO NO EUTANÁSICO no considera inviable a ninguno de sus animales. Lo que lo hace ÚNICO EN EL MUNDO son sus 120 perros paraliticos, ellos no pueden caminar y usan carritos hechos a medida; además viven en el refugio 50 ciegos, y más de 250 viejitos, Muchos de ellos están en tratamiento por problemas renales, hepáticos, cardíacos, oncológicos o diabéticos. El Campito no recibe subsidios, aportes de empresas, o alimento balanceado de ninguna compañía, no tiene cuotas ni socios. Se puede ser padrino / madrina del refugio, o de un perrito que desees proteger en particular, a voluntad: no hay montos fijos y la frecuencia de la ayuda también es voluntaria. El círculo que se inicia con el rescate y continúa con la recuperación, culmina con la adopción. En el refugio ingresan alrededor de 100 animales destruidos, mes a mes, gracias a que una cantidad similar se van en adopción gracias a la excelente tarea desarrollada por el equipo de adopciones. El objetivo principal de la organización es la concientización de la sociedad. Las ideas que se difunden a través del accionar diario del refugio son las del respeto irrestricto por la vida y la de que el bienestar de los animales se puede lograr si la sociedad se involucra y los sentimientos de piedad se traducen en acciones concretas. Los pilares de esta concientización son: el cuidado adecuado y el no abandono de las mascotas,  la esterilización como único medio de control poblacional, la adopción en lugar de la compra de animales, el rechazo a toda forma de sacrificio o eutanasia. La concientización a la cual apunta El Campito Refugio va más allá del respeto y cuidado hacia a los animales. El objetivo es lograr una sociedad no abandónica y respetuosa, tanto de sus animales, como de sus abuelos como de las personas con capacidades diferentes. Una característica distintiva de El Campito es el sistema de “puertas abiertas”: cualquier persona puede visitar el refugio para brindar su amor a los camperitos (sobrenombre cariñoso de los perritos de refugio) o, si lo desea,  formar parte del equipo de voluntarios de esta organización. De esta manera, se estimula a quienes se acercan a crear nexos con los animales y a involucrarse. El Campito Refugio está compuesto por las áreas de Prensa, Campito Solidario y Campito Escolar. El team del Campito cuenta con un total de 102 organizadores y más de 250 voluntarios, que sábado a sábado vienen al refugio a trabajar por y para ellos.Sumate, ¡te esperamos! ",
@@ -13,11 +13,25 @@
       "web": "https://www.elcampitorefugio.org/",
       "instagram": "https://www.instagram.com/refugioelcampito/",
       "password": "KD2ivmFtjevsUhs33fL9",
-      "rol_admin": true
+      "rol_admin": true,
+      "pets": [
+        {
+          "name": "Cafecito",
+          "id": "b21306c7-7463-49d7-b829-72a8e772653b",
+          "img": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"]
+        },
+        {
+          "name": "Loba",
+          "id": "2b93df3f-3839-4322-b398-36ba469c68d8",
+          "img": [
+            "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "75fa3649-116c-4f0d-bec1-41f8d14a113e",
-      "name": "GATITOS DE PALERMO",
+      "name": "Gatitos de Palermo",
       "location": "CABA, Buenos Aires",
       "telephone_number": "(240) 824-8794",
       "description": "¿Siempre quisiste sumarte como voluntarix y no sabes cómo? Son muchas las actividades que realizamos día a día por nuestros gatites! Por eso necesitamos una mano en algunas de las áreas. Por ej: 🐱 ALIMENTACIÓN : como ya la mayoría sabe, somos responsables de colonias fijas en Palermo y Colegiales donde alimentamos, levantamos gatites para recuperarlos y darlos en adopción, castrarlos y darles una mejor calidad de vida ! Estamos necesitando personas que se sumen a alimentar en la zona de Palermo. Nosotras brindamos el alimento y los guiamos en la primera visita para que conozcan el predio. 🚗 TRASLADOS: Los gastos mensuales en traslados son de los más grandes que tenemos ! Trasladarlos a sus tránsitos, a consultas veterinarias, a sus nuevos hogares, todo se realiza con traslados particulares y es muy costoso ! Si contas con movilidad propia y tenes disponibilidad en algún momento de la semana, podes sumarte ! 👉🏼 OTRAS ACTIVIDADES: Acompañarnos a los rescates, a levantar gatites para llevarlos a castrar a la veterinaria y luego devolverlos al predio ya castrados, ayudarnos a tener al día la planilla de datos de tránsitos actuales, contactar a los adoptantes para realizar el seguimiento y actualizar el registro de datos de adoptados, asistir a consultas veterinarias de algun gatite y más! ",
@@ -28,7 +42,23 @@
       "web": null,
       "instagram": "https://www.instagram.com/gatitosdepalermo/?hl=es",
       "password": "i7DkqrtyZHhXG9DwQ1mV",
-      "rol_admin": true
+      "rol_admin": true,
+      "pets": [
+        {
+          "name": "Yuki",
+          "id": "7749561e-0379-4202-993b-703b2c70a552",
+          "img": [
+            "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
+          ]
+        },
+        {
+          "name": "Nieve",
+          "img": [
+            "https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2021/04/20/imagen-de-archivo-de-un-gato-blanco.jpeg"
+          ],
+          "id": "40afd9f8-204e-4529-9163-c9f7e995586c"
+        }
+      ]
     },
     {
       "id": "472e0c79-da78-4e59-a39b-5e6c9c47e18b",
@@ -43,7 +73,23 @@
       "web": "https://www.mibelgrano.com.ar/index.php/2020/08/19/el-campito-felino-de-belgrano/",
       "instagram": "https://www.instagram.com/elcampitofelino/?hl=es",
       "password": "oNYtTiCBdt1DRTf1B0Z9",
-      "rol_admin": true
+      "rol_admin": true,
+      "pets": [
+        {
+          "name": "Maple",
+          "img": [
+            "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
+          ],
+          "id": "2dc36174-3dc8-42e4-829d-28875d81f893"
+        },
+        {
+          "name": "Norbert",
+          "img": [
+            "https://www.cronica.com.ar/__export/1646915258169/sites/cronica/img/2022/03/10/gatos_naranjas_1_crop1646915099563.jpg_139781018.jpg"
+          ],
+          "id": "aa1ccf1b-baff-4c1d-9713-cbf9827a5b86"
+        }
+      ]
     },
     {
       "id": "84e05070-8385-4f57-9416-19db4f75bf56",
@@ -59,7 +105,23 @@
       "web": "https://www.naricitasfrias.com.ar/",
       "instagram": null,
       "password": "NZis4iK9nMWMTAczUkhi",
-      "rol_admin": true
+      "rol_admin": true,
+      "pets": [
+        {
+          "name": "Layza",
+          "img": [
+            "https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2021/04/20/imagen-de-archivo-de-un-gato-blanco.jpeg"
+          ],
+          "id": "42b97a14-6b8c-4e8a-9175-279173b19d68"
+        },
+        {
+          "name": "Oro",
+          "img": [
+            "https://www.anaaweb.org/wp-content/uploads/2019/03/foto_nueva_portada_perro_joomla.jpg"
+          ],
+          "id": "737026ff-31de-4cdb-ad6a-ca1bfd0d9f3d"
+        }
+      ]
     },
     {
       "id": "2de38dd3-d020-44d3-8266-c8509bf41c07",
@@ -75,7 +137,23 @@
       "web": "https://refugiofelizoficia.wixsite.com/refugiofeliz/inicio",
       "instagram": "https://www.instagram.com/refugiofelizoficial/?hl=es",
       "password": "m6gngjc3HwG2iH54tJtJ",
-      "rol_admin": true
+      "rol_admin": true,
+      "pets": [
+        {
+          "name": "Bella",
+          "img": [
+            "https://instagram.fepa9-1.fna.fbcdn.net/v/t51.2885-15/290679520_1707602972908951_5608753507302301432_n.webp?stp=dst-jpg_e35_p750x750_sh0.08&_nc_ht=instagram.fepa9-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=UPoc8cMEVxEAX-8tB2N&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg2OTQ4NTkwNjI4NjQyNDUyOQ%3D%3D.2-ccb7-5&oh=00_AT8w70-eh9OWEAucETcrwmbs2mDZDDzja8EFwI9JQoHDMw&oe=62DEE4B5&_nc_sid=30a2ef"
+          ],
+          "id": "e2bf7ed9-631f-45b6-a78e-a33c777c9626"
+        },
+        {
+          "name": "Nina",
+          "img": [
+            "https://instagram.fepa9-2.fna.fbcdn.net/v/t51.2885-15/286186826_176198898147096_3566576875592925352_n.webp?stp=dst-jpg_e35_p750x750_sh0.08&_nc_ht=instagram.fepa9-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=G4qK2kVdRGoAX-7kZtq&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg1NjEwMzQzOTg4NjgyMzU3Mg%3D%3D.2-ccb7-5&oh=00_AT-9G3vJL7ht-8Izopo_cP5L2YGQfeOzQweJxMnEKFvVdg&oe=62DF29D4&_nc_sid=30a2ef"
+          ],
+          "id": "6bd3a223-b1bf-426d-bce6-85f1ef5a1871"
+        }
+      ]
     }
   ]
 }

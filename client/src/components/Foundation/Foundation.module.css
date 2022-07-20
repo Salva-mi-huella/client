@@ -10,18 +10,21 @@
     width: 400px;
     height: 100%;
     margin-left: 150px;
+    border-radius: 200px;
+    border: 3px groove rgb(15, 28, 106);
 }
 
 .icons {
     transition:0.3s;
     width: 50px;
     margin-left: 50px;
-    margin-bottom: 50px;
+    margin-top: 50px;
 }
 .icons:hover {
     transition:0.3s;
     transform: scale(1.05);
     width: 50px;
+    cursor:pointer;
 }
 
 .paypal {
@@ -48,8 +51,17 @@
     align-items: center;
 }
 
+.containerContact h3 {
+    margin-left: 100px;
+}
+
+.containerContact p {
+    margin-left: 100px;
+}
+
 .containerContact h1 {
     margin-bottom: 50px;
+    margin-left: 50px;
 }
 
 .containerDonate {
