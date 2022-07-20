@@ -1,9 +1,14 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {useParams} from 'react-router-dom';
 import styles from './PetDetail.module.css';
+import * as data from "../../mocks/ListAnimalsMock/ListAnimalsMock.json";
+import { getPetDetail } from '../../actions/index';
 
 
-export default function PetDetail(){
-    let pet = {
+export default function PetDetail(props){
+    /* let pet = {
         name: 'Bobby',
         img1: "https://www.fundacion-affinity.org/sites/default/files/el-gato-necesita-tener-acceso-al-exterior.jpg",
         img2: "https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/01_%C2%BFQu%C3%A9-puedo-hacer-si-mi-gato-est%C3%A1-triste-.png?itok=w67Nhubc",
@@ -14,17 +19,28 @@ export default function PetDetail(){
         age: "2 años",
         sex: "Macho"
 
-    }
+    } */
+    const dispatch = useDispatch();
+
+    const params = useParams()
+
+    useEffect(()=>{
+        dispatch(getPetDetail(params.nombreHuella))
+    }, [dispatch])
+
+    const pet = useSelector(state=>state.petDetail)
+    console.log(pet)
     
     return(
         <div>
             
             <div className={styles.containerImg}>
-                <img className={styles.img} src={pet.img1} alt="img1"></img>
-                <img className={styles.img} src={pet.img2} alt="img2"></img>
-                <img className={styles.img} src={pet.img3} alt="img3"></img>
-                <img className={styles.img} src={pet.img4} alt="img4" ></img>
-            </div>
+                {pet.images?.map((e)=>{
+                    return(
+                        <img className={styles.img} src={e} alt="img1"/>
+                    )
+                })}
+            </div> 
             <div>
                 <h1>Hola, soy {pet.name}!</h1>
                 <p>{pet.description}</p>
@@ -33,10 +49,11 @@ export default function PetDetail(){
                 <button>Salvas mi huella?</button>
             </div>
             <div>
-                <p>Fundacion: {pet.fundation}</p>
+                <p>Fundacion: {pet.foundation_name}</p>
                 <p>Edad: {pet.age}</p>
-                <p>Sexo: {pet.sex}</p>
+                <p>Sexo: {pet.genre}</p>
             </div>
+        
         </div>
     )
 }
