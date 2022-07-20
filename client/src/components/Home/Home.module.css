@@ -5,6 +5,11 @@
 
 .containers{
     width: 300px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main section{
@@ -22,13 +27,19 @@
     background-color:#ABB2B9;
     display:flex;
     flex-direction: column;  
+    padding-top:20px;
+    padding-bottom:20px;
 }
 .main section:nth-child(4){     
     display: flex;
     justify-content: space-evenly;
     align-items: center; 
     flex-direction: column;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    width: 100%;
 }
+
 
 .logos{
     display: flex;
@@ -37,11 +48,38 @@
     width: 100%;
 }
 
+.logos img {
+    border-radius: 200px;
+    width: 150px;
+    height: 150px;
+    transition: 0.3s;
+    margin-top: 20px;
+    border: 3px groove rgb(18, 18, 119);
+}
+
+.logos img:hover {
+    transition: 0.3s;
+    transform: scale(1.05);
+   cursor: pointer;
+}
+
+.logos h4 {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
 .info{
     display:flex;
     flex-direction: row;
     justify-content:space-around;
     width:80vh;
+    margin-top: 20px;
+    width: 70%;
+}
+
+.info p {
+   margin-left: 30px;
 }
 
 
