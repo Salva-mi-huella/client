@@ -3,6 +3,7 @@ import * as data from "../mocks/ListFundationMock/ListFundationMock.json";
 
 
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
+export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -14,5 +15,18 @@ export function getFoundationDetail(id){
         //         dispatch({ type: GET_FOUNDATION_DETAIL, payload: e.data })
         //     }
             return dispatch({ type: GET_FOUNDATION_DETAIL, payload: data.foundation.filter(foundation => foundation.id === id) })
+        } 
+}
+
+export function getFoundations(){
+    return function(dispatch) {
+        // try{
+        //     return axios(`/foundations`)
+        //     .then(detail =>
+        //         dispatch({ type: GET_FOUNDATIONS, payload: detail.data }))
+        //     } catch (e) {
+        //         dispatch({ type: GET_FOUNDATIONS, payload: e.data })
+        //     }
+            return dispatch({ type: GET_FOUNDATIONS, payload: data.foundation})
         } 
 }
