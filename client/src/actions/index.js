@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as data from "../mocks/ListAnimalsMock/ListAnimalsMock.json";
+import * as dataAnimals from "../mocks/ListAnimalsMock/ListAnimalsMock.json";
 import * as data from "../mocks/ListFundationMock/ListFundationMock.json";
 
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
@@ -36,20 +36,19 @@ export function getFoundations(){
 
 export function getAllPets(){
     //Actualizar ruta cuando tengamos la db
-    return {type:GET_AllPETS, payload: data.pet}
+    return {type:GET_AllPETS, payload: dataAnimals.pet}
 }
 
-    }
 
 export function getPetDetail(name){
     console.log("hola")
     return function (dispatch){
         return dispatch({
             type: GET_PET_DETAIL,
-            payload: data.pet.find(animal => animal.name.toLowerCase()=== name.toLowerCase())
+            payload: dataAnimals.pet.find(animal => animal.name.toLowerCase()=== name.toLowerCase())
         })
     }
 }
-}
+
 
 
