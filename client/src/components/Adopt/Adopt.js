@@ -4,6 +4,7 @@ import banner from '../../assets/adoptBanner.png'
 import {  useDispatch, useSelector } from 'react-redux';
 import style from './Adopt.module.css'
 import { getAllPets, getFoundations } from '../../actions/index.js';
+import FilterByType from './Filters/FilterByType.js';
 
 
 export default function Adopt(){
@@ -43,15 +44,11 @@ export default function Adopt(){
             <div className={style.allAnimals}>
             <h2>Conoce nuestras Huellas</h2>
                 <div className={style.allAnimals__filters}>
-                    <div>
-                        <input type="submit" value="Todos"/>
-                        <input type="submit" value="Gatos"/>
-                        <input type="submit" value="Perros"/>
-                    </div>
+                    <FilterByType/>
                     <div className={style.filtersBy}>
                         <h5>Filtrar por</h5>
                         <select id="foundation">
-                            {/* Traer de DB */}
+                            Traer de DB
                             {arrFoundationsnames ?
                                 arrFoundationsnames.map(name=>(
                                     <option value={name}>{name}</option>
