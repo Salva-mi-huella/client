@@ -7,6 +7,7 @@ import * as data from "../../mocks/ListAnimalsMock/ListAnimalsMock.json";
 import { getPetDetail } from '../../actions/index';
 
 
+
 export default function PetDetail(props){
     /* let pet = {
         name: 'Bobby',
@@ -41,17 +42,21 @@ export default function PetDetail(props){
                     )
                 })}
             </div> 
-            <div>
+            <div className={styles.container}>
+            <div className={styles.info}>
                 <h1>Hola, soy {pet.name}!</h1>
                 <p>{pet.description}</p>
             </div>
+            <div className={styles.adopt}>
             <div>
-                <button>Salvas mi huella?</button>
+                <button className={styles.button}>Salvas mi huella?</button>
             </div>
-            <div>
-                <p>Fundacion: {pet.foundation_name}</p>
-                <p>Edad: {pet.age}</p>
-                <p>Sexo: {pet.genre}</p>
+            <div className={styles.pet}>
+                <p className={styles.petInfo}>Fundacion: <br></br>{pet.foundation_name}</p>
+                <p className={styles.petInfo}>Edad:<br></br> {pet.age}</p>
+                <p className={styles.petInfo}>Sexo:<br></br> {pet.genre}</p>
+            </div>
+            </div>
             </div>
         
         </div>
