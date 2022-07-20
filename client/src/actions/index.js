@@ -1,8 +1,8 @@
 import axios from 'axios';
+import * as data from "../mocks/ListAnimalsMock/ListAnimalsMock.json";
 import * as data from "../mocks/ListFundationMock/ListFundationMock.json";
-
-
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
+export const GET_PET_DETAIL = 'GET_PET_DETAIL';
 export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
 
 export function getFoundationDetail(id){
@@ -29,4 +29,16 @@ export function getFoundations(){
         //     }
             return dispatch({ type: GET_FOUNDATIONS, payload: data.foundation})
         } 
+    }
+
+export function getPetDetail(name){
+    console.log("hola")
+    return function (dispatch){
+        return dispatch({
+            type: GET_PET_DETAIL,
+            payload: data.pet.find(animal => animal.name.toLowerCase()=== name.toLowerCase())
+        })
+    }
 }
+}
+
