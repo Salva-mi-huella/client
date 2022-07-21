@@ -18,7 +18,7 @@ function App() {
       <Route path='/'> <NavBar/></Route>
       <Route exact path='/home'> <Home/></Route>
       <Route exact path='/huella/:nombreHuella'> <PetDetail/></Route>
-      {/* <Route exact path='/perfil'> <Profile/></Route> */}
+      <Route exact path='/perfil'> <Profile/></Route>
         <Route path='/fundacion/:foundationId'  component={Foundation}/> {/*Cambiar ruta a fundacion/:foundationId una vez que funcione la action*/}
         <Route path='/adoptar'  component={Adopt}/>
         <Route path='/formularioadopcion'  component={AdoptionForm}/>
