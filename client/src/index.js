@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from "./store/index";
+import FormValidation from "reactjs-forms";
 
 
 
@@ -13,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
   <Provider store={store}> 
   <BrowserRouter>
+  <FormValidation>
     <App />
+  </FormValidation>
   </BrowserRouter>
   </Provider>
   </React.StrictMode>,

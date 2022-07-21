@@ -1,0 +1,39 @@
+.title{
+    background-image: url("https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: 1800px 1000px;
+    background-position: 50% 25%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 100%;
+}
+
+.titletext{
+    font-weight: 800;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.text{
+    border: 2px solid black;
+    border-radius: 2%;
+    width: 50%;
+    height: 650px;
+    padding: 20px;
+    margin: 15px;
+}
+
+.formu{
+    border: 2px solid black;
+    border-radius: 2%;
+    width: 50%;
+    height: 650px;
+    padding: 20px;
+    margin: 15px;
+}
+
