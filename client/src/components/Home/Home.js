@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import {  useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
 import { getFoundations } from '../../actions';
+import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 
 export default function Home() {
 
     const dispatch = useDispatch();
     const foundations = useSelector(state => state.foundations)
 
-    useEffect(() => { 
+    useEffect(() => {
         // const id = this.props.match.params.foundationId
         dispatch(getFoundations())
-     }, [])
+    }, [])
 
 
     return (
-        <div className={styles.main}>               
+        <div className={styles.main}>
             <div>
-                <Carousel/>
+                <Carousel />
             </div>
             <section>
                 <div className={styles.containers}>
@@ -39,10 +40,16 @@ export default function Home() {
                     <button className='btn btn-secondary'>ADOPTAR</button>
                 </div>
             </section>
-            <section className={styles.foundations}>
+
+            <div>
+                <SliderFoundation />
+            </div>
+            
+            {/* <section className={styles.foundations}>
                 <div>
                     <h1>Nuestras Fundaciones</h1>
                 </div>
+                
                 <div className={styles.logos}>
                   {foundations.length>0 && foundations.map(foundation => (
                     <div>
@@ -51,10 +58,12 @@ export default function Home() {
                     </div>
                     ))}
                 </div>
-            </section>
+            </section> */}
+
+
             <section>
                 <div>
-                    <h1>Quienes Somos?</h1>                
+                    <h1>Quienes Somos?</h1>
                 </div>
                 <div className={styles.info}>
                     <div>
@@ -66,11 +75,11 @@ export default function Home() {
                 </div>
             </section>
             <div>
-                <Footer/>
+                <Footer />
             </div>
-            
-        
-        
-        </div>      
-        )
-    }
+
+
+
+        </div>
+    )
+}
