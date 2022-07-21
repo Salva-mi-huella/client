@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 import Carousel from './components/Carousel/Carousel'
+import AdoptionForm from './components/AdoptionForm/AdoptionForm'
 import PetDetail from './components/PetDetail/PetDetail';
 import Adopt from './components/Adopt/Adopt'
 import { Foundation } from './components/Foundation/Foundation';
@@ -24,6 +25,7 @@ function App() {
       <Route path='/adoptar' component={Adopt} />
       <Route exact path='/donar'> <Donate/></Route>
       <Route exact path='/pago'> <Payment/></Route>
+      <Route path='/formularioadopcion'  component={AdoptionForm}/>
       {/* <Route exact path='/nosotros' component={About} /> */}
       {/* <Route component={NotFound}  /> */}
     </React.Fragment>
@@ -32,3 +34,5 @@ function App() {
 
 
 export default App;
+
+
