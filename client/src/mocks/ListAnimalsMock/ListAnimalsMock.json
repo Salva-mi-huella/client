@@ -5,7 +5,7 @@
       "name": "Cafecito",
       "age": 4,
       "genre": "Macho",
-      "images": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"],
+      "images": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg", "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg", "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg", "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"],
       "description": "Ojitos llegó al borde la muerte, con una sentencia de eutanasia pendiendo sobre su cabeza. Víctima del moquillo y de unas infecciones terribles que, literalmente, se lo estaban comiendo vivo. Estuvo internado 52 días, tiempo durante el cual los veterinarios tuvieron que amputarle las patas y la cola para que pudiera salir adelante. Ojitos, hoy, es un canto a la vida, un símbolo de esperanza, siempre alegre, curioso y con mucho amor para dar.",
       "id": "b21306c7-7463-49d7-b829-72a8e772653b",
       "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
@@ -59,6 +59,7 @@
       "name": "Norbert",
       "age": 5,
       "genre": "Macho",
+
       "images": [
         "https://www.cronica.com.ar/__export/1646915258169/sites/cronica/img/2022/03/10/gatos_naranjas_1_crop1646915099563.jpg_139781018.jpg"
       ],
@@ -67,6 +68,7 @@
       "foundation_id": "472e0c79-da78-4e59-a39b-5e6c9c47e18b",
       "foundation_name": "El Campito Felino de Belgrano",
       "post_date": "20-03-2017"
+
     },
     {
       "type": "Gato",
@@ -75,6 +77,7 @@
       "genre": "Hembra",
       "images": [
         "https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2021/04/20/imagen-de-archivo-de-un-gato-blanco.jpeg"
+
       ],
       "description": "Muchos ya conocerán a nuestra hermosa Nieve. Ella es una gatita rescatada preñada del predio de Palermo hace casi 2 años. Es vif+ y desde su rescate hasta hoy tuvimos diversas consultas y estuvo bajo distintos tratamientos sin éxito, debido a diarreas intermitentes. Hace poco, Yuki comenzó a bajar de peso y el mes pasado tuvimos consulta con Amelia Gisbert, quien la derivó a la gastroenterologa Marta Zubaldía",
       "id": "40afd9f8-204e-4529-9163-c9f7e995586c",
