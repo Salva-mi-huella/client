@@ -56,8 +56,7 @@ export function filtersConfig(config){
     return {
         type: FILTERS_CONFIG,
         filter : Object.keys(config),
-        payload: config,
-        pets: config.filtered
+        payload: config
     } 
 }
 
