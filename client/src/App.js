@@ -9,6 +9,7 @@ import PetDetail from './components/PetDetail/PetDetail';
 import Adopt from './components/Adopt/Adopt'
 import { Foundation } from './components/Foundation/Foundation';
 import Profile from './components/Profile/Profile';
+import AboutUs from './components/About us/AboutUs';
 
 
 
@@ -23,7 +24,7 @@ function App() {
         <Route path='/adoptar'  component={Adopt}/>
         <Route path='/formularioadopcion'  component={AdoptionForm}/>
       {/* <Route exact path='/donaciones' component={Donate} /> */}
-      {/* <Route exact path='/nosotros' component={About} /> */}
+      <Route exact path='/nosotros' component={AboutUs} />
       {/* <Route component={NotFound}  /> */}
     </React.Fragment>
   );
