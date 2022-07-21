@@ -10,9 +10,7 @@ const initialState = {
     foundationDetail: [],
     foundations:[],
     allPets: [],
-    filtersConfig: [],
-    filterPets: []
-
+    filtersConfig: []
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -28,9 +26,7 @@ export default function rootReducer(state = initialState, action) {
         case GET_All_PETS: return {...state, allPets: action.payload }
 
         case FILTERS_CONFIG: 
-            return{...state,
-            filtersConfig:{ ...state.filtersConfig, [action.filter]: action.payload},
-            filterPets: action.pets}
+            return{...state, filtersConfig:{ ...state.filtersConfig, [action.filter]: action.payload[action.filter]}}
 
         default: return {...state}
 

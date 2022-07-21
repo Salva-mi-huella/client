@@ -4,10 +4,10 @@
       "type": "Perro",
       "name": "Cafecito",
       "age": 4,
-      "genre": "Macho",
+      "gender": "Macho",
       "images": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"],
       "description": "Ojitos llegó al borde la muerte, con una sentencia de eutanasia pendiendo sobre su cabeza. Víctima del moquillo y de unas infecciones terribles que, literalmente, se lo estaban comiendo vivo. Estuvo internado 52 días, tiempo durante el cual los veterinarios tuvieron que amputarle las patas y la cola para que pudiera salir adelante. Ojitos, hoy, es un canto a la vida, un símbolo de esperanza, siempre alegre, curioso y con mucho amor para dar.",
-      "id": "b21306c7-7463-49d7-b829-72a8e772653b",
+      "id": "b21306c7-7463-49d7-b829-72a8e772659b",
       "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
       "foundation_name": "Refugio el Campito",
       "post_date": "18-07-2018"
@@ -16,7 +16,7 @@
       "type": "Gato",
       "name": "Yuki",
       "age": 2,
-      "genre": "Hembra",
+      "gender": "Hembra",
       "images": [
         "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
       ],
@@ -30,7 +30,7 @@
       "type": "Perro",
       "name": "Loba",
       "age": 6,
-      "genre": "Hembra",
+      "gender": "Hembra",
       "images": [
         "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"
       ],
@@ -44,7 +44,7 @@
       "type": "Gato",
       "name": "Maple",
       "age": 4,
-      "genre": "Macho",
+      "gender": "Macho",
       "images": [
         "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
       ],
@@ -58,7 +58,7 @@
       "type": "Gato",
       "name": "Norbert",
       "age": 5,
-      "genre": "Macho",
+      "gender": "Macho",
       "images": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"],
       "description": "Ojitos llegó al borde la muerte, con una sentencia de eutanasia pendiendo sobre su cabeza. Víctima del moquillo y de unas infecciones terribles que, literalmente, se lo estaban comiendo vivo. Estuvo internado 52 días, tiempo durante el cual los veterinarios tuvieron que amputarle las patas y la cola para que pudiera salir adelante. Ojitos, hoy, es un canto a la vida, un símbolo de esperanza, siempre alegre, curioso y con mucho amor para dar.",
       "id": "b21306c7-7463-49d7-b829-72a8e772653b",
@@ -70,7 +70,7 @@
       "type": "Gato",
       "name": "Nieve",
       "age": 1,
-      "genre": "Hembra",
+      "gender": "Hembra",
       "images": [
         "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
       ],
@@ -84,7 +84,7 @@
       "type": "Perro",
       "name": "Layza",
       "age": 6,
-      "genre": "Hembra",
+      "gender": "Hembra",
       "images": [
         "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"
       ],
@@ -98,7 +98,7 @@
       "type": "Perro",
       "name": "Oro",
       "age": 8,
-      "genre": "Macho",
+      "gender": "Macho",
       "images": [
         "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
       ],
@@ -112,7 +112,7 @@
       "type": "Perro",
       "name": "Bella",
       "age": 7,
-      "genre": "Hembra",
+      "gender": "Hembra",
       "images": [
         "https://instagram.fepa9-1.fna.fbcdn.net/v/t51.2885-15/290679520_1707602972908951_5608753507302301432_n.webp?stp=dst-jpg_e35_p750x750_sh0.08&_nc_ht=instagram.fepa9-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=UPoc8cMEVxEAX-8tB2N&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg2OTQ4NTkwNjI4NjQyNDUyOQ%3D%3D.2-ccb7-5&oh=00_AT8w70-eh9OWEAucETcrwmbs2mDZDDzja8EFwI9JQoHDMw&oe=62DEE4B5&_nc_sid=30a2ef"
       ],
@@ -126,7 +126,7 @@
       "type": "Gato",
       "name": "Nina",
       "age": 2,
-      "genre": "Hembra",
+      "gender": "Hembra",
       "images": [
         "https://instagram.fepa9-2.fna.fbcdn.net/v/t51.2885-15/286186826_176198898147096_3566576875592925352_n.webp?stp=dst-jpg_e35_p750x750_sh0.08&_nc_ht=instagram.fepa9-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=G4qK2kVdRGoAX-7kZtq&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg1NjEwMzQzOTg4NjgyMzU3Mg%3D%3D.2-ccb7-5&oh=00_AT-9G3vJL7ht-8Izopo_cP5L2YGQfeOzQweJxMnEKFvVdg&oe=62DF29D4&_nc_sid=30a2ef"
       ],
