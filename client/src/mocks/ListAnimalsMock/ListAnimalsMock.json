@@ -5,11 +5,11 @@
       "name": "Cafecito",
       "age": 4,
       "genre": "Macho",
-      "img": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"],
+      "images": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg", "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg", "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg", "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"],
       "description": "Ojitos llegó al borde la muerte, con una sentencia de eutanasia pendiendo sobre su cabeza. Víctima del moquillo y de unas infecciones terribles que, literalmente, se lo estaban comiendo vivo. Estuvo internado 52 días, tiempo durante el cual los veterinarios tuvieron que amputarle las patas y la cola para que pudiera salir adelante. Ojitos, hoy, es un canto a la vida, un símbolo de esperanza, siempre alegre, curioso y con mucho amor para dar.",
       "id": "b21306c7-7463-49d7-b829-72a8e772653b",
       "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
-      "foundation_name": "refugioelcampito",
+      "foundation_name": "Refugio el Campito",
       "post_date": "18-07-2018"
     },
     {
@@ -17,13 +17,13 @@
       "name": "Yuki",
       "age": 2,
       "genre": "Hembra",
-      "img": [
+      "images": [
         "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
       ],
       "description": "Muchos ya conocerán a nuestra hermosa Yuki. Ella es una gatita rescatada preñada del predio de Palermo hace casi 2 años. Es vif+ y desde su rescate hasta hoy tuvimos diversas consultas y estuvo bajo distintos tratamientos sin éxito, debido a diarreas intermitentes. Hace poco, Yuki comenzó a bajar de peso y el mes pasado tuvimos consulta con Amelia Gisbert, quien la derivó a la gastroenterologa Marta Zubaldía",
       "id": "7749561e-0379-4202-993b-703b2c70a552",
       "foundation_id": "75fa3649-116c-4f0d-bec1-41f8d14a113e",
-      "foundation_name": "GATITOS DE PALERMO",
+      "foundation_name": "Gatitos de Palermo",
       "post_date": "18-07-2017"
     },
     {
@@ -31,13 +31,13 @@
       "name": "Loba",
       "age": 6,
       "genre": "Hembra",
-      "img": [
+      "images": [
         "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"
       ],
       "description": "La historia de Loba es una de las más tristes que nos ha tocado enfrentar. Fue rescatada del zoonosis de Morón junto a sus bebés, ya que no podían seguir encerrados en esas jaulas espantosas. Todo parecía ir bien. Sus bebés fueron adoptados y ella también logró cerrar su círculo. Pero esa alegría no duraría mucho debido a que, después de un tiempo, nuestra Lobita escapó de la casa de sus adoptantes. La buscamos muchísimo, movimos cielo y tierra hasta que, por medio de un alerta, nos enteramos que Lobita había sido atropellada por el tren. Lamentablemente, tuvimos que amputarle una de sus patas, aunque esto jamás fue un impedimento para ella ya que siempre se manejó perfectamente, como cualquier otro perrito. Pero en realidad, lo más triste de todo es que no pudimos devolver a Loba a sus adoptantes debido a que ellos jamás se preocuparon por encontrarla. Loba estaba debajo del andén de la estación que se encontraba a tan solo tres cuadras de su hogar, lo cual significa que mientras nosotros recorríamos calles y calles en su búsqueda, sus adoptantes ni siquiera intentaron buscarla. Gracias a Dios, pronto, y luego de la operación, Loba se convirtió en una perra hermosa, fuerte y dulce. Y, como tanto se merecía, encontró una familia que supo ver más allá y que se enamoró perdidamente de ella. Hoy, Loba disfruta, al fin, del calor de un verdadero hogar.",
       "id": "2b93df3f-3839-4322-b398-36ba469c68d8",
       "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
-      "foundation_name": "refugioelcampito",
+      "foundation_name": "Refugio el Campito",
       "post_date": "8-05-2016"
     },
     {
@@ -45,7 +45,7 @@
       "name": "Maple",
       "age": 4,
       "genre": "Macho",
-      "img": [
+      "images": [
         "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
       ],
       "description": "Queremos actualizarles la situación de nuestro pequeño Maple. Quizás recuerden que fue recibido a comienzos de Marzo muy complicado, deshidratado, desnutrido, con lesiones en sus patas, una enteritis aguda (diarrea e intestinos inflamados) y cursando mycoplasma por lo que debió permanecer algunas semanas internado en @veterinariav.q hasta ser estabilizado. Sumado a esto, Maple dio positivo para ambos VIF/VILEF (sida y leucemia felina). A mediados de Marzo lo recibió Majo, su transitante, y pocas semanas después debió ser internado nuevamente. Su caso es complejo, y pese a las medicaciones indicadas, sus valores en sangre siguen dando mal… Maple tiene los glóbulos blancos muy bajos. Por lo pronto se encuentra bajo tratamiento inyectable, comenzó cada 24 y 48 h y múltiples medicaciones vía oral para revertir su cuadro. Está siendo atendido por la especialista en medicina felina, Amelia Gisbert y ayer lo llevamos a una consulta con el hematólogo Joaquín Artese. 🆘 Los gastos de este mes SÓLO en Maple fueron $46.939… esto sumado a los gastos que enfrentamos a diario con los más de 20 gatitxs que tenemos actualmente en tránsito, realizándoles estudios, algunos bajo tratamientos y los gastos de mantenimiento y castraciones en colonias de Palermo y Colegiales. 🌈 VOS PODES AYUDAR A MAPLE, ¿te preguntas cómo? Apadrinándolo! 💘.",
@@ -55,11 +55,11 @@
       "post_date": "20-03-2018"
     },
     {
-      "type": "Perro",
-      "name": "Cafecito",
-      "age": 4,
+      "type": "Gato",
+      "name": "Norbert",
+      "age": 5,
       "genre": "Macho",
-      "img": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"],
+      "images": ["https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"],
       "description": "Ojitos llegó al borde la muerte, con una sentencia de eutanasia pendiendo sobre su cabeza. Víctima del moquillo y de unas infecciones terribles que, literalmente, se lo estaban comiendo vivo. Estuvo internado 52 días, tiempo durante el cual los veterinarios tuvieron que amputarle las patas y la cola para que pudiera salir adelante. Ojitos, hoy, es un canto a la vida, un símbolo de esperanza, siempre alegre, curioso y con mucho amor para dar.",
       "id": "b21306c7-7463-49d7-b829-72a8e772653b",
       "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
@@ -68,45 +68,73 @@
     },
     {
       "type": "Gato",
-      "name": "Yuki",
-      "age": 2,
+      "name": "Nieve",
+      "age": 1,
       "genre": "Hembra",
-      "img": [
+      "images": [
         "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
       ],
-      "description": "Muchos ya conocerán a nuestra hermosa Yuki. Ella es una gatita rescatada preñada del predio de Palermo hace casi 2 años. Es vif+ y desde su rescate hasta hoy tuvimos diversas consultas y estuvo bajo distintos tratamientos sin éxito, debido a diarreas intermitentes. Hace poco, Yuki comenzó a bajar de peso y el mes pasado tuvimos consulta con Amelia Gisbert, quien la derivó a la gastroenterologa Marta Zubaldía",
-      "id": "7749561e-0379-4202-993b-703b2c70a552",
+      "description": "Muchos ya conocerán a nuestra hermosa Nieve. Ella es una gatita rescatada preñada del predio de Palermo hace casi 2 años. Es vif+ y desde su rescate hasta hoy tuvimos diversas consultas y estuvo bajo distintos tratamientos sin éxito, debido a diarreas intermitentes. Hace poco, Yuki comenzó a bajar de peso y el mes pasado tuvimos consulta con Amelia Gisbert, quien la derivó a la gastroenterologa Marta Zubaldía",
+      "id": "40afd9f8-204e-4529-9163-c9f7e995586c",
       "foundation_id": "75fa3649-116c-4f0d-bec1-41f8d14a113e",
-      "foundation_name": "GATITOS DE PALERMO",
-      "post_date": "18-07-2017"
+      "foundation_name": "Gatitos de Palermo",
+      "post_date": "18-07-2021"
     },
     {
       "type": "Perro",
-      "name": "Loba",
+      "name": "Layza",
       "age": 6,
       "genre": "Hembra",
-      "img": [
+      "images": [
         "https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg"
       ],
-      "description": "La historia de Loba es una de las más tristes que nos ha tocado enfrentar. Fue rescatada del zoonosis de Morón junto a sus bebés, ya que no podían seguir encerrados en esas jaulas espantosas. Todo parecía ir bien. Sus bebés fueron adoptados y ella también logró cerrar su círculo. Pero esa alegría no duraría mucho debido a que, después de un tiempo, nuestra Lobita escapó de la casa de sus adoptantes. La buscamos muchísimo, movimos cielo y tierra hasta que, por medio de un alerta, nos enteramos que Lobita había sido atropellada por el tren. Lamentablemente, tuvimos que amputarle una de sus patas, aunque esto jamás fue un impedimento para ella ya que siempre se manejó perfectamente, como cualquier otro perrito. Pero en realidad, lo más triste de todo es que no pudimos devolver a Loba a sus adoptantes debido a que ellos jamás se preocuparon por encontrarla. Loba estaba debajo del andén de la estación que se encontraba a tan solo tres cuadras de su hogar, lo cual significa que mientras nosotros recorríamos calles y calles en su búsqueda, sus adoptantes ni siquiera intentaron buscarla. Gracias a Dios, pronto, y luego de la operación, Loba se convirtió en una perra hermosa, fuerte y dulce. Y, como tanto se merecía, encontró una familia que supo ver más allá y que se enamoró perdidamente de ella. Hoy, Loba disfruta, al fin, del calor de un verdadero hogar.",
-      "id": "2b93df3f-3839-4322-b398-36ba469c68d8",
-      "foundation_id": "d375e472-2f7c-4bd6-94c5-42fe3083d39a",
-      "foundation_name": "refugioelcampito",
-      "post_date": "8-05-2016"
+      "description": "El estado de Layza al ingresar al refugio era simplemente impactante. Con una cuerda muy gruesa atada al cuello, llegó con un tumor que había afectado la mandíbula y que estaba desgarrando la piel. Como si fuera poco, Layza era también víctima de una bacteria que estaba alimentándose de su piel y tenía varias infecciones. Poco a poco, luego de extraerle el tumor, empezó a comer alimento sólido y ¡cómo le gustaba! Sus ojos comenzaron a brillar llenos de esperanza. Fue en el refugio que conoció a su mamá, una persona maravillosa que cada sábado le costaba cada vez más dejarla en su canil. Hoy, esta dulzura vive en un hogar hermoso, rodeada del calor de una verdadera familia.",
+      "id": "42b97a14-6b8c-4e8a-9175-279173b19d68",
+      "foundation_id": "84e05070-8385-4f57-9416-19db4f75bf56",
+      "foundation_name": "Naricitas Frias",
+      "post_date": "18-07-2016"
+    },
+    {
+      "type": "Perro",
+      "name": "Oro",
+      "age": 8,
+      "genre": "Macho",
+      "images": [
+        "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
+      ],
+      "description": "Oro fue rescatado cuando estaba vagando por los alrededores de la autopista camino a Pilar. Las zonas del cuello y de la oreja estaban completamente agusanadas. No podemos ni comenzar a imaginarnos el dolor que seguramente estaba sintiendo en ese momento. Pero después de muchos cuidados, mucha paciencia y, más que nada, toneladas de amor, Oro fue recuperándose hasta llegar a convertirse en un perro bellísimo y fuerte. Hoy, después de tanto dolor, Oro duerme feliz en el calor de un hogar y rodeado de una familia que lo ama como se merece y que no dudó en devolverle la dignidad que jamás debió haber perdido.",
+      "id": "737026ff-31de-4cdb-ad6a-ca1bfd0d9f3d",
+      "foundation_id": "84e05070-8385-4f57-9416-19db4f75bf56",
+      "foundation_name": "Naricitas Frias",
+      "post_date": "18-07-2014"
+    },
+    {
+      "type": "Perro",
+      "name": "Bella",
+      "age": 7,
+      "genre": "Hembra",
+      "images": [
+        "https://instagram.fepa9-1.fna.fbcdn.net/v/t51.2885-15/290679520_1707602972908951_5608753507302301432_n.webp?stp=dst-jpg_e35_p750x750_sh0.08&_nc_ht=instagram.fepa9-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=UPoc8cMEVxEAX-8tB2N&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg2OTQ4NTkwNjI4NjQyNDUyOQ%3D%3D.2-ccb7-5&oh=00_AT8w70-eh9OWEAucETcrwmbs2mDZDDzja8EFwI9JQoHDMw&oe=62DEE4B5&_nc_sid=30a2ef"
+      ],
+      "description": "Bella tiene 7 años, es hembra y está castrada. Es súper buena y dócil, hace un montón está en el refugio y se merece el mejor hogar. Se lleva súper con gatos, niñxs y perros! Si te enamoraste de esta gorda hermosa, contactanos ♥️♥️♥️♥️",
+      "id": "e2bf7ed9-631f-45b6-a78e-a33c777c9626",
+      "foundation_id": "2de38dd3-d020-44d3-8266-c8509bf41c07",
+      "foundation_name": "Refugio Feliz",
+      "post_date": "18-07-2015"
     },
     {
       "type": "Gato",
-      "name": "Maple",
-      "age": 4,
-      "genre": "Macho",
-      "img": [
-        "https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067"
+      "name": "Nina",
+      "age": 2,
+      "genre": "Hembra",
+      "images": [
+        "https://instagram.fepa9-2.fna.fbcdn.net/v/t51.2885-15/286186826_176198898147096_3566576875592925352_n.webp?stp=dst-jpg_e35_p750x750_sh0.08&_nc_ht=instagram.fepa9-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=G4qK2kVdRGoAX-7kZtq&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=Mjg1NjEwMzQzOTg4NjgyMzU3Mg%3D%3D.2-ccb7-5&oh=00_AT-9G3vJL7ht-8Izopo_cP5L2YGQfeOzQweJxMnEKFvVdg&oe=62DF29D4&_nc_sid=30a2ef"
       ],
-      "description": "Queremos actualizarles la situación de nuestro pequeño Maple. Quizás recuerden que fue recibido a comienzos de Marzo muy complicado, deshidratado, desnutrido, con lesiones en sus patas, una enteritis aguda (diarrea e intestinos inflamados) y cursando mycoplasma por lo que debió permanecer algunas semanas internado en @veterinariav.q hasta ser estabilizado. Sumado a esto, Maple dio positivo para ambos VIF/VILEF (sida y leucemia felina). A mediados de Marzo lo recibió Majo, su transitante, y pocas semanas después debió ser internado nuevamente. Su caso es complejo, y pese a las medicaciones indicadas, sus valores en sangre siguen dando mal… Maple tiene los glóbulos blancos muy bajos. Por lo pronto se encuentra bajo tratamiento inyectable, comenzó cada 24 y 48 h y múltiples medicaciones vía oral para revertir su cuadro. Está siendo atendido por la especialista en medicina felina, Amelia Gisbert y ayer lo llevamos a una consulta con el hematólogo Joaquín Artese. 🆘 Los gastos de este mes SÓLO en Maple fueron $46.939… esto sumado a los gastos que enfrentamos a diario con los más de 20 gatitxs que tenemos actualmente en tránsito, realizándoles estudios, algunos bajo tratamientos y los gastos de mantenimiento y castraciones en colonias de Palermo y Colegiales. 🌈 VOS PODES AYUDAR A MAPLE, ¿te preguntas cómo? Apadrinándolo! 💘.",
-      "id": "2dc36174-3dc8-42e4-829d-28875d81f893",
-      "foundation_id": "472e0c79-da78-4e59-a39b-5e6c9c47e18b",
-      "foundation_name": "El Campito Felino de Belgrano",
-      "post_date": "20-03-2018"
+      "description": "Nina se encuentra en adopción responsable. Nina es la madre de todos los bebés que rescatamos de la basura en el mes de febrero junto a su cría. 🌠 Es una hembra de 2 años que la castramos y ahora está lista para encontrar una familia para toda la vida. Está desparasitada y con pipeta. Le encanta jugar, pide mimos todo el tiempo, se sube a todos lados, es hermosa y un amor de gatita. Si te enamoraste de Nina del amor, contactanos.",
+      "id": "6bd3a223-b1bf-426d-bce6-85f1ef5a1871",
+      "foundation_id": "2de38dd3-d020-44d3-8266-c8509bf41c07",
+      "foundation_name": "Refugio Feliz",
+      "post_date": "18-07-2020"
     }
   ]
 }

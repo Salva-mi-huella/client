@@ -1,9 +1,15 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {useParams} from 'react-router-dom';
 import styles from './PetDetail.module.css';
+import * as data from "../../mocks/ListAnimalsMock/ListAnimalsMock.json";
+import { getPetDetail } from '../../actions/index';
 
 
-export default function PetDetail(){
-    let pet = {
+
+export default function PetDetail(props){
+    /* let pet = {
         name: 'Bobby',
         img1: "https://www.fundacion-affinity.org/sites/default/files/el-gato-necesita-tener-acceso-al-exterior.jpg",
         img2: "https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/01_%C2%BFQu%C3%A9-puedo-hacer-si-mi-gato-est%C3%A1-triste-.png?itok=w67Nhubc",
@@ -14,29 +20,45 @@ export default function PetDetail(){
         age: "2 años",
         sex: "Macho"
 
-    }
+    } */
+    const dispatch = useDispatch();
+
+    const params = useParams()
+
+    useEffect(()=>{
+        dispatch(getPetDetail(params.nombreHuella))
+    }, [dispatch])
+
+    const pet = useSelector(state=>state.petDetail)
+    console.log(pet)
     
     return(
         <div>
             
             <div className={styles.containerImg}>
-                <img className={styles.img} src={pet.img1} alt="img1"></img>
-                <img className={styles.img} src={pet.img2} alt="img2"></img>
-                <img className={styles.img} src={pet.img3} alt="img3"></img>
-                <img className={styles.img} src={pet.img4} alt="img4" ></img>
-            </div>
-            <div>
+                {pet.images?.map((e)=>{
+                    return(
+                        <img className={styles.img} src={e} alt="img1"/>
+                    )
+                })}
+            </div> 
+            <div className={styles.container}>
+            <div className={styles.info}>
                 <h1>Hola, soy {pet.name}!</h1>
                 <p>{pet.description}</p>
             </div>
+            <div className={styles.adopt}>
             <div>
-                <button>Salvas mi huella?</button>
+                <button className={styles.button}>Salvas mi huella?</button>
             </div>
-            <div>
-                <p>Fundacion: {pet.fundation}</p>
-                <p>Edad: {pet.age}</p>
-                <p>Sexo: {pet.sex}</p>
+            <div className={styles.pet}>
+                <p className={styles.petInfo}>Fundacion: <br></br>{pet.foundation_name}</p>
+                <p className={styles.petInfo}>Edad:<br></br> {pet.age}</p>
+                <p className={styles.petInfo}>Sexo:<br></br> {pet.genre}</p>
             </div>
+            </div>
+            </div>
+        
         </div>
     )
 }

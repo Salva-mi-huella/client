@@ -1,8 +1,13 @@
 import axios from 'axios';
+import * as dataAnimals from "../mocks/ListAnimalsMock/ListAnimalsMock.json";
 import * as data from "../mocks/ListFundationMock/ListFundationMock.json";
 
-
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
+export const GET_PET_DETAIL = 'GET_PET_DETAIL';
+export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
+export const GET_All_PETS = 'GET_AllPETS'
+export const FILTERS_CONFIG = 'FILTERS_CONFIG'
+
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -16,3 +21,43 @@ export function getFoundationDetail(id){
             return dispatch({ type: GET_FOUNDATION_DETAIL, payload: data.foundation.filter(foundation => foundation.id === id) })
         } 
 }
+
+export function getFoundations(){
+    return function(dispatch) {
+        // try{
+        //     return axios(`/foundations`)
+        //     .then(detail =>
+        //         dispatch({ type: GET_FOUNDATIONS, payload: detail.data }))
+        //     } catch (e) {
+        //         dispatch({ type: GET_FOUNDATIONS, payload: e.data })
+        //     }
+            return dispatch({ type: GET_FOUNDATIONS, payload: data.foundation})
+        } 
+
+}
+
+export function getAllPets(){
+    //Actualizar ruta cuando tengamos la db
+    return {type:GET_All_PETS, payload: dataAnimals.pet}
+}
+
+
+export function getPetDetail(name){
+    console.log("hola")
+    return function (dispatch){
+        return dispatch({
+            type: GET_PET_DETAIL,
+            payload: dataAnimals.pet.find(animal => animal.name.toLowerCase()=== name.toLowerCase())
+        })
+    }
+}
+
+export function filtersConfig(config){
+    return {
+        type: FILTERS_CONFIG,
+        filter : Object.keys(config),
+        payload: config,
+        pets: config.filtered
+    } 
+}
+

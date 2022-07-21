@@ -8,6 +8,7 @@ import AdoptionForm from './components/AdoptionForm/AdoptionForm'
 import PetDetail from './components/PetDetail/PetDetail';
 import Adopt from './components/Adopt/Adopt'
 import { Foundation } from './components/Foundation/Foundation';
+import Profile from './components/Profile/Profile';
 
 
 

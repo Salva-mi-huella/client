@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {  useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getFoundationDetail } from '../../actions/index';
 import styles from './Foundation.module.css'
 import paypal from '../../assets/paypal.png';
-import foundationImage from '../../assets/fundacion.png';
 import instagram from '../../assets/instagram.png';
 import email from '../../assets/email.png';
 import web from '../../assets/web.png';
-import * as data from "../../mocks/ListFundationMock/ListFundationMock.json";
-
-
-let foundationHardCoded = {
-    pets: [{name:'Jorgito', img: "https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"}, {name:'Matilda', img: 'https://static.nationalgeographic.es/files/styles/image_3200/public/75552.ngsversion.1422285553360.jpg?w=1600&h=1067'}, {name:'Norber', img: 'https://www.elcampitorefugio.org/imgs/uploaded/Slide_820640.jpg'}]
-}
 
 
 export function Foundation () {
@@ -22,18 +15,17 @@ export function Foundation () {
     })
 
     const dispatch = useDispatch();
+    const params = useParams();
     const foundation = useSelector(state => state.foundationDetail)
 
     useEffect(() => { 
-        // const id = this.props.match.params.foundationId
-        dispatch(getFoundationDetail('d375e472-2f7c-4bd6-94c5-42fe3083d39a'))
+        dispatch(getFoundationDetail(params.foundationId))
      }, [])
+
 
      const handleOnChange = (e) => {
         setInput({...input, [e.target.name]: e.target.value})
        }
-
-       console.log('hola', foundation)
 
 
     return (  
@@ -49,11 +41,11 @@ export function Foundation () {
                     <div>
                         <h3>Teléfono:</h3><p>{foundation[0].telephone_number}</p>
                     </div>
-                    {foundation[0].web.length && <a href={foundation[0].web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
-                    {foundation[0].instagram.length && <a href={foundation[0].instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
-                    {foundation[0].email.length && <a href={`mailto:${foundation[0].email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
+                    {foundation[0].web  && <a href={foundation[0].web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
+                    {foundation[0].instagram && <a href={foundation[0].instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
+                    {foundation[0].email && <a href={`mailto:${foundation[0].email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
                 </div>
-                <img className={styles.foundationImage} src={foundation[0].img} alt='foundation'></img>
+                <img className={styles.foundationImage} src={foundation[0].img[0]} alt='foundation'></img>
             </div>
 
             <div className={styles.containerDonate}>
@@ -77,9 +69,9 @@ export function Foundation () {
             <div className={styles.containerPets}>
                 <h2>Nuestras huellas</h2>
                 <div  className={styles.subcontainerPets}>
-                {foundationHardCoded.pets.map(pet => (
-                    <div>
-                        <Link to={`/huella/${pet.id}`} ><img className={styles.petImage} src={pet.img} alt='pet'></img></Link>
+                {foundation[0].pets.map(pet => (
+                    <div key={pet.id}> 
+                        <Link to={`/huella/${pet.name}`} ><img className={styles.petImage} src={pet.img} alt='pet'></img></Link>
                         <h3>{pet.name}</h3>
                     </div>
                 ))}
