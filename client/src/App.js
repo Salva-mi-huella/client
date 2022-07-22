@@ -3,7 +3,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
-import Carousel from './components/Carousel/Carousel'
 import AdoptionForm from './components/AdoptionForm/AdoptionForm'
 import PetDetail from './components/PetDetail/PetDetail';
 import Adopt from './components/Adopt/Adopt'
@@ -12,6 +11,10 @@ import Profile from './components/Profile/Profile';
 import AboutUs from './components/About us/AboutUs';
 import Donate from './components/Donate/Donate';
 import Payment from './components/Donate/Payment';
+import axios from 'axios';
+
+
+axios.defaults.baseURL = "http://localhost:4000";
 
 
 

@@ -17,8 +17,10 @@ export function Foundation () {
     const dispatch = useDispatch();
     const params = useParams();
     const foundation = useSelector(state => state.foundationDetail)
+    console.log(foundation)
 
     useEffect(() => { 
+        console.log(params.foundationId)
         dispatch(getFoundationDetail(params.foundationId))
      }, [])
 
@@ -30,22 +32,22 @@ export function Foundation () {
 
     return (  
 
-       foundation.length>0 && <div className={styles.container}>
+       foundation.id == params.foundationId && <div className={styles.container}>
 
             <div className={styles.containerContact}>
                 <div>
-                    <h1>{foundation[0].name}</h1>
+                    <h1>{foundation.name}</h1>
                     <div>
-                        <h3>Ubicación:</h3><p>{foundation[0].location}</p>
+                        <h3>Ubicación:</h3><p>{foundation.location}</p>
                     </div>
                     <div>
-                        <h3>Teléfono:</h3><p>{foundation[0].telephone_number}</p>
+                        <h3>Teléfono:</h3><p>{foundation.telephone_number}</p>
                     </div>
-                    {foundation[0].web  && <a href={foundation[0].web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
-                    {foundation[0].instagram && <a href={foundation[0].instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
-                    {foundation[0].email && <a href={`mailto:${foundation[0].email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
+                    {foundation.web  && <a href={foundation.web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
+                    {foundation.instagram && <a href={foundation.instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
+                    {foundation.email && <a href={`mailto:${foundation.email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
                 </div>
-                <img className={styles.foundationImage} src={foundation[0].img[0]} alt='foundation'></img>
+                <img className={styles.foundationImage} src={foundation.images[0]} alt='foundation'></img>
             </div>
 
             <div className={styles.containerDonate}>
@@ -69,9 +71,9 @@ export function Foundation () {
             <div className={styles.containerPets}>
                 <h2>Nuestras huellas</h2>
                 <div  className={styles.subcontainerPets}>
-                {foundation[0].pets.map(pet => (
+                {foundation.pets.map(pet => (
                     <div key={pet.id}> 
-                        <Link to={`/huella/${pet.name}`} ><img className={styles.petImage} src={pet.img} alt='pet'></img></Link>
+                        <Link to={`/huella/${pet.name}`} ><img className={styles.petImage} src={pet.images[0]} alt='pet'></img></Link>
                         <h3>{pet.name}</h3>
                     </div>
                 ))}

@@ -10,7 +10,7 @@ import ProfileMenu from '../Profile/ProfileMenu';
 
 export default function NavBar() {
 
-   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
 
     return (

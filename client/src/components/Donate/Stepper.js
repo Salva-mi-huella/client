@@ -51,6 +51,8 @@ export default function VerticalLinearStepper({donation, setDonation}) {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if (activeStep === 2)  setDonation({...donation, amount: ''})
+    if (activeStep === 1)  setDonation({...donation, method: ''})
   };
 
   const handleReset = () => {
@@ -81,7 +83,7 @@ export default function VerticalLinearStepper({donation, setDonation}) {
                 <div className={style.foundations}>
                 {foundations.map(f=>(
                     <div key={f.id}>
-                        <button onClick={(e) => handleOnClick(e)}><img className={style.foundation} src={f.img[0]} alt={f.img[0]} name='foundation'></img></button>
+                        <button onClick={(e) => handleOnClick(e)}><img className={style.foundation} src={f.images[0]} alt={f.images[0]} name='foundation'></img></button>
                     </div> ))}
                 </div>}
                 {step.label === 'Elegí el método de pago' && 
@@ -130,14 +132,14 @@ export default function VerticalLinearStepper({donation, setDonation}) {
             </Step>
             ))}
         </Stepper>
-        {activeStep === steps.length && (
+        {/* {activeStep === steps.length && (
             <Paper square elevation={0} sx={{ p: 3 }}>
             <Typography>All steps completed - you&apos;re finished</Typography>
             <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
                 Reset
             </Button>
             </Paper>
-        )}
+        )} */}
 
       
         </Box>
