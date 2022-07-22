@@ -3,6 +3,7 @@ import Card from './Card.js'
 import banner from '../../assets/adoptBanner.png'
 import {  useDispatch, useSelector } from 'react-redux';
 import style from './Adopt.module.css'
+import { filtersConfig } from '../../actions'
 import { getAllPets } from '../../actions/index.js';
 import FilterByType from './Filters/FilterByType.js';
 import FilterByFoundation from './Filters/FilterByFoundation.js';
@@ -19,25 +20,35 @@ export default function Adopt(){
     },[dispatch])
 
     const arrAllPets = useSelector(state=> state.allPets )
-    const filtersConfig = useSelector(state=> state.filtersConfig )
+    const filters = useSelector(state=> state.filtersConfig )
+
+    useEffect(()=>{
+        return function clean(){
+            dispatch(filtersConfig({type:null}))
+            dispatch(filtersConfig({foundation:null}))
+            dispatch(filtersConfig({gender:null}))
+        }
+    },[])
+
 
     useEffect(()=>{
         let filteringPets = arrAllPets
 
-        if(filtersConfig.type ){
-            filteringPets = filteringPets.filter(pet => pet.type === filtersConfig.type)
+        if(filters.type ){
+            filteringPets = filteringPets.filter(pet => pet.type === filters.type)
         }
-        if(filtersConfig.foundation){
-            filteringPets = filteringPets.filter(pet => pet.foundation_name === filtersConfig.foundation)
+        if(filters.foundation){
+            filteringPets = filteringPets.filter(pet => pet.foundation_name === filters.foundation)
         }
-        if(filtersConfig.gender){
-            filteringPets = filteringPets.filter(pet => pet.gender === filtersConfig.gender)
+        if(filters.gender){
+            filteringPets = filteringPets.filter(pet => pet.gender === filters.gender)
         }
         if(!filteringPets.length && arrAllPets.length) alert("No hay animales en adopcion con esas caracteristicas")
         setFilteredPets(filteringPets)
         
-    },[filtersConfig,arrAllPets])
-    
+    },[filters,arrAllPets])
+
+
     return (
         <>
             <div className={style.banner}>
@@ -75,6 +86,7 @@ export default function Adopt(){
                 {filteredPets ?
                     filteredPets.map(pet => (
                         <Card 
+                        id={pet.id}
                         key= {pet.id}
                         name={pet.name}
                         img={pet.images} 

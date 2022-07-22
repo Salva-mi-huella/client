@@ -21,8 +21,9 @@ export default function FilterByFoundation(){
     }
 
     return(
-        <select onChange={(e)=>handleChange(e)}id="foundation">
-            <option value={"null"}>Refugio</option>
+        <select defaultValue="Fundación" onChange={(e)=>handleChange(e)} id="foundation">
+            <option disabled >Fundación</option>
+            <option value={"null"}> Todas </option>
 
             {arrFoundationsnames &&
             arrFoundationsnames.map(name=>(
