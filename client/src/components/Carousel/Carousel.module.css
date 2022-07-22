@@ -1,14 +1,90 @@
-.DivCarousel{
-    display: flex;
-    justify-content: center;
-    width: 500px;
-    height: 100px;
-    
-}   
-
-.images{
+.carousel{
+    background-color: black;
     width: 100%;
-    height: 500px;
-    object-fit: cover;
+    margin: 25px auto;
+    border: 1px solid #ccc;
+    box-shadow: 7px 7px 15px #592A08; 
 }
+.containeradoptions{
+    background-image: url("../../images/background-paws.jpg"); 
+    background-size: cover;   
+    display: flex;
+    justify-content: space-between;       
+    height: 350px; 
+}
+.containerimg{    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 350px;
+}
+.imgadoption{
+    width: 200px;
+    height: 300px;
+}
+
+.imgadoption:hover{
+    filter: brightness(25%);
+    transition-duration: 1s;
+    cursor: pointer;   
+}
+.imgadoption:not(:hover){
+    transition-duration: 1s;  
+}
+
+.containertext{    
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;   
+}
+
+.titles{
+    color: black;
+    font-size: 50px;
+    font-family: "Lucida Handwriting", "Courier New", monospace;    
+}
+
+.paragraph{
+    color: black;
+    font-size: 25px;
+    font-family: "Lucida Handwriting", "Courier New", monospace;
+    text-align: center;
+}
+
+.container{
+    background-image: url("../../images/background-paws.jpg"); 
+    background-size: cover;   
+    display: flex;
+    justify-content: space-evenly;  
+    width: 100%;
+    height: 350px;   
+    
+}
+
+.imgdonation{
+    width: 600px;
+    height: 600px;
+}
+
+.imgfoundation{
+    width: 650px;
+}
+
+
+.carousel-control-next-icon{
+    color: red;
+    background-color: blue;
+}
+.carousel-control-prev-icon{
+    color:red;
+    background-color: blue;
+}
+
+
+
+
+
 
