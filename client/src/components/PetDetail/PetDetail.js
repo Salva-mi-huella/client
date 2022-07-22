@@ -36,15 +36,15 @@ export default function PetDetail(props){
                 <p>{pet.description}</p>
             </div>
             <div className={styles.adopt}>
-            <div>
-                <button className={styles.button}>Salvas mi huella?</button>
-            </div>
-            <div className={styles.pet}>
-                <p className={styles.petInfo}>Fundacion: <br></br>{pet.foundation?.name}</p>
-                <p className={styles.petInfo}>Edad:<br></br> {pet.age}</p>
-                <p className={styles.petInfo}>Sexo:<br></br> {pet.gender}</p>
-            </div>
-            </div>
+                <div>
+                    <button className={styles.button}>Salvas mi huella?</button>
+                </div>
+                    <div className={styles.pet}>
+                        <p className={styles.petInfo}>Fundacion: <br></br>{pet.foundation?.name}</p>
+                        <p className={styles.petInfo}>Edad:<br></br> {pet.age}</p>
+                        <p className={styles.petInfo}>Sexo:<br></br> {pet.gender}</p>
+                    </div>
+                </div>
             </div>
         
         </div>
