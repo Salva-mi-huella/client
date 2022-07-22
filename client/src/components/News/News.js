@@ -1,13 +1,9 @@
 import React from 'react'
 import cat from '../../assets/cat_constructor2.png'
-import style from './Payment.module.css'
+import style from './News.module.css'
 
 
-
-
-export default function Payment(){
-    
-
+export default function News(){
     return (
         <>
         <div className={style.container}>
