@@ -81,7 +81,7 @@ export default function VerticalLinearStepper({donation, setDonation}) {
                 <div className={style.foundations}>
                 {foundations.map(f=>(
                     <div key={f.id}>
-                        <button onClick={(e) => handleOnClick(e)}><img className={style.foundation} src={f.img[0]} alt={f.img[0]} name='foundation'></img></button>
+                        <button onClick={(e) => handleOnClick(e)}><img className={style.foundation} src={f.images[0]} alt={f.images[0]} name='foundation'></img></button>
                     </div> ))}
                 </div>}
                 {step.label === 'Elegí el método de pago' && 
