@@ -40,7 +40,7 @@ export default function AboutUs(){
                     <a href="https://www.linkedin.com/in/santiago-seisdedos-b3a8841b5" target="_blank">
                         <img className={styles.linkedinImg} src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-noire.png"></img>
                     </a>        
-                    <a href="https://github.com/jargumedo" target="_blank">
+                    <a href="https://github.com/SantiagoSeisdedos" target="_blank">
                         <img className={styles.githubImg} src={githubpng} ></img>
                     </a>      
                 </div>
@@ -51,7 +51,7 @@ export default function AboutUs(){
                     <a href="https://www.linkedin.com/in/joaquingioffre/" target="_blank">
                         <img className={styles.linkedinImg} src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-noire.png"></img>
                     </a>  
-                    <a href="https://github.com/jargumedo" target="_blank">
+                    <a href="https://github.com/gioacchinogioffre" target="_blank">
                         <img className={styles.githubImg} src={githubpng} ></img>
                     </a>            
                 </div>
@@ -73,7 +73,7 @@ export default function AboutUs(){
                     <a href="https://www.linkedin.com/in/nicolas-planas-9a4568180/" target="_blank">
                         <img className={styles.linkedinImg} src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-noire.png"></img>
                     </a>  
-                    <a href="https://github.com/jargumedo" target="_blank">
+                    <a href="https://github.com/NicolasPlanas1998" target="_blank">
                         <img className={styles.githubImg} src={githubpng} ></img>
                     </a>            
                 </div>
@@ -84,7 +84,7 @@ export default function AboutUs(){
                     <a href="https://www.linkedin.com/in/enuar-montaña-orozco-47494b14b/" target="_blank">
                         <img className={styles.linkedinImg} src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-noire.png"></img>
                     </a>  
-                    <a href="https://github.com/jargumedo" target="_blank">
+                    <a href="https://github.com/EnuarM" target="_blank">
                         <img className={styles.githubImg} src={githubpng} ></img>
                     </a>            
                 </div>
@@ -95,7 +95,7 @@ export default function AboutUs(){
                     <a href="https://www.linkedin.com/in/cristian009/" target="_blank">
                         <img className={styles.linkedinImg} src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-noire.png"></img>
                     </a>  
-                    <a href="https://github.com/jargumedo" target="_blank">
+                    <a href="https://github.com/CRISTIAN0026" target="_blank">
                         <img className={styles.githubImg} src={githubpng} ></img>
                     </a>            
                 </div>
@@ -106,7 +106,7 @@ export default function AboutUs(){
                     <a href="https://www.linkedin.com/in/juliano-argumedo-blanco-999381222/" target="_blank">
                         <img className={styles.linkedinImg} src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-noire.png"></img>
                     </a>  
-                    <a href="https://github.com/jargumedo" target="_blank">
+                    <a href="https://github.com/Lichi96" target="_blank">
                         <img className={styles.githubImg} src={githubpng} ></img>
                     </a>            
                 </div>
