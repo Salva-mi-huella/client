@@ -1,4 +1,5 @@
 .nav {
+    background-image: linear-gradient( 89.2deg,  rgba(191,241,236,1) 22.3%, rgba(109,192,236,1) 84.1% );
     display: flex;
     /* position: fixed; */
     z-index: 100;

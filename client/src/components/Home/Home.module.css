@@ -18,10 +18,10 @@
     align-items: center;
 }
 
-.main section:nth-child(2){   
+/* .main section:nth-child(2){   
     background-image: linear-gradient( 89.2deg,  rgba(191,241,236,1) 22.3%, rgba(109,192,236,1) 84.1% );
     
-}
+} */
 
 .main section:nth-child(3){
     background-color:#ABB2B9;
