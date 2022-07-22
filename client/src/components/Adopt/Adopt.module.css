@@ -1,5 +1,7 @@
 .banner img{
-    width: 100%;
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 20px;
 }
 .containerFunction{
     display: flex;

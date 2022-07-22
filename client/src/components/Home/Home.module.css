@@ -82,6 +82,23 @@
    margin-left: 30px;
 }
 
+.eslogan {
+    display:flex;
+    margin-left: 100px;;
+    margin-top: 100px;
+    margin-bottom: 130px;
+}
+
+.eslogan div h1 {
+    font-size: 6rem;
+    color: rgb(255, 230, 0);
+}
+
+.eslogan div p {
+    font-size: 2rem;
+ 
+
+}
 
 
 

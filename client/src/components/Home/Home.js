@@ -20,10 +20,19 @@ export default function Home() {
 
     return (
         <div className={styles.main}>
+
+            <div className={styles.eslogan}>
+                <div>
+                    <h1>Salvá<br></br>una huella</h1>
+                    <p>El lugar donde podés encontrar a tu mejor amigo y blabla.</p>
+                </div>
+                <img alt='eslogan'></img>
+            </div>
+
             <div>
                 <Carousel />
             </div>
-            <section>
+            {/* <section>
                 <div className={styles.containers}>
                     <h1> Fundaciones </h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod </p>
@@ -39,7 +48,7 @@ export default function Home() {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod</p>
                     <button className='btn btn-secondary'>ADOPTAR</button>
                 </div>
-            </section>
+            </section> */}
 
             <div>
                 <SliderFoundation />
@@ -61,7 +70,7 @@ export default function Home() {
             </section> */}
 
 
-            <section>
+            {/* <section>
                 <div>
                     <h1>Quienes Somos?</h1>
                 </div>
@@ -73,7 +82,8 @@ export default function Home() {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod </p>
                     </div>
                 </div>
-            </section>
+            </section> */}
+
             <div>
                 <Footer />
             </div>

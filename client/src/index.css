@@ -1,14 +1,48 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(236, 236, 236)
+  /* background-color: rgb(238 128 172) !important; */
+  color: white;
+  color: rgb(255, 230, 0);
+  /* background: rgb(238,128,172) !important;
+  background: linear-gradient(54deg, rgba(238,128,172,1) 0%, rgba(163,136,241,1) 97%) !important */
+  background: linear-gradient(40deg, rgb(233, 201, 214) 0%, rgb(99, 59, 218) 97%) 
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif !important;
+   font-weight: bold
+}
+h2 {
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: bold
+
+}
+h3 {
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: bold
+
+}
+h4 {
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: bold 
+
+}
+h5 {
+  font-family: 'Raleway', sans-serif !important; 
+  font-weight: bold 
+
+}
+
+p {
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: bold 
+
 }

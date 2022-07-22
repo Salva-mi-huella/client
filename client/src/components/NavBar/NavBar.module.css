@@ -1,14 +1,14 @@
 .nav {
-    background-image: linear-gradient( 89.2deg,  rgba(191,241,236,1) 22.3%, rgba(109,192,236,1) 84.1% );
+    /* background-image: linear-gradient( 89.2deg,  rgba(191,241,236,1) 22.3%, rgba(109,192,236,1) 84.1% ); */
     display: flex;
     /* position: fixed; */
     z-index: 100;
     justify-content: space-around;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     height: 8vh;
     width: 100vw;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 .logo {
@@ -30,15 +30,15 @@
 .navCenter p {
     transition: 0.3s;
     margin-right: 17px;
-    font-weight: normal;
     margin-left: 15px;
+  color: rgb(255, 230, 0) !important;
 }
 
 .navCenter p:hover {
     transition: 0.3s;
     text-decoration: underline;
     transform: scale(1.05);
-    color: rgb(29, 53, 87);
+    /* color: rgb(29, 53, 87); */
     cursor: pointer;
 }
 

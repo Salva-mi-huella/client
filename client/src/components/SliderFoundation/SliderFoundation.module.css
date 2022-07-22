@@ -1,5 +1,8 @@
 .sliderContainer {
-    background-color: red;
+    /* background-color: red; */
+    margin-top: 100px;
+    margin-bottom: 100px;
+
 }
 
 .sliderContainer h2 {
@@ -7,7 +10,7 @@
 }
 
 .foundationContainer {
-    background-color: green;
+    /* background-color: green; */
     display: flex;
 
 }
@@ -30,7 +33,7 @@
 }
 
 .logoContainer {
-    background-color: blue;
+    /* background-color: blue; */
     justify-content: center;
     text-align: center;
 
@@ -54,7 +57,7 @@
 
 
 .title {
-    background-color: red;
+    /* background-color: red; */
     justify-content: center;
     text-align: center;
 }

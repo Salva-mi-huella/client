@@ -1,9 +1,11 @@
 .carousel{
-    background-color: black;
+    /* background-color: black; */
     width: 100%;
     margin: 25px auto;
     border: 1px solid #ccc;
     box-shadow: 7px 7px 15px #592A08; 
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 .containeradoptions{
     background-image: url("../../images/background-paws.jpg"); 
@@ -42,20 +44,20 @@
 }
 
 .titles{
-    color: black;
+    /* color: black; */
     font-size: 50px;
     font-family: "Lucida Handwriting", "Courier New", monospace;    
 }
 
 .paragraph{
-    color: black;
+    /* color: black; */
     font-size: 25px;
     font-family: "Lucida Handwriting", "Courier New", monospace;
     text-align: center;
 }
 
 .container{
-    background-image: url("../../images/background-paws.jpg"); 
+    /* background-image: url("../../images/background-paws.jpg");  */
     background-size: cover;   
     display: flex;
     justify-content: space-evenly;  
