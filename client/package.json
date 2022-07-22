@@ -18,7 +18,6 @@
     "react-scripts": "4.0.3",
     "react-slick": "^0.29.0",
     "reactjs-forms": "^1.0.6",
-
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
