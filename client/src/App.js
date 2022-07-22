@@ -11,6 +11,8 @@ import Profile from './components/Profile/Profile';
 import AboutUs from './components/About us/AboutUs';
 import Donate from './components/Donate/Donate';
 import Payment from './components/Donate/Payment';
+import Store from './components/Donate/Payment';
+import News from './components/Donate/Payment';
 import axios from 'axios';
 
 
@@ -31,6 +33,8 @@ function App() {
       <Route exact path='/donar'> <Donate/></Route>
       <Route exact path='/pago'> <Payment/></Route>
       <Route path='/formularioadopcion'  component={AdoptionForm}/>
+      <Route exact path='/tienda'> <Store/></Route>
+      <Route exact path='/noticias'> <News/></Route>
       {/* <Route component={NotFound}  /> */}
     </React.Fragment>
   );

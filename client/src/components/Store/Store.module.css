@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .container h1 {
+      margin-top: 60px;
+      font-size: 80px;
+      color: rgb(255, 230, 0);
+      font-weight: bold;
+  }
+  
+  .container p {
+    margin-top: 20px;
+    font-size: 25px;
+    color: rgb(255, 230, 0);
+    font-weight: bold;
+  }
+  
+  .container img {
+      width: 400px;
+      height: 400px;
+      margin-top: 50px;
+  }
+  
