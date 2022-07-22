@@ -14,8 +14,9 @@ export default function FilterByGender(){
     }
 
     return(
-        <select onChange={(e)=>handleChange(e)} id="gender">
-            <option value="null">Sexo</option>
+        <select defaultValue="Sexo" onChange={(e)=>handleChange(e)} id="gender">
+            <option disabled >Sexo</option>
+            <option value="null"> Todos </option>
             <option value="Macho">Macho</option>
             <option value="Hembra">Hembra</option>
         </select>

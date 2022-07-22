@@ -8,7 +8,7 @@ export default function FilterByType(){
     const dispatch = useDispatch()
     
     function handleSelection(type){
-        dispatch(filtersConfig({type}))
+        dispatch(filtersConfig({type})) //type: perro
     }
     
     return(
