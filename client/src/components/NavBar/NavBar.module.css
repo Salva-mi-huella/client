@@ -6,10 +6,12 @@
     padding: 0 20px;
     font-family: 'Roboto', sans-serif;
     height: 12vh;
+    margin-bottom: 10px;
 }
 
 .logo {
-    width: 80px;
+    width: 60px;
+    margin-bottom: 25px;
 }
 
 .icons {
@@ -22,15 +24,14 @@
     align-items: center;
 }
 
-.navCenter h4 {
+.navCenter p {
     transition: 0.3s;
     margin-right: 17px;
     font-weight: normal;
     margin-left: 15px;
-
 }
 
-.navCenter h4:hover {
+.navCenter p:hover {
     transition: 0.3s;
     text-decoration: underline;
     transform: scale(1.05);
@@ -43,12 +44,15 @@
     text-decoration: none;
 }
 
+
 .signUp button {
+    font-size: 13px;
     transition: 1s;
     color: rgb(29, 53, 87);
     cursor: pointer;
     border: none;
     background-color: transparent;
+    margin-bottom: 15px;
 }
 
 .signUp button:hover {
