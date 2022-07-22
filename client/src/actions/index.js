@@ -37,18 +37,39 @@ export function getFoundations(){
 }
 
 export function getAllPets(){
-    //Actualizar ruta cuando tengamos la db
-    return {type:GET_All_PETS, payload: dataAnimals.pet}
+    return async function (dispatch){
+        try {
+            const info = await axios("http://localhost:4000/pets")
+            return dispatch({
+                type:GET_All_PETS,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
+
 }
 
 
-export function getPetDetail(name){
-    console.log("hola")
-    return function (dispatch){
-        return dispatch({
-            type: GET_PET_DETAIL,
-            payload: dataAnimals.pet.find(animal => animal.name.toLowerCase()=== name.toLowerCase())
-        })
+export  function getPetDetail(id){
+    return async function (dispatch){
+        try{
+            const info = await axios(`http://localhost:4000/pets/${id}`)
+            return dispatch({
+                type: GET_PET_DETAIL,
+                payload: info.data
+            })
+        }
+        catch(error){
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
     }
 }
 
