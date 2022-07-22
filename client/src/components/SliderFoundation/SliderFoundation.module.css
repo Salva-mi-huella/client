@@ -2,18 +2,20 @@
     background-color: red;
 }
 
+.sliderContainer h2 {
+    padding-top: 30px;
+}
+
 .foundationContainer {
     background-color: green;
-
-    position: relative;
     display: flex;
-
-    margin: 45px;
-    padding: 25px;
 
 }
 
 .logoContainer:hover {
+    display: flex;
+    flex-direction: column;
+
 
     transition: 0.4s;
     transform: scale(1.1);
@@ -28,7 +30,6 @@
 }
 
 .logoContainer {
-
     background-color: blue;
     justify-content: center;
     text-align: center;
@@ -40,20 +41,14 @@
     width: 400px;
     height: 150px;
 
-
 }
 
-
 .logo {
-
-
-
     border-radius: 200px;
     width: 150px;
     height: 150px;
     margin-top: 20px;
     border: 3px groove rgb(18, 18, 119);
-
 }
 
 

@@ -15,9 +15,10 @@ export const SliderFoundation = () => {
 
     const dispatch = useDispatch();
     const foundations = useSelector(state => state.foundations)
+    console.log(foundations)
+    
 
     useEffect(() => {
-        // const id = this.props.match.params.foundationId
         dispatch(getFoundations())
     }, [])
 
@@ -25,8 +26,8 @@ export const SliderFoundation = () => {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         initialSlide: 0,
         responsive: [
             {
@@ -61,21 +62,19 @@ export const SliderFoundation = () => {
 
         <div className={styles.sliderContainer}>
 
-            <h1 style={{ textAlign: 'center' }}>Nuestras Fundaciones SLIDER</h1>
+            <h2 style={{ textAlign: 'center' }}>Nuestras Fundaciones</h2>
 
             <Slider {...settings}>
 
-                {
-                    foundations.length > 0 ? foundations.map(f => (
-                        <div className={styles.foundationContainer}>
+                
+                 {foundations.length > 0 ? foundations.map(f => (
+                <div className={styles.foundationContainer}>
                             <div className={styles.logoContainer}>
-                                <img className={styles.logo} src={f.img[0]} alt='foundationImage' />
+                                <img className={styles.logo} src={f.images[0]} alt='foundationImage' />
+                                <h3 className={styles.title} >{f.name}</h3>
                             </div>
-                            <h3 className={styles.title} >{f.name}</h3>
-                        </div>
-
-                    ))
-                        : false}
+                    </div>
+                    )) : <div>No hay fundaciones</div>}
 
             </Slider>
 
