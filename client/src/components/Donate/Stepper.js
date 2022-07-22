@@ -51,6 +51,8 @@ export default function VerticalLinearStepper({donation, setDonation}) {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if (activeStep === 2)  setDonation({...donation, amount: ''})
+    if (activeStep === 1)  setDonation({...donation, method: ''})
   };
 
   const handleReset = () => {
@@ -130,14 +132,14 @@ export default function VerticalLinearStepper({donation, setDonation}) {
             </Step>
             ))}
         </Stepper>
-        {activeStep === steps.length && (
+        {/* {activeStep === steps.length && (
             <Paper square elevation={0} sx={{ p: 3 }}>
             <Typography>All steps completed - you&apos;re finished</Typography>
             <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
                 Reset
             </Button>
             </Paper>
-        )}
+        )} */}
 
       
         </Box>
