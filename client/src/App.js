@@ -23,7 +23,8 @@ axios.defaults.baseURL = "http://localhost:4000";
 function App() {
   return (
     <React.Fragment>
-      <Route path='/'> <NavBar/></Route>
+      <Route path='/'> <NavBar/> </Route>
+      <Route exact path='/'> <Home/> </Route>
       <Route exact path='/home'> <Home/></Route>
       <Route exact path='/huella/:id'> <PetDetail/></Route>
       <Route exact path='/nosotros' component={AboutUs} />
