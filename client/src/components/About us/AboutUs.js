@@ -100,10 +100,10 @@ export default function AboutUs(){
                     </a>            
                 </div>
                 <div className={styles.info}>
-                    <img className={styles.devImg} src="https://fcb-abj-pre.s3.amazonaws.com/img/jugadors/MESSI.jpg"></img>
+                    <img className={styles.devImg} src="https://media-exp1.licdn.com/dms/image/C4E03AQEhNFEeaTgERw/profile-displayphoto-shrink_400_400/0/1658521157185?e=1663804800&v=beta&t=vUt5ZSrvLcSnLBuLBaUo35mQHqrCBrpNuywHLp1yWq4"></img>
                     <h3 className={styles.name}>Lisandro Landaburu</h3>
                     <h5>Co-Founder</h5>
-                    <a href="https://www.linkedin.com/in/juliano-argumedo-blanco-999381222/" target="_blank">
+                    <a href="https://www.linkedin.com/in/lisandro-landaburu-b205a5214/" target="_blank">
                         <img className={styles.linkedinImg} src="https://icones.pro/wp-content/uploads/2021/03/icone-linkedin-ronde-noire.png"></img>
                     </a>  
                     <a href="https://github.com/Lichi96" target="_blank">
