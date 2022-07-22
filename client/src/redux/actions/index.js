@@ -1,6 +1,4 @@
 import axios from 'axios';
-import * as dataAnimals from "../mocks/ListAnimalsMock/ListAnimalsMock.json";
-import * as data from "../mocks/ListFundationMock/ListFundationMock.json";
 
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
 export const GET_PET_DETAIL = 'GET_PET_DETAIL';

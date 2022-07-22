@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import {  useDispatch, useSelector } from 'react-redux';
-import { getFoundations } from '../../actions/index.js';
+import { getFoundations } from '../../redux/actions/index.js';
 import style from './Stepper.module.css'
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';

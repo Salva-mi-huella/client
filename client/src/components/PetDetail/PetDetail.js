@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import styles from './PetDetail.module.css';
 import * as data from "../../mocks/ListAnimalsMock/ListAnimalsMock.json";
-import { getPetDetail } from '../../actions/index';
+import { getPetDetail } from '../../redux/actions/index';
 
 
 

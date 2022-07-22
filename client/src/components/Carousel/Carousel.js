@@ -2,10 +2,10 @@ import React, {useState}  from 'react'
 import styles from './Carousel.module.css';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
-import img1 from '../../images/gato2.png'
-import img2 from '../../images/perro2.png'
-import img3 from '../../images/fundaciones.png'
-import img4 from '../../images/donaciones.png'
+import img1 from '../../assets/images/gato2.png'
+import img2 from '../../assets/images/perro2.png'
+import img3 from '../../assets/images/fundaciones.png'
+import img4 from '../../assets/images/donaciones.png'
 
 
 export default function ControlledCarousel() {

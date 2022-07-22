@@ -1,6 +1,6 @@
 import React ,{useEffect}from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { filtersConfig, getFoundations } from '../../../actions'
+import { filtersConfig, getFoundations } from '../../../redux/actions'
 
 
 export default function FilterByFoundation(){

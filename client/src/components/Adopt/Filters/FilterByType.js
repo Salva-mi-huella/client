@@ -1,6 +1,6 @@
 import React  from 'react'
 import { useDispatch} from 'react-redux'
-import { filtersConfig } from '../../../actions'
+import { filtersConfig } from '../../../redux/actions'
 
 
 export default function FilterByType(){

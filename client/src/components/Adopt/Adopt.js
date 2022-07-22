@@ -3,8 +3,8 @@ import Card from './Card.js'
 import banner from '../../assets/adoptBanner.png'
 import {  useDispatch, useSelector } from 'react-redux';
 import style from './Adopt.module.css'
-import { filtersConfig } from '../../actions'
-import { getAllPets } from '../../actions/index.js';
+import { filtersConfig } from '../../redux/actions'
+import { getAllPets } from '../../redux/actions/index.js';
 import FilterByType from './Filters/FilterByType.js';
 import FilterByFoundation from './Filters/FilterByFoundation.js';
 import FilterByGender from './Filters/FilterByGender.js';

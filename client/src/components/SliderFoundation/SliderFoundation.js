@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getFoundations } from '../../actions';
+import { getFoundations } from '../../redux/actions';
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

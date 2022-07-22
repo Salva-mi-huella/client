@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
-import store from "./store/index";
+import store from "./redux/store/index";
 import FormValidation from "reactjs-forms";
 import { Auth0Provider} from "@auth0/auth0-react";
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {  useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { getFoundationDetail } from '../../actions/index';
+import { getFoundationDetail } from '../../redux/actions/index';
 import styles from './Foundation.module.css'
 import paypal from '../../assets/paypal.png';
 import instagram from '../../assets/instagram.png';

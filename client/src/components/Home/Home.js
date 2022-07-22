@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
-import { getFoundations } from '../../actions';
+import { getFoundations } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 
 export default function Home() {

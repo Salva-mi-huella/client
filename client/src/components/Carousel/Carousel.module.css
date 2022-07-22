@@ -8,7 +8,7 @@
     padding-bottom: 50px;
 }
 .containeradoptions{
-    background-image: url("../../images/background-paws.jpg"); 
+    background-image: url("../../assets/images/background-paws.jpg"); 
     background-size: cover;   
     display: flex;
     justify-content: space-between;       

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {  useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 import style from './Donate.module.css'
-import { getFoundations } from '../../actions/index.js';
+import { getFoundations } from '../../redux/actions/index.js';
 import Stepper from './Stepper';
 import banner from '../../assets/paw_hand.png'
 import product_a from '../../assets/product_a.jpg'
