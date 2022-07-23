@@ -1,13 +1,15 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import styles from './PetDetail.module.css';
 import { getPetDetail } from '../../redux/actions/index';
 
 
 
+
 export default function PetDetail(){
+
 
     const dispatch = useDispatch();
 
@@ -74,6 +76,7 @@ export default function PetDetail(){
                                     }
                                 </div>
                         }
+
                     </div>
                 </div>
     )

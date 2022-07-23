@@ -14,6 +14,8 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "cdbreact": "^1.5.3",
+
+    "formik": "^2.2.9",
     "emailjs-com": "^3.2.0",
     "react": "^17.0.2",
     "react-admin": "^4.2.4",
