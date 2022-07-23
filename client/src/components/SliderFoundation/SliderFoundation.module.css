@@ -1,19 +1,17 @@
 .sliderContainer {
-    /* background-color: red; */
-    margin-top: 100px;
-    margin-bottom: 100px;
-
+    margin-bottom: 60px;
+    padding-bottom: 60px;
 }
 
-.sliderContainer h2 {
-    padding-top: 30px;
+.sliderTitle {
+    justify-content: center;
+    text-align: center;
+    font-size: 5vh;
+    font-weight: bold;
+    color: rgb(255, 230, 0);
+    margin-bottom: 60px;
 }
 
-.foundationContainer {
-    /* background-color: green; */
-    display: flex;
-
-}
 
 .logoContainer:hover {
     display: flex;
@@ -29,21 +27,16 @@
 .logoContainer:not(:hover) {
     transition: 0.4s;
     transform: scale(1);
-
 }
 
 .logoContainer {
-    /* background-color: blue; */
-    justify-content: center;
-    text-align: center;
-
-    align-items: center;
-    align-content: center;
-    align-self: center;
-
     width: 400px;
     height: 150px;
-
+    margin: 30px 0 80px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo {
@@ -51,6 +44,7 @@
     width: 150px;
     height: 150px;
     margin-top: 20px;
+    margin-bottom: 20px;
     border: 3px groove rgb(18, 18, 119);
 }
 
@@ -60,4 +54,7 @@
     /* background-color: red; */
     justify-content: center;
     text-align: center;
+    color: azure;   
+    font-size: 3vh;
+    font-weight: bold;
 }
