@@ -62,7 +62,7 @@ export const SliderFoundation = () => {
 
         <div className={styles.sliderContainer}>
 
-            <h2 className={styles.sliderTitle}>Nuestras Fundaciones</h2>
+            <h2 className={styles.sliderTitle}>Nuestra Familia</h2>
 
             <Slider {...settings}>
 
@@ -70,7 +70,7 @@ export const SliderFoundation = () => {
                 {foundations.length > 0 ? foundations.map(f => (
                     <div className={styles.foundationContainer}>
                         <div className={styles.logoContainer}>
-                            <img className={styles.logo} src={f.images[0]} alt='foundationImage' />
+                            <Link to={`/fundacion/${f.id}`}><img className={styles.logo} src={f.images[0]} alt='foundationImage' /></Link>
                             <h3 className={styles.title} >{f.name}</h3>
                         </div>
                     </div>

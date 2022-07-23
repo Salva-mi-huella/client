@@ -9,17 +9,10 @@
 
 .eslogan {
     display: flex;
-
     justify-content: center;
-    margin-left: 600px;
+    margin-left: 100px;
     margin-top: 130px;
     margin-bottom: 75px;
-}
-
-#imagen {
-    background-color: #fff;
-    width: 300px;
-    height: 150px;
 }
 
 .eslogan div h2 {
@@ -27,6 +20,10 @@
     color: rgb(255, 230, 0);
     /* color: rgb(195, 29, 201); */
     margin-left: 350px;
+}
+.eslogan img{
+    width: 200px;
+    margin-right: 100px;
 }
 
 .eslogan div p {
@@ -40,13 +37,8 @@
     font-style: italic;
 }
 
-.background {
-    /* background-color: aliceblue; */
-}
-
 .copyright {
     color: #fff;
-
     text-align: center;
     padding: 10px;
 }
@@ -57,7 +49,7 @@
 }
 
 .mision {
-    color: rgb(255, 230, 0);
+    color: azure
 }
 
 .iconContainer {
@@ -75,8 +67,9 @@
     margin-top: 15px;
     padding: 10px;
     border-radius: 10px;
-    color: rgb(255, 230, 0);
-
+    color:azure;
+    /* color: rgb(255, 230, 0); */
+    font-weight: bold;
     justify-content: center;
     text-align: center;
 
@@ -85,7 +78,7 @@
 .signUpContainer {}
 
 .links button {
-    color: #fff;
+    color:azure;
     font-size: 13px;
     transition: 0.4s;
     cursor: pointer;
