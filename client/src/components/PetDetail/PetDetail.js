@@ -58,7 +58,9 @@ export default function PetDetail(){
                             </div>
                         </div>
                         <div className={styles.btn}>
+                            <Link to={'/formularioadopcion'}>
                             <button>Salvás mi huella?</button>
+                            </Link>
                         </div>
                     </div> 
                     <div className={styles.containerImg}>

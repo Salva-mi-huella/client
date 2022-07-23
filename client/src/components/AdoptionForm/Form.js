@@ -20,7 +20,7 @@ useEffect(() => {
   const foundations = useSelector(state => state.foundations)
   console.log("Aqui las pets",pets)
   console.log("Aqui las fundaciones",foundations)
-  console.log(petDetail.foundation.name)
+  console.log(petDetail)
 
   return (
     <div className={styles.container}>
@@ -167,16 +167,16 @@ useEffect(() => {
               <div className={styles.inp}>
                 <label htmlFor="pet">Huella</label>
                 <Field as="select" className="form-control w-75 opacity-25" name="pet" id="pet">
-                  <option selected value={petDetail.name}>{petDetail.name}</option>                
-                  {pets && pets.map((pet) => (<option value={pet.name}>{pet.name}</option>))}
+                  {petDetail && petDetail.name && <option selected value={petDetail.name}>{petDetail.name}</option>  }              
+                  {pets && pets.map((pet) => petDetail.name !== pet.name?(<option value={pet.name}>{pet.name}</option>):null)}
                 </Field>
               </div>
 
               <div className={styles.inp}>
                 <label htmlFor="foundation">Fundacion</label>
                 <Field as="select" className="form-control w-100 opacity-25" type="text" name="foundation" id="foundation">
-                <option selected value={petDetail.foundation.name}>{petDetail.foundation.name}</option>
-                  {foundations && foundations.map((foundation)=>(<option value={foundation.name}>{foundation.name}</option>))}
+                {petDetail.foundation && petDetail.foundation.name && <option selected value={petDetail.foundation.name}>{petDetail.foundation.name}</option>}
+                  {foundations && foundations.map((foundation)=> (<option value={foundation.name}>{foundation.name}</option>))}
                 </Field>                                  
               </div>
             </div>
