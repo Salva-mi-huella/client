@@ -38,7 +38,7 @@ export default function Adopt(){
             filteringPets = filteringPets.filter(pet => pet.type === filters.type)
         }
         if(filters.foundation){
-            filteringPets = filteringPets.filter(pet => pet.foundation_name === filters.foundation)
+            filteringPets = filteringPets.filter(pet => pet.foundation.name === filters.foundation)
         }
         if(filters.gender){
             filteringPets = filteringPets.filter(pet => pet.gender === filters.gender)
