@@ -1,0 +1,101 @@
+.top {
+    /* box-shadow: 0px 4px 24px 0px rgb(255, 230, 0); */
+    box-shadow: 0px -12px 24px 0px rgba(218, 206, 103, 0.727), 0px 25px 57px 0px rgba(91, 13, 94, 0.637);
+    ;
+    border-top: 1px solid rgba(0, 0, 0, 0.295);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.295);
+    /* background-color: rgba(255, 242, 122, 0.76); */
+}
+
+.eslogan {
+    display: flex;
+
+    justify-content: center;
+    margin-left: 600px;
+    margin-top: 130px;
+    margin-bottom: 75px;
+}
+
+#imagen {
+    background-color: #fff;
+    width: 300px;
+    height: 150px;
+}
+
+.eslogan div h2 {
+    font-size: 4rem;
+    color: rgb(255, 230, 0);
+    /* color: rgb(195, 29, 201); */
+    margin-left: 350px;
+}
+
+.eslogan div p {
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+}
+
+.eslogan div span {
+    font-weight: 900;
+    font-style: italic;
+}
+
+.background {
+    /* background-color: aliceblue; */
+}
+
+.copyright {
+    color: #fff;
+
+    text-align: center;
+    padding: 10px;
+}
+
+.containerLogo {
+    color: #fff;
+    margin-right: -120px;
+}
+
+.mision {
+    color: rgb(255, 230, 0);
+}
+
+.iconContainer {
+    margin-top: 15px;
+    margin-bottom: -15px;
+}
+
+.icons {
+    margin: 0px 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.containerInfo {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(255, 230, 0);
+
+    justify-content: center;
+    text-align: center;
+
+}
+
+.signUpContainer {}
+
+.links button {
+    color: #fff;
+    font-size: 13px;
+    transition: 0.4s;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.links button:hover {
+    transition: 0.4s;
+    color: rgb(195, 29, 201);
+    transform: scale(1.1);
+}
