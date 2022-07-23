@@ -9,7 +9,7 @@ import email from '../../assets/email.png';
 import web from '../../assets/web.png';
 
 
-export function Foundation () {
+export default function Foundation () {
     const [input, setInput] = useState({
         amount: 0,
     })
