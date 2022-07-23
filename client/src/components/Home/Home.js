@@ -48,7 +48,7 @@ export default function Home() {
                     <div>
                         <h1>Disfrutá de Huellitas</h1>
                         <p>Nuestro programa gratuito en el que podés ganar puntos por tu adopción y por cada donación a nuestras fundaciones y canjear por productos en nuestra tienda! </p>
-                        <Link to='/tienda'><Button></Button></Link>
+                        <Link className={styles.link} to='/tienda'><Button></Button></Link>
 
                     </div>
                 </div>

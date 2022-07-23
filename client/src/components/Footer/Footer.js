@@ -97,7 +97,7 @@ export default function Footer() {
                   <div className={styles.signUpContainer}>
 
                     <div className={styles.links}>
-                      <button href="/nosotros">SOBRE NOSOTROS</button> <br />
+                      <Link to='/nosotros'><button href="/nosotros">SOBRE NOSOTROS</button> <br /></Link>
                       <button href="/">SOPORTE</button>
                     </div>
 
