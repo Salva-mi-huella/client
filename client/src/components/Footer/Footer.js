@@ -2,66 +2,147 @@ import React from 'react';
 import { CDBFooter, CDBFooterLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
 import logo from '../../assets/logo.png'
 
-export default function Footer(){
+import styles from '../Footer/Footer.module.css';
+import { useAuth0 } from '@auth0/auth0-react';
+import ProfileMenu from '../Profile/ProfileMenu';
+import { style } from '@mui/system';
+
+import ig from '../../assets/instagram.png'
+import mail from '../../assets/email.png'
+
+
+
+export default function Footer() {
+
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
+
+
   return (
-    <CDBFooter className="shadow">
-      <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
-        <CDBBox display="flex" justifyContent="between" className="flex-wrap">
-          <CDBBox>
-            <a href="/" className="d-flex align-items-center p-0 text-dark">
-              <img alt="logo" src={logo} width="90px" />
-              <span className="ml-3 h5 font-weight-bold">Salva mi huella</span>
-            </a>
-            <p className="my-3" style={{ width: '250px' }}>
-              We are creating High Quality Resources and tools to Aid developers during the
-              developement of their projects
-            </p>
-            <CDBBox display="flex" className="mt-4">
-              <CDBBtn flat color="dark">
-                <CDBIcon fab icon="facebook-f" />
-              </CDBBtn>
-              <CDBBtn flat color="dark" className="mx-3">
-                <CDBIcon fab icon="twitter" />
-              </CDBBtn>
-              <CDBBtn flat color="dark" className="p-2">
-                <CDBIcon fab icon="instagram" />
-              </CDBBtn>
+    <>
+      <div className={styles.top}>
+        <div className={styles.eslogan}>
+          <div id='imagen'></div>
+          <div>
+            <p>vos también podes <span>todos los días</span></p>
+            <h2> Salvar mi huella</h2>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.background}>
+        <CDBFooter className="shadow" >
+
+          <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '100%' }}>
+
+            <CDBBox display="flex" justifyContent="around" className="flex-wrap">
+
+              <CDBBox className={styles.containerLogo}>
+                <a href="/" className="d-flex align-items-center p-0 text-dark text-decoration-none">
+                  <img alt="logo" src={logo} width="80px" />
+                  <div className={styles.mision}>
+                    <span className="ml-3 h4 font-weight-bold mt-3">Salva mi huella</span>
+                  </div>
+                </a>
+
+                <p className="my-3 text-wrap " style={{ width: '350px' }}>
+                  Nuestra misión es cambiar el destino de muchos animales, para ello creamos un centro de encuentro. Este sitio propone conectar todos los refugios de animales con vos. Sumate!
+                </p>
+
+                {/* MEDIA ICONS */}
+                <CDBBox display="flex" className="mt-4 me-5 justify-content-center">
+
+                  <div className={styles.iconContainer}>
+                    <img src={mail} className={styles.icons} ></img>
+                    <img src={ig} className={styles.icons} ></img>
+                  </div>
+
+                </CDBBox>
+
+
+
+              </CDBBox>
+
+
+              {/* CONTAINER INFO */}
+              <CDBBox className={styles.containerInfo}>
+                <p className="h4 mb-4" style={{ fontWeight: '700' }}>
+                  Menu
+                </p>
+                <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
+
+                  <div className={styles.links}>
+                    <button href="/adoptar">ADOPTA</button> <br />
+                    <button href="/donar">DONA</button> <br />
+                    <button href="/noticias">NOTICIAS</button> <br />
+                    <button href="/tienda">TIENDA</button> <br />
+                    {/* <CDBFooterLink className={style.links} href="/adoptar">ADOPTA</CDBFooterLink>
+                    <CDBFooterLink className={style.links} href="/donar">DONA</CDBFooterLink>
+                    <CDBFooterLink className={style.links} href="/noticias">NOTICIAS</CDBFooterLink>
+                    <CDBFooterLink className={style.links} href="/tienda">TIENDA</CDBFooterLink> */}
+                  </div>
+
+                </CDBBox>
+              </CDBBox>
+
+
+
+              {/* CONTAINER AYUDA */}
+              <CDBBox className={styles.containerInfo}>
+                <p className="h4 mb-4" style={{ fontWeight: '700' }}>
+                  Ayuda
+                </p>
+
+                <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
+
+                  <div className={styles.signUpContainer}>
+
+                    <div className={styles.links}>
+                      <button href="/nosotros">SOBRE NOSOTROS</button> <br />
+                      <button href="/">SOPORTE</button>
+                    </div>
+
+                    {isAuthenticated ?
+                      <div className={styles.profile}>
+                        <ProfileMenu></ProfileMenu>
+                        {/* <Link to='/perfil'><img  className={styles.icons} src={profile} alt='profile'></img> </Link>
+                            <img  className={styles.icons} src={paw} alt='paw'></img>
+                          <button onClick={()=>logout({returnTo:'http://localhost:3000/home'})}>Cerrar sesión</button>  */}
+                      </div>
+                      :
+                      <div className={styles.links}>
+                        <button onClick={() => loginWithRedirect()} >INICIAR SESION </button>
+                        {/* <span> | </span> */}<br />
+                        <button onClick={() => loginWithRedirect()} >REGISTRARSE</button>
+                      </div>}
+                  </div>
+
+                </CDBBox>
+              </CDBBox>
+
+
+              {/* NOT USED */}
+              {/* <CDBBox>
+                <p className="h5 mb-4" style={{ fontWeight: '600' }}>
+                  Products
+                </p>
+                <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
+                  <CDBFooterLink href="/">Windframe</CDBFooterLink>
+                  <CDBFooterLink href="/">Loop</CDBFooterLink>
+                  <CDBFooterLink href="/">Contrast</CDBFooterLink>
+                </CDBBox>
+              </CDBBox> */}
+
+
             </CDBBox>
+
           </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              Devwares
-            </p>
-            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBFooterLink href="/">Resources</CDBFooterLink>
-              <CDBFooterLink href="/">About Us</CDBFooterLink>
-              <CDBFooterLink href="/">Contact</CDBFooterLink>
-              <CDBFooterLink href="/">Blog</CDBFooterLink>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              Help
-            </p>
-            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBFooterLink href="/">Support</CDBFooterLink>
-              <CDBFooterLink href="/">Sign Up</CDBFooterLink>
-              <CDBFooterLink href="/">Sign In</CDBFooterLink>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-              Products
-            </p>
-            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBFooterLink href="/">Windframe</CDBFooterLink>
-              <CDBFooterLink href="/">Loop</CDBFooterLink>
-              <CDBFooterLink href="/">Contrast</CDBFooterLink>
-            </CDBBox>
-          </CDBBox>
-        </CDBBox>
+
+
+        </CDBFooter>
+      </div>
+      <div className={styles.copyright}>
         <small className="text-center mt-5">&copy; SALVA MI HUELLA, 2022. All rights reserved.</small>
-      </CDBBox>
-    </CDBFooter>
+      </div>
+    </>
   );
 };
