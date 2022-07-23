@@ -1,22 +1,17 @@
 .sliderContainer {
     margin-bottom: 60px;
-    padding: 60px;
-
+    /* padding: 60px; */
 }
 
 .sliderTitle {
-    padding-top: -30px;
     justify-content: center;
     text-align: center;
     font-size: 5vh;
-    font-weight: 500;
+    font-weight: bold;
+    color: rgb(255, 230, 0);
+    margin-bottom: 60px;
 }
 
-.foundationContainer {
-    /* background-color: green; */
-    display: flex;
-
-}
 
 .logoContainer:hover {
     display: flex;

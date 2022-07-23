@@ -3,11 +3,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: rgb(238 128 172) !important; */
-  color: white;
+  color: azure;
   color: rgb(255, 230, 0);
   /* background: rgb(238,128,172) !important;
   background: linear-gradient(54deg, rgba(238,128,172,1) 0%, rgba(163,136,241,1) 97%) !important */
-  background: linear-gradient(40deg, rgb(233, 201, 214) 0%, rgb(99, 59, 218) 97%) 
+  background: linear-gradient(70deg, rgb(233, 201, 214) 0%, rgb(99, 59, 218) 97%) 
 
 }
 

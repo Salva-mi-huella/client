@@ -62,7 +62,7 @@ export const SliderFoundation = () => {
 
         <div className={styles.sliderContainer}>
 
-            <h2 className={styles.sliderTitle}>Nuestras Fundaciones</h2>
+            <h2 className={styles.sliderTitle}>Nuestra Familia</h2>
 
             <Slider {...settings}>
 

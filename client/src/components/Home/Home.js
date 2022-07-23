@@ -4,10 +4,16 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
+import Button from './Button';
+import Button2 from './Button2';
 import { getFoundations } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
+import banner from '../../assets/banner.png';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Home() {
+
+   const { loginWithRedirect } = useAuth0();
 
     const dispatch = useDispatch();
     const foundations = useSelector(state => state.foundations)
@@ -23,32 +29,29 @@ export default function Home() {
 
             <div className={styles.eslogan}>
                 <div>
-                    <h1>Salvá<br></br>una huella</h1>
+                    <h1>Salvá<br></br>mi huella</h1>
                     <p>El lugar donde podés encontrar a tu mejor amigo y blabla.</p>
                 </div>
-                <img alt='eslogan'></img>
+                <img src={banner} alt='eslogan'></img>
             </div>
 
             <div>
                 <Carousel />
             </div>
-            {/* <section>
-                <div className={styles.containers}>
-                    <h1> Fundaciones </h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod </p>
-                    <button className='btn btn-secondary'>INSCRIBIRME</button>
+
+                <div className={styles.userInfo}>
+                    <div>
+                        <h1>¿Por qué registrarse?</h1>
+                        <p>Ya toy re quemado y no me da la cabeza para pensar qué poner. Para maniana les prometo un texto real</p>
+                        <Button2 onClick={() => loginWithRedirect()}></Button2>
+                    </div>
+                    <div>
+                        <h1>Disfrutá de Huellitas</h1>
+                        <p>Nuestro programa gratuito en el que podés ganar puntos por tu adopción y por cada donación a nuestras fundaciones y canjear por productos en nuestra tienda! </p>
+                        <Link to='/tienda'><Button></Button></Link>
+
+                    </div>
                 </div>
-                <div className={styles.containers}>
-                    <h1>Donaciones</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod</p>
-                    <button className='btn btn-secondary'>DONAR</button>
-                </div>
-                <div className={styles.containers}>
-                    <h1>Adopciones</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod</p>
-                    <button className='btn btn-secondary'>ADOPTAR</button>
-                </div>
-            </section> */}
 
             <div>
                 <SliderFoundation />
@@ -70,19 +73,6 @@ export default function Home() {
             </section> */}
 
 
-            {/* <section>
-                <div>
-                    <h1>Quienes Somos?</h1>
-                </div>
-                <div className={styles.info}>
-                    <div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod</p>
-                    </div>
-                    <div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi repudiandae, eligendi ipsum, quod </p>
-                    </div>
-                </div>
-            </section> */}
 
             <div>
                 <Footer />

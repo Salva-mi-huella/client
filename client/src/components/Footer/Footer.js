@@ -1,6 +1,7 @@
 import React from 'react';
 import { CDBFooter, CDBFooterLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
 import logo from '../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 import styles from '../Footer/Footer.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -8,7 +9,8 @@ import ProfileMenu from '../Profile/ProfileMenu';
 import { style } from '@mui/system';
 
 import ig from '../../assets/instagram.png'
-import mail from '../../assets/email.png'
+import mail from '../../assets/email-2.png'
+import eslogan from '../../assets/eslogan2.png'
 
 
 
@@ -21,7 +23,9 @@ export default function Footer() {
     <>
       <div className={styles.top}>
         <div className={styles.eslogan}>
-          <div id='imagen'></div>
+          <div id='imagen'>
+            <img className={eslogan} src={eslogan} alt='eslogan'></img>
+          </div>
           <div>
             <p>vos también podes <span>todos los días</span></p>
             <h2> Salvar mi huella</h2>
@@ -45,7 +49,7 @@ export default function Footer() {
                 </a>
 
                 <p className="my-3 text-wrap " style={{ width: '350px' }}>
-                  Nuestra misión es cambiar el destino de muchos animales, para ello creamos un centro de encuentro. Este sitio propone conectar todos los refugios de animales con vos. Sumate!
+                  Nuestra misión es cambiar el destino no solo de muchos animales, sino también el tuyo. Este sitio propone conectar a tu futuro mejor amigo con vos. Sumate!
                 </p>
 
                 {/* MEDIA ICONS */}
@@ -71,14 +75,10 @@ export default function Footer() {
                 <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
 
                   <div className={styles.links}>
-                    <button href="/adoptar">ADOPTA</button> <br />
-                    <button href="/donar">DONA</button> <br />
-                    <button href="/noticias">NOTICIAS</button> <br />
-                    <button href="/tienda">TIENDA</button> <br />
-                    {/* <CDBFooterLink className={style.links} href="/adoptar">ADOPTA</CDBFooterLink>
-                    <CDBFooterLink className={style.links} href="/donar">DONA</CDBFooterLink>
-                    <CDBFooterLink className={style.links} href="/noticias">NOTICIAS</CDBFooterLink>
-                    <CDBFooterLink className={style.links} href="/tienda">TIENDA</CDBFooterLink> */}
+                    <Link to='/adoptar'><button href="/adoptar">ADOPTA</button> <br /></Link>
+                    <Link to='/donar'><button href="/donar">DONA</button> <br /></Link>
+                    <Link to='/noticias'><button href="/noticias">NOTICIAS</button> <br /></Link>
+                    <Link to='/tienda'><button href="/tienda">TIENDA</button> <br /></Link>
                   </div>
 
                 </CDBBox>

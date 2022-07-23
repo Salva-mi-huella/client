@@ -6,6 +6,9 @@ import img1 from '../../assets/images/gato2.png'
 import img2 from '../../assets/images/perro2.png'
 import img3 from '../../assets/images/fundaciones.png'
 import img4 from '../../assets/images/donaciones.png'
+import Button from './Button'
+import Button2 from './Button2'
+import Button3 from './Button3'
 
 
 export default function ControlledCarousel() {
@@ -31,8 +34,8 @@ export default function ControlledCarousel() {
             <div className={styles.containertext}>
                 <h1 className={styles.titles}>Adopciones</h1>
                 <p className={styles.paragraph}>Encuentra a tu mejor amigo.<br/>Busca mascotas en nuestra red de refugios.</p>
-                <Link to={'/adoptar'}>
-                <button type="button" className="btn btn-dark btn-lg">Buscar</button>
+                <Link className={styles.link} to={'/adoptar'}>
+                    <Button />
                 </Link>
             </div>
 
@@ -55,11 +58,11 @@ export default function ControlledCarousel() {
                 alt="First slide"
                 />
             </div>
-            <div className={styles.containertext}>
+            <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Fundaciones</h1>
-                <p className={styles.paragraph}>¿Quieres ser parte de nuestra familia? <br/> Escribenos para realizar el proceso de registro.</p>
-                <Link to={'/contacto'}>
-                <button type="button" className="btn btn-dark btn-lg">Inscribirme</button>
+                <p className={styles.paragraph}>¿Te gustaría ser parte de nuestra familia? <br/>Contactate con nosotros <br></br> y empezá ya el proceso de inscripción.</p>
+                <Link className={styles.link} to={'/contacto'}>
+                    <Button2></Button2>
                 </Link>
             </div>
         </div>
@@ -74,11 +77,11 @@ export default function ControlledCarousel() {
                 alt="Foundations"
                 />
             </div>
-            <div className={styles.containertext}>
+            <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Donaciones</h1>
                 <p className={styles.paragraph}>Tu aporte de hoy puede ser mi comida de mañana.</p>
-                <Link to={'/donaciones'}>
-                <button type="button" className="btn btn-dark btn-lg">Donar</button>
+                <Link className={styles.link} to={'/donar'}>
+                <Button3></Button3>
                 </Link>
             </div>
         </div>

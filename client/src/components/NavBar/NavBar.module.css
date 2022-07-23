@@ -31,7 +31,8 @@
     transition: 0.3s;
     margin-right: 17px;
     margin-left: 15px;
-  color: rgb(255, 230, 0) !important;
+  /* color: rgb(255, 230, 0) !important; */
+  color: azure;
 }
 
 .navCenter p:hover {
