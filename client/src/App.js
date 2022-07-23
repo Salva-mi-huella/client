@@ -14,6 +14,7 @@ import Payment from './components/Donate/Payment';
 import Store from './components/Donate/Payment';
 import News from './components/Donate/Payment';
 import Contact from './components/Contact/Contact';
+import NotFound from './components/NotFound/NotFound';
 import axios from 'axios';
 
 
@@ -24,21 +25,22 @@ axios.defaults.baseURL = "http://localhost:4000";
 function App() {
   return (
     <React.Fragment>
-      <Route path='/'> <NavBar/> </Route>
-      <Route exact path='/'> <Home/> </Route>
-      <Route exact path='/home'> <Home/></Route>
-      <Route exact path='/huella/:id'> <PetDetail/></Route>
-      <Route exact path='/nosotros' component={AboutUs} />
-      <Route exact path='/perfil'> <Profile/></Route>
-      <Route path='/fundacion/:foundationId' component={Foundation} />
-      <Route path='/adoptar' component={Adopt} />
-      <Route exact path='/donar'> <Donate/></Route>
-      <Route exact path='/pago'> <Payment/></Route>
-      <Route path='/formularioadopcion'  component={AdoptionForm}/>
-      <Route exact path='/tienda'> <Store/></Route>
-      <Route exact path='/noticias'> <News/></Route>
-      <Route exact path='/contacto' component={Contact} />
-      {/* <Route component={NotFound}  /> */}
+      <Switch>
+        <Route exact path='/'> <Home/> </Route>
+        <Route exact path='/home'> <Home/></Route>
+        <Route exact path='/huella/:id'> <PetDetail/></Route>
+        <Route exact path='/nosotros' component={AboutUs} />
+        <Route exact path='/perfil'> <Profile/></Route>
+        <Route exact path='/fundacion/:foundationId' component={Foundation} />
+        <Route exact path='/adoptar' component={Adopt} />
+        <Route exact path='/donar'> <Donate/></Route>
+        <Route exact path='/pago'> <Payment/></Route>
+        <Route exact path='/formularioadopcion'  component={AdoptionForm}/>
+        <Route exact path='/tienda'> <Store/></Route>
+        <Route exact path='/noticias'> <News/></Route>
+        <Route exact path='/contacto' component={Contact} />
+        <Route exact path='*' component={NotFound}/>
+      </Switch>
     </React.Fragment>
   );
 }
