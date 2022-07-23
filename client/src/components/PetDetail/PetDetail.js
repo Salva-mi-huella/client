@@ -3,50 +3,79 @@ import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import styles from './PetDetail.module.css';
-import * as data from "../../mocks/ListAnimalsMock/ListAnimalsMock.json";
 import { getPetDetail } from '../../redux/actions/index';
 
 
 
-export default function PetDetail(props){
+export default function PetDetail(){
 
     const dispatch = useDispatch();
 
     const {id} = useParams()
+    
+    const pet = useSelector(state => state.petDetail);
+
+    const [renderImg, setRenderImg] = useState("");
 
     useEffect(()=>{
-        dispatch(getPetDetail(id))
-    }, [dispatch])
+        dispatch(getPetDetail(id));
+    }, [dispatch, id])
 
-    const pet = useSelector(state=>state.petDetail)
+    useEffect(() => {
+        pet.images && setRenderImg(pet.images[0]);
+    }, [pet.images])
+
+    const handleOnClick = (e) => {
+        setRenderImg(e.target.src);
+    }
+    
 
     return(
-        
-        <div>         
-            <div className={styles.containerImg}>
-                {pet.images?.map((e)=>{
-                    return(
-                        <img className={styles.img} src={e} alt="img1"/>
-                    )
-                })}
-            </div> 
-            <div className={styles.container}>
-            <div className={styles.info}>
-                <h1>Hola, soy {pet.name}!</h1>
-                <p>{pet.description}</p>
-            </div>
-            <div className={styles.adopt}>
-                <div>
-                    <button className={styles.button}>Salvas mi huella?</button>
-                </div>
-                    <div className={styles.pet}>
-                        <p className={styles.petInfo}>Fundacion: <br></br>{pet.foundation?.name}</p>
-                        <p className={styles.petInfo}>Edad:<br></br> {pet.age}</p>
-                        <p className={styles.petInfo}>Sexo:<br></br> {pet.gender}</p>
+            pet &&
+                <div className={styles.containerDetail}>         
+                    <div className={styles.containerInfo}>
+                        <div className={styles.infoTitle}>
+                            <h2>Hola,</h2>    
+                            <h2>soy {pet.name} !</h2>
+                        </div>
+                        <div className={styles.infoDesc}>
+                            <p>{pet.description}</p>
+                        </div>
+                        <div className={styles.infoExtra}>
+                            <div>
+                                <p className={styles.pTitle}>Fundación</p>
+                                {pet.foundation && pet.foundation.images.length > 0 && <img src={pet.foundation.images[0]} alt={pet.name} />}
+                            </div>
+                            <div>
+                                <p className={styles.pTitle}>Edad</p>
+                                <p className={styles.pInfo}>{pet.age}</p>
+                            </div>
+                            <div>
+                                <p className={styles.pTitle}>Sexo</p>
+                                <p className={styles.pInfo}>{pet.gender}</p>
+                            </div>
+                        </div>
+                        <div className={styles.btn}>
+                            <button>Salvás mi huella?</button>
+                        </div>
+                    </div> 
+                    <div className={styles.containerImg}>
+                        {
+                            pet.images && pet.images.length > 0 &&
+                                <div className={styles.imgHigh}>
+                                    <img src={renderImg} alt={pet.name} />
+                                </div>
+                        }
+                        {
+                            pet.images && pet.images.length > 1 &&
+                                <div className={styles.images}>
+                                    {
+                                        pet.images.map(i => <img key={i} onClick={handleOnClick} className={styles.thumb} src={i} alt={pet.name} />)
+                                    }
+                                </div>
+                        }
                     </div>
                 </div>
-            </div>
-        
-        </div>
     )
+
 }
