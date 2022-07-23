@@ -1,7 +1,6 @@
 import "./sidebar.css";
 import {
   LineStyle,
-  TrendingUp,
   PermIdentity,
   AttachMoney,
   ChatBubbleOutline,
@@ -24,16 +23,10 @@ export default function Sidebar() {
               Pagina principal
             </li>
             </Link>
-            <Link>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Animales adoptados
-            </li>
-            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Menu de fundacion</h3>
+          <h3 className="sidebarTitle">Menu de usuario</h3>
           <ul className="sidebarList">
             <Link className="link">
               <li className="sidebarListItem">
@@ -44,24 +37,24 @@ export default function Sidebar() {
             <Link className="link">
               <li className="sidebarListItem">
                 <PetsIcon className="sidebarIcon" />
-                Mascotas
+                Favoritos
               </li>
             </Link>
             <Link>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
-              Donaciones
+              Huellitas
             </li>
             </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
+          <h3 className="sidebarTitle">Notificaciones</h3>
           <ul className="sidebarList">
             <Link>
             <li className="sidebarListItem">
               <ChatBubbleOutline className="sidebarIcon" />
-              Solicitud de adocion
+              Mis solicitudes adopcion
             </li>
             </Link>
           </ul>
