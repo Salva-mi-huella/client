@@ -14,6 +14,7 @@ import Payment from './components/Donate/Payment';
 import Store from './components/Donate/Payment';
 import News from './components/Donate/Payment';
 import axios from 'axios';
+import ProfileFoundation from './components/Profile/ProfileFoundation.js';
 
 
 axios.defaults.baseURL = "http://localhost:4000";
@@ -28,7 +29,8 @@ function App() {
       <Route exact path='/home'> <Home/></Route>
       <Route exact path='/huella/:id'> <PetDetail/></Route>
       <Route exact path='/nosotros' component={AboutUs} />
-      <Route exact path='/perfil'> <Profile/></Route>
+      {/* <Route exact path='/perfil'> <Profile/></Route> */}
+      <Route exact path='/perfil'><ProfileFoundation/></Route>
       <Route path='/fundacion/:foundationId' component={Foundation} />
       <Route path='/adoptar' component={Adopt} />
       <Route exact path='/donar'> <Donate/></Route>
