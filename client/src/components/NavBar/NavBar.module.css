@@ -52,16 +52,20 @@
 .signUp button {
     font-size: 13px;
     transition: 1s;
-    color: rgb(29, 53, 87);
+    color: azure;
     cursor: pointer;
     border: none;
     background-color: transparent;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.signUp {
+    color: azure
 }
 
 .signUp button:hover {
     transition: 1s;
-    color: rgb(29, 101, 201);
+    color: rgb(255, 230, 0);
     text-decoration: overline underline;
 }
 
