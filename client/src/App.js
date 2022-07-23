@@ -6,7 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import AdoptionForm from './components/AdoptionForm/AdoptionForm'
 import PetDetail from './components/PetDetail/PetDetail';
 import Adopt from './components/Adopt/Adopt'
-import { Foundation } from './components/Foundation/Foundation';
+import Foundation  from './components/Foundation/Foundation';
 import Profile from './components/Profile/Profile';
 import AboutUs from './components/About us/AboutUs';
 import Donate from './components/Donate/Donate';
@@ -26,20 +26,20 @@ function App() {
   return (
     <React.Fragment>
       <Switch>
-        <Route exact path='/'> <Home/> </Route>
-        <Route exact path='/home'> <Home/></Route>
-        <Route exact path='/huella/:id'> <PetDetail/></Route>
-        <Route exact path='/nosotros' component={AboutUs} />
-        <Route exact path='/perfil'> <Profile/></Route>
-        <Route exact path='/fundacion/:foundationId' component={Foundation} />
-        <Route exact path='/adoptar' component={Adopt} />
-        <Route exact path='/donar'> <Donate/></Route>
-        <Route exact path='/pago'> <Payment/></Route>
-        <Route exact path='/formularioadopcion'  component={AdoptionForm}/>
-        <Route exact path='/tienda'> <Store/></Route>
-        <Route exact path='/noticias'> <News/></Route>
-        <Route exact path='/contacto' component={Contact} />
-        <Route exact path='*' component={NotFound}/>
+        <Route exact path='/'> <NavBar/> <Home/>  </Route>
+        <Route exact path='/home'> <NavBar/> <Home/></Route>
+        <Route exact path='/huella/:id'> <NavBar/> <PetDetail/></Route>
+        <Route exact path='/nosotros'> <NavBar/> <AboutUs/> </Route>
+        <Route exact path='/perfil'> <NavBar/> <Profile/></Route>
+        <Route exact path='/fundacion/:foundationId'> <NavBar/> <Foundation/> </Route> {/* rompe */}
+        <Route exact path='/adoptar'> <NavBar/> <Adopt/> </Route>
+        <Route exact path='/donar'> <NavBar/> <Donate/></Route>
+        <Route exact path='/pago'>  <NavBar/> <Payment/></Route>
+        <Route exact path='/formularioadopcion'> <NavBar/> <AdoptionForm/> </Route>
+        <Route exact path='/tienda'> <NavBar/> <Store/></Route>
+        <Route exact path='/noticias'> <NavBar/> <News/></Route>
+        <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
+        <Route exact path='*'> <NotFound/></Route>
       </Switch>
     </React.Fragment>
   );
