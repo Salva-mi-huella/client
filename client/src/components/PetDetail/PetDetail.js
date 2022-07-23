@@ -1,10 +1,11 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import styles from './PetDetail.module.css';
 import * as data from "../../mocks/ListAnimalsMock/ListAnimalsMock.json";
 import { getPetDetail } from '../../redux/actions/index';
+
 
 
 
@@ -37,7 +38,9 @@ export default function PetDetail(props){
             </div>
             <div className={styles.adopt}>
                 <div>
+                    <Link to='/formularioadopcion'>
                     <button className={styles.button}>Salvas mi huella?</button>
+                    </Link>
                 </div>
                     <div className={styles.pet}>
                         <p className={styles.petInfo}>Fundacion: <br></br>{pet.foundation?.name}</p>
