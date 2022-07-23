@@ -13,6 +13,7 @@ import Donate from './components/Donate/Donate';
 import Payment from './components/Donate/Payment';
 import Store from './components/Donate/Payment';
 import News from './components/Donate/Payment';
+import Contact from './components/Contact/Contact';
 import axios from 'axios';
 
 
@@ -36,6 +37,7 @@ function App() {
       <Route path='/formularioadopcion'  component={AdoptionForm}/>
       <Route exact path='/tienda'> <Store/></Route>
       <Route exact path='/noticias'> <News/></Route>
+      <Route exact path='/contacto' component={Contact} />
       {/* <Route component={NotFound}  /> */}
     </React.Fragment>
   );
