@@ -1,30 +1,66 @@
 .banner img{
-    width: 60%;
-    margin-left: 20%;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    width: 100%;
+    height: 350px;
+    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.containerFunction{
+.sectionTitle{
+    position: absolute;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 4rem;
+    margin-top: 120px;
+    margin-left: 30px;
+    font-weight: bolder;
+}
+.containerFunctionality{
     display: flex;
+    flex-direction: column;
+    margin-top: 50px;
     width: 100%;
     justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
 }
-.containerFunction div{
-    text-align: center;
-    width: 30%;
+.containerSteps{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
 }
+.containerSteps div .functionalitySteps:nth-child(2){
+    margin-left: 30%;
+}
+#steps{
+    width: 550px;
+    height: 280px;
+}
+.innerTittles{
+    color: rgb(255, 230, 0);
+    font-weight: bold;
+    padding-top: 50px;
+    padding-bottom: 35px;
+
+}
+.functionalitySteps{
+    max-width: 600px;
+    padding: 10px;
+    color: white;
+}
+.functionalitySteps p{
+    width: 400px;
+}
+.functionalitySteps span{
+    font-weight: bold;
+    padding: 15px;
+}
+
 .allAnimals{
+    margin-top: 50px;
     text-align: center;
     justify-content: center;
-    align-items: center;
-}
-.allAnimals__filters{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* border: 2px solid red; */
-}
-.filtersBy{
-    display: flex;
     align-items: center;
 }
 
@@ -40,6 +76,21 @@
     width: 270px;
     height: 300px;
     margin: 20px;
+
+}
+.linkCard{
+    text-decoration: none;
+}
+.card span{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem;
+}
+.card:hover span{
+    font-weight: 900;
+    color: rgb(255, 230, 0);
 }
 .img{
     width: 100%;
@@ -49,6 +100,55 @@
     transition: 0.4s;
     cursor: pointer;
 }
-img:hover:hover{
-    box-shadow: none;
+
+/*  --------   Filtros ---------  */
+.allAnimals__filters{
+    padding: 10px;
+    margin-right:calc(10vw/2) ;
+    margin-left:calc(10vw/2) ;
+    width: 90vw;
+    margin-bottom: 30px;
+    background-color: rgba(99, 59, 218, 0.42);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+.filtersBy{
+    display: flex;
+    align-items: center;
+}
+.filtersBy span{
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right:8px;
+}
+
+/* Filter by type */
+.btnFilterType{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+.btnFilterType:hover{
+    color:rgb(223, 219, 219);
+}
+.btnFilterType:focus{
+    color:rgb(255, 230, 0) ;
+}
+
+/* Filter by foundation */
+.filterConfig{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: rgb(255, 230, 0);
+    margin-right: 10px;
+}
+.filterConfig:focus{
+    outline: none;
+}
+/* Filter by sex */

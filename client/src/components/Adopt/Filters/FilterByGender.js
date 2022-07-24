@@ -1,6 +1,7 @@
-import React ,{useEffect}from 'react'
+import React from 'react'
 import { useDispatch,  } from 'react-redux'
 import { filtersConfig } from '../../../redux/actions'
+import style from '../Adopt.module.css'
 
 
 export default function FilterByGender(){
@@ -14,7 +15,7 @@ export default function FilterByGender(){
     }
 
     return(
-        <select defaultValue="Sexo" onChange={(e)=>handleChange(e)} id="gender">
+        <select className={style.filterConfig}  defaultValue="Sexo" onChange={(e)=>handleChange(e)} id="gender">
             <option disabled >Sexo</option>
             <option value="null"> Todos </option>
             <option value="Macho">Macho</option>

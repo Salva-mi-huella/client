@@ -1,6 +1,7 @@
 import React  from 'react'
 import { useDispatch} from 'react-redux'
 import { filtersConfig } from '../../../redux/actions'
+import style from '../Adopt.module.css'
 
 
 export default function FilterByType(){
@@ -12,10 +13,10 @@ export default function FilterByType(){
     }
     
     return(
-        <div>
-            <input onClick={()=>handleSelection(null)} type="submit" value="Todos"/>
-            <input onClick={()=>handleSelection("Gato")} type="submit" value="Gatos"/>
-            <input onClick={()=>handleSelection("Perro")} type="submit" value="Perros"/>
+        <div >
+            <input className={style.btnFilterType} onClick={()=>handleSelection(null)} type="submit" value="Todos"/>
+            <input className={style.btnFilterType} onClick={()=>handleSelection("Gato")} type="submit" value="Gatos"/>
+            <input className={style.btnFilterType} onClick={()=>handleSelection("Perro")} type="submit" value="Perros"/>
         </div>
     )
 }

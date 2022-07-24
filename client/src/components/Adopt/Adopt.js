@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card.js'
 import banner from '../../assets/adoptBanner.png'
+import steps from '../../assets/adoptSteps.png'
 import {  useDispatch, useSelector } from 'react-redux';
 import style from './Adopt.module.css'
 import { filtersConfig } from '../../redux/actions'
@@ -52,36 +53,41 @@ export default function Adopt(){
     return (
         <>
             <div className={style.banner}>
-                {/* Cambiar esta imagen */}
+                <h1 className={style.sectionTitle}>Adoptá</h1>
                 <img src={banner} alt="Banner of animals"/>
             </div>
-            <div className={style.containerFunction}>
-                <div>
-                    <h3>¿Cómo funciona?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Illum modi repudiandae,eligendi ipsum, quod  Lorem ipsum 
-                        dolor sit amet consectetur adipisicing elit. 
-                    </p>
-                </div>
-                <div>
-                    <h3>¿Cómo funciona?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Illum modi repudiandae,eligendi ipsum, quod  Lorem ipsum 
-                        dolor sit amet consectetur adipisicing elit. 
-                    </p>
+            <div className={style.containerFunctionality}>
+                <h2 className={style.innerTittles}>¿Cómo funciona?</h2>
+                <div className={style.containerSteps} >
+                    <div>
+                        <div className={style.functionalitySteps}>
+                            <span>-Paso 1-</span>
+                            <p>Lo primero que debes hacer es elegir aquel animal que más se adapte a tus necesidades,
+                                para ello tendras distintos filtros disponibles que te ayudarán a tomar la decision.
+                            </p>
+                        </div>
+                        <div className={style.functionalitySteps}>
+                            <span>-Paso 2-</span>
+                            <p> Una vez elegido dicho animal tendras que presionar el boton "Salva mi huella",
+                                de esta manera podras ponerte en contacto con la fundación que tenga la posesión del animal
+                                para coordinar la entrega.
+                            </p>
+                        </div>
+                    </div>
+                    <img id={style.steps} src={steps} alt="steps"/>
                 </div>
             </div>
             <div className={style.allAnimals}>
-            <h2>Conoce nuestras Huellas</h2>
-                <div className={style.allAnimals__filters}>
-                    <FilterByType/>
-                    <div className={style.filtersBy}>
-                        <h5>Filtrar por</h5>
-                            <FilterByFoundation/>
-                            <FilterByGender/>
+                <h2 className={style.innerTittles} >Conoce nuestras Huellas</h2>
+                    <div className={style.allAnimals__filters}>
+                        <FilterByType/>
+                        <div className={style.filtersBy}>
+                            <span>Filtrar por</span>
+                                <FilterByFoundation/>
+                                <FilterByGender/>
+                        </div>
                     </div>
                 </div>
-            </div>
             <div className={style.cardContainer}>
                 {filteredPets ?
                     filteredPets.map(pet => (

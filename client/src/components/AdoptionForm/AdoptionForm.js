@@ -9,14 +9,9 @@ import Formulario from './Form'
 export default function AdoptionForm() {
 
   return (
-    <>    
-        <div className={styles.title}>
-            <h1 className={styles.titletext}>¿ Estas listo para adoptar ?</h1>
-        </div>
-
-
+    <>           
         <div className={styles.container}>
-            <div className={styles.text}>
+            {/* <div className={styles.text}>
                 <p>¡Hola!<br/>
                 Muchas gracias por contactarnos y por pensar en adoptar. En Colombia existe  un gran número de animales abandonados y maltratados en la calle, que son parte de nuestra responsabilidad social. Es justo y gratificante darles una oportunidad.<br/>            
             
@@ -42,17 +37,15 @@ export default function AdoptionForm() {
                 tener un representante de la familia mayor de edad que intervenga en el proceso
                 de adopción. 
             </p>
-            </div>
+            </div> */}
 
             <div className={styles.formu}>
                 <Formulario/>
             </div>
 
-
-            
         </div>
     </>
-  );
+);
 }
 
 
