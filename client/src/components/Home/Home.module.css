@@ -105,36 +105,39 @@
 }
 
 .userInfo {
-    padding: 70px;
+    /* padding: 200px; */
+    padding-top: 200px;
+    padding-bottom: 200px;
     display:flex;
-    justify-content: space-between;
-    /* align-items: center; */
+    justify-content: space-around;
 }
 
-.userInfo div{
-    display:flex;
+.subInfo {
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    padding: 50px;
+    justify-content: center;
 }
 
 .userInfo h1 {
     font-size: 2rem;
     color: rgb(255, 230, 0);
     font-weight: bold;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
 }
 
 .userInfo p {
     font-size: 1.2rem;
     color: azure;
     text-align: center;
+    padding: 40px;
 }
 
 .link {
     text-decoration: none;
 }
+
+
 
 
 

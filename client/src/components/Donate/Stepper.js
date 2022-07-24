@@ -67,6 +67,7 @@ export default function VerticalLinearStepper({donation, setDonation}) {
     setDonation({...donation, amount: e.target.value})
   }
 
+
   return (
     <div> 
         <Box sx={{ maxWidth: 400 }}>
@@ -75,15 +76,20 @@ export default function VerticalLinearStepper({donation, setDonation}) {
             {steps.map((step, index) => (
             <Step key={step.label}>
                 <StepLabel>
-                {step.label}
+                <h5 className={style.label}>{step.label}</h5>
                 </StepLabel>
                 <StepContent>
-                <Typography>{step.description}</Typography>
+                <Typography color='common.white'>{step.description}</Typography>
+                {console.log(Typography)}
                 {step.label === 'Elegí la fundación' && 
                 <div className={style.foundations}>
                 {foundations.map(f=>(
                     <div key={f.id}>
-                        <button onClick={(e) => handleOnClick(e)}><img className={style.foundation} src={f.images[0]} alt={f.images[0]} name='foundation'></img></button>
+                        <button 
+                        // style={{ backgroundImage: `url(${f.images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}
+                         onClick={(e) => handleOnClick(e)}>
+                          <img className={style.foundation} src={f.images[0]} alt={f.images[0]} name='foundation'></img>
+                          </button>
                     </div> ))}
                 </div>}
                 {step.label === 'Elegí el método de pago' && 
@@ -101,19 +107,20 @@ export default function VerticalLinearStepper({donation, setDonation}) {
                         <button onClick={(e) => handleOnClick(e)}>$2000</button>
                         <button onClick={(e) => handleOnClick(e)}>$5000</button>
                     </div>
-                    <div>
+                    <div className={style.amount}>
                         <label>Otro importe:</label>
                         <input onChange={handleOnChange} value={donation.amount} name='amount' type='number' placeholder='$0,00'></input>
                     </div>
             </div>
                 }
                 <Box sx={{ mb: 2 }}>
-                    <div>
+                    <div className={style.buttonStepper}>
                     <Button 
                         disabled={((donation.foundation === '' && index === 0) || (donation.method === '' && index === 1) || (donation.amount === '' && index === 2))}
                         variant="contained"
                         onClick={handleNext}
-                        sx={{ mt: 1, mr: 1 }}
+                        sx={{ color: 'azure', backgroundColor: '#9C27B0'}}
+                        // sx={{ mt: 1, mr: 1 }}
                     >
                         {index === steps.length - 1 ? <Link to='/pago' className={style.link}>Finalizar</Link> : 'Continuar'}
                     </Button>
@@ -121,7 +128,8 @@ export default function VerticalLinearStepper({donation, setDonation}) {
                         <Button
                             // disabled={index === 0}
                             onClick={handleBack}
-                            sx={{ mt: 1, mr: 1 }}
+                            sx={{ color: 'azure', backgroundColor: 'transparent'}}
+
                         >
                             Atrás
                         </Button>

@@ -126,3 +126,34 @@
     align-items: center;
     margin-left: 50px;
 }
+
+.containerInfo {
+    display: flex;
+    flex-direction: space-between;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    border: 2px solid red;
+    padding: 50px
+
+}
+
+.containerInfo h1 {
+    margin-left: 80px;
+    margin-bottom: 50px;
+    width: 600px;
+    color: rgb(255, 230, 0);
+    font-weight: bold;
+    /* border: 2px solid red; */
+}
+
+.containerInfo p {
+    color: azure;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+

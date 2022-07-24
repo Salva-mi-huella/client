@@ -9,6 +9,7 @@ import Button2 from './Button2';
 import { getFoundations } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner.png';
+import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Home() {
@@ -30,7 +31,7 @@ export default function Home() {
             <div className={styles.eslogan}>
                 <div>
                     <h1>Salvá<br></br>mi huella</h1>
-                    <p>El lugar donde podés encontrar a tu mejor amigo y blabla.</p>
+                    <p>En este espacio va a ir el eslogan principal del sitio.</p>
                 </div>
                 <img src={banner} alt='eslogan'></img>
             </div>
@@ -40,16 +41,19 @@ export default function Home() {
             </div>
 
                 <div className={styles.userInfo}>
-                    <div>
+                    <div className={styles.subInfo}>
                         <h1>¿Por qué registrarse?</h1>
-                        <p>Ya toy re quemado y no me da la cabeza para pensar qué poner. Para maniana les prometo un texto real</p>
+                        <p>Vas a poder guardar a tus huellas en favoritos, hacer un seguimiento de tus solicitudes de adopción, acceder a los beneficios de Huellitas, todo esto y mucho más! Es super simple y fácil, sumate!</p>
                         <Button2 onClick={() => loginWithRedirect()}></Button2>
                     </div>
-                    <div>
-                        <h1>Disfrutá de Huellitas</h1>
-                        <p>Nuestro programa gratuito en el que podés ganar puntos por tu adopción y por cada donación a nuestras fundaciones y canjear por productos en nuestra tienda! </p>
-                        <Link className={styles.link} to='/tienda'><Button></Button></Link>
 
+                    <div className={styles.subInfo}>
+
+                            <h1>Disfrutá de Huellitas</h1>
+                            {/* <img src={paw} alt='paw'></img> */}
+
+                        <p>Nuestro programa gratuito en el que podés ganar puntos por tu adopción y por cada donación a nuestras fundaciones y canjear por productos en nuestra tienda</p>
+                        <Link className={styles.link} to='/tienda'><Button></Button></Link>
                     </div>
                 </div>
 

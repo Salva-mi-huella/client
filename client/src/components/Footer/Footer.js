@@ -97,16 +97,14 @@ export default function Footer() {
                   <div className={styles.signUpContainer}>
 
                     <div className={styles.links}>
+                      <Link to='/contacto'><button href="/contacto">FUNDACIONES</button> <br /></Link>
                       <Link to='/nosotros'><button href="/nosotros">SOBRE NOSOTROS</button> <br /></Link>
                       <button href="/">SOPORTE</button>
                     </div>
 
                     {isAuthenticated ?
-                      <div className={styles.profile}>
-                        <ProfileMenu></ProfileMenu>
-                        {/* <Link to='/perfil'><img  className={styles.icons} src={profile} alt='profile'></img> </Link>
-                            <img  className={styles.icons} src={paw} alt='paw'></img>
-                          <button onClick={()=>logout({returnTo:'http://localhost:3000/home'})}>Cerrar sesión</button>  */}
+                      <div className={styles.links}>
+                          <Link to='/perfil'><button>MI CUENTA</button></Link>
                       </div>
                       :
                       <div className={styles.links}>
