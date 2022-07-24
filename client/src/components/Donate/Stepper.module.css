@@ -1,28 +1,40 @@
 .title {
     font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 3rem;
+    margin-bottom: 80px;
+    color: azure
 }
 
+.label {
+    font-weight: bold;
+    color: azure;
+    margin-left: 80px;
+}
+
+.buttonStepper {
+    margin-left: 110px;
+    margin-top: 50px;
+}
 
 .foundations {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     align-items: center;
     margin-top: 40px;
 }
 
 .foundations button {
-    font-size: 1.2rem;
     transition: 1s;
-    color: rgb(29, 53, 87);
     cursor: pointer;
+    /* border: 2px groove #0275d8; */
     border: none;
     background-color: transparent;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border-radius: 200px;
-    width: 100px
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
 }
 
 .foundation  {
@@ -30,6 +42,14 @@
     height: 100px;
     border: 2px groove #0275d8;
     border-radius: 200px;
+}
+
+/* .foundation:focus {
+    border: 2px groove rgb(255, 230, 0);
+} */
+
+.foundation:hover {
+    border: 2px groove rgb(255, 230, 0);
 }
 
 .paypal {
@@ -48,8 +68,6 @@
     cursor: pointer;
     border: none;
     background-color: transparent;
-    margin-bottom: 15px;
-    /* border-radius: 200px; */
     width: 300px;
     height: 150px;
 }
@@ -64,6 +82,7 @@
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: repeat(2, 1fr);
     align-items: center;
+    justify-content: center;
 }
 
 .donate button {
@@ -77,6 +96,17 @@
     cursor: pointer;
     border-radius: 5px;
     width: 80px;
+}
+
+.amount label {
+    color: azure
+}
+
+.amount input {
+    background-color: transparent;
+    color: azure;
+    border: 1px solid rgba(240, 255, 255, 0.377);
+    border-radius: 5px;
 }
 
 .link {

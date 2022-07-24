@@ -34,24 +34,31 @@ export function Foundation () {
 
        foundation.id == params.foundationId && <div className={styles.container}>
 
-            <div className={styles.containerContact}>
-                <div>
-                    <h1>{foundation.name}</h1>
+            <div className={styles.containerInfo}>
                     <div>
-                        <h3>Ubicación:</h3><p>{foundation.location}</p>
+                        <h1>{foundation.name}</h1>
+                        <img className={styles.foundationImage} src={foundation.images[0]} alt='foundation'></img>
                     </div>
+
                     <div>
-                        <h3>Teléfono:</h3><p>{foundation.telephone_number}</p>
+                        <p>Desde 1996, somos una organización especializada en la ayuda  gatos abandonados y/o maltratados; una organización totalmente independiente que no recibe subvenciones de organismos oficiales, empresas ni partidos políticos. Practicamos el sacrificio cero, de...</p>
                     </div>
-                    {foundation.web  && <a href={foundation.web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
-                    {foundation.instagram && <a href={foundation.instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
-                    {foundation.email && <a href={`mailto:${foundation.email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
+            </div>
+
+            <div className={styles.containerPets}>
+                <h2>Nuestras huellas</h2>
+                <div  className={styles.subcontainerPets}>
+                {foundation.pets.map(pet => (
+                    <div key={pet.id}> 
+                        <Link to={`/huella/${pet.name}`} ><img className={styles.petImage} src={pet.images[0]} alt='pet'></img></Link>
+                        <h3>{pet.name}</h3>
+                    </div>
+                ))}
                 </div>
-                <img className={styles.foundationImage} src={foundation.images[0]} alt='foundation'></img>
             </div>
 
             <div className={styles.containerDonate}>
-                <h2>Nos das una patita?</h2>
+                <h2>Dejá tu huella</h2>
                 <img className={styles.paypal} src={paypal} alt='paypal'></img>
                 <div>
                     <button>$100</button>
@@ -68,17 +75,18 @@ export function Foundation () {
                 </div>
             </div>
 
-            <div className={styles.containerPets}>
-                <h2>Nuestras huellas</h2>
-                <div  className={styles.subcontainerPets}>
-                {foundation.pets.map(pet => (
-                    <div key={pet.id}> 
-                        <Link to={`/huella/${pet.name}`} ><img className={styles.petImage} src={pet.images[0]} alt='pet'></img></Link>
-                        <h3>{pet.name}</h3>
+
+                    <div className={styles.containerContact}>
+                        <div>
+                            <h3>Ubicación:</h3><p>{foundation.location}</p>
+                        </div>
+                        <div>
+                            <h3>Teléfono:</h3><p>{foundation.telephone_number}</p>
+                        </div>
+                        {foundation.web  && <a href={foundation.web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
+                        {foundation.instagram && <a href={foundation.instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
+                        {foundation.email && <a href={`mailto:${foundation.email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
                     </div>
-                ))}
-                </div>
-            </div>
     
         </div>
     )
