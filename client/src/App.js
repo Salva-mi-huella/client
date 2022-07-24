@@ -35,7 +35,7 @@ function App() {
         <Route exact path='/adoptar'> <NavBar/> <Adopt/> </Route>
         <Route exact path='/donar'> <NavBar/> <Donate/></Route>
         <Route exact path='/pago'>  <NavBar/> <Payment/></Route>
-        <Route exact path='/formularioadopcion'> <NavBar/> <AdoptionForm/> </Route>
+        <Route exact path='/formulario-adopcion'> <NavBar/> <AdoptionForm/> </Route>
         <Route exact path='/tienda'> <NavBar/> <Store/></Route>
         <Route exact path='/noticias'> <NavBar/> <News/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
