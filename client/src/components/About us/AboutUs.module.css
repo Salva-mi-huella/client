@@ -1,3 +1,4 @@
+
 .linkedinImg{
     width: 40px;
     height: 40px;
@@ -10,25 +11,23 @@
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
+    margin-bottom: 1rem;
 }
-.devs{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
 
+.devImg:hover{
+    transform: scale(1.1);
 }
 .titleFounder{
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
-    color: black;
+    color: yellow;
     text-align: center;
     margin-bottom: 1rem;
     margin-top: 10rem;
+    margin-bottom: 3rem;
 }
 .name{
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: black;
     text-align: center;
@@ -37,31 +36,98 @@
 .info{
     font-size: 1.2rem;
     text-align: center;
-    margin-left: 5rem;
-    margin-right:5rem;
 }
 .history{
     font-size: 1.5rem;
     text-align: center;
-    margin-left: 5rem;
-    margin-right:5rem;
-    width: 50%;
+    padding-bottom: 10rem;
+    padding-top: 4rem;
+  margin-top: 5rem;
+    display: flex;
+    box-shadow: 7px 0px 12px 0px #C1DA19;
+}
 
+.historyInfo{
+    font-size: 2rem;
+    text-align: center;
+    width: 50%;
+    margin-left: 5rem;
+    margin-top: 2rem;
+    color: azure;
+    margin-bottom: -2rem;
 }
 
 .nosotros{
     font-size: 1.5rem;
     text-align: center;
-    margin-left: 50rem;
-    margin-right:5rem;
-    margin-top: 15rem;
-    width: 40%;
+    padding-top: 15rem;
+    display: flex;
+    padding-bottom: 10rem;
+    box-shadow: 7px 0px 12px 0px #C1DA19;
+    
 }
 .title{
     font-size: 2.5rem;
     font-weight: bold;
-    color: black;
+    color: yellow;
     text-align: center;
     margin-bottom: 5rem;
     margin-top: 3rem;
+}
+.mission{
+    width: 35rem;
+    height: 27rem;
+    border-radius: 50%;
+    margin-left: 5rem;
+    margin-bottom: -3rem;
+}
+.missionInfo{
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 5rem;
+    margin-right:5rem;
+    width: 50%;
+    margin-top: 3rem;
+    color: azure;
+}
+.missionTitle{
+    font-size: 3rem;
+    font-weight: bold;
+    color: yellow;
+    text-align: center;
+    margin-bottom: 1rem;
+    
+}
+.dog{
+    width: 30rem;
+    height: 25rem;
+    border-radius: 50%;
+    margin-left: 5rem;
+}
+.primeraFila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: 10rem;
+}
+.segundaFila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 10rem;
+}
+.historyTitle{
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: yellow;
+    
+}
+.coFounder{
+    font-size: 1rem;
+    text-align: center;
 }

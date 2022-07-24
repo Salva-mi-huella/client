@@ -8,7 +8,9 @@ import Loading from '../Loading/Loading';
 
 
 
+
 export default function PetDetail(){
+
 
     const dispatch = useDispatch();
 

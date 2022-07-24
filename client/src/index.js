@@ -18,7 +18,7 @@ ReactDOM.render(
       <BrowserRouter>
       <FormValidation>
         <App />
-         </FormValidation>
+      </FormValidation>
       </BrowserRouter>
     </Provider>
   </Auth0Provider>

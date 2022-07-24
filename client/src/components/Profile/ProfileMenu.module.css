@@ -1,7 +1,16 @@
 .link {
     text-decoration: none;
+    color: black;
 }
 
 .user {
-    width: fit-content
+    width: 43px;
+    border-radius: 100px;
+}
+
+.paw {
+    width: 45px;
+    border-radius: 100px;
+    /* margin-right: 10px; */
+    padding-right: 10px;
 }
