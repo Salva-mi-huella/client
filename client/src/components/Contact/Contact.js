@@ -2,6 +2,9 @@ import React from "react";
 import style from "./Contact.module.css";
 import { useState} from "react";
 import emailjs from 'emailjs-com';
+import paw from "../../assets/paw-heart.png";
+import difusion from "../../assets/promocion.png";
+import donate from "../../assets/donate-heart.png";
 export default function Contact() {
 
 
@@ -74,15 +77,13 @@ export default function Contact() {
     return (
             <div className={style.contactContainer}>
                 <div className={style.leftCol}>
-                    <h1 className={style.h1a} >¿Por qué ser</h1>
-                    <h1 className={style.h1b} >parte de</h1>
-                    <h1 className={style.h1c} >nuestra familia?</h1>
+                    <h1 className={style.h1a}>¿Por qué ser parte de nuestra familia?</h1>
 
                     <div className={style.containerWhy}>
                         <div className={style.container2}>
-                            <p className={style.p1}> <img className={style.img1} src="https://cdn-icons-png.flaticon.com/512/1077/1077170.png" width="60px" height="60px"></img> Obtenga una Mayor Difusión</p>
-                            <p className={style.p1}> <img className={style.img1} src="https://cdn-icons.flaticon.com/png/512/3070/premium/3070383.png?token=exp=1658516710~hmac=fd1d88e54fb623721297003506963bfe" width="60px" height="60px"></img> Reciba Donaciones </p>
-                            <p className={style.p1}> <img className={style.img1} src="https://cdn-icons-png.flaticon.com/512/1581/1581645.png" width="60px" height="60px"></img> Postee de manera sencilla sus animales </p>
+                            <p > <img className={style.img1} src={difusion} width="60px" height="60px" alt='difusion'></img> Obtenga una Mayor Difusión</p>
+                            <p > <img className={style.img1} src={donate} width="60px" height="60px" alt='donar'></img> Reciba Donaciones </p>
+                            <p > <img className={style.img1} src={paw} width="60px" height="60px" alt='postear'></img> Postee de manera sencilla sus animales </p>
                         </div>
                     </div>
                 </div>

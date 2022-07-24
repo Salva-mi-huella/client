@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
-import Button from './Button';
-import Button2 from './Button2';
 import { getFoundations } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner.png';
@@ -44,7 +42,8 @@ export default function Home() {
                     <div className={styles.subInfo}>
                         <h1>¿Por qué registrarse?</h1>
                         <p>Vas a poder guardar a tus huellas en favoritos, hacer un seguimiento de tus solicitudes de adopción, acceder a los beneficios de Huellitas, todo esto y mucho más! Es super simple y fácil, sumate!</p>
-                        <Button2 onClick={() => loginWithRedirect()}></Button2>
+                         <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
+
                     </div>
 
                     <div className={styles.subInfo}>
@@ -53,7 +52,8 @@ export default function Home() {
                             {/* <img src={paw} alt='paw'></img> */}
 
                         <p>Nuestro programa gratuito en el que podés ganar puntos por tu adopción y por cada donación a nuestras fundaciones y canjear por productos en nuestra tienda</p>
-                        <Link className={styles.link} to='/tienda'><Button></Button></Link>
+                        <Link className={styles.link} to='/tienda'><button>VER TIENDA</button></Link>
+
                     </div>
                 </div>
 

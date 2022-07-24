@@ -56,8 +56,8 @@ export default function Footer() {
                 <CDBBox display="flex" className="mt-4 me-5 justify-content-center">
 
                   <div className={styles.iconContainer}>
-                    <img src={mail} className={styles.icons} ></img>
-                    <img src={ig} className={styles.icons} ></img>
+                    <a href='mailto:salvamihuella.10@gmail.com'><img src={mail} className={styles.icons} ></img></a>
+                    <a><img src={ig} className={styles.icons} ></img></a>
                   </div>
 
                 </CDBBox>
@@ -99,7 +99,7 @@ export default function Footer() {
                     <div className={styles.links}>
                       <Link to='/contacto'><button href="/contacto">FUNDACIONES</button> <br /></Link>
                       <Link to='/nosotros'><button href="/nosotros">SOBRE NOSOTROS</button> <br /></Link>
-                      <button href="/">SOPORTE</button>
+                      {/* <button href="/">SOPORTE</button> */}
                     </div>
 
                     {isAuthenticated ?

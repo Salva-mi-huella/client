@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./AboutUs.module.css";
 import githubpng from "../../assets/pngegg.png";
 import fotolauti from "../../assets/fotoLauti.jpeg";
+import henry from "../../assets/henry.png";
 
 
 export default function AboutUs(){
@@ -10,11 +11,14 @@ export default function AboutUs(){
         <div>
             <div className={styles.history}>
                 <div className={styles.historyInfo} >
-                <h2 className={styles.historyTitle}>Nuestra historia</h2>
-                <p>Desde principios de 2022 el equipo de desarrollo de la aplicación empezo a conocerse entre si mismo, descubriendo el potencial que tendrian los integrantes del equipo en un futuro. Luego de algunos meses de mucho esfuerzo y trabajo, se logro crear una aplicacion para esos seres que tanto queremos y todavia no encuentran un hogar ni familia.</p>
+                <h2 className={styles.titles}>Nuestra historia</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.</p>
                 </div>
                 <div>
-                    <img className={styles.dog} src="https://p4.wallpaperbetter.com/wallpaper/924/46/372/french-bull-dog-bull-dog-dogs-animals-wallpaper-preview.jpg"></img>
+                    <img className={styles.henry} src={henry}></img>
                 </div>
             </div>
             <div className={styles.nosotros}>
@@ -22,13 +26,16 @@ export default function AboutUs(){
                     <img className={styles.mission} src="https://lh5.googleusercontent.com/oHsgTu_MtbdcM2RPkNilhIbqcd6lPBflaECBWDQlp43SxCyoc19xXbK_fqBrhKzeHl0IU88JHsjMm-lgGQHUcijlHQoxOarLAmzd-sHLW8-2whhV5RLHGCevG4Zsc1Dr6eHvtAIK"></img>
                 </div>
                 <div className={styles.missionInfo}>
-                <h2 className={styles.missionTitle}>Nuestra misión</h2>
-                <p>Estamos orgullosos de formar parte de un equipo totalmente enfocado al desarrollo de una aplicacion basada en ayudar al rescate de mascotas que todavia no encontraron un hogar y una familia para darles el amor que merecen.</p>
+                <h2 className={styles.titles}>Nuestra misión</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.</p>
                 </div>
             </div>
             <div >
                 <div>
-                <h2 className={styles.titleFounder}>Nuestro equipo</h2>
+                <h2 className={styles.titles}>Nuestro equipo</h2>
                 </div>
                 <div className={styles.devs}>
                 <div className={styles.primeraFila}>
