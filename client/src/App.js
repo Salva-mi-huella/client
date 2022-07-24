@@ -33,7 +33,7 @@ function App() {
       <Route path='/adoptar' component={Adopt} />
       <Route exact path='/donar'> <Donate/></Route>
       <Route exact path='/pago'> <Payment/></Route>
-      <Route path='/formularioadopcion'  component={AdoptionForm}/>
+      <Route path='/formulario-adopcion'  component={AdoptionForm}/>
       <Route exact path='/tienda'> <Store/></Route>
       <Route exact path='/noticias'> <News/></Route>
       {/* <Route component={NotFound}  /> */}

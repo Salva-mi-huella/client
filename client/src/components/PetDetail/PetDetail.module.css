@@ -1,5 +1,6 @@
 .containerDetail {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   min-height: 88vh; 
   display: flex;
   margin-top: 40px;
@@ -7,10 +8,6 @@
 
 .containerInfo {
   width: 50%;
-}
-
-.infoTitle {
-  margin: 0px 60px;
 }
 
 .infoTitle h2 {
@@ -21,8 +18,8 @@
 
 .infoDesc {
   margin-top: 60px;
-  margin-left: 60px;
-  margin-right: 60px;
+  /* margin-left: 60px;
+  margin-right: 60px; */
 }
 
 .infoDesc p {
@@ -34,7 +31,7 @@
 }
 
 .infoExtra {
-  margin-left: 60px;
+  /* margin-left: 60px; */
   border-top: 1px solid #fff;
   padding: 48px;
   display: flex;
@@ -68,7 +65,7 @@
 }
 
 .btn button {
-  background-color: #38A3AF;
+  background-color: #9C27B0;
   color: #fff;
   font-size: 22px;
   font-weight: bold;
@@ -80,7 +77,7 @@
 }
 
 .btn button:hover {
-  background-color: #317e87;
+  background-color: #7B1FA2;
   box-shadow:
   -7px -7px 20px 0px #fff9,
   -4px -4px 5px 0px #fff9,
@@ -125,3 +122,29 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+
+.contanierLoading {
+  min-height: 92vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MEDIA QUERIES */
+/* 
+@media (max-width: 1750px) {
+  .containerImg {
+    margin: 0 40px; 
+    width: 800px;
+    height: 400px;
+  }
+
+  .infoExtra {
+    margin: 0 40px;
+  }
+  
+  .imgHigh img {
+    margin: 0 40px;
+  }
+} */
+
