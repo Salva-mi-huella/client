@@ -37,7 +37,7 @@ export default function Donate(){
         <>
             <div className={style.banner}>
                 <div>
-                    <h1>Tu ayuda puede salvar una huella</h1>
+                    <h1>Tu ayuda<br></br> puede salvar una huella</h1>
                     <br></br>
                     <p>Tu aporte económico es muy importante para que las fundaciones puedan pagar tratamientos, estudios médicos y alimentos para seguir ayudando a nuestros peludos amigos.
                     <br></br><br></br> Agradecemos tu apoyo, y sabemos que nuestras huellas también!</p>
@@ -52,13 +52,13 @@ export default function Donate(){
                     <p>Sumá 1 huellita por cada $5 pesos que dones para canjear por productos en nuestra tienda. Las fundaciones ganan, ¡y vos también! ¿Qué esperás para sumarte? 
                     </p>
                     <div>
-                    <Link to='/tienda'><button>Ver tienda</button></Link>
+                    <Link to='/tienda'><button>VER TIENDA</button></Link>
                     </div>
                 </div>
                 <div className={style.subcontainerB}>
                     <h3>¿Todavía no te registraste?</h3>
                     <p>¡Hacelo gratis y empezá a sumar huellitas!</p>
-                    <button onClick={()=>loginWithRedirect()}>Registrarse</button>
+                    <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
                 </div>
             </div>
 

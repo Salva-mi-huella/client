@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card.js'
-import banner from '../../assets/adoptBanner.png'
+import banner from '../../assets/banneradopt.png'
 import steps from '../../assets/adoptSteps.png'
 import {  useDispatch, useSelector } from 'react-redux';
 import style from './Adopt.module.css'
@@ -54,6 +54,7 @@ export default function Adopt(){
         <>
             <div className={style.banner}>
                 <h1 className={style.sectionTitle}>Adoptá</h1>
+                <p >En este espacio va un eslogan para captar la atención</p>
                 <img src={banner} alt="Banner of animals"/>
             </div>
             <div className={style.containerFunctionality}>
