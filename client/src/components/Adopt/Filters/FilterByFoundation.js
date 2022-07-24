@@ -1,6 +1,7 @@
 import React ,{useEffect}from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { filtersConfig, getFoundations } from '../../../redux/actions'
+import style from '../Adopt.module.css'
 
 
 export default function FilterByFoundation(){
@@ -21,7 +22,7 @@ export default function FilterByFoundation(){
     }
 
     return(
-        <select defaultValue="Fundación" onChange={(e)=>handleChange(e)} id="foundation">
+        <select className={style.filterConfig} defaultValue="Fundación" onChange={(e)=>handleChange(e)} id="foundation">
             <option disabled >Fundación</option>
             <option value={"null"}> Todas </option>
 
