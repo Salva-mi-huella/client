@@ -26,12 +26,12 @@ h2 {
 
 }
 h3 {
-  font-family: 'Raleway', sans-serif !important;
+  font-family: 'Raleway', sans-serif ;
   font-weight: bold
 
 }
 h4 {
-  font-family: 'Raleway', sans-serif !important;
+  font-family: 'Raleway', sans-serif ;
   font-weight: bold 
 
 }
@@ -42,6 +42,6 @@ h5 {
 }
 
 p {
-  font-family: 'Nunito', sans-serif !important;
+  font-family: 'Nunito', sans-serif ;
   font-weight: bold 
 }
