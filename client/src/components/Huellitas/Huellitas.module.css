@@ -1,0 +1,201 @@
+.banner img{
+    margin-top: 30px;
+    /* width: 30%; */
+    /* padding-left: 800px; */
+}
+
+.banner {
+    margin-top: 80px;
+    display:flex;
+    width: 100%;
+    height: 500px;
+    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 10px;
+
+}
+.banner button {
+    transition: 0.3s;
+    background-color:#9C27B0;
+    color: #f5f5f5;
+    border: none;
+    padding: 8px 24px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    /* width: 150px; */
+}
+
+.banner button:hover {
+    transition: 0.3s;
+    background-color:#7c168ee6;
+}
+
+.banner div {
+    display:flex;
+    flex-direction: column;   
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionTitle{
+    /* position: absolute; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 230, 0);
+    font-size: 4rem;
+    /* margin-top: 120px; */
+    font-weight: bolder;
+    text-align: center;
+}
+
+.banner p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.subContainer {
+    /* padding: 200px; */
+    /* margin-left:100px;
+    margin-right:100px; */
+    padding-top: 200px;
+    padding-bottom: 200px;
+    display:flex;
+    justify-content: space-around;
+}
+
+
+.subContainer h1 {
+    font-size: 2rem;
+    color: azure;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    /* margin-bottom: 40px; */
+}
+
+.subContainer h2 {
+    font-size: 2rem;
+    color: rgb(255, 230, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    /* margin-bottom: 40px; */
+}
+
+
+.subInfoA div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    padding-top: 200px;
+}
+
+.subInfoA img {
+    width: 400px;
+    height: 400px;
+}
+
+.titles {
+display: flex;
+flex-direction: row;
+justify-content: center;
+padding-top: 150px;
+padding-bottom: 150px;
+}
+
+.store {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.store div {
+    display: flex;
+    flex-direction: space-between;
+    /* padding-top: 40px;
+    padding-bottom: 15px; */
+    /* width: 100%; */
+}
+
+.products {
+    transition: 0.5s;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 50px 0 0 50px;
+    border: 7px solid #9C27B0;
+    cursor: pointer;
+}
+.products:hover {
+    transition: 0.5s;
+    transform: scale(1.03);
+    border: 7px solid rgb(255, 230, 0);
+}
+
+.store div div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.store div div div {
+    display: flex;
+    flex-direction: row;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.store span {
+    font-size: 1.5rem;
+    color: rgb(255, 230, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.paw {
+ width: 15%
+}
+
+.store h1 {
+    font-size: 2rem;
+    color: azure;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.store button {
+    transition: 0.3s;
+    background-color:#9C27B0;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 70px;
+    padding: 8px 24px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 500px;
+    height: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.store button:hover {
+    transition: 0.3s;
+    /* background-color:#7c168ee6; */   
+    background-color: azure;
+    color: #9C27B0;
+}

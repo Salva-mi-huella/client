@@ -41,18 +41,18 @@ export default function Home() {
                 <div className={styles.userInfo}>
                     <div className={styles.subInfo}>
                         <h1>¿Por qué registrarse?</h1>
-                        <p>Vas a poder guardar a tus huellas en favoritos, hacer un seguimiento de tus solicitudes de adopción, acceder a los beneficios de Huellitas, todo esto y mucho más! Es super simple y fácil, sumate!</p>
+                        <p>Seguimiento de solicitudes de adopción, acceso al programa Huellitas, todo esto y mucho más! Es super simple y fácil, sumate!</p>
                          <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
 
                     </div>
 
                     <div className={styles.subInfo}>
 
-                            <h1>Disfrutá de Huellitas</h1>
+                            <h1>Sumate a Huellitas</h1>
                             {/* <img src={paw} alt='paw'></img> */}
 
-                        <p>Nuestro programa gratuito en el que podés ganar puntos por tu adopción y por cada donación a nuestras fundaciones y canjear por productos en nuestra tienda</p>
-                        <Link className={styles.link} to='/tienda'><button>VER TIENDA</button></Link>
+                        <p>Nuestro programa de beneficios gratuito en el que podés ganar puntos y canjear por productos en nuestra tienda.</p>
+                        <Link className={styles.link} to='/huellitas'><button>VER MÁS</button></Link>
 
                     </div>
                 </div>
