@@ -14,6 +14,7 @@ import Store from './components/Donate/Payment';
 import News from './components/Donate/Payment';
 import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
+import PostNews from './components/Profile/PostNews/PostNews';
 import Paypal from './components/Donate/Paypal/Paypal';
 import Huellitas from './components/Huellitas/Huellitas';
 // import Payment from './components/Donate/Payment';
@@ -42,6 +43,7 @@ function App() {
         <Route exact path='/huellitas'> <NavBar/> <Huellitas/></Route>
         <Route exact path='/noticias'> <NavBar/> <News/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
+        <Route exact path='/postNews'> <NavBar/> <PostNews/> </Route>
         <Route exact path='*'> <NotFound/></Route>
       </Switch>
     </React.Fragment>
