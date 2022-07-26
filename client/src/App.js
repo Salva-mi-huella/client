@@ -7,7 +7,8 @@ import AdoptionForm from './components/AdoptionForm/AdoptionForm'
 import PetDetail from './components/PetDetail/PetDetail';
 import Adopt from './components/Adopt/Adopt'
 import Foundation  from './components/Foundation/Foundation';
-import Profile from './components/Profile/Profile';
+// import Profile from './components/Profile/Profile';
+import ProfileFoundation from './components/ProfileFoundation/ProfileFoundation';
 import AboutUs from './components/About us/AboutUs';
 import Donate from './components/Donate/Donate';
 import Payment from './components/Donate/Payment';
@@ -30,7 +31,7 @@ function App() {
         <Route exact path='/home'> <NavBar/> <Home/></Route>
         <Route exact path='/huella/:id'> <NavBar/> <PetDetail/></Route>
         <Route exact path='/nosotros'> <NavBar/> <AboutUs/> </Route>
-        <Route exact path='/perfil'> <NavBar/> <Profile/></Route>
+        <Route exact path='/perfil'> <NavBar/> <ProfileFoundation/></Route>
         <Route exact path='/fundacion/:foundationId'> <NavBar/> <Foundation/> </Route> {/* rompe */}
         <Route exact path='/adoptar'> <NavBar/> <Adopt/> </Route>
         <Route exact path='/donar'> <NavBar/> <Donate/></Route>
