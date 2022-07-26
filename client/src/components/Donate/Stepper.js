@@ -32,7 +32,7 @@ const steps = [
   },
 ];
 
-export default function VerticalLinearStepper({donation, setDonation}) {
+export default function VerticalLinearStepper({donation, setDonation, setCheckout}) {
 
 
     const foundations = useSelector(state=> state.foundations)
@@ -47,6 +47,7 @@ export default function VerticalLinearStepper({donation, setDonation}) {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if (donation.amount.length) setCheckout(true)
   };
 
   const handleBack = () => {
@@ -64,7 +65,7 @@ export default function VerticalLinearStepper({donation, setDonation}) {
   }
 
   const handleOnChange = (e) => {
-    setDonation({...donation, amount: e.target.value})
+  setDonation({...donation, amount: e.target.value})
   }
 
 
@@ -89,6 +90,7 @@ export default function VerticalLinearStepper({donation, setDonation}) {
                         // style={{ backgroundImage: `url(${f.images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}
                          onClick={(e) => handleOnClick(e)}>
                           <img className={style.foundation} src={f.images[0]} alt={f.images[0]} name='foundation'></img>
+                          <h5>{f.name}</h5>
                           </button>
                     </div> ))}
                 </div>}
@@ -98,20 +100,37 @@ export default function VerticalLinearStepper({donation, setDonation}) {
                      <button onClick={(e) => handleOnClick(e)}><img className={style.mp} src={mercadoPago} alt='mercadoPago' name='method'></img></button>
                 </div>}
                 {step.label === '¿Cuanto te gustaría donar?' && 
+                  (donation.method === 'paypal' ?
                 <div className={style.donate}>
                     <div>
-                        <button onClick={(e) => handleOnClick(e)}>$100</button>
-                        <button onClick={(e) => handleOnClick(e)}>$200</button>
-                        <button onClick={(e) => handleOnClick(e)}>$500</button>
-                        <button onClick={(e) => handleOnClick(e)}>$1000</button>
-                        <button onClick={(e) => handleOnClick(e)}>$2000</button>
-                        <button onClick={(e) => handleOnClick(e)}>$5000</button>
+                        <button onClick={(e) => handleOnClick(e)}>1usd</button>
+                        <button onClick={(e) => handleOnClick(e)}>5usd</button>
+                        <button onClick={(e) => handleOnClick(e)}>10usd</button>
+                        <button onClick={(e) => handleOnClick(e)}>20usd</button>
+                        <button onClick={(e) => handleOnClick(e)}>50usd</button>
+                        <button onClick={(e) => handleOnClick(e)}>100usd</button>
                     </div>
                     <div className={style.amount}>
                         <label>Otro importe:</label>
                         <input onChange={handleOnChange} value={donation.amount} name='amount' type='number' placeholder='$0,00'></input>
+                    </div> 
+                        <span>1usd = $330 = 1500 huellitas</span>
+                  </div>
+                    :
+                <div className={style.donate}>
+                    <div>
+                      <button onClick={(e) => handleOnClick(e)}>$100</button>
+                      <button onClick={(e) => handleOnClick(e)}>$200</button>
+                      <button onClick={(e) => handleOnClick(e)}>$500</button>
+                      <button onClick={(e) => handleOnClick(e)}>$1000</button>
+                      <button onClick={(e) => handleOnClick(e)}>$2000</button>
+                      <button onClick={(e) => handleOnClick(e)}>$5000</button>
                     </div>
-            </div>
+                   <div className={style.amount}>
+                    <label>Otro importe:</label>
+                    <input onChange={handleOnChange} value={donation.amount} name='amount' type='number' placeholder='$0,00'></input>
+                  </div> 
+            </div> )
                 }
                 <Box sx={{ mb: 2 }}>
                     <div className={style.buttonStepper}>
@@ -122,7 +141,10 @@ export default function VerticalLinearStepper({donation, setDonation}) {
                         sx={{ color: 'azure', backgroundColor: '#9C27B0'}}
                         // sx={{ mt: 1, mr: 1 }}
                     >
-                        {index === steps.length - 1 ? <Link to='/pago' className={style.link}>Finalizar</Link> : 'Continuar'}
+                        {index === steps.length - 1 ?
+                        // (donation.method === 'paypal' ? <Link to='/pago-paypal' className={style.link}>Finalizar</Link> : <Link to='/pago-mercado_pago' className={style.link}>Finalizar</Link>) 
+                        'Finalizar'
+                        : 'Continuar'}
                     </Button>
                     {index > 0 && (
                         <Button

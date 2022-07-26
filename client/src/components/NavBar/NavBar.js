@@ -22,8 +22,9 @@ export default function NavBar() {
                     <Link className={styles.link} to='/adoptar'><p>Adoptar</p></Link>
                     <Link className={styles.link} to='/donar'><p>Donar</p></Link>
                     <Link className={styles.link} to='/noticias'> <p>Noticias</p></Link>
-                    <Link className={styles.link} to='/nosotros'><p>Sobre Nosotros</p></Link>
+                    <Link className={styles.link} to='/nosotros'><p>Nosotros</p></Link>
                     <Link className={styles.link} to='/tienda'><p>Tienda</p></Link>
+                    <Link className={styles.link} to='/huellitas'><p>Huellitas</p></Link>
                 </div>
 
                 <div className={styles.navCenter}>

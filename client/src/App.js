@@ -10,11 +10,14 @@ import Foundation  from './components/Foundation/Foundation';
 import Profile from './components/Profile/Profile';
 import AboutUs from './components/About us/AboutUs';
 import Donate from './components/Donate/Donate';
-import Payment from './components/Donate/Payment';
 import Store from './components/Donate/Payment';
 import News from './components/Donate/Payment';
 import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
+import PostNews from './components/Profile/PostNews/PostNews';
+import Paypal from './components/Donate/Paypal/Paypal';
+import Huellitas from './components/Huellitas/Huellitas';
+// import Payment from './components/Donate/Payment';
 import axios from 'axios';
 import PostPet from './components/PostPet/PostPet';
 
@@ -35,12 +38,15 @@ function App() {
         <Route exact path='/fundacion/:foundationId'> <NavBar/> <Foundation/> </Route> {/* rompe */}
         <Route exact path='/adoptar'> <NavBar/> <Adopt/> </Route>
         <Route exact path='/donar'> <NavBar/> <Donate/></Route>
-        <Route exact path='/pago'>  <NavBar/> <Payment/></Route>
+        <Route exact path='/pago-paypal'>  <NavBar/> <Paypal/></Route>
         <Route exact path='/formulario-adopcion'> <NavBar/> <AdoptionForm/> </Route>
         <Route exact path='/tienda'> <NavBar/> <Store/></Route>
+        <Route exact path='/huellitas'> <NavBar/> <Huellitas/></Route>
         <Route exact path='/noticias'> <NavBar/> <News/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
         <Route exact path='/formulario-publicar-mascota'> <NavBar/> <PostPet/></Route>
+        <Route exact path='/postNews'> <NavBar/> <PostNews/> </Route>
+
         <Route exact path='*'> <NotFound/></Route>
       </Switch>
     </React.Fragment>

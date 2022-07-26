@@ -13,11 +13,13 @@ import product_b from '../../assets/product_b.jpg'
 import product_c from '../../assets/product_c.png'
 import paypal from '../../assets/paypal.png'
 import mercadoPago from '../../assets/mercadopago.png'
+import Paypal from './Paypal/Paypal';
 
 
 export default function Donate(){
     
     const dispatch = useDispatch()
+
     
     useEffect(()=>{
         dispatch(getFoundations())
@@ -31,10 +33,15 @@ export default function Donate(){
         method: '',
         amount: '',
     });
+    
+    let foundationName = donation.foundation.length && foundations.filter(f => donation.foundation === f.images[0])[0].name
+
+    const [checkout, setCheckout] = useState(false);
 
 
     return (
-        <>
+        !checkout ? 
+        <> 
             <div className={style.banner}>
                 <div>
                     <h1>Tu ayuda<br></br> puede salvar una huella</h1>
@@ -63,13 +70,16 @@ export default function Donate(){
             </div>
 
             <div className={style.donate}>
-                <Stepper donation={donation} setDonation={setDonation} ></Stepper>
+                <Stepper donation={donation} setDonation={setDonation} setCheckout={setCheckout} ></Stepper>
             </div>
 
             <div className={style.renders}>
             <div>
                 <h4>1. Fundación a donar</h4>
-                {donation.foundation.length>0 && <img className={style.foundation} src={donation.foundation} alt='foundation'></img>}
+                <div className={style.renderFoundation}>
+                    {donation.foundation.length>0 && <img className={style.foundation} src={donation.foundation} alt='foundation'></img>}
+                    {foundationName.length && <span>{foundationName}</span>}
+                </div>
             </div>
 
             <div>
@@ -80,9 +90,11 @@ export default function Donate(){
 
             <div>
                 <h4>3. Importe</h4>
-                {donation.amount.length>0 && <p className={style.amount}>{donation.amount}</p>}
+                <p className={style.amount}>{donation.amount}</p>
             </div>
         </div>
         </>
+        : 
+        <Paypal amount={donation.amount} foundation={foundationName} ></Paypal>
     )
 }
