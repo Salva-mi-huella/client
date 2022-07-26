@@ -15,6 +15,7 @@ import Store from './components/Donate/Payment';
 import News from './components/Donate/Payment';
 import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
+import PostNews from './components/Profile/PostNews/PostNews';
 import axios from 'axios';
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route exact path='/tienda'> <NavBar/> <Store/></Route>
         <Route exact path='/noticias'> <NavBar/> <News/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
+        <Route exact path='/postNews'> <NavBar/> <PostNews/> </Route>
         <Route exact path='*'> <NotFound/></Route>
       </Switch>
     </React.Fragment>

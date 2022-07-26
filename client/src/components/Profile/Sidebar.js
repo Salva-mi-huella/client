@@ -43,7 +43,7 @@ export default function Sidebar() {
             <Link>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
-              Huellitas
+              Huellitasaaa
             </li>
             </Link>
           </ul>
