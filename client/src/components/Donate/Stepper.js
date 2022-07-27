@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import {  useDispatch, useSelector } from 'react-redux';
-import { getFoundations } from '../../redux/actions/index.js';
+import { getFoundations, getCurrency } from '../../redux/actions/index.js';
 import style from './Stepper.module.css'
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -42,7 +42,11 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
 
   useEffect(()=>{
       dispatch(getFoundations())
+      dispatch(getCurrency())
   },[dispatch])
+
+  const currency = useSelector(state=> state.currency)
+  const conversion = currency.length>0 && parseInt(currency[1].casa.venta)*5
   
 
   const handleNext = () => {
@@ -114,7 +118,8 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
                         <label>Otro importe:</label>
                         <input onChange={handleOnChange} value={donation.amount} name='amount' type='number' placeholder='$0,00'></input>
                     </div> 
-                        <span>1usd = $330 = 1500 huellitas</span>
+                        <span>{`1usd = $${currency.length>0 && currency[1].casa.venta} = ${conversion} huellitas`}</span>
+                        {}
                   </div>
                     :
                 <div className={style.donate}>

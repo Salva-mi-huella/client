@@ -3,14 +3,9 @@ import { Link } from 'react-router-dom';
 import {  useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 import style from './Donate.module.css'
-import { getFoundations } from '../../redux/actions/index.js';
+import { getFoundations, getCurrency } from '../../redux/actions/index.js';
 import Stepper from './Stepper';
-// import banner from '../../assets/paw_hand.png'
 import banner from '../../assets/paw_hand3.png'
-// import banner from '../../assets/paw_hand5.png'
-import product_a from '../../assets/product_a.jpg'
-import product_b from '../../assets/product_b.jpg'
-import product_c from '../../assets/product_c.png'
 import paypal from '../../assets/paypal.png'
 import mercadoPago from '../../assets/mercadopago.png'
 import Paypal from './Paypal/Paypal';
@@ -22,10 +17,11 @@ export default function Donate(){
 
     
     useEffect(()=>{
-        dispatch(getFoundations())
+        dispatch(getFoundations());
     },[dispatch])
     
     const foundations = useSelector(state=> state.foundations)
+
     const {loginWithRedirect} = useAuth0();
 
     const [donation, setDonation] = useState({

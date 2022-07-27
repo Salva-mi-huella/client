@@ -1,0 +1,98 @@
+.subContainer {
+    margin-top: 30px;
+    display: flex;  
+    flex-direction: column;
+
+}
+
+.subContainer input {
+    width: 350px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1.2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.route {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin-bottom: 10px;
+}
+
+.travel {
+    display: flex;
+    margin-top: 10px;
+}
+
+.travel h3 {    
+    font-size: 1.4rem;
+    width: 200px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.calculate {
+    transition: 0.3s;
+    background-color:#9C27B0;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 24px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.calculate:hover {
+    transition: 0.3s;
+    /* background-color:#7c168ee6; */   
+    background-color: azure;
+    color: #9C27B0;
+}
+
+.arrow {
+    transition: 0.3s;
+    background-color:#9C27B0;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.arrow:hover {
+    transition: 0.3s;
+    /* background-color:#7c168ee6; */   
+    background-color: azure;
+    color: #9C27B0;
+}
+
+.x {
+    transition: 0.3s;
+    background-color: azure;
+    color: #9C27B0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.x:hover {
+    transition: 0.3s;
+    /* background-color:#7c168ee6; */   
+    background-color: red;
+    color: azure;
+}
