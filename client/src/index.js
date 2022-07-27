@@ -13,7 +13,9 @@ import { Auth0Provider} from "@auth0/auth0-react";
 
 ReactDOM.render(
   <React.StrictMode>
-  <Auth0Provider domain="dev-aekjy-pn.us.auth0.com" clientId='SIf2lfxrqThuc9N3g1ILD6zSzWNIJZkd' redirectUri="http://localhost:3000/home">
+  <Auth0Provider domain="dev-aekjy-pn.us.auth0.com" clientId='SIf2lfxrqThuc9N3g1ILD6zSzWNIJZkd' redirectUri="http://localhost:3000/home"
+    audience="http://localhost:4000"
+    scope="read:message">
     <Provider store={store}>
       <BrowserRouter>
       <FormValidation>
