@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import {  useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { getFoundationDetail } from '../../redux/actions/index';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
+// import Map from '../Map/Map';
 import styles from './Foundation.module.css'
 import paypal from '../../assets/paypal.png';
 import mp from '../../assets/mercadopago.png';
 import instagram from '../../assets/instagram.png';
 import email from '../../assets/email-2.png';
 import web from '../../assets/web.png';
-import google from '../../assets/googlemaps.png';
 
 
 export default function Foundation () {
@@ -97,13 +98,21 @@ export default function Foundation () {
 
                     <h2 className={styles.titles}>Contactanos</h2>
                     <div className={styles.containerContact}>
+                    
+                            {/* <img className={styles.google} src={google} alt='google'></img> */}
+                            <GoogleMaps foundation={foundation} />
+                    
+                
                         <div>
-                            <img className={styles.google} src={google} alt='google'></img>
-                        </div>
-                        <div>
-                            <h3>Teléfono:</h3><p>{foundation.telephone_number}</p>
                             <div>
-                            {foundation.web  && <a href={foundation.web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
+                             <h3>Teléfono:</h3><p>{foundation.telephone_number}</p> 
+                            </div>
+                            <div>
+                                <h3>Ubicación:</h3><p>{`${foundation.address}, ${foundation.city}, ${foundation.state}.`}</p>
+                            </div>
+
+                            <div className={styles.iconsContainer}>
+                            {foundation.website  && <a href={foundation.web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
                             {foundation.instagram && <a href={foundation.instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
                             {foundation.email && <a href={`mailto:${foundation.email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
                             </div>

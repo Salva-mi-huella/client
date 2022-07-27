@@ -16,6 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import Topbar from './Topbar';
 import { useAuth0 } from '@auth0/auth0-react';
 import NavBar from '../NavBar/NavBar';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -76,6 +77,13 @@ export default function PermanentDrawerLeft() {
             </ListItem>
           ))}
         </List>
+        
+        {/* //Creo esta ruta solo para visualizar la seccion,
+        Cuando hagan esta seccion linkeenlo bien */}
+        <>
+            <h2>Ruta postear noticias</h2>
+            <Link to="/postNews">Postear Noticias</Link>
+        </>
       </Drawer>
       <Box
         component="main"

@@ -15,7 +15,6 @@ export const SliderFoundation = () => {
 
     const dispatch = useDispatch();
     const foundations = useSelector(state => state.foundations)
-    console.log(foundations)
 
 
     useEffect(() => {
