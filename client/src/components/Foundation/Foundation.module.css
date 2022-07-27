@@ -24,13 +24,19 @@
     transition:0.3s;
     width: 50px;
     margin-left: 80px;
-    margin-top: 50px;
 }
 .icons:hover {
     transition:0.3s;
     transform: scale(1.05);
     width: 50px;
     cursor:pointer;
+}
+
+.iconsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .paypal {
@@ -221,7 +227,8 @@
 .containerContact {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
+    justify-content: center;
     padding: 30px;
     margin-bottom: 50px;
 }
@@ -236,6 +243,7 @@
     color: white;
     font-weight: bold;
     margin-left: 100px;
+    margin-bottom: 40px;
 }
 
 

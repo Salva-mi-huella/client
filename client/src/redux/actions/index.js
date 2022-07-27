@@ -4,6 +4,7 @@ export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
 export const GET_PET_DETAIL = 'GET_PET_DETAIL';
 export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
 export const GET_All_PETS = 'GET_AllPETS'
+export const GET_CURRENCY = 'GET_CURRENCY'
 export const FILTERS_CONFIG = 'FILTERS_CONFIG'
 
 
@@ -76,5 +77,22 @@ export function filtersConfig(config){
         filter : Object.keys(config),
         payload: config
     } 
+}
+
+export function getCurrency(){
+    return async function (dispatch){
+        try {
+            const info = await axios.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+            return dispatch({
+                type: GET_CURRENCY,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
 }
 

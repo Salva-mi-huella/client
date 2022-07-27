@@ -40,8 +40,12 @@ export default function Huellitas(){
                 </div>
 
             <div className={style.titles}>
-                <h3>Sumate y te regalamos 100 huellitas!</h3>
-                <h3>Ganá 5000 huellitas por cada huella que salves</h3>
+                <h1>¿De qué otra manera podés empezar a sumar?</h1>
+                <div>
+                    <h3>Registrarte 100</h3>
+                    <h3>Por cada amigo que invites 200</h3>
+                    <h3>Por cada huella que salves 1000</h3>
+                </div>
             </div>
 
             <div className={style.store}>
