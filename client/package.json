@@ -19,6 +19,7 @@
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
     "framer-motion": "^6.5.1",
+    "jsonwebtoken": "^8.5.1",
     "react": "^17.0.2",
     "react-admin": "^4.2.4",
     "react-apexcharts": "^1.4.0",
