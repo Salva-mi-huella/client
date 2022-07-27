@@ -5,6 +5,7 @@ import { GET_FOUNDATION_DETAIL, GET_PET_DETAIL, GET_FOUNDATIONS, GET_All_PETS, F
 
 
 
+
 const initialState = {
     petDetail: {},
     foundationDetail: [],
@@ -28,8 +29,8 @@ export default function rootReducer(state = initialState, action) {
 
         case GET_CURRENCY: return {...state, currency: action.payload }
 
-        case FILTERS_CONFIG: 
-            return{...state, filtersConfig:{ ...state.filtersConfig, [action.filter]: action.payload[action.filter]}}
+        case FILTERS_CONFIG: return{...state,
+            filtersConfig:{ ...state.filtersConfig, [action.filter]: action.payload[action.filter]}}
 
         default: return {...state}
 
