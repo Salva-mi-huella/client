@@ -9,6 +9,8 @@ import { getAllPets } from '../../redux/actions/index.js';
 import FilterByType from './Filters/FilterByType.js';
 import FilterByFoundation from './Filters/FilterByFoundation.js';
 import FilterByGender from './Filters/FilterByGender.js';
+import SearchBar from './Filters/SearchBar.js';
+import Location from './Filters/Location.js';
 
 
 export default function Adopt(){
@@ -23,6 +25,7 @@ export default function Adopt(){
     const arrAllPets = useSelector(state=> state.allPets )
     const filters = useSelector(state=> state.filtersConfig )
 
+    //In case page is reload
     useEffect(()=>{
         return function clean(){
             dispatch(filtersConfig({type:null}))
@@ -44,7 +47,13 @@ export default function Adopt(){
         if(filters.gender){
             filteringPets = filteringPets.filter(pet => pet.gender === filters.gender)
         }
-        if(!filteringPets.length && arrAllPets.length) alert("No hay animales en adopcion con esas caracteristicas")
+        if(filters.city){
+            filteringPets = filteringPets.filter(pet => pet.foundation.name === filters.city)
+        }
+        if(filters.name){
+            filteringPets = filteringPets.filter(pet => (pet.name).toLowerCase().includes((filters.name).toLowerCase()))
+        }
+        if(!filteringPets.length && arrAllPets.length && !filters.name) alert("No hay animales en adopcion con esas caracteristicas")
         setFilteredPets(filteringPets)
         
     },[filters,arrAllPets])
@@ -78,16 +87,25 @@ export default function Adopt(){
                     <img id={style.steps} src={steps} alt="steps"/>
                 </div>
             </div>
+            <h2 className={style.innerTittles} >Conoce nuestras Huellas</h2>
             <div className={style.allAnimals}>
-                <h2 className={style.innerTittles} >Conoce nuestras Huellas</h2>
-                    <div className={style.allAnimals__filters}>
+                <div className={style.allAnimals__filters}>
                         <FilterByType/>
-                        <div className={style.filtersBy}>
-                            <span>Filtrar por</span>
-                                <FilterByFoundation/>
-                                <FilterByGender/>
-                        </div>
+                        <SearchBar/>
+                        <div className={style.containerToggle}>
+                            <div className={style.filterIcon}>
+                                <i className="fa-solid fa-filter"></i>
+                                <i className="fa-solid fa-bars"></i>
+                            </div>
+                            <div className={style.containerFiltersBy}>
+                                <div className={style.filtersBy}>
+                                    <FilterByFoundation/>
+                                    <FilterByGender/>
+                                    <Location/>
+                                </div>
+                            </div>
                     </div>
+                </div>
                 </div>
             <div className={style.cardContainer}>
                 {filteredPets ?

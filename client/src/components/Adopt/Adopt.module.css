@@ -58,6 +58,7 @@
     color: rgb(255, 230, 0);
     font-weight: bold;
     padding-top: 50px;
+    text-align: center;
     padding-bottom: 35px;
 
 }
@@ -77,6 +78,10 @@
 .allAnimals{
     margin-top: 50px;
     text-align: center;
+    position: -webkit-sticky;
+    position: sticky;
+    backdrop-filter: blur(5px);
+    top: 0;
     justify-content: center;
     align-items: center;
 }
@@ -86,6 +91,7 @@
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
+    min-height: 50vh;
     justify-content: center;
 }
 .card{
@@ -127,21 +133,68 @@
     margin-bottom: 30px;
     background-color: rgba(99, 59, 218, 0.42);
     border-radius: 50px;
+
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    flex-direction: row;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.filtersBy{
+.containerToggle{
+    width: 172px;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: .4s;
 }
+
+.filterIcon{
+    font-size: 20px;
+    color: white;
+    /* border: 2px solid white; */
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: .4s;
+
+
+}
+.containerToggle:hover i{
+    color: rgb(255, 230, 0);
+
+}
+
+.containerFiltersBy{
+    display: none;
+    margin-top: 28px;
+    position: absolute;
+    cursor: pointer;
+}
+.containerToggle:hover .containerFiltersBy{
+    display: block
+}
+.filtersBy{ 
+    padding: 10px;
+    backdrop-filter: blur(0.9px);
+    background-color: rgba(99, 59, 218, 0.905);
+    display: flex;
+    gap: 15px;
+    border-radius: 0 0 15px 15px;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
 .filtersBy span{
     color: white;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    margin-right:8px;
+    margin-bottom:8px;
 }
+
 
 /* Filter by type */
 .btnFilterType{
@@ -168,4 +221,39 @@
 .filterConfig:focus{
     outline: none;
 }
-/* Filter by sex */
+/* Filter Searchbar*/
+.searchContainer{
+    width: 30%;
+}
+.searchContainer i{
+    color: rgb(99, 59, 218);
+    font-size: 18px;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 0px 20px 20px 0px;
+    background-color: white;
+}
+.searchInput{
+    background-color: transparent;
+    border: none;
+    width: 85%;
+    height: 29px;
+    border: 1px solid white;
+    border-radius: 20px 0px 0px 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-left: 10px;
+    transition: 0.5s;
+    color: rgb(255, 230, 0);
+}
+.searchInput:hover{
+    background-color:rgb(99, 59, 218);
+}
+.searchInput:focus{
+    outline: none;
+}
+.searchInput::placeholder{
+    color: rgba(255, 245, 245, 0.54);
+}
+
+
