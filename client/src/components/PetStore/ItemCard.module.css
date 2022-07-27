@@ -1,0 +1,49 @@
+.container{
+    border-radius: 8px; 
+    margin: 50px 20px 100px 10px;   
+    width: 350px;
+    height: 280px;
+}
+
+.imgproduct{
+    object-fit:fill;
+    height: 280px;
+    width: 350px;
+    border-radius: 8px;
+    
+}
+
+.imgproduct:hover{
+    cursor: pointer;
+    zoom: 105%;
+    opacity: 0.6;
+}
+
+
+.paws{
+    width: 50px;
+    height: 50px;
+}
+
+.productname{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.productname h4{
+    font-weight: 800;
+    color: yellow;
+}
+
+.detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.detail h4{
+    font-weight: 800;
+    font-size: 40px;
+}

@@ -1,0 +1,22 @@
+.main{
+    display: flex;
+}
+
+.items{
+    display: flex;
+    justify-content:space-around; 
+    flex-wrap: wrap;
+    align-items: center;
+    width: 60%;
+    height: 85%;
+    text-decoration: none;
+    margin-bottom: 100px;
+}
+.sidebar{
+    display: flex;
+    width: 300px;
+    height: 100vh;
+    background-color: azure;
+    margin-right: 100px;
+}
+
