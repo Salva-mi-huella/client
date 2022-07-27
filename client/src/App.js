@@ -11,7 +11,7 @@ import Profile from './components/Profile/Profile';
 import ProfileUser from './components/ProfileUser/ProfileUser';
 import AboutUs from './components/About us/AboutUs';
 import Donate from './components/Donate/Donate';
-import Store from './components/Donate/Payment';
+import PetStore from './components/PetStore/Store';
 import News from './components/Donate/Payment';
 import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
@@ -41,7 +41,7 @@ function App() {
         <Route exact path='/donar'> <NavBar/> <Donate/></Route>
         <Route exact path='/pago-paypal'>  <NavBar/> <Paypal/></Route>
         <Route exact path='/formulario-adopcion'> <NavBar/> <AdoptionForm/> </Route>
-        <Route exact path='/tienda'> <NavBar/> <Store/></Route>
+        <Route exact path='/tienda'> <NavBar/> <PetStore/></Route>
         <Route exact path='/huellitas'> <NavBar/> <Huellitas/></Route>
         <Route exact path='/noticias'> <NavBar/> <News/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
