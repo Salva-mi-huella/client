@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import styles from "./PostPet.module.css";
 
 export default function PostPet() {
 var date = Date();
 
+  const [imag, setImag ] = useState("");
+
+  const uploadImage = async (e) =>{
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "01_huellas");
+    const res = await fetch ("https://api.cloudinary.com/v1_1/huellitas2/image/upload",
+    {
+      method: "POST",
+      body: data
+    })
+    let file = await res.json()
+    //console.log(file)
+    setImag(file.secure_url);
+    //console.log(file.secure_url);
+  }
+  
+  //console.log(imag)
+
   return (
     <div className={styles.container}>
       <Formik
         initialValues={{
           name: "",
-          images: "",
+          images: `${imag}`,
           type: "",
           age: "",
           gender: "",
@@ -142,7 +162,7 @@ var date = Date();
 
               <div>
                 <label>Imagenes</label>
-                <input className="form-control opacity-75" type="File" id="file"/>
+                <input className="form-control opacity-75" type="File" id="file" onChange={(e) => uploadImage(e)}/>
               </div>
 
               <div className={styles.wrap}>
