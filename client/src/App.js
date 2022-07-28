@@ -3,8 +3,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
-import AdoptionForm from './components/AdoptionForm/AdoptionForm'
-import PetDetail from './components/PetDetail/PetDetail';
+import AdoptionForm from './components/Adopt/AdoptionForm/AdoptionForm'
+import PetDetail from './components/Adopt/PetDetail/PetDetail';
 import Adopt from './components/Adopt/Adopt'
 import Foundation  from './components/Foundation/Foundation';
 import Profile from './components/Profile/Profile';

@@ -205,7 +205,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List 
-                 style={{ color: 'azure' }}
+                 style={{ color: 'azure', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
         
         > 
             <ListItemButton onClick={goHome} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><HomeIcon sx={{color: 'white'}}/></ListItemIcon>Home</ListItemButton>

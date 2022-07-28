@@ -256,4 +256,16 @@
     color: rgba(255, 245, 245, 0.54);
 }
 
+/* Pages */
+ul{
+    list-style: none;
+    display: flex;
+    gap:30px;
+    cursor: pointer;
+}
+.pages:hover{
+    color: red;
+}
+
+
 

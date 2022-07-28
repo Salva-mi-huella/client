@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory, useParams} from 'react-router-dom';
 import styles from './PetDetail.module.css';
-import { getPetDetail } from '../../redux/actions/index';
-import Loading from '../Loading/Loading';
+import { getPetDetail } from '../../../redux/actions/index';
+import Loading from '../../Loading/Loading';
 
 
 
