@@ -10,6 +10,8 @@ export const PETS_FILTERED = 'PETS_FILTERED'
 export const POST_USER = 'POST_USER'
 export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
 export const GET_All_PRODUCTS = 'GET_All_PRODUCTS'
+export const UPDATE_USER = 'UPDATE_USER'
+export const GET_USER = 'GET_USER'
 
 
 
@@ -133,6 +135,38 @@ export function updateFoundation(id) {
             return dispatch({
                 type: UPDATE_FOUNDATION,
                 payload: updatedFoundation
+            })
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+export function updateUser(data, email) {
+    return async function (dispatch) {
+        try {
+            const updatedUser = await axios.put(`/users/${email}`, data);
+
+            return dispatch({
+                type: UPDATE_USER,
+                payload: updatedUser
+            })
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+export function getUserByEmail(email) {
+    return async function (dispatch) {
+        try {
+            const user = await axios.get(`/users/${email}`);
+
+            return dispatch({
+                type: GET_USER,
+                payload: user.data
             })
         }
         catch (error) {

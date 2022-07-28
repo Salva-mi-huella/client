@@ -37,6 +37,7 @@ import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
 
 
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -99,19 +100,13 @@ const style = {
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [myData, setMyData] = React.useState(true);
   const [favs, setFavs] = React.useState(false);
-  const [datos, setDatos] = React.useState(false);
-  const [userData, setUserData] = React.useState({
-    dni: '',
-    telefono: '',
-    direccion: '',
-    nacimiento: '',
-  });
-  const [solicitudes, setSolicitudes] = React.useState(false);
+  const [myData, setMyData] = React.useState(true);
+  const [request, setRequests] = React.useState(false);
   const [donations, setDonations] = React.useState(false);
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  // const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const { user, isLoading } = useAuth0();
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -127,43 +122,27 @@ export default function PersistentDrawerLeft() {
     setMyData(true);
     setDonations(false);
     setFavs(false);
-    setSolicitudes(false);
+    setRequests(false);
   }
   const viewDonations = () => {
-    setDonations(true);
     setMyData(false);
+    setDonations(true);
     setFavs(false);
-    setSolicitudes(false);
+    setRequests(false);
   }
   
   const viewFavs = () => {
-    setFavs(true);
     setMyData(false);
     setDonations(false);
-    setSolicitudes(false);
+    setFavs(true);
+    setRequests(false);
   }
   const viewAdoptSolicitudes = () => {
-    setFavs(false);
     setMyData(false);
     setDonations(false);
-    setSolicitudes(true);
+    setFavs(false);
+    setRequests(true);
   }
-  const onSubmit = (data) => {
-    console.log(data);
-    setDatos(false)
-    setUserData({
-      dni: data.dni,
-      telefono: data.telefono,
-      direccion: data.direccion,
-      nacimiento: data.nacimiento,
-    });
-    alert('Datos actualizados');
-  }
-
-  const enviarDatos = () => {
-    setDatos(true)
-  }
-
 
   return (
     <div><Box sx={{ display: 'flex', color: 'black' }}>
@@ -221,7 +200,7 @@ export default function PersistentDrawerLeft() {
         <DrawerHeader />
       </Main>
     </Box>
-    {myData && <EditDataForm datos={datos} setDatos={setDatos} /> }
+    {myData && <EditDataForm />}
 
     {donations && <DonationTable></DonationTable>}
 
@@ -230,7 +209,7 @@ export default function PersistentDrawerLeft() {
       <p>No hay favoritos.</p>
       </div>}
 
-    {solicitudes && <RequestTable></RequestTable>}
+    {request && <RequestTable></RequestTable>}
 
     </div>
   );
