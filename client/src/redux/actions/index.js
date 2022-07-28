@@ -8,6 +8,7 @@ export const GET_CURRENCY = 'GET_CURRENCY'
 export const FILTERS_CONFIG = 'FILTERS_CONFIG'
 export const POST_USER = 'POST_USER'
 export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
+export const GET_All_PRODUCTS = 'GET_All_PRODUCTS'
 
 
 
