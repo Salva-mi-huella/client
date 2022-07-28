@@ -51,6 +51,8 @@ export default function AccountMenu() {
         PaperProps={{
           elevation: 0,
           sx: {
+            backgroundColor: 'purple',
+            color: 'white',
             overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
             mt: 1.5,
@@ -78,7 +80,7 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <Link className={style.link} to='/perfil'>
-            <MenuItem>
+            <MenuItem sx={{ color:'white' }}>
             <Avatar /> Mi Perfil
             </MenuItem>
         </Link>
@@ -87,14 +89,8 @@ export default function AccountMenu() {
           <img className={style.paw} src={paw} alt='alt'></img> 2300
         </MenuItem>
         <Divider />
-        {/* <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Configuración
-        </MenuItem> */}
         <MenuItem>
-          <ListItemIcon>
+          <ListItemIcon sx={{ color:'white' }}>
             <Logout onClick={()=>logout({returnTo:'http://localhost:3000/home'})} fontSize="small" />
           Cerrar sesión
           </ListItemIcon>
