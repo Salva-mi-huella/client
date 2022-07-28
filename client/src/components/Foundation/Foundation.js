@@ -20,6 +20,7 @@ export default function Foundation () {
     const dispatch = useDispatch();
     const params = useParams();
     const foundation = useSelector(state => state.foundationDetail)
+    console.log(foundation)
 
     useEffect(() => { 
         dispatch(getFoundationDetail(params.foundationId))
@@ -100,7 +101,7 @@ export default function Foundation () {
                     <div className={styles.containerContact}>
                     
                             {/* <img className={styles.google} src={google} alt='google'></img> */}
-                            <GoogleMaps foundation={foundation} />
+                            <GoogleMaps foundation={foundation} lat={foundation.lat} lng={foundation.lng} />
                     
                 
                         <div>
