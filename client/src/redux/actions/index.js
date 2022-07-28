@@ -5,6 +5,7 @@ export const GET_PET_DETAIL = 'GET_PET_DETAIL';
 export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
 export const GET_All_PETS = 'GET_AllPETS'
 export const FILTERS_CONFIG = 'FILTERS_CONFIG'
+export const PETS_FILTERED = 'PETS_FILTERED'
 
 
 export function getFoundationDetail(id){
@@ -77,4 +78,12 @@ export function filtersConfig(config){
         payload: config
     } 
 }
+export function petsFiltered(pets,page){
+    return {
+        type: PETS_FILTERED,
+        filtered: pets,
+        perPage: page
+    } 
+}
+
 

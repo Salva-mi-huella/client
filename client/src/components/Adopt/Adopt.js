@@ -4,19 +4,20 @@ import banner from '../../assets/banneradopt.png'
 import steps from '../../assets/adoptSteps.png'
 import {  useDispatch, useSelector } from 'react-redux';
 import style from './Adopt.module.css'
-import { filtersConfig } from '../../redux/actions'
+import { filtersConfig, petsFiltered } from '../../redux/actions'
 import { getAllPets } from '../../redux/actions/index.js';
 import FilterByType from './Filters/FilterByType.js';
 import FilterByFoundation from './Filters/FilterByFoundation.js';
 import FilterByGender from './Filters/FilterByGender.js';
 import SearchBar from './Filters/SearchBar.js';
-import Location from './Filters/Location.js';
+import FilterByLocation from './Filters/FilterByLocation.js';
+import Paginate from './Filters/Paginate.js';
 
 
 export default function Adopt(){
     
     const dispatch = useDispatch()
-    const [filteredPets, setFilteredPets] = useState(null)
+    const {filtered,pages} = useSelector(state => state.petsFiltered)
     
     useEffect(()=>{
         dispatch(getAllPets())
@@ -25,13 +26,10 @@ export default function Adopt(){
     const arrAllPets = useSelector(state=> state.allPets )
     const filters = useSelector(state=> state.filtersConfig )
 
-    //In case page is reload
+    //In case browser reload
     useEffect(()=>{
         return function clean(){
-            dispatch(filtersConfig({type:null}))
-            dispatch(filtersConfig({foundation:null}))
-            dispatch(filtersConfig({gender:null}))
-        }
+            dispatch(filtersConfig({type:null,foundation:null,gender:null }))}
     },[])
 
 
@@ -54,11 +52,13 @@ export default function Adopt(){
             filteringPets = filteringPets.filter(pet => (pet.name).toLowerCase().includes((filters.name).toLowerCase()))
         }
         if(!filteringPets.length && arrAllPets.length && !filters.name) alert("No hay animales en adopcion con esas caracteristicas")
-        setFilteredPets(filteringPets)
+        
+        dispatch(petsFiltered(filteringPets)) 
         
     },[filters,arrAllPets])
+    
 
-
+    let renderPerPage = pages || arrAllPets.slice(0,12)
     return (
         <>
             <div className={style.banner}>
@@ -101,15 +101,16 @@ export default function Adopt(){
                                 <div className={style.filtersBy}>
                                     <FilterByFoundation/>
                                     <FilterByGender/>
-                                    <Location/>
+                                    <FilterByLocation/>
                                 </div>
                             </div>
                     </div>
                 </div>
                 </div>
             <div className={style.cardContainer}>
-                {filteredPets ?
-                    filteredPets.map(pet => (
+                <Paginate/>
+                {renderPerPage ?
+                    renderPerPage.map(pet => (
                         <Card 
                         id={pet.id}
                         key= {pet.id}

@@ -4,7 +4,7 @@ import { filtersConfig, getFoundations } from '../../../redux/actions'
 import style from '../Adopt.module.css'
 
 
-export default function Location(){
+export default function FilterByLocation(){
 
     const dispatch = useDispatch()
 
@@ -22,7 +22,6 @@ export default function Location(){
             city: element.city})
     });
 
-    console.log(foundationXLocation)
    
     function handleChange(e){
         let city = e.target.value
