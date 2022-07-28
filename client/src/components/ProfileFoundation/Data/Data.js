@@ -14,6 +14,8 @@ import {
     MdHowToVote
 } from 'react-icons/md';
 
+import { FaHome } from 'react-icons/fa';
+
 // USER FAKE IMAGES
 import img1 from '../../../assets/fotoLauti.jpeg'
 
@@ -43,8 +45,6 @@ export const SidebarData = [
         icon: MdOutgoingMail,
         heading: "Mensajes"
     },
-
-
 ];
 
 //  MainDash Data
@@ -57,7 +57,7 @@ export const CardsData = [
         },
         barValue: 70,
         value: 38,
-        png: MdHome,
+        png: FaHome,
         series: [
             {
                 name: "Adopciones",
@@ -72,7 +72,7 @@ export const CardsData = [
             boxShadow: "0px 10px 20px 0px #FDC0C7",
         },
         barValue: 60,
-        value: "37,800",
+        value: "$37,800",
         png: MdHowToVote,
         series: [
             {

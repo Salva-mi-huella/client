@@ -1,6 +1,45 @@
 .RightSide {
     display: flex;
     flex-direction: column;
+    /* padding-top: 1rem; */
     width: 95%;
     justify-content: space-evenly;
+    /* background-color: red; */
+}
+
+.updates {
+    position: relative;
+    top: -100px;
+    /* background-color: #fff; */
+}
+
+@media screen and (max-width: 1200px) {
+    .RightSide {
+        justify-content: flex-start;
+        margin-top: 3rem;
+    }
+
+    .updates {
+        position: relative;
+        top: -10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .RightSide {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .updates {
+        position: relative;
+        top: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
