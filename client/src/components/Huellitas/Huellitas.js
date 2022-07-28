@@ -22,7 +22,7 @@ export default function Huellitas(){
                 <img src={banner} alt="Banner of animals"/>
                 <div>
                     <h1 className={style.sectionTitle}>Disfrutá de Huellitas</h1>
-                    <p >El programa donde más donaciones hacés, más te vamos a cagar 🙂</p>
+                    <p >El programa donde más donaciones hacés, más te vamos a robar 🙂</p>
                     <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
                 </div>
             </div>
@@ -41,11 +41,8 @@ export default function Huellitas(){
 
             <div className={style.titles}>
                 <h1>¿De qué otra manera podés empezar a sumar?</h1>
-                <div>
-                    <h3>Registrarte 100</h3>
-                    <h3>Por cada amigo que invites 200</h3>
-                    <h3>Por cada huella que salves 1000</h3>
-                </div>
+                <div><h3>Por cada amigo que invites</h3><h4>200</h4><h3>Registrarte</h3><h4>100</h4>
+                    <h3>Por cada huella que salves</h3><h4>1000</h4></div>
             </div>
 
             <div className={style.store}>
