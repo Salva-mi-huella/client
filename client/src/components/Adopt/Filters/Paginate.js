@@ -13,13 +13,13 @@ export default function Paginate(){
     const [firstIndex, setFirstIndex] = useState(0)
     const [lastIndex, setLastIndex] = useState(12)
     
-    // useEffect(()=>{
-    //     if(filtered){
-    //         let renderPage = filtered.slice(firstIndex, lastIndex)
-    //         dispatch(petsFiltered(filtered,renderPage))
-    //     }
+    useEffect(()=>{
+        if(filtered){
+            let renderPage = filtered.slice(firstIndex, lastIndex)
+            dispatch(petsFiltered(filtered,renderPage))
+        }
         
-    // },[dispatch])
+    },[filtered])
     
 
 
