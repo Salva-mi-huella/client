@@ -7,6 +7,7 @@ import style from '../Adopt.module.css'
 
 export default function Paginate(){
     
+    
     const dispatch = useDispatch()
     
     const {filtered} = useSelector(state => state.petsFiltered)
