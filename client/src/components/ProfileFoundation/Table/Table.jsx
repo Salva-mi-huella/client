@@ -44,11 +44,14 @@ const rows = [
 ];
 
 export default function BasicTable() {
+
+
+
     return (
         <div className="Table">
             <h3> Tabla de solicitudes </h3>
             <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', }}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029' }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>

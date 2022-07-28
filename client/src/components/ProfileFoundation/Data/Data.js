@@ -14,6 +14,8 @@ import {
     MdHowToVote
 } from 'react-icons/md';
 
+import { FaHome } from 'react-icons/fa';
+
 // USER FAKE IMAGES
 import img1 from '../../../assets/fotoLauti.jpeg'
 
@@ -43,8 +45,6 @@ export const SidebarData = [
         icon: MdOutgoingMail,
         heading: "Mensajes"
     },
-
-
 ];
 
 //  MainDash Data
@@ -57,7 +57,7 @@ export const CardsData = [
         },
         barValue: 70,
         value: 38,
-        png: MdHome,
+        png: FaHome,
         series: [
             {
                 name: "Adopciones",
@@ -72,7 +72,7 @@ export const CardsData = [
             boxShadow: "0px 10px 20px 0px #FDC0C7",
         },
         barValue: 60,
-        value: "37,800",
+        value: "$37,800",
         png: MdHowToVote,
         series: [
             {
@@ -81,23 +81,23 @@ export const CardsData = [
             },
         ],
     },
-    {
-        title: "Gastos",
-        color: {
-            backGround:
-                "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
-            boxShadow: "0px 10px 20px 0px #F9D59B",
-        },
-        barValue: 60,
-        value: "48,600",
-        png: MdPaid,
-        series: [
-            {
-                name: "Gastos",
-                data: [3, 4, 2, 5, 4, 10, 10]
-            },
-        ],
-    },
+    // {
+    //     title: "Gastos",
+    //     color: {
+    //         backGround:
+    //             "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
+    //         boxShadow: "0px 10px 20px 0px #F9D59B",
+    //     },
+    //     barValue: 60,
+    //     value: "48,600",
+    //     png: MdPaid,
+    //     series: [
+    //         {
+    //             name: "Gastos",
+    //             data: [3, 4, 2, 5, 4, 10, 10]
+    //         },
+    //     ],
+    // },
 ];
 
 export const UpdatesData = [

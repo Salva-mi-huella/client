@@ -19,14 +19,16 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .AppGlass {
+    .containerGlass {
         grid-template-columns: 10% 50% auto;
         overflow-y: scroll;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .AppGlass {
-        grid-template-columns: 1fr;
+    .containerGlass {
+        grid-template-columns: 11rem auto 20rem;
+        overflow-x: scroll;
+        /* grid-template-columns: 1fr; */
     }
 }

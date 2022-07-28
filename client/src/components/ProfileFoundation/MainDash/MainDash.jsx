@@ -9,7 +9,7 @@ const MainDash = () => {
     return (
         <div className='MainDash'>
 
-            <h1> Movimientos del Mes </h1>
+            <h1 className='h1' > Movimientos del Mes </h1>
 
             <Cards />
             <Table />

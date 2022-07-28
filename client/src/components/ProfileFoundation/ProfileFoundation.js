@@ -10,9 +10,6 @@ import Inbox from './Inbox/Inbox.jsx';
 
 import styles from '../ProfileFoundation/ProfileFoundation.module.css';
 
-
-
-
 export default function ProfileFoundation() {
 
     const [optionSelection, setOptionSelection] = useState(0)
@@ -21,10 +18,12 @@ export default function ProfileFoundation() {
         <div className={styles.profileFoundation} >
 
             <div className={styles.containerGlass} >
+                
                 <Sidebar
                     optionSelection={optionSelection}
                     setOptionSelection={setOptionSelection}
                 />
+                
                 {
                     optionSelection === 0 && (
                         <>
@@ -61,8 +60,6 @@ export default function ProfileFoundation() {
                         </>
                     )
                 }
-                {/* <MainDash />
-                <RightSide /> */}
 
             </div>
 
