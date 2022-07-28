@@ -1,5 +1,6 @@
 .main{
     display: flex;
+    justify-content: center;
 }
 
 .items{
@@ -7,16 +8,111 @@
     justify-content:space-around; 
     flex-wrap: wrap;
     align-items: center;
-    width: 60%;
+    width: 100%;
     height: 85%;
     text-decoration: none;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .sidebar{
     display: flex;
+    justify-content: center;
     width: 300px;
     height: 100vh;
-    background-color: azure;
-    margin-right: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+    background-image: url(../../assets/images/background-paws.jpg);
+    background-size:cover;   
+}
+
+.containeritems{
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+}
+
+.containeritems h5{
+    display: flex;
+    justify-content: center;
+    color: #FCEC4F;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+
+.paginate{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 600px;
+}
+
+.pagbuttons{
+    background-color: #FCEC4F;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.pagbuttons a{
+    text-decoration: none;
+}
+
+.activebuttons{
+    background-color:#5D3DD2;
+    border-radius: 4px;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;    
+}
+
+.activebuttons:hover{
+    color: white;
+}
+
+.prevnext{
+    background-color: #FCEC4F;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.prevnext:hover{
+    cursor: pointer;
+    background-color:#5D3DD2;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;  
 }
 
