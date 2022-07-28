@@ -6,6 +6,7 @@ export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
 export const GET_All_PETS = 'GET_AllPETS'
 export const GET_CURRENCY = 'GET_CURRENCY'
 export const FILTERS_CONFIG = 'FILTERS_CONFIG'
+export const PETS_FILTERED = 'PETS_FILTERED'
 export const POST_USER = 'POST_USER'
 export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
 
@@ -81,6 +82,14 @@ export function filtersConfig(config){
         payload: config
     } 
 }
+export function petsFiltered(pets,page){
+    return {
+        type: PETS_FILTERED,
+        filtered: pets,
+        perPage: page
+    } 
+}
+
 
 export function getCurrency(){
     return async function (dispatch){

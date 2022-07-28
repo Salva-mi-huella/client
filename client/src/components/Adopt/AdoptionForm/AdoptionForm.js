@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../AdoptionForm/AdoptionForm.module.css'
+import styles from './AdoptionForm.module.css'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { Link, useHistory } from "react-router-dom";
