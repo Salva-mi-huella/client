@@ -7,6 +7,7 @@ export const GET_All_PETS = 'GET_AllPETS';
 export const GET_CURRENCY = 'GET_CURRENCY';
 export const FILTERS_CONFIG = 'FILTERS_CONFIG';
 export const GET_All_PRODUCTS = 'GET_All_PRODUCTS';
+export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
 
 
 export function getFoundationDetail(id){
@@ -19,6 +20,18 @@ export function getFoundationDetail(id){
                 dispatch({ type: GET_FOUNDATION_DETAIL, payload: e.data })
             }
             // return dispatch({ type: GET_FOUNDATION_DETAIL, payload: data.foundation.filter(foundation => foundation.id === id) })
+        } 
+}
+
+export function getProductDetail(id){
+    return function(dispatch) {
+        try{
+            return axios(`/products/${id}`)
+            .then(detail =>
+                dispatch({ type: GET_PRODUCT_DETAIL, payload: detail.data }))
+            } catch (e) {
+                dispatch({ type: GET_PRODUCT_DETAIL, payload: e.data })
+            }
         } 
 }
 
