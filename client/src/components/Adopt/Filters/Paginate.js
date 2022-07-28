@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { petsFiltered } from "../../../redux/actions";
+import style from '../Adopt.module.css'
+
 
 
 export default function Paginate(){
@@ -8,41 +10,22 @@ export default function Paginate(){
     const dispatch = useDispatch()
     
     const {filtered} = useSelector(state => state.petsFiltered)
-    const arrAllPets = useSelector(state=> state.allPets )
-    const [actualPage, setActualPage] = useState(1)
-    const [firstIndex, setFirstIndex] = useState(0)
-    const [lastIndex, setLastIndex] = useState(12)
     
-    useEffect(()=>{
-        if(filtered){
-            let renderPage = filtered.slice(firstIndex, lastIndex)
-            dispatch(petsFiltered(filtered,renderPage))
-        }
-        
-    },[filtered])
-    
-
-
     // Setup number of rendering pages
     let pagesUI = []
-    let pets = filtered || arrAllPets 
-    if(arrAllPets){
-        let totalPages = pets.length / 12 
+    if(filtered){
+        let totalPages = filtered.length / 12 
         for (let i = 1; i <= totalPages; i++) {
             pagesUI.push(i)
           }
     }
     function handleSelect(e){
         let page = e.target.value
-        setActualPage(page)
         let firstIndex = (page * 12) - 12
-        setFirstIndex(firstIndex)
         let lastIndex = (page * 12)
-        setLastIndex(lastIndex)
 
-        let renderPage = pets.slice(firstIndex, lastIndex)
-        dispatch(petsFiltered(pets,renderPage))
-        console.log(firstIndex, lastIndex)
+        let renderPage = filtered.slice(firstIndex, lastIndex)
+        dispatch(petsFiltered(filtered,renderPage))
     }
 
     return(
@@ -51,7 +34,7 @@ export default function Paginate(){
                 {pagesUI.length &&
                     pagesUI.map(n=>(
                         //Revisar si esta bien usar LI
-                        <li key={n} onClick={e => handleSelect(e)} value={n} >{n}</li>
+                        <li key={n} className={style.pages} onClick={e => handleSelect(e)} value={n} >{n}</li>
                     ))
                 }
             </ul>
