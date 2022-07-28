@@ -24,25 +24,26 @@ export const SidebarData = [
         heading: "Dashboard"
     },
     {
+        icon: MdSettings,
+        heading: "Mis Datos"
+    },
+    {
         icon: MdPets,
-        heading: "Huellitas"
+        heading: "Mis Huellas"
     },
     {
         icon: MdRule,
         heading: "Solicitudes"
     },
-    {
-        icon: MdSchedule,
-        heading: "Historial"
-    },
+    // {
+    //     icon: MdSchedule,
+    //     heading: "Historial"
+    // },
     {
         icon: MdOutgoingMail,
         heading: "Mensajes"
     },
-    {
-        icon: MdSettings,
-        heading: "Configuración"
-    },
+
 
 ];
 

@@ -10,6 +10,7 @@ export const POST_USER = 'POST_USER'
 export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
 
 
+
 export function getFoundationDetail(id){
     return function(dispatch) {
         try{
@@ -130,4 +131,21 @@ export function updateFoundation(id) {
     }
 }
 
+export function getAllProducts(){
+    return async function (dispatch){
+        try {
+            const info = await axios("http://localhost:4000/products")
+            return dispatch({
+                type:GET_All_PRODUCTS,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
+
+}
 
