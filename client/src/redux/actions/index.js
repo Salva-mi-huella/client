@@ -13,6 +13,7 @@ export const GET_All_PRODUCTS = 'GET_All_PRODUCTS'
 
 
 
+
 export function getFoundationDetail(id){
     return function(dispatch) {
         try{
@@ -156,6 +157,10 @@ export function getAllProducts(){
             // })
         }
     }
-
+}
+export function postNews (data){
+    return  function (){
+            axios.post("/news", data)
+    }
 }
 
