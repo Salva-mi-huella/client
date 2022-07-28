@@ -14,27 +14,5 @@ export default function ProfileUser() {
         <div>
             <PersistentDrawerLeft />
         </div>
-/*         <div>
-            <div>
-            <div className={styles.dataContainer}>
-                <button className={styles.button}>Editar datos ✎</button>
-                <h1 className={styles.myData}>Mis Datos</h1>
-                <div className={styles.data}>
-                    <div>
-                        <img className={styles.photo} src={user.picture}></img>
-                    </div>
-                    <div className={styles.Info}>
-                        <p>Nombre: {user.name}</p>
-                        <p>Email: {user.email}</p>
-                        <p>Telefono: +54 9 ----------</p>
-                        <p>Direccion: --------------</p>
-                        <p>Fecha de nacimiento: dd/mm/aaaa</p>
-                    </div>
-                </div>
-            </div>
-            <h1>Mis donaciones</h1>
-            
-        </div>
-        </div> */
     )
 }

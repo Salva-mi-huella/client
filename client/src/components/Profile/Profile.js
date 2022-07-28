@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import { postUser } from '../../redux/actions/index';
 import { useAuth0 } from '@auth0/auth0-react';
-import Topbar from "./Topbar";
-import PermanentDrawerLeft from './Centerbar';
 import ProfileFoundation from '../ProfileFoundation/ProfileFoundation';
+import ProfileUser from '../ProfileUser/ProfileUser';
 import jwt from "jsonwebtoken";
+
 
 
 
 
 export default function Profile() {
 
-       
+    const dispatch = useDispatch();
     const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
     const [userMetadata, setUserMetadata] = useState(null);
     const [decode, setDecode] = useState(null);
@@ -21,6 +23,22 @@ export default function Profile() {
           const domain = "dev-aekjy-pn.us.auth0.com";
       
           try {
+
+            const { name, email, nickname, picture } = user;
+            if (isAuthenticated) {
+                if (user.hasOwnProperty("family_name")) {
+                    dispatch(postUser({ name, email, picture, nickname }));
+                }
+                else {
+                    dispatch(postUser({
+                        name: nickname,
+                        email,
+                        nickname,
+                        picture
+                    }));
+                }
+            }
+
             const accessToken = await getAccessTokenSilently({
               audience: `http://localhost:4000`,
               scope: "read:message",
@@ -52,9 +70,8 @@ export default function Profile() {
 
     return (
         decode &&
-         (decode.permissions[0] === "read:foundationProfile" ? 
-         <ProfileFoundation /> :
-         <h1>ACÁ VA EL PERFIL DE USUARIO</h1>
+         (decode.permissions[0] === "read:foundationProfile" ? <ProfileFoundation /> :
+         <ProfileUser />
          )
         // <React.Fragment>
         //     <PermanentDrawerLeft/>
