@@ -7,7 +7,6 @@ import style from '../Adopt.module.css'
 
 export default function Paginate(){
     
-    
     const dispatch = useDispatch()
     
     const {filtered} = useSelector(state => state.petsFiltered)
@@ -31,14 +30,21 @@ export default function Paginate(){
 
     return(
         <>
+            {pagesUI.length > 1 && 
             <ul>
-                {pagesUI.length &&
+                <li className={style.arrow}>
+                    <i className="fa-solid fa-circle-left" ></i>
+                </li>
+                {
                     pagesUI.map(n=>(
-                        //Revisar si esta bien usar LI
                         <li key={n} className={style.pages} onClick={e => handleSelect(e)} value={n} >{n}</li>
                     ))
                 }
+                <li className={style.arrow}>
+                    <i className="fa-solid fa-circle-right"></i>
+                </li>
             </ul>
+            }
         </>
     )
 }
