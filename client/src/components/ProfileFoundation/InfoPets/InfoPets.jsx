@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useAuth0 } from '@auth0/auth0-react';
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,7 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import './InfoPets.css';
-import { getAllPets } from '../../../redux/actions';
+import { getAllPets, getFoundations } from '../../../redux/actions';
 
 function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
@@ -39,13 +41,18 @@ const makeStyles = (status) => {
 
 const InfoPets = () => {
 
-    const dispatch = useDispatch();
-    const allPets = useSelector(state => state.allPets)
+    const { user } = useAuth0();
 
-    console.log('all pets', allPets);
+    const dispatch = useDispatch();
+    let foundation = useSelector(state => state.foundations);
+    console.log('foundation', foundation);
+
+    foundation = foundation.filter(f => f.email === user.email);
+    console.log('filtrado', foundation);
+
 
     React.useEffect(() => {
-        dispatch(getAllPets());
+        dispatch(getFoundations());
     }, [dispatch])
 
 
@@ -72,7 +79,7 @@ const InfoPets = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {allPets.map((row) => (
+                        {/* {foundation.pets.map((row) => (
                             <TableRow
                                 key={row.name}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -91,7 +98,7 @@ const InfoPets = () => {
                                 </TableCell>
 
                             </TableRow>
-                        ))}
+                        ))} */}
                     </TableBody>
                 </Table>
             </TableContainer>
