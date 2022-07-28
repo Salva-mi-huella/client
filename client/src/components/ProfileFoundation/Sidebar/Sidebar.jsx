@@ -7,13 +7,19 @@ import { MdLogout } from 'react-icons/md';
 import { useState } from 'react';
 
 
-const Sidebar = () => {
+
+const Sidebar = ({ optionSelection, setOptionSelection }) => {
 
     const [selected, setSelected] = useState(0);
 
+    const changeOption = (index) => {
+        setSelected(index);
+        setOptionSelection(index);
+    }
 
     return (
         <div className="Sidebar">
+
 
             {/* LOGO */}
             <div className="logo">
@@ -30,7 +36,7 @@ const Sidebar = () => {
                     return (
                         <div className={selected === index ? 'menuItem active' : 'menuItem'}
                             key={index}
-                            onClick={() => setSelected(index)}
+                            onClick={() => changeOption(index)}
                         >
                             <item.icon />
                             <span>{item.heading}</span>
@@ -41,18 +47,12 @@ const Sidebar = () => {
                 <div className="menuItem">
                     <MdLogout />
                     <span>
-                        Logout
+                        Cerrar Sesion
                     </span>
                 </div>
 
 
             </div>
-
-
-
-
-
-
         </div>
     )
 }

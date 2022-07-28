@@ -24,25 +24,26 @@ export const SidebarData = [
         heading: "Dashboard"
     },
     {
+        icon: MdSettings,
+        heading: "Mis Datos"
+    },
+    {
         icon: MdPets,
-        heading: "Huellitas"
+        heading: "Mis Huellas"
     },
     {
         icon: MdRule,
         heading: "Solicitudes"
     },
-    {
-        icon: MdSchedule,
-        heading: "Historial"
-    },
+    // {
+    //     icon: MdSchedule,
+    //     heading: "Historial"
+    // },
     {
         icon: MdOutgoingMail,
         heading: "Mensajes"
     },
-    {
-        icon: MdSettings,
-        heading: "Configuración"
-    },
+
 
 ];
 
@@ -80,23 +81,23 @@ export const CardsData = [
             },
         ],
     },
-    {
-        title: "Gastos",
-        color: {
-            backGround:
-                "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
-            boxShadow: "0px 10px 20px 0px #F9D59B",
-        },
-        barValue: 60,
-        value: "48,600",
-        png: MdPaid,
-        series: [
-            {
-                name: "Gastos",
-                data: [3, 4, 2, 5, 4, 10, 10]
-            },
-        ],
-    },
+    // {
+    //     title: "Gastos",
+    //     color: {
+    //         backGround:
+    //             "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
+    //         boxShadow: "0px 10px 20px 0px #F9D59B",
+    //     },
+    //     barValue: 60,
+    //     value: "48,600",
+    //     png: MdPaid,
+    //     series: [
+    //         {
+    //             name: "Gastos",
+    //             data: [3, 4, 2, 5, 4, 10, 10]
+    //         },
+    //     ],
+    // },
 ];
 
 export const UpdatesData = [

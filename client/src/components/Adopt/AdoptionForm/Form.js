@@ -90,9 +90,7 @@ useEffect(() => {
 
           return errores;
         }}
-        onSubmit={(values, { resetForm }) => {
-          console.log(values);
-          console.log("Formulario enviado");
+        onSubmit={(values, { resetForm }) => {          
           setSubmittedForm(true)
           setTimeout(()=> setSubmittedForm(false),5000)
           resetForm();
