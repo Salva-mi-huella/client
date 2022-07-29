@@ -1,21 +1,38 @@
 .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 8px; 
-    margin: 50px 20px 100px 10px;   
-    width: 350px;
-    height: 280px;
+    margin: 40px 20px 10px 10px;   
+    width: 300px;
+    height: 480px;
+    background-image: url(../../assets/images/background-paws.jpg);
+    /* background-color: aliceblue; */
+    background-size: cover;
+    box-shadow: 8px 5px 10px 1px #000;
+    border-radius: 8px;
 }
 
-.imgproduct{
-    object-fit:fill;
-    height: 280px;
-    width: 350px;
+.container:hover{
+    box-shadow: 8px 5px 10px 1px yellow;
+    cursor: pointer;
+}
+
+.imagecard{
+    height: 200px;
+    width: 300px;
     border-radius: 8px;
-    
+}
+
+.imagecard img{
+    object-fit: auto;
+    width: 300px;
+    height: 230px;
+    border-radius: 8px;
 }
 
 .imgproduct:hover{
     cursor: pointer;
-    zoom: 105%;
     opacity: 0.6;
 }
 
@@ -33,8 +50,9 @@
 }
 
 .productname h4{
-    font-weight: 800;
-    color: yellow;
+    margin-top: 15px;
+    font-weight: 900;
+    color: black;
 }
 
 .detail{
@@ -44,6 +62,27 @@
 }
 
 .detail h4{
-    font-weight: 800;
+    font-weight:900;
     font-size: 40px;
+    color: blueviolet;
+}
+
+.contador{
+    display: flex;
+    justify-content: center;
+}
+
+.contador h4{
+    font-weight: 800;
+    margin: 10px;
+}
+
+.canje{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.canje button{
+    margin-bottom: 15px;
 }

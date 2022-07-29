@@ -1,10 +1,85 @@
 .infoPets {
-    background-color: blueviolet;
-    color: white;
+    background-color: #F1F15B;
+    color: purple;
     margin: 5rem;
     padding: 5rem;
     text-align: center;
     font-size: 3rem;
     border-radius: 5rem;
     justify-content: center;
+}
+
+.h3 {
+    margin: 40px 15px;
+    font-size: 45px;
+    font-weight: 700;
+    color: #F1F15B;
+}
+
+.MuiTableRow-root>* {
+    padding: 10px;
+}
+
+.MuiTableRow-root.MuiTableRow-head>* {
+    font-weight: 900 !important;
+}
+
+.MuiTableRow-root.MuiTableRow-head>
+
+.Table td, th {
+    border: none !important;
+}
+
+.Table:first-child {
+    border-radius: 0.7rem !important;
+}
+
+.petImg {
+    border-radius: .5rem;
+    margin: -10px 20px -10px 10px;
+    width: 2.5rem;
+    height: 2rem;
+}
+
+.status {
+    padding: 8px;
+    border-radius: 9px;
+}
+
+.ciudad {
+    color: #00b5ff !important;
+}
+
+select {}
+
+.updateBtn {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    border-radius: 0.7rem;
+    background-color: var(--activeItem);
+    border: none;
+}
+
+.icon {
+    transition: all 300ms ease;
+    border-radius: 0.7rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .Table {
+        width: 170%;
+        margin-top: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 820px) {
+    .Table {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 23rem;
+    }
 }

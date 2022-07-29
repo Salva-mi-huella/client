@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
-import { getFoundations } from '../../redux/actions';
+import { getFoundations, postUser } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner.png';
 import paw from '../../assets/paw-print.png';
@@ -12,14 +12,29 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Home() {
 
-   const { loginWithRedirect } = useAuth0();
+   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
 
     const dispatch = useDispatch();
     const foundations = useSelector(state => state.foundations)
 
     useEffect(() => {
         // const id = this.props.match.params.foundationId
-        dispatch(getFoundations())
+        dispatch(getFoundations());
+        
+        if (isAuthenticated) {
+            const { name, email, nickname, picture } = user;
+            if (user.hasOwnProperty("family_name")) {
+                dispatch(postUser({ name, email, picture, nickname }));
+            }
+            else {
+                dispatch(postUser({
+                    name: nickname,
+                    email,
+                    nickname,
+                    picture
+                }));
+            }
+        }
     }, [])
 
 

@@ -1,7 +1,7 @@
 .CompactCard {
   display: flex;
   flex: 1;
-  height: 12rem !important;
+  height: 10rem !important;
   border-radius: 0.7rem;
   color: white;
   padding: 1rem;
@@ -17,7 +17,7 @@
 .radialBar {
   flex: 1 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-end;
   gap: 1.2rem;
 }
@@ -42,8 +42,11 @@
 }
 
 .radialBar>span {
-  font-size: 25px;
+  font-size: 40px;
   font-weight: bold;
+  align-self: center;
+  position: relative;
+  left: 30px;
 }
 
 /* sideDetail*/
@@ -102,13 +105,85 @@
   width: 70%;
 }
 
+@media screen and (max-width: 1650px) {
+  .radialBar>span {
+    font-size: 24px;
+    font-weight: bold;
+    align-self: center;
+    position: relative;
+  }
+
+
+}
+
+@media screen and (max-width: 1450px) {
+  .radialBar {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 1.2rem;
+  }
+
+  .radialBar>span {
+    font-size: 25px;
+    font-weight: bold;
+    align-self: flex-start;
+  }
+
+  .detail>span:nth-child(2) {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .CircularProgressbar {
+    width: 4.5rem !important;
+    overflow: visible;
+  }
+
+}
+
 @media screen and (max-width: 1200px) {
   .ExpandedCard {
     top: 2rem;
     height: 45vh;
     left: 6rem;
   }
+
+  .CompactCard {
+    height: 8rem !important;
+  }
+
+  .radialBar {
+    flex: 1 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2.2rem;
+  }
+
+  .radialBar>span {
+    font-size: 30px;
+    font-weight: bold;
+    align-self: center;
+    position: relative;
+    left: 50px;
+  }
+
 }
+
+@media screen and (max-width: 978px) {
+  .radialBar>span {
+    font-size: 22px;
+    font-weight: bold;
+    align-self: center;
+    position: relative;
+    left: -10px;
+  }
+
+}
+
+
 
 @media screen and (max-width: 768px) {
   .ExpandedCard {
@@ -117,4 +192,26 @@
     left: 25px;
     width: 80%;
   }
+
+  .radialBar {
+    flex: 1 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  .radialBar>span {
+    font-size: 18px;
+    font-weight: bold;
+    align-self: center;
+    position: relative;
+    left: -10px;
+  }
+
+  .CircularProgressbar {
+    width: 4.5rem !important;
+    overflow: visible;
+  }
+
 }

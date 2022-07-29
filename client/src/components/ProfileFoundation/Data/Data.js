@@ -2,11 +2,11 @@
 import {
     MdList,
     MdSettings,
-    MdDisabledByDefault,
+    MdUploadFile,
     MdOutgoingMail,
     MdPaid,
     MdPets,
-    MdReorder,
+    MdUpload,
     MdReceipt,
     MdRule,
     MdSchedule,
@@ -14,8 +14,7 @@ import {
     MdHowToVote
 } from 'react-icons/md';
 
-// USER FAKE IMAGES
-import img1 from '../../../assets/fotoLauti.jpeg'
+import { FaHome } from 'react-icons/fa';
 
 // Sidebar Data
 export const SidebarData = [
@@ -35,16 +34,22 @@ export const SidebarData = [
         icon: MdRule,
         heading: "Solicitudes"
     },
-    // {
-    //     icon: MdSchedule,
-    //     heading: "Historial"
-    // },
+    {
+        icon: MdUploadFile,
+        heading: "Publicar Noticia"
+    },
+    {
+        icon: MdUpload,
+        heading: "Publicar Huella"
+    },
+    {
+        icon: MdPaid,
+        heading: "Donaciones"
+    },
     {
         icon: MdOutgoingMail,
         heading: "Mensajes"
     },
-
-
 ];
 
 //  MainDash Data
@@ -57,7 +62,7 @@ export const CardsData = [
         },
         barValue: 70,
         value: 38,
-        png: MdHome,
+        png: FaHome,
         series: [
             {
                 name: "Adopciones",
@@ -72,7 +77,7 @@ export const CardsData = [
             boxShadow: "0px 10px 20px 0px #FDC0C7",
         },
         barValue: 60,
-        value: "37,800",
+        value: "$37,800",
         png: MdHowToVote,
         series: [
             {

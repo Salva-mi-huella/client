@@ -50,7 +50,7 @@ export default function Adopt(){
                 <Filters/>
             </div>
             <div className={style.cardContainer}>
-                <Paginate/>
+                
                 {renderPerPage ?
                     renderPerPage.map(pet => (
                         <Card 
@@ -63,6 +63,8 @@ export default function Adopt(){
                     :
                     <Loading/>
                 }
+                
+                <Paginate/>
             </div>
         </>
     )
