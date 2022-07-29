@@ -1,6 +1,6 @@
 // IMPORT ACTIONS HERE
 
-import { GET_FOUNDATION_DETAIL, GET_PET_DETAIL, GET_FOUNDATIONS, GET_All_PETS, FILTERS_CONFIG, GET_CURRENCY, POST_USER, UPDATE_FOUNDATION, GET_All_PRODUCTS, PETS_FILTERED, UPDATE_USER, GET_USER, POST_DONATION, GET_PRODUCT_DETAIL, GET_USERS} from "../actions"
+import { GET_FOUNDATION_DETAIL, GET_PET_DETAIL, GET_FOUNDATIONS, GET_ALL_PETS, FILTERS_CONFIG, GET_CURRENCY, POST_USER, UPDATE_FOUNDATION, GET_ALL_PRODUCTS, PETS_FILTERED, UPDATE_USER, GET_USER, POST_DONATION, GET_PRODUCT_DETAIL, GET_USERS} from "../actions"
 
 
 const initialState = {
@@ -29,7 +29,7 @@ export default function rootReducer(state = initialState, action) {
 
         case GET_FOUNDATIONS:  return {...state, foundations: action.payload}
 
-        case GET_All_PETS: return {...state, allPets: action.payload }
+        case GET_ALL_PETS: return {...state, allPets: action.payload }
 
         case GET_CURRENCY: return {...state, currency: action.payload }
 
@@ -44,7 +44,7 @@ export default function rootReducer(state = initialState, action) {
 
         case GET_USER: return {...state, user: action.payload}
 
-        case GET_All_PRODUCTS: return{...state, allProducts: action.payload}
+        case GET_ALL_PRODUCTS: return{...state, allProducts: action.payload}
 
         case GET_PRODUCT_DETAIL: return{...state, productDetail: action.payload}
         
