@@ -11,7 +11,7 @@ const initialState = {
     filtersConfig: [],
     currency: {},
     allProducts:[],
-    productDetail: {}
+    productDetail: {},
     petsFiltered: [],
     user: {},
     donations: [],
