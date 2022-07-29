@@ -15,7 +15,7 @@ import PetStore from './components/PetStore/Store';
 import News from './components/Donate/Payment';
 import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
-import PostNews from './components/Profile/PostNews/PostNews';
+// import PostNews from './components/Profile/PostNews/PostNews';
 import Paypal from './components/Donate/Paypal/Paypal';
 import Huellitas from './components/Huellitas/Huellitas';
 import ProductDetail from './components/ProductDetail/ProductDetail';
@@ -48,7 +48,7 @@ function App() {
         <Route exact path='/noticias'> <NavBar/> <News/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
         <Route exact path='/formulario-publicar-mascota'> <NavBar/> <PostPet/></Route>
-        <Route exact path='/postNews'> <NavBar/> <PostNews/> </Route>
+        {/* <Route exact path='/postNews'> <NavBar/> <PostNews/> </Route> */}
 
         <Route exact path='*'> <NotFound/></Route>
       </Switch>

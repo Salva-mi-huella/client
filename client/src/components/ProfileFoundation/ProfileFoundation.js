@@ -8,7 +8,7 @@ import InfoPets from './InfoPets/InfoPets.jsx';
 import AdoptionRequests from './AdoptionRequests/AdoptionRequests.jsx';
 import Inbox from './Inbox/Inbox.jsx';
 import Donations from './Donations/Donations.jsx';
-import PostNews from '../Profile/PostNews/PostNews.js';
+import PostNews from './PostNews/PostNews';
 import PostPet from '../PostPet/PostPet.js';
 
 
