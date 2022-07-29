@@ -80,6 +80,7 @@
     flex-direction: row;
     justify-content: flex-start;
     color: black;
+    margin-top: -1rem;
    
 
 }
@@ -118,6 +119,7 @@
     /* background-image: url("../../assets/images/background-paws.jpg");
     background-color: rgb(116, 9, 126); */
     color: azure;
+    margin-top: -1rem;
     
 }
 .moreLess{
