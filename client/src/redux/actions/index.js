@@ -3,15 +3,14 @@ import axios from 'axios';
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
 export const GET_PET_DETAIL = 'GET_PET_DETAIL';
 export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
-export const GET_All_PETS = 'GET_AllPETS';
+export const GET_ALL_PETS = 'GET_ALL_PETS';
 export const GET_CURRENCY = 'GET_CURRENCY';
 export const FILTERS_CONFIG = 'FILTERS_CONFIG';
-export const GET_All_PRODUCTS = 'GET_All_PRODUCTS';
+export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS';
 export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
 export const PETS_FILTERED = 'PETS_FILTERED'
 export const POST_USER = 'POST_USER'
 export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
-export const GET_All_PRODUCTS = 'GET_All_PRODUCTS'
 export const GET_USERS = 'GET_USERS'
 export const UPDATE_USER = 'UPDATE_USER'
 export const GET_USER = 'GET_USER'
@@ -62,7 +61,7 @@ export function getAllPets(){
         try {
             const info = await axios("http://localhost:4000/pets")
             return dispatch({
-                type:GET_All_PETS,
+                type:GET_ALL_PETS,
                 payload: info.data
             })
         } catch (error) {
@@ -196,7 +195,7 @@ export function getAllProducts(){
         try {
             const info = await axios("http://localhost:4000/products")
             return dispatch({
-                type:GET_All_PRODUCTS,
+                type:GET_ALL_PRODUCTS,
                 payload: info.data
             })
         } catch (error) {
