@@ -221,6 +221,8 @@ export function postDonation(order){
                 // Por si algun dia se cae la DB
             // })
         }
+    }
+}
 
 export function postNews (data){
     return  function (){

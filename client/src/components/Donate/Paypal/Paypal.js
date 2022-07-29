@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import { Link,  } from 'react-router-dom'
 import {  useDispatch, useSelector } from 'react-redux';
 import styles from './Paypal.module.css'
-import {postDonation} from '../../../redux/actions/'
+import {postDonation, updateUser} from '../../../redux/actions/'
 
 export default function Paypal({amount, foundation, user}){
     
@@ -15,16 +15,19 @@ export default function Paypal({amount, foundation, user}){
        } return parseInt(newAmount)
     }()
 
-    const dispatch=useDispatch()
+
+   const dispatch=useDispatch()
    const currency = useSelector(state=> state.currency)[1].casa.venta
-   console.log(currency)
+   const points =  amount1*parseInt(currency)*5
+   const newPoints = user.points + points
+   console.log(newPoints)
 
 
 
 
     const [donation, setDonation] = useState({
         amount: amount1,
-        points: amount1*parseInt(currency)*5,
+        points: points,
         method: 'paypal',
         foundationId: foundation.id,
         userId: user.id
@@ -51,6 +54,7 @@ export default function Paypal({amount, foundation, user}){
                 const order = await actions.order.capture()
                 console.log(donation)
                 dispatch(postDonation(donation))
+                dispatch(updateUser({points:newPoints}, user.email))
                 // console.log("Succesful order")
                 console.log(order)
             },
