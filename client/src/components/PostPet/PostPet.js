@@ -7,23 +7,23 @@ var date = Date();
 
   const [imag, setImag ] = useState("");
 
+
+  // Esta info agregarla al submit y con el onchange de la imagen solo modificar linea 15
   const uploadImage = async (e) =>{
     const files = e.target.files;
     const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "01_huellas");
-    const res = await fetch ("https://api.cloudinary.com/v1_1/huellitas2/image/upload",
+    data.append("file", files[0]); 
+    data.append("upload_preset", "koafybza");
+    const res = await fetch ("https://api.cloudinary.com/v1_1/djasy7hxk/image/upload",
     {
       method: "POST",
       body: data
     })
     let file = await res.json()
-    //console.log(file)
     setImag(file.secure_url);
-    //console.log(file.secure_url);
+
   }
   
-  //console.log(imag)
 
   return (
     <div className={styles.container}>

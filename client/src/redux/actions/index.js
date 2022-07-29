@@ -16,6 +16,7 @@ export const GET_USER = 'GET_USER'
 
 
 
+
 export function getFoundationDetail(id){
     return function(dispatch) {
         try{
@@ -203,6 +204,10 @@ export function getAllProducts(){
             // })
         }
     }
-
+}
+export function postNews (data){
+    return  function (){
+            axios.post("/news", data)
+    }
 }
 
