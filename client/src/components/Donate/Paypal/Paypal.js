@@ -1,8 +1,10 @@
-import React, {useEffect, useRef} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useEffect, useRef, useState} from 'react'
+import { Link,  } from 'react-router-dom'
+import {  useDispatch, useSelector } from 'react-redux';
 import styles from './Paypal.module.css'
+import {postDonation} from '../../../redux/actions/'
 
-export default function Paypal({amount, foundation}){
+export default function Paypal({amount, foundation, user}){
     
     let amount1 = function(){
         let newAmount = ''
@@ -10,14 +12,28 @@ export default function Paypal({amount, foundation}){
               if(amount[i] !== '$' && amount[i] !== 'u' && amount[i] !== 's' && amount[i] !== 'd'){
                 newAmount = newAmount.concat(amount[i])
               }
-       } return newAmount
+       } return parseInt(newAmount)
     }()
 
-    console.log(amount1)
+    const dispatch=useDispatch()
+   const currency = useSelector(state=> state.currency)[1].casa.venta
+   console.log(currency)
+
+
+
+
+    const [donation, setDonation] = useState({
+        amount: amount1,
+        points: amount1*parseInt(currency)*5,
+        method: 'paypal',
+        foundationId: foundation.id,
+        userId: user.id
+    })
 
     const paypal = useRef()
 
     useEffect(() => {
+
         window.paypal.Buttons({
             createOrder: (data, actions, err) => {
                 return actions.order.create({
@@ -27,12 +43,14 @@ export default function Paypal({amount, foundation}){
                             // currency_code: "USD",
                             value: amount1
                         },
-                        description: foundation
+                        // description: foundation
                     }]
                 })
             },
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture()
+                console.log(donation)
+                dispatch(postDonation(donation))
                 // console.log("Succesful order")
                 console.log(order)
             },

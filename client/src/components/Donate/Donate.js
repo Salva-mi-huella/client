@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {  useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 import style from './Donate.module.css'
-import { getFoundations, getCurrency } from '../../redux/actions/index.js';
+import { getFoundations, getUserByEmail } from '../../redux/actions/index.js';
 import Stepper from './Stepper';
 import banner from '../../assets/paw_hand3.png'
 import paypal from '../../assets/paypal.png'
@@ -18,11 +18,14 @@ export default function Donate(){
     
     useEffect(()=>{
         dispatch(getFoundations());
+        dispatch(getUserByEmail(user.email));
     },[dispatch])
     
     const foundations = useSelector(state=> state.foundations)
+    const userDetail = useSelector(state => state.user);
+    console.log(userDetail)
 
-    const {loginWithRedirect} = useAuth0();
+    const {loginWithRedirect, user} = useAuth0();
 
     const [donation, setDonation] = useState({
         foundation: '',
@@ -30,7 +33,8 @@ export default function Donate(){
         amount: '',
     });
     
-    let foundationName = donation.foundation.length && foundations.filter(f => donation.foundation === f.images[0])[0].name
+    let foundation = donation.foundation.length && foundations.filter(f => donation.foundation === f.images[0])[0]
+    console.log(foundation)
 
     const [checkout, setCheckout] = useState(false);
 
@@ -74,7 +78,7 @@ export default function Donate(){
                 <h4>1. Fundación a donar</h4>
                 <div className={style.renderFoundation}>
                     {donation.foundation.length>0 && <img className={style.foundation} src={donation.foundation} alt='foundation'></img>}
-                    {foundationName.length && <span>{foundationName}</span>}
+                    {foundation.name?.length && <span>{foundation.name}</span>}
                 </div>
             </div>
 
@@ -91,6 +95,6 @@ export default function Donate(){
         </div>
         </>
         : 
-        <Paypal amount={donation.amount} foundation={foundationName} ></Paypal>
+        <Paypal amount={donation.amount} foundation={foundation} user={userDetail}></Paypal>
     )
 }
