@@ -1,7 +1,7 @@
 // IMPORT ACTIONS HERE
 
 
-import { GET_FOUNDATION_DETAIL, GET_PET_DETAIL, GET_FOUNDATIONS, GET_All_PETS, FILTERS_CONFIG, GET_CURRENCY, POST_USER, UPDATE_FOUNDATION, GET_All_PRODUCTS, PETS_FILTERED} from "../actions"
+import { GET_FOUNDATION_DETAIL, GET_PET_DETAIL, GET_FOUNDATIONS, GET_All_PETS, FILTERS_CONFIG, GET_CURRENCY, POST_USER, UPDATE_FOUNDATION, GET_All_PRODUCTS, PETS_FILTERED,GET_USERS,} from "../actions"
 
 const initialState = {
     petDetail: {},
@@ -11,7 +11,9 @@ const initialState = {
     filtersConfig: [],
     currency: {},
     petsFiltered: [],
-    allProducts:[]
+    allProducts:[],
+    users:[],
+    user:{}
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -42,6 +44,8 @@ export default function rootReducer(state = initialState, action) {
                 filtered: action.filtered,
                 pages: action.perPage
             }}
+
+        case GET_USERS:  return {...state, users: action.payload}
 
         default: return {...state}
 
