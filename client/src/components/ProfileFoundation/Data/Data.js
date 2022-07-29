@@ -2,11 +2,11 @@
 import {
     MdList,
     MdSettings,
-    MdDisabledByDefault,
+    MdUploadFile,
     MdOutgoingMail,
     MdPaid,
     MdPets,
-    MdReorder,
+    MdUpload,
     MdReceipt,
     MdRule,
     MdSchedule,
@@ -15,9 +15,6 @@ import {
 } from 'react-icons/md';
 
 import { FaHome } from 'react-icons/fa';
-
-// USER FAKE IMAGES
-import img1 from '../../../assets/fotoLauti.jpeg'
 
 // Sidebar Data
 export const SidebarData = [
@@ -37,10 +34,18 @@ export const SidebarData = [
         icon: MdRule,
         heading: "Solicitudes"
     },
-    // {
-    //     icon: MdSchedule,
-    //     heading: "Historial"
-    // },
+    {
+        icon: MdUploadFile,
+        heading: "Publicar Noticia"
+    },
+    {
+        icon: MdUpload,
+        heading: "Publicar Huella"
+    },
+    {
+        icon: MdPaid,
+        heading: "Donaciones"
+    },
     {
         icon: MdOutgoingMail,
         heading: "Mensajes"
