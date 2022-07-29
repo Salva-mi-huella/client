@@ -3,16 +3,18 @@ import axios from 'axios';
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
 export const GET_PET_DETAIL = 'GET_PET_DETAIL';
 export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
-export const GET_All_PETS = 'GET_AllPETS'
-export const GET_CURRENCY = 'GET_CURRENCY'
-export const FILTERS_CONFIG = 'FILTERS_CONFIG'
+export const GET_All_PETS = 'GET_AllPETS';
+export const GET_CURRENCY = 'GET_CURRENCY';
+export const FILTERS_CONFIG = 'FILTERS_CONFIG';
+export const GET_All_PRODUCTS = 'GET_All_PRODUCTS';
+export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
 export const PETS_FILTERED = 'PETS_FILTERED'
 export const POST_USER = 'POST_USER'
 export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
-export const GET_All_PRODUCTS = 'GET_All_PRODUCTS'
 export const UPDATE_USER = 'UPDATE_USER'
 export const GET_USER = 'GET_USER'
 export const POST_DONATION = 'POST_DONATION'
+
 
 
 
@@ -26,6 +28,18 @@ export function getFoundationDetail(id){
                 dispatch({ type: GET_FOUNDATION_DETAIL, payload: e.data })
             }
             // return dispatch({ type: GET_FOUNDATION_DETAIL, payload: data.foundation.filter(foundation => foundation.id === id) })
+        } 
+}
+
+export function getProductDetail(id){
+    return function(dispatch) {
+        try{
+            return axios(`/products/${id}`)
+            .then(detail =>
+                dispatch({ type: GET_PRODUCT_DETAIL, payload: detail.data }))
+            } catch (e) {
+                dispatch({ type: GET_PRODUCT_DETAIL, payload: e.data })
+            }
         } 
 }
 
@@ -207,6 +221,11 @@ export function postDonation(order){
                 // Por si algun dia se cae la DB
             // })
         }
+
+export function postNews (data){
+    return  function (){
+            axios.post("/news", data)
+
     }
 }
 
