@@ -12,6 +12,7 @@ export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
 export const GET_All_PRODUCTS = 'GET_All_PRODUCTS'
 export const UPDATE_USER = 'UPDATE_USER'
 export const GET_USER = 'GET_USER'
+export const POST_DONATION = 'POST_DONATION'
 
 
 
@@ -190,6 +191,22 @@ export function getAllProducts(){
             // })
         }
     }
+}
 
+export function postDonation(order){
+    return async function (dispatch){
+        try {
+            const info = await axios.post("http://localhost:4000/donations", order)
+            return dispatch({
+                type: POST_DONATION,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
 }
 

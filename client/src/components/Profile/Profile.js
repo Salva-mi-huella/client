@@ -47,8 +47,6 @@ export default function Profile() {
             const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
             var decoded = jwt.decode(accessToken)
             setDecode(decoded)
-            console.log(accessToken)
-            console.log(decoded)
             
             const metadataResponse = await fetch(userDetailsByIdUrl, {
                 headers: {
@@ -66,7 +64,6 @@ export default function Profile() {
         getUserMetadata();
     }, [getAccessTokenSilently, user?.sub]);
    
-    console.log(decode)
 
     return (
         decode &&

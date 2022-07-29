@@ -24,7 +24,7 @@ export default function EditDataForm({datos,setDatos}) {
      }, [])
 
      const userDetail = useSelector(state => state.user);
-     console.log(userDetail)
+
 
   
   const onSubmit = (data, e) => {
@@ -110,8 +110,8 @@ export default function EditDataForm({datos,setDatos}) {
 
                    <div>
                       <label className={styles.items}>¿Te gustaría ofrecerte como persona de tránsito?</label>
-                      <label htmlFor='Sí'><input id='Sí' {...register('transit')} value={true} type='radio' name='transit'/>Sí</label>
-                      <label htmlFor='No'><input id='No' {...register('transit')} value={false} type='radio' name='transit'/>No</label>
+                      <label htmlFor='Sí'><input id='Sí' {...register('transit')} value='Sí' type='radio' name='transit'/>Sí</label>
+                      <label htmlFor='No'><input id='No' {...register('transit')} value='No' type='radio' name='transit'/>No</label>
                    </div>
                  </form>
                 
