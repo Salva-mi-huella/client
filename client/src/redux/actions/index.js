@@ -11,10 +11,11 @@ export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
 export const PETS_FILTERED = 'PETS_FILTERED'
 export const POST_USER = 'POST_USER'
 export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
+export const GET_All_PRODUCTS = 'GET_All_PRODUCTS'
+export const GET_USERS = 'GET_USERS'
 export const UPDATE_USER = 'UPDATE_USER'
 export const GET_USER = 'GET_USER'
 export const POST_DONATION = 'POST_DONATION'
-
 
 
 
@@ -230,4 +231,20 @@ export function postNews (data){
 
     }
 }
+
+export function getUsers(){
+    return async function (dispatch){
+        try {
+            const allUsers = await axios("/users")
+            return dispatch({
+                type:GET_USERS,
+                payload: allUsers.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+}
+
 
