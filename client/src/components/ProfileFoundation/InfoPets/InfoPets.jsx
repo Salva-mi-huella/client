@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { useAuth0 } from '@auth0/auth0-react';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,20 +11,21 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import './Table.css'
+import './InfoPets.css';
+import { getAllPets, getFoundations } from '../../../redux/actions';
 
 function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
 }
 
 const makeStyles = (status) => {
-    if (status === 'Aprobado') {
+    if (status) {
         return {
             background: 'rgb(145 254 159 / 47%)',
             color: 'green'
         }
     }
-    else if (status === 'Rechazado') {
+    else if (!status) {
         return {
             background: '#ffadad8f',
             color: 'red'
@@ -35,21 +39,30 @@ const makeStyles = (status) => {
     }
 }
 
-const rows = [
-    createData('Maple', 1, 159, 'Haedo', 'Julio 26 2022', 'Aprobado'),
-    createData('Yuki', 2, 237, 'Almagro', 'Julio 26 2022', 'Pendiente'),
-    createData('Cafecito', 3, 262, 'Padua', 'Julio 26 2022', 'Aprobado'),
-    createData('Bella', 4, 305, 'Caballito', 'Julio 26 2022', 'Rechazado'),
-    createData('Ahri', 5, 356, 'Palermo', 'Julio 26 2022', 'Aprobado'),
-];
+const InfoPets = () => {
 
-export default function BasicTable() {
+    const { user } = useAuth0();
 
+    const dispatch = useDispatch();
+    let foundation = useSelector(state => state.foundations);
+    console.log('foundation', foundation);
+
+    foundation = foundation.filter(f => f.email === user.email);
+    console.log('filtrado', foundation);
+
+
+    React.useEffect(() => {
+        dispatch(getFoundations());
+    }, [dispatch])
 
 
     return (
+        // <div className='infoPets' >Aca vamos a desplegar una tabla que contiene la info de todos los pets de la fundacion,
+        //     su estado de adopcion y los botones del estado ( available / unavailable )
+        // </div>
+
         <div className="Table">
-            <h3> Tabla de solicitudes </h3>
+            <h3> Tabla de Animales </h3>
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029' }}
             >
@@ -57,15 +70,16 @@ export default function BasicTable() {
                     <TableHead>
                         <TableRow>
                             <TableCell>Huellita </TableCell>
-                            <TableCell align="left">ID Huellita</TableCell>
-                            <TableCell align="left">ID Usuario</TableCell>
-                            <TableCell align="left">Ciudad</TableCell>
-                            <TableCell align="left">Fecha</TableCell>
+                            <TableCell align="left">Fecha de alta</TableCell>
+                            <TableCell align="left">Tipo</TableCell>
+                            <TableCell align="left">Genero</TableCell>
+                            <TableCell align="left">Edad</TableCell>
                             <TableCell align="left">Status</TableCell>
+                            {/* <TableCell align="left">Actions</TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {/* {foundation.pets.map((row) => (
                             <TableRow
                                 key={row.name}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -73,18 +87,23 @@ export default function BasicTable() {
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
-                                <TableCell align="left">{row.petId}</TableCell>
-                                <TableCell align="left">{row.userId}</TableCell>
-                                <TableCell align="left" className="ciudad">{row.city}</TableCell>
-                                <TableCell align="left">{row.date}</TableCell>
+                                <TableCell align="left">{row.post_date}</TableCell>
+                                <TableCell align="left">{row.type}</TableCell>
+                                <TableCell align="left" className="ciudad">{row.gender}</TableCell>
+                                <TableCell align="left">{row.age}</TableCell>
+
                                 <TableCell align="left">
-                                    <span className="status" style={makeStyles(row.status)} >{row.status}</span>
+                                    <span className="status" style={makeStyles(row.adopted)} > {row.status ? 'Adoptado' : 'En adopcion'}</span>
+                                    <button> UPDATE </button>
                                 </TableCell>
+
                             </TableRow>
-                        ))}
+                        ))} */}
                     </TableBody>
                 </Table>
             </TableContainer>
         </div>
-    );
+    )
 }
+
+export default InfoPets

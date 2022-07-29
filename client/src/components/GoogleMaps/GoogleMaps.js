@@ -5,7 +5,7 @@ import styles from './GoogleMaps.module.css'
 
   
 
-export default function GoogleMaps({foundation}) {
+export default function GoogleMaps({foundation, lat, lng}) {
   const { isLoaded } = useJsApiLoader({
       googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
       libraries: ['places'],
@@ -15,8 +15,7 @@ export default function GoogleMaps({foundation}) {
     const [directionsResponse, setDirectionsResponse] = useState(null)
     const [distance, setDistance] = useState('')
     const [duration, setDuration] = useState('')
-    const center = { lat: -34.883530, lng: -58.482300 }
-    // const center = { lat: foundation.lat, lng: foundation.lng }
+    const center = { lat: parseFloat(lat), lng: parseFloat(lng) }
     
     /** @type React.MutableRefObject<HTMLInputElement> */
     const originRef = useRef()

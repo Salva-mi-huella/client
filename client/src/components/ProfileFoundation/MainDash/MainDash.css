@@ -5,9 +5,11 @@
     justify-content: space-evenly;
 }
 
-h1 {
-    font-weight: 500;
+.h1 {
+    font-weight: 900;
     font-size: 50px;
+    position: relative;
+    top: 60px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -15,10 +17,29 @@ h1 {
         justify-content: flex-start;
         margin-top: 2rem;
     }
+
+    .h1 {
+        font-weight: 600;
+        font-size: 40px;
+        position: relative;
+        top: 0px;
+    }
+
 }
+
+@media screen and (max-width: 848px) {
+    .h1 {
+        font-weight: 500;
+        font-size: 35px;
+    }
+}
+
 
 @media screen and (max-width: 768px) {
     .MainDash {
         align-items: center;
     }
+
+
+
 }

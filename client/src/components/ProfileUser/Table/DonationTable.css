@@ -1,0 +1,50 @@
+.titles {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: azure;
+    margin-bottom: 30px;
+}
+
+.MuiTableRow-root>* {
+    padding: 10px;
+}
+
+.MuiTableRow-root.MuiTableRow-head>* {
+    font-weight: 900 !important;
+}
+
+.Table td, th {
+    border: none !important;
+}
+
+.Table:first-child {
+    border-radius: 0.7rem !important;
+}
+
+.status {
+    padding: 8px;
+    border-radius: 9px;
+}
+
+.ciudad {
+    color: #00b5ff !important;
+}
+
+@media screen and (max-width: 1200px) {
+    .Table {
+        width: 170%;
+        margin-top: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .Table {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 23rem;
+    }
+}

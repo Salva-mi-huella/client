@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useSelector, useDispatch  } from "react-redux";
 import { useEffect, useState} from "react";
-import { getAllPets, getFoundations } from "../../redux/actions";
+import { getAllPets, getFoundations } from "../../../redux/actions";
 
 export default function Formulario() {
 

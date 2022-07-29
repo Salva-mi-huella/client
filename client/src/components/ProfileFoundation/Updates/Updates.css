@@ -33,3 +33,18 @@
     font-weight: 500;
     font-style: italic;
 }
+
+@media screen and (max-width: 900px) {
+
+    .news>div>span:nth-of-type(2) {
+        /* font-weight: bold; */
+        font-size: 12px;
+    }
+
+    .news>span:nth-of-type(1) {
+        color: var(--gray);
+        font-weight: 300;
+        font-style: italic;
+        font-size: 10px;
+    }
+}
