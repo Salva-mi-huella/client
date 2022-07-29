@@ -7,6 +7,10 @@ import EditProfile from './EditProfile/EditProfile.jsx';
 import InfoPets from './InfoPets/InfoPets.jsx';
 import AdoptionRequests from './AdoptionRequests/AdoptionRequests.jsx';
 import Inbox from './Inbox/Inbox.jsx';
+import Donations from './Donations/Donations.jsx';
+import PostNews from '../Profile/PostNews/PostNews.js';
+import PostPet from '../PostPet/PostPet.js';
+
 
 import styles from '../ProfileFoundation/ProfileFoundation.module.css';
 
@@ -18,12 +22,12 @@ export default function ProfileFoundation() {
         <div className={styles.profileFoundation} >
 
             <div className={styles.containerGlass} >
-                
+
                 <Sidebar
                     optionSelection={optionSelection}
                     setOptionSelection={setOptionSelection}
                 />
-                
+
                 {
                     optionSelection === 0 && (
                         <>
@@ -56,11 +60,31 @@ export default function ProfileFoundation() {
                 {
                     optionSelection === 4 && (
                         <>
+                            <PostNews />
+                        </>
+                    )
+                }
+                {
+                    optionSelection === 5 && (
+                        <>
+                            <PostPet />
+                        </>
+                    )
+                }
+                {
+                    optionSelection === 6 && (
+                        <>
+                            <Donations />
+                        </>
+                    )
+                }
+                {
+                    optionSelection === 7 && (
+                        <>
                             <Inbox />
                         </>
                     )
                 }
-
             </div>
 
         </div >

@@ -13,6 +13,14 @@
     /* background-color: #fff; */
 }
 
+.btn-primary {
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    width: 80%;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 1200px) {
     .RightSide {
         justify-content: flex-start;
