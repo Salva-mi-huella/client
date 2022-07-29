@@ -13,7 +13,6 @@ const initialState = {
     petsFiltered: [],
     allProducts:[],
     users:[],
-    user:{}
 }
 
 export default function rootReducer(state = initialState, action) {
