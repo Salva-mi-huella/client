@@ -6,54 +6,86 @@ import { getProductDetail } from '../../redux/actions/index';
 import huellita from "../../assets/paw-print.png"
 import styles from './ProductDetail.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import Swal from 'sweetalert2';
+import { updateUser , getUserByEmail } from '../../redux/actions/index';
 
 
 export default function ProductDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const history = useHistory();
-    const [user, setUser] = useState({
-        name: 'Juliano',
-        lastname: 'Argumedo',
-        points: '10000',
-    });
+    const { user } = useAuth0();
+
+
 
     const [numero, setNumero] = React.useState(1)
 
 
     const product = useSelector (state=> state.productDetail);
+    const userInfo = useSelector (state=> state.user);
 
     useEffect(() => {
         dispatch(getProductDetail(id));
-
+        dispatch(getUserByEmail(user.email));
     }, [dispatch, id]);
 
     const increment = () => {
         if(numero<10){
             setNumero(numero + 1)
         }else{
-            alert("No puedes comprar mas de 10")
+            Swal.fire({
+                title: 'Error!',
+                text: 'No puedes comprar mas de 10 productos',
+                icon: 'error',
+                confirmButtonText: 'Entiendo'
+              })
         }
     }
     const decrement = () => {
         if(numero>1){
             setNumero(numero - 1)
         }else{
-            alert("No puedes comprar menos de 1")
+            Swal.fire({
+                title: 'Error!',
+                text: 'No puedes comprar menos de 1 producto',
+                icon: 'error',
+                confirmButtonText: 'Entiendo'
+              })
         }
     }
 
     const canje = () => {
         if(user.points>=product.points*numero){
-            alert("Hola " + user.name + " cambiaste "+ numero + " " + product.name + " por " + parseInt(numero*product.points) + " huellitas. Te quedan " + (parseInt(user.points) - (numero*product.points)) + " huellitas")
-            history.push("/tienda")
-            setUser({
-                name: user.name,
+            Swal.fire({
+                title: 'Espera!',
+                text: "Estas seguro/a de que quieres canjear este producto?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si quiero canjear!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    'Canjeado!',
+                    'Canjeaste ' + numero + " " + product.name + " por " + product.points*numero + " puntos exitosamente. Te quedan " + (user.points - product.points*numero) + " huellitas.",
+                    'success'
+                  )
+                    history.push('/tienda');
+                    dispatch(updateUser({points: userInfo.points - product.points*numero}, user.email));
+                }
+              })
+             /* setUser({
+               name: user.name,
                 lastname: user.lastname,
                 points: (parseInt(user.points) - (numero*product.price))
-            })
+            }) */
         }else{
-            alert("No tienes suficientes huellitas")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No tienes suficientes huellitas!',
+              })
         }
     }
     return (
