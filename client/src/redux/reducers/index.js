@@ -42,7 +42,9 @@ export default function rootReducer(state = initialState, action) {
 
         case UPDATE_USER: return {...state}
 
-        case GET_USER: return {...state, user: action.payload}
+        case GET_USER: 
+        console.log('hola', action.payload)
+        return {...state, user: action.payload}
 
         case GET_ALL_PRODUCTS: return{...state, allProducts: action.payload}
 

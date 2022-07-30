@@ -177,6 +177,7 @@ export function updateUser(data, email) {
 export function getUserByEmail(email) {
     return async function (dispatch) {
         try {
+            console.log(email)
             const user = await axios.get(`/users/${email}`);
 
             return dispatch({
