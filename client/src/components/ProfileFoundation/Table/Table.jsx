@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import './Table.css'
+import styles from './Table.module.css'
 
 function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
@@ -48,13 +48,13 @@ export default function BasicTable() {
 
 
     return (
-        <div className="Table">
-            <h3> Tabla de solicitudes </h3>
+        <div className={styles.Table}>
+            <h3 className={styles.h3}> Tabla de solicitudes </h3>
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029' }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
+                    <TableHead className={styles.TableHead}>
                         <TableRow>
                             <TableCell>Huellita </TableCell>
                             <TableCell align="left">ID Huellita</TableCell>
@@ -75,10 +75,10 @@ export default function BasicTable() {
                                 </TableCell>
                                 <TableCell align="left">{row.petId}</TableCell>
                                 <TableCell align="left">{row.userId}</TableCell>
-                                <TableCell align="left" className="ciudad">{row.city}</TableCell>
+                                <TableCell align="left" className={styles.ciudad}>{row.city}</TableCell>
                                 <TableCell align="left">{row.date}</TableCell>
                                 <TableCell align="left">
-                                    <span className="status" style={makeStyles(row.status)} >{row.status}</span>
+                                    <span className={styles.status} style={makeStyles(row.status)} >{row.status}</span>
                                 </TableCell>
                             </TableRow>
                         ))}

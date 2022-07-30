@@ -1,24 +1,39 @@
 .RightSide {
     display: flex;
     flex-direction: column;
-    /* padding-top: 1rem; */
     width: 95%;
     justify-content: space-evenly;
-    /* background-color: red; */
+    gap: 3rem;
 }
 
 .updates {
     position: relative;
-    top: -100px;
+    top: -80px;
     /* background-color: #fff; */
 }
 
-.btn-primary {
-    align-items: center;
+.btnContainer {
+    width: 100%;
+    height: 200px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+
+.btnPrimary {
+    text-align: center;
     align-self: center;
     justify-content: center;
+    position: relative;
+    left: -10px;
+    background: var(--glass);
+    color: #ee4ffc;
+    font-weight: 300;
+    font-size: 22px;
+    border-radius: 30px;
+    height: 45px;
     width: 80%;
-    border-radius: 10px;
+    border: dotted 2px rgba(0, 0, 0, 0.301);
 }
 
 @media screen and (max-width: 1200px) {

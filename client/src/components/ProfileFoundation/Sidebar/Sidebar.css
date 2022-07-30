@@ -12,6 +12,7 @@
 }
 
 .logo {
+    /* background-color: #fff; */
     display: flex;
     height: 4rem;
     font-weight: bold;
@@ -21,7 +22,7 @@
     justify-content: center;
     height: 4%;
     position: relative;
-    top: 45px;
+    /* top: 25px; */
     left: 5px;
 }
 
