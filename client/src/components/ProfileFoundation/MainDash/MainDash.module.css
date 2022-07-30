@@ -1,15 +1,16 @@
 .MainDash {
     /* padding-top: 1rem; */
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
 .h1 {
-    font-weight: 900;
-    font-size: 50px;
     position: relative;
-    top: 60px;
+    /* top: 20px; */
+    font-size: 50px;
+    font-weight: 900;
 }
 
 @media screen and (max-width: 1200px) {

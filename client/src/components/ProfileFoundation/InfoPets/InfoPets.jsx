@@ -12,7 +12,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import './InfoPets.css';
+import styles from './InfoPets.module.css';
+
 import { getFoundations } from '../../../redux/actions';
 
 
@@ -66,15 +67,13 @@ const InfoPets = () => {
     };
 
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, foundation.length - page * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, foundation.pets.length - page * rowsPerPage);
 
     return (
-        // <div className='infoPets' >Aca vamos a desplegar una tabla que contiene la info de todos los pets de la fundacion,
-        //     su estado de adopcion y los botones del estado ( available / unavailable )
-        // </div>
 
-        <div className="Table">
-            <h3 className="h3"> Tabla de Animales </h3>
+
+        <div className={styles.Table}>
+            <h3 className={styles.h3}> Tabla de Animales </h3>
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
             >
@@ -99,7 +98,7 @@ const InfoPets = () => {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        <img className='petImg' src={row.images[0]} />
+                                        <img className={styles.petImg} src={row.images[0]} />
                                         {row.name}
 
                                     </TableCell>
@@ -154,6 +153,7 @@ const InfoPets = () => {
                 </Table>
 
                 <TablePagination
+                    className={styles.pagination}
                     component="div"
                     count={foundation.pets.length}
                     page={page}

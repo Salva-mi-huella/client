@@ -46,10 +46,10 @@ export const SidebarData = [
         icon: MdPaid,
         heading: "Donaciones"
     },
-    {
-        icon: MdOutgoingMail,
-        heading: "Mensajes"
-    },
+    // {
+    //     icon: MdOutgoingMail,
+    //     heading: "Mensajes"
+    // },
 ];
 
 //  MainDash Data

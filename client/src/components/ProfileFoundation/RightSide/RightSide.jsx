@@ -1,34 +1,37 @@
-import { lightBlue } from '@mui/material/colors';
 import React from 'react';
 // import AdoptionReview from '../AdoptionReview/AdoptionReview';
 import Updates from '../Updates/Updates';
-import './RightSide.css';
+import styles from './RightSide.module.css';
 
 const RightSide = () => {
     return (
-        <div className="RightSide">
-            <div className='updates' >
+        <div className={styles.RightSide}>
+            <div className={styles.updates} >
                 <h3> Updates </h3>
                 <Updates />
             </div>
 
-            <div style={{ marginTop: '-150px', backgroundColor: 'lightBlue', width: '100%', height: '250px', justifyContent: 'space-around', display: 'flex', flexDirection: 'column' }}>
-                <button className="btn-primary">
-                    Voy a conectar este boton con el item " publicar huella"
+            {/* <div className={styles.btnContainer}>
+                <button
+                    onClick={() => { }}
+                    className={styles.btnPrimary}>
+                    PUBLICAR HUELLA
                 </button>
 
 
-                <button className="btn-primary">
-                    Y este con " publicar noticia "
+                <button
+                    onClick={() => { }}
+                    className={styles.btnPrimary}>
+                    PUBLICAR NOTICIA
                 </button>
 
-            </div>
+            </div> */}
             {/* <div>
                 <h3> Adoption review </h3>
                 <AdoptionReview />
             </div> */}
 
-        </div>
+        </div >
     )
 }
 
