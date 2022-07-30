@@ -59,7 +59,7 @@ export function getFoundations(){
 export function getAllPets(){
     return async function (dispatch){
         try {
-            const info = await axios("http://localhost:4000/pets")
+            const info = await axios("/pets")
             return dispatch({
                 type:GET_ALL_PETS,
                 payload: info.data
@@ -78,7 +78,7 @@ export function getAllPets(){
 export  function getPetDetail(id){
     return async function (dispatch){
         try{
-            const info = await axios(`http://localhost:4000/pets/${id}`)
+            const info = await axios(`/pets/${id}`)
             return dispatch({
                 type: GET_PET_DETAIL,
                 payload: info.data
@@ -194,7 +194,7 @@ export function getUserByEmail(email) {
 export function getAllProducts(){
     return async function (dispatch){
         try {
-            const info = await axios("http://localhost:4000/products")
+            const info = await axios("/products")
             return dispatch({
                 type:GET_ALL_PRODUCTS,
                 payload: info.data
@@ -211,7 +211,7 @@ export function getAllProducts(){
 export function postDonation(order){
     return async function (dispatch){
         try {
-            const info = await axios.post("http://localhost:4000/donations", order)
+            const info = await axios.post("/donations", order)
             return dispatch({
                 type: POST_DONATION,
                 payload: info.data
