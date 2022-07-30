@@ -61,80 +61,36 @@ const Donations = () => {
     };
 
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, foundation.pets.length - page * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, foundation.donations.length - page * rowsPerPage);
 
     return (
 
         <div className={styles.Table}>
-            <div className='donations' >Historial de Donaciones </div>
+            <div className={styles.h3}> Historial de Donaciones </div>
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Huellita </TableCell>
-                            <TableCell align="left">Fecha de alta</TableCell>
-                            <TableCell align="left">Tipo</TableCell>
-                            <TableCell align="left">Genero</TableCell>
-                            <TableCell align="left">Edad</TableCell>
-                            <TableCell align="left">Status</TableCell>
-                            {/* <TableCell align="left">Actions</TableCell> */}
+                            <TableCell> ID Usuario </TableCell>
+                            <TableCell align="left"> Fecha de Donacion</TableCell>
+                            <TableCell align="left"> Metodo Utilizado</TableCell>
+                            <TableCell align="left"> Cantidad </TableCell>
+                            <TableCell align="left"> Puntos Acumulados</TableCell>
+                            {/* <TableCell align="left">Status</TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {foundation.pets && foundation.pets
+                        {foundation.donations && foundation.donations
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row, index) => (
-                                <TableRow
-                                    key={row.name}
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                    <TableCell component="th" scope="row">
-                                        <img className={styles.petImg} src={row.images[0]} />
-                                        {row.name}
-
-                                    </TableCell>
-                                    <TableCell align="left">{row.post_date}</TableCell>
-                                    <TableCell align="left">{row.type}</TableCell>
-                                    <TableCell align="left">{row.gender}</TableCell>
-                                    <TableCell align="left">{row.age}</TableCell>
-
-                                    {/* ADOPTION STATUS */}
-                                    <TableCell align="left">
-                                        <select
-                                            onChange={(e) => { console.log('Me adoptaron?', e.target.value) }}
-                                            // defaultValue={row.adopted ? 'Adoptado' : 'En adopcion'}
-                                            style={makeStyles(row.adopted)}>
-
-                                            <option
-                                                value={row.adopted}
-                                                className="status"
-                                                style={makeStyles(row.adopted)}
-                                            > Adoptado
-                                            </option>
-
-                                            <option
-                                                value={!row.adopted}
-                                                className="status"
-                                                style={makeStyles(row.adopted)}
-                                            > En adopcion
-                                            </option>
-
-                                            <option hidden selected>
-                                                {row.adopted ? 'Adoptado' : 'En adopcion'}
-                                            </option>
-
-                                        </select>
-
-                                        {/* <span className="status" style={makeStyles(row.adopted)} >
-                                        {row.status ? 'Adoptado' : 'En adopcion'}
-                                    </span> */}
-                                        {/* <button className='updateBtn' >
-                                        <MdEdit className='icon' />
-                                    </button> */}
-                                    </TableCell>
-
+                                <TableRow key={row.userId} sx={{ '&:last-child td, &:last-child th': { border: 1 } }} >
+                                    <TableCell component="th" scope="row"> {!row.userId ? 'Anonimo' : `${row.userId}`} </TableCell>
+                                    <TableCell align="left">{row.date}</TableCell>
+                                    <TableCell align="left">{row.method}</TableCell>
+                                    <TableCell align="left">{row.method === 'paypal' ? `$ ${row.amount} USD ` : `$ ${row.amount} ARS `}</TableCell>
+                                    <TableCell align="left">{new Intl.NumberFormat().format(row.points)}</TableCell>
                                 </TableRow>
                             ))}
                         {emptyRows > 0 && (
