@@ -42,6 +42,7 @@ function App() {
         <Route exact path='/huellitas'> <NavBar/> <Huellitas/></Route>
         <Route exact path='/noticias'> <NavBar/> <News/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
+        <Route exact path='/a'> <NavBar/> <PostPet/> </Route>
         <Route exact path='/formulario-publicar-mascota'> <NavBar/> <PostPet/></Route>
         {/* <Route exact path='/postNews'> <NavBar/> <PostNews/> </Route> */}
 
