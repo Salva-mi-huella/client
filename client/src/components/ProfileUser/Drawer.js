@@ -101,7 +101,10 @@ export default function PersistentDrawerLeft() {
   const { user, isLoading } = useAuth0();
   const dispatch = useDispatch();
 
+  console.log(user)
+
   useEffect(() => { 
+    console.log(user.email)
     dispatch(getUserByEmail(user.email))
  }, [])
 

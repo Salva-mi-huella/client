@@ -6,19 +6,15 @@ import logo from '../../assets/logo.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from '../Profile/ProfileMenu';
-import { getUserByEmail } from '../../redux/actions';
-
 
 export default function NavBar({userInfo}) {
 
-   const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+const { isAuthenticated, loginWithRedirect, user } = useAuth0();
 
-    const dispatch = useDispatch();
+const dispatch = useDispatch();
 
-   useEffect(()=>{
-    if (isAuthenticated) dispatch(getUserByEmail(user.email));
-})
-
+ useEffect(()=>{
+}, [isAuthenticated, user, dispatch]);
 
 const userDetail = useSelector(state => state.user);
    
@@ -36,17 +32,15 @@ const userDetail = useSelector(state => state.user);
                     <Link className={styles.link} to='/huellitas'><p>Huellitas</p></Link>
                 </div>
 
-                {/* <div className={styles.navCenter}> */}
                 { isAuthenticated ? 
                         <div className={styles.profile}>
-                          <span>{userDetail && userDetail.points}</span><img className={styles.paw} src={paw} alt='paw'></img>
+                          {userDetail.points && <div><span>{userDetail && userDetail.points}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
                           <ProfileMenu></ProfileMenu>
                         </div>
                       : 
                       <div className={styles.signUp}>
                         <button onClick={() => loginWithRedirect()} >Ingresar</button> 
                       </div>}
-                {/* </div> */}
             </nav>
             
        )
