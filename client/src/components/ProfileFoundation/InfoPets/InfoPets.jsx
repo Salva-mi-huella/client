@@ -74,6 +74,7 @@ const InfoPets = () => {
 
         <div className={styles.Table}>
             <h3 className={styles.h3}> Tabla de Animales </h3>
+
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
             >
@@ -144,16 +145,16 @@ const InfoPets = () => {
 
                                 </TableRow>
                             ))}
-                        {emptyRows > 0 && (
+                        {/* {emptyRows > 0 && (
                             <TableRow style={{ height: 53 * emptyRows }}>
                                 <TableCell colSpan={6} />
                             </TableRow>
-                        )}
+                        )} */}
                     </TableBody>
                 </Table>
 
                 <TablePagination
-                    className={styles.pagination}
+                    // className={styles.pagination}
                     component="div"
                     count={foundation.pets.length}
                     page={page}

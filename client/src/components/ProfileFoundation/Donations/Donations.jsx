@@ -13,24 +13,28 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import styles from '../InfoPets/InfoPets.module.css';
+import styles from '../Donations/Donations.module.css';
+import { fontSize } from '@mui/system';
 
-// import './Donations.css'
+const makeStyles = (method) => {
 
-const makeStyles = (status) => {
-    if (status) {
+    if (method === 'paypal') {
+
         return {
-            background: 'rgb(145 254 159 / 47%)',
-            color: 'green'
+            // background: 'rgb(145 254 159 / 47%)',
+            fontWeight: '500',
+            color: 'rgb(27, 189, 27)',
         }
+
     }
-    else if (!status) {
+    else {
         return {
             background: '#59bfff',
             color: 'white'
         }
     }
 }
+
 
 const Donations = () => {
 
@@ -76,9 +80,8 @@ const Donations = () => {
                             <TableCell> ID Usuario </TableCell>
                             <TableCell align="left"> Fecha de Donacion</TableCell>
                             <TableCell align="left"> Metodo Utilizado</TableCell>
-                            <TableCell align="left"> Cantidad </TableCell>
+                            <TableCell align="left" > Cantidad </TableCell>
                             <TableCell align="left"> Puntos Acumulados</TableCell>
-                            {/* <TableCell align="left">Status</TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -89,7 +92,8 @@ const Donations = () => {
                                     <TableCell component="th" scope="row"> {!row.userId ? 'Anonimo' : `${row.userId}`} </TableCell>
                                     <TableCell align="left">{row.date}</TableCell>
                                     <TableCell align="left">{row.method}</TableCell>
-                                    <TableCell align="left">{row.method === 'paypal' ? `$ ${row.amount} USD ` : `$ ${row.amount} ARS `}</TableCell>
+                                    <TableCell style={makeStyles(row.method)}
+                                        align="left">{row.method === 'paypal' ? `$ ${row.amount} USD ` : `$ ${row.amount} ARS `}</TableCell>
                                     <TableCell align="left">{new Intl.NumberFormat().format(row.points)}</TableCell>
                                 </TableRow>
                             ))}
@@ -104,7 +108,7 @@ const Donations = () => {
                 <TablePagination
                     className={styles.pagination}
                     component="div"
-                    count={foundation.pets.length}
+                    count={foundation.donations.length}
                     page={page}
                     onPageChange={handleChangePage}
                     rowsPerPage={rowsPerPage}

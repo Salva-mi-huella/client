@@ -1,0 +1,40 @@
+.h3 {
+    margin: 40px 15px;
+    font-size: 45px;
+    font-weight: 700;
+    color: #F1F15B;
+}
+
+.donations {
+    background-color: greenyellow;
+    color: white;
+    margin: 5rem;
+    padding: 5rem;
+    text-align: center;
+    font-size: 7rem;
+    border-radius: 5rem;
+    justify-content: center;
+}
+
+.MuiTableRow-root>* {
+    padding: 10px;
+}
+
+.MuiTableRow-root.MuiTableRow-head>* {
+    font-weight: 900 !important;
+}
+
+.Table {
+    margin-left: 30px;
+    max-height: 85vh;
+    overflow-y: hidden;
+}
+
+.Table td, th {
+    border: none !important;
+}
+
+.Table:first-child {
+    border-radius: 0.7rem !important;
+}
+

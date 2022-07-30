@@ -26,11 +26,12 @@
 
 .Table {
     margin-left: 30px;
+    max-height: 85vh;
+    overflow-y: hidden;
 }
 
-.Table td, .TableHead {
+.Table td, th {
     border: none !important;
-
 }
 
 .Table:first-child {
@@ -53,14 +54,14 @@
     color: #00b5ff !important;
 }
 
-.pagination {
+/* .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     align-content: flex-end;
     padding: 35px;
-}
+} */
 
 /* .pagination> :first-child {
     background-color: greenyellow;
