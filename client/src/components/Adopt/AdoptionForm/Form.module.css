@@ -3,7 +3,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 800px;
+    height: auto;
+    /* width: 80%; */
+    border: 2px solid red;
+    outline: none;
 }
 
 .title{
