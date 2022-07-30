@@ -16,7 +16,7 @@ import { alignProperty } from '@mui/material/styles/cssUtils';
 export default function EditDataForm({datos,setDatos}) {
 
   const { user, isLoading } = useAuth0();
-  const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
   const dispatch=useDispatch()
 
   useEffect(() => { 
@@ -58,24 +58,24 @@ export default function EditDataForm({datos,setDatos}) {
 
                     <div>
                       <label className={styles.items}>Nombre:</label>
-                      <input className={styles.input}  placeholder={userDetail.name} type="text" maxLength={8} name="name" {...register("name", { maxLength: 8 , pattern: /^-?[a-zA-Z]*$/})} />
+                      <input className={styles.input} defaultValue={userDetail.name}  type="text" maxLength={8} name="name" {...register("name", { maxLength: 8 , pattern: /^-?[a-zA-Z]*$/})} />
                       {/* {errors.name?.type === "required" && <p className={styles.error}>El nombre es obligatorio</p>} */}
                     <label className={styles.items}>Email: {user.email}</label>
                         <div>
-                          {errors.name?.type === "maxLength" && <p className={styles.error}>El nombre debe tener 8 caracteres maximo</p>}
+                          {errors.name?.type === "maxLength" && <p className={styles.error}>El nombre debe tener 8 caracteres máximo</p>}
                           {errors.name?.type === "pattern" && <p className={styles.error}>El nombre debe tener solo letras</p>}
                         </div>
                     </div>
 
                    <div>
                     <label className={styles.items}>DNI Nro:</label>
-                     <input className={styles.input} placeholder={userDetail.dni} type="number" maxLength={8} name="dni" 
+                     <input className={styles.input} defaultValue={userDetail.dni} type="number" maxLength={8} name="dni" 
                      {...register("dni", { maxLength: 8 , pattern: /^-?[0-9]*$/})} 
                      />
                      {/* {errors.dni?.type === "required" && <p className={styles.error}>El DNI es obligatorio</p>} */}
 
                      <label className={styles.items}>Fecha de nacimiento:</label>
-                       <input className={styles.input} placeholder={userDetail.birthday} type="date" name="birthday" {...register("birthday")}/>
+                       <input className={styles.input} defaultValue={userDetail.birthday} type="date" name="birthday" {...register("birthday")}/>
                        <div>
                           {errors.dni?.type === "maxLength" && <p className={styles.error}>El DNI debe tener 8 caracteres máximo</p>}
                           {errors.dni?.type === "pattern" && <p className={styles.error}>El DNI debe tener solo numeros</p>}
@@ -86,11 +86,11 @@ export default function EditDataForm({datos,setDatos}) {
                    </div>
 
                    <div>
-                      <label className={styles.items}>Direccion:</label>
-                      <input className={styles.input} placeholder={userDetail.address}  type="text" maxLength={30} name="address" {...register("address", { maxLength: 30 })}/>
+                      <label className={styles.items}>Dirección:</label>
+                      <input className={styles.input} defaultValue={userDetail.address}  type="text" maxLength={30} name="address" {...register("address", { maxLength: 30 })}/>
                       {/* {errors.address?.type === "required" && <p className={styles.error}>La dirección es obligatoria</p>} */}
                       <label className={styles.items}>Ciudad: </label>
-                      <input className={styles.input}  placeholder={userDetail.city} type="text" maxLength={20} name="city" {...register("city", { maxLength:20 , pattern: /^-?[a-zA-Z]*$/})}/>
+                      <input className={styles.input}  defaultValue={userDetail.city} type="text" maxLength={20} name="city" {...register("city", { maxLength:20 , pattern: /^-?[a-zA-Z]*$/})}/>
                       {/* {errors.city?.type === "required" && <p className={styles.error}>La ciudad es obligatoria</p>} */}
                       <div>
                         {errors.address?.type === "maxLength" && <p className={styles.error}>La dirección debe tener 30 caracteres máximo</p>}
@@ -101,8 +101,8 @@ export default function EditDataForm({datos,setDatos}) {
                    </div>
                    
                    <div>
-                      <label className={styles.items}>Telefono:</label>
-                        <input className={styles.input} placeholder={userDetail.telephone_number} type="text" name="telephone_number" maxLength={20} {...register("telephone_number", { maxLength: 20, pattern: /^-?[0-9]*$/ })}/>
+                      <label className={styles.items}>Teléfono:</label>
+                        <input className={styles.input} defaultValue={userDetail.telephone_number} type="text" name="telephone_number" maxLength={20} {...register("telephone_number", { maxLength: 20, pattern: /^-?[0-9]*$/ })}/>
                         {/* {errors.telephone_number?.type === "required" && <p className={styles.error}>El telefono es obligatorio</p>} */}
                         {errors.telephone_number?.type === "maxLength" && <p className={styles.error}>El teléfono debe tener 20 caracteres máximo</p>}
                         {errors.telephone_number?.type === "pattern" && <p className={styles.error}>El teléfono debe tener solo números</p>}

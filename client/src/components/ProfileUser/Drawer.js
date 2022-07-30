@@ -107,15 +107,15 @@ export default function PersistentDrawerLeft() {
 
  const userDetail = useSelector(state => state.user);
 
- const points = function() {
-  let points = 0;
-  userDetail.donations?.forEach(donation => {
-    points += donation.points;
-  }) 
-  return points 
-}()
+//  const points = function() {
+//   let points = 0;
+//   userDetail.donations?.forEach(donation => {
+//     points += donation.points;
+//   }) 
+//   return points 
+// }()
 
-console.log(points)
+// console.log(points)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -193,15 +193,14 @@ console.log(points)
         </DrawerHeader>
         <Divider />
         <List 
-                 style={{ color: 'azure', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
-        
-        > 
+                 style={{ color: 'azure', display: 'flex', flexDirection: 'column ' , justifyContent: 'center', alignItems: 'flex-start', marginLeft:'20px'}}>
+
             <ListItemButton onClick={goHome} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><HomeIcon sx={{color: 'white'}}/></ListItemIcon>Home</ListItemButton>
             <ListItemButton onClick={viewData} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><SettingsAccessibilityIcon sx={{color: 'white'}}/></ListItemIcon>Mis datos</ListItemButton>
             <ListItemButton onClick={viewDonations} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><VolunteerActivismIcon sx={{color: 'white'}}/></ListItemIcon>Mis donaciones</ListItemButton>
             <ListItemButton onClick={viewFavs} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><FavoriteIcon sx={{color: 'white'}}/></ListItemIcon>Favoritos</ListItemButton>
             <ListItemButton onClick={viewAdoptSolicitudes} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><ContentPasteIcon sx={{color: 'white'}}/></ListItemIcon>Solicitudes de adopción</ListItemButton>
-            <ListItemButton sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{points && points}</ListItemButton>
+            <ListItemButton sx={{color: 'rgb(255, 230, 0)', marginBottom:'20px', fontWeight: 'bold', fontSize:'20px', fontFamily: 'Gill Sans'}}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{userDetail.points}</ListItemButton>
         </List>    
         <Divider />
       </Drawer>
@@ -211,7 +210,7 @@ console.log(points)
     </Box>
     {myData && <EditDataForm />}
 
-    {donations && <DonationTable></DonationTable>}
+    {donations && <DonationTable userDetail={userDetail}></DonationTable>}
 
     {favs && <div className={styles.favs}>
       <h1>Favoritos</h1>

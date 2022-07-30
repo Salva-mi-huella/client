@@ -10,10 +10,6 @@ import Paper from '@mui/material/Paper';
 
 import './RequestTable.css'
 
-function createData(name, petId, userId, city, date, status) {
-    return { name, petId, userId, city, date, status };
-}
-
 const makeStyles = (status) => {
     if (status === 'Aprobado') {
         return {
@@ -35,15 +31,7 @@ const makeStyles = (status) => {
     }
 }
 
-const rows = [
-    createData('El Campito Refugio', '$3.00,00', 15000, 'Haedo', 'Julio 26 2022', 'Aprobado'),
-    createData('Gatitos de Palermo', '$3.00,00', 15000, 'Almagro', 'Julio 26 2022', 'Aprobado'),
-    createData('Patitas Glew', '$3.000,00', 15000, 'Padua', 'Julio 26 2022', 'Aprobado'),
-    // createData('Bella', 4, 305, 'Caballito', 'Julio 26 2022', 'Rechazado'),
-    // createData('Ahri', 5, 356, 'Palermo', 'Julio 26 2022', 'Aprobado'),
-];
-
-export default function DonationTable() {
+export default function DonationTable({userDetail}) {
     return (
         <div className="Table">
             <h1 className='titles'> Mis donaciones </h1>
@@ -56,29 +44,20 @@ export default function DonationTable() {
                             <TableCell sx={{color: 'yellow', fontSize:'30px'}}>Fundación</TableCell>
                             <TableCell align="left" sx={{color: 'yellow', fontSize:'30px'}}>Importe</TableCell>
                             <TableCell align="left" sx={{color: 'yellow', fontSize:'30px'}}>Huellitas</TableCell>
-                            {/* <TableCell align="left">Ciudad</TableCell> */}
                             <TableCell align="left" sx={{color: 'yellow', fontSize:'30px'}}>Fecha</TableCell>
                             <TableCell align="left" sx={{color: 'yellow', fontSize:'30px'}}>Status</TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>
-                        {rows.map((row) => (
-                            <TableRow
-                                key={row.name}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row" sx={{color: 'azure', fontSize:'25px'}}>
-                                    {row.name} 
-                                </TableCell>
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{row.petId} </TableCell>
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{row.userId}</TableCell>
-                                {/* <TableCell align="left" className="ciudad">{row.city}</TableCell> */}
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{row.date}</TableCell>
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>
-                                    <span className="status" style={makeStyles(row.status)} >{row.status}</span>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                    <TableBody> 
+                        {userDetail.donations.length>0 && userDetail.donations.map((d) => (
+                        <TableRow>
+                            <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{d.foundationId} </TableCell>
+                            <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{`${d.amount} usd`}</TableCell>
+                            <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{d.points}</TableCell>
+                            <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{d.date} </TableCell>
+                            {/* <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}><span className="status" style={makeStyles(row.status)} >{row.status}</span></TableCell> */}
+                        </TableRow>
+                                ))}
                     </TableBody>
                 </Table>
             </TableContainer>

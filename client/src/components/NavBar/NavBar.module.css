@@ -1,19 +1,19 @@
 .nav {
-    /* background-image: linear-gradient( 89.2deg,  rgba(191,241,236,1) 22.3%, rgba(109,192,236,1) 84.1% ); */
     display: flex;
     /* position: fixed; */
-    z-index: 100;
-    justify-content: space-around;
+    /* z-index: 100; */
+    justify-content: space-between;
     align-items: center;
+
     /* font-family: 'Roboto', sans-serif; */
-    height: 8vh;
+    height: 8.5vh;
     width: 100vw;
-    /* background-color: antiquewhite; */
 }
 
 .logo {
     width: 60px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    margin-left: 30px;
 }
 
 .icons {
@@ -24,22 +24,20 @@
 .navCenter {
     display:flex;
     align-items: center;
-    margin-left: 90px;
 }
 
 .navCenter p {
     transition: 0.3s;
     margin-right: 17px;
     margin-left: 15px;
-  /* color: rgb(255, 230, 0) !important; */
-  color: azure;
+    color: azure;
 }
 
 .navCenter p:hover {
     transition: 0.3s;
     text-decoration: underline;
     transform: scale(1.05);
-    /* color: rgb(29, 53, 87); */
+    color: rgb(255, 230, 0);
     cursor: pointer;
 }
 
@@ -50,23 +48,24 @@
 
 
 .signUp button {
-    font-size: 13px;
-    transition: 1s;
-    color: azure;
-    cursor: pointer;
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.876);
+    color: #9C27B0;
     border: none;
-    background-color: transparent;
-    margin-bottom: 20px;
-}
-
-.signUp {
-    color: azure
+    margin-right: 30px;
+    margin-bottom: 17px;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
+    width: 100px;
+    height: 27px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .signUp button:hover {
-    transition: 1s;
-    color: rgb(255, 230, 0);
-    text-decoration: overline underline;
+    transition: 0.3s;
+    background-color:#a20ebc;
+    color: #f5f5f5;
 }
 
 .profile {
@@ -74,20 +73,21 @@
     align-items: center;
     justify-content: center;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 
-.profile button {
-    transition: 1s;
-    color: rgb(29, 53, 87);
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
+.paw {
+    width: 50px;
 }
 
-.profile button:hover {
-    transition: 1s;
-    color: rgb(29, 101, 201);
-    text-decoration: overline underline;
+.profile span {
+    font-size: 1.2rem;
+    color: rgb(255, 230, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 10px;
+ 
 }
 
 
