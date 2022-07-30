@@ -230,6 +230,12 @@ export function postNews (data){
 
     }
 }
+export function postPets (data){
+    return  function (){
+            axios.post("/pets", data)
+
+    }
+}
 
 export function getUsers(){
     return async function (dispatch){

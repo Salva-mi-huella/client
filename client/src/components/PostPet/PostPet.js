@@ -1,27 +1,17 @@
 import React, { useState } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import styles from "./PostPet.module.css";
+import { useDispatch } from "react-redux";
+import { postPets } from "../../redux/actions";
 
 export default function PostPet() {
 var date = Date();
 
   const [imag, setImag ] = useState("");
 
-
-  // Esta info agregarla al submit y con el onchange de la imagen solo modificar linea 15
-  const uploadImage = async (e) =>{
-    const files = e.target.files;
-    const data = new FormData();
-    data.append("file", files[0]); 
-    data.append("upload_preset", "koafybza");
-    const res = await fetch ("https://api.cloudinary.com/v1_1/djasy7hxk/image/upload",
-    {
-      method: "POST",
-      body: data
-    })
-    let file = await res.json()
-    setImag(file.secure_url);
-
+  const dispatch = useDispatch()
+  const uploadImage = (e) =>{
+    setImag(e.target.files[0])
   }
   
 
@@ -41,8 +31,7 @@ var date = Date();
         
         validate={(values) => {
           let errores = {};
-          
-          console.log(values)
+  
           //VALIDACION NOMBRE
           if (!values.name) {
             errores.name = "Por favor ingrese un nombre";
@@ -72,9 +61,25 @@ var date = Date();
           return errores;
         }}
 
-        onSubmit={(values, { resetForm }) => {
-          // setSubmittedForm(true)
-          // setTimeout(()=> setSubmittedForm(false),5000)
+        onSubmit={async(values, { resetForm }) => {
+
+          const data = new FormData();
+          data.append("file", imag); 
+          data.append("upload_preset", "koafybza");
+          const res = await fetch ("https://api.cloudinary.com/v1_1/djasy7hxk/image/upload",
+          {
+            method: "POST",
+            body: data
+          })
+          let file = await res.json()
+          dispatch(postPets({
+            images : [file.secure_url],
+            name: values.name,
+            age: values.age,
+            type: values.type,
+            gender: values.gender,
+            description: values.description
+          }))
           resetForm();
         }}
       >
@@ -139,7 +144,7 @@ var date = Date();
                     name="gender"
                     id="gender"
                   >
-                    <option value="Macho" selected>Macho</option>
+                    <option value="Macho" defaultValue="Macho">Macho</option>
                     <option value="Hembra">Hembra</option>
                   </Field>
                 </div>
