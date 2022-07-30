@@ -71,7 +71,6 @@ export function getAllPets(){
             // })
         }
     }
-
 }
 
 
@@ -224,17 +223,20 @@ export function postDonation(order){
         }
     }
 }
-
+// POST DB
 export function postNews (data){
     return  function (){
             axios.post("/news", data)
-
     }
 }
 export function postPets (data){
     return  function (){
             axios.post("/pets", data)
-
+    }
+}
+export function postRequestAdopt (data){
+    return function(){
+        axios.post("/request_adopt", data)
     }
 }
 
