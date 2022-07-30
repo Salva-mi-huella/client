@@ -14,6 +14,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import paypal from '../../assets/paypal.png'
 import mercadoPago from '../../assets/mercadopago.png'
+import Swal from 'sweetalert2';
 
 
 const steps = [
@@ -32,7 +33,7 @@ const steps = [
   },
 ];
 
-export default function VerticalLinearStepper({donation, setDonation, setCheckout}) {
+export default function VerticalLinearStepper({donation, setDonation, setCheckout, foundation, isAuthenticated, loginWithRedirect}) {
 
 
     const foundations = useSelector(state=> state.foundations)
@@ -44,14 +45,56 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
       dispatch(getFoundations())
       dispatch(getCurrency())
   },[dispatch])
+  
+  let amount1 = function(){
+    let newAmount = ''
+   for(let i = 0; i < donation.amount.length; i++){
+          if(donation.amount[i] !== '$' && donation.amount[i] !== 'u' && donation.amount[i] !== 's' && donation.amount[i] !== 'd'){
+            newAmount = newAmount.concat(donation.amount[i])
+          }
+   } return parseInt(newAmount)
+}()
 
   const currency = useSelector(state=> state.currency)
   const conversion = currency.length>0 && parseInt(currency[1].casa.venta)*5
+  const paws = (currency.length>0 &&donation.amount) && parseInt(currency[1].casa.venta)*5*amount1
+
+
   
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    if (donation.amount.length) setCheckout(true)
+    if (donation.amount.length) {
+      Swal.fire({
+        title: `¿Estás seguro de querer donar ${donation.amount} a la fundación ${foundation.name}?`,
+        text: isAuthenticated ? `Ganarías ${paws} huellitas.` : '¡Registrate antes y sumá huellitas!',
+        showClass: {
+          popup: 'swal2-show',
+          backdrop: 'swal2-backdrop-show',
+          icon: 'swal2-icon-show'
+        },
+        color: 'purple',
+        padding: '2rem',
+        width: '50rem',
+        heigth: '50rem',
+
+        showDenyButton: !isAuthenticated && true,
+        showCancelButton: true,
+        showConfirmButton: true,
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: `Cancelar`,
+        denyButtonText: `Registrarse`,
+        
+      }).then((result) => {
+        if (result.isConfirmed) {
+             setCheckout(true)
+        } else if (result.isDenied) {
+          loginWithRedirect()
+        } else {
+          setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        } 
+      })
+    }
   };
 
   const handleBack = () => {
@@ -76,7 +119,6 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
   return (
     <div> 
         <Box sx={{ maxWidth: 400 }}>
-        <h2 className={style.title}>Doná en tres simples pasos</h2>
         <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((step, index) => (
             <Step key={step.label}>

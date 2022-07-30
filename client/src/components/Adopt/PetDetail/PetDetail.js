@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {useHistory, useParams} from 'react-router-dom';
+import {useHistory, useParams, Link} from 'react-router-dom';
 import styles from './PetDetail.module.css';
 import { getPetDetail } from '../../../redux/actions/index';
 import Loading from '../../Loading/Loading';
@@ -38,32 +38,6 @@ export default function PetDetail(){
     return(
             pet && pet.name ? 
                 <div className={styles.containerDetail}>         
-                        <div className={styles.containerInfo}>
-                            <div className={styles.infoTitle}>
-                                <h2>Hola,</h2>    
-                                <h2>soy {pet.name} !</h2>
-                            </div>
-                            <div className={styles.infoDesc}>
-                                <p>{pet.description}</p>
-                            </div>
-                            <div className={styles.infoExtra}>
-                                <div>
-                                    <p className={styles.pTitle}>Fundación</p>
-                                    {pet.foundation && pet.foundation.images.length > 0 && <img src={pet.foundation.images[0]} alt={pet.name} />}
-                                </div>
-                                <div>
-                                    <p className={styles.pTitle}>Edad</p>
-                                    <p className={styles.pInfo}>{pet.age}</p>
-                                </div>
-                                <div>
-                                    <p className={styles.pTitle}>Sexo</p>
-                                    <p className={styles.pInfo}>{pet.gender}</p>
-                                </div>
-                            </div>
-                            <div className={styles.btn}>
-                                <button onClick={() => history.push("/formulario-adopcion")}>Salvás mi huella?</button>
-                            </div>
-                        </div> 
                         <div className={styles.containerImg}>
                             {
                                 pet.images && pet.images.length > 0 &&
@@ -80,6 +54,32 @@ export default function PetDetail(){
                                     </div>
                             }
                         </div>
+                        <div className={styles.containerInfo}>
+                            <div className={styles.infoTitle}>
+                                <h2>Hola, <br></br>soy {pet.name}</h2>     
+                                {/* <h2>soy {pet.name} !</h2> */}
+                            </div>
+                            <div className={styles.infoDesc}>
+                                <p>{pet.description}</p>
+                            </div>
+                            <div className={styles.infoExtra}>
+                                <div>
+                                    <p className={styles.pTitle}>Fundación</p>
+                                    {pet.foundation && pet.foundation.images.length > 0 && <Link to={`/fundacion/${pet.foundationId}`}><img src={pet.foundation.images[0]} alt={pet.name} /></Link>}
+                                </div>
+                                <div>
+                                    <p className={styles.pTitle}>Edad</p>
+                                    <p className={styles.pInfo}>{pet.age}</p>
+                                </div>
+                                <div>
+                                    <p className={styles.pTitle}>Sexo</p>
+                                    <p className={styles.pInfo}>{pet.gender}</p>
+                                </div>
+                            </div>
+                            <div className={styles.btn}>
+                                <button onClick={() => history.push("/formulario-adopcion")}>¿Salvás mi huella?</button>
+                            </div>
+                        </div> 
                     </div>
                 : <div className={styles.contanierLoading}><Loading /></div>
     )
