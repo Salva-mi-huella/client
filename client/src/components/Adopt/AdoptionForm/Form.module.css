@@ -4,9 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: auto;
-    /* width: 80%; */
-    border: 2px solid red;
-    outline: none;
+
 }
 
 .title{
@@ -31,6 +29,7 @@
 .groupinp{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content:space-around;
     padding: 10px;
 }

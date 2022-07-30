@@ -161,7 +161,7 @@ useEffect(() => {
               <div className={styles.inp}>
                 <label htmlFor="age">Edad</label>
                 <Field
-                  className="form-control w-25 opacity-25"
+                  className="form-control w-50 opacity-25"
                   type="number"
                   name="age"
                   id="age"                  
