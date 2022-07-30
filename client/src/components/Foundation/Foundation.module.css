@@ -2,22 +2,68 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-top: 80px; */
 }
 
+.containerInfo {
+    display: flex;
+    flex-direction: space-evenly;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10vw;
+    padding-bottom: 7vw;
+}
+
+.containerInfo h1 {
+    margin-bottom: 3vw;
+    width: 45vw;
+    color: rgb(255, 230, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.namePicture {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.description h3 {
+    color: azure;
+    font-weight: bold;
+    text-align: center;
+}
+
+.description {
+    margin-top: 4vw;
+    width: 40vw;
+    height: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.description p {
+    color: azure;
+    font-weight: bold;
+    font-size: 1.4vw;
+    margin-top: 2vw;
+}
 .titles {
     color: rgb(255, 230, 0);
     font-weight: bold;
-    margin-top: 100px;
-
+    margin-top: 8vw;
 }
 
 .foundationImage {
-    width: 400px;
-    height: 100%;
-    margin-left: 150px;
+    width: 25vw;
+    height: 25vw;
+    /* margin-left: 10vw; */
     border-radius: 200px;
-    border: 3px groove rgb(15, 28, 106);
+    border: 0.5vw groove rgb(15, 28, 106);
 }
 
 .icons {
@@ -44,19 +90,6 @@
     padding: 30px;
 }
 
-.petImage {
-    width: 100%;
-    border-radius: 10px;
-    height: 224px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transition: 0.4s;
-    cursor: pointer;
-}
-
-.petImage:hover {
-   transition: 0.3s;
-   transform: scale(1.03);
-}
 
 
 .containerDonate {
@@ -129,13 +162,17 @@
 .containerPets {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    margin-bottom: 60px;
-    margin-left: 130px;
+    margin-top: 4vw;
+    margin-bottom: 10vw;
+    margin-left: 9vw;
+}
+
+.subPets {
+    margin-left: 4.5vw;
+
 }
 
 .containerPets h2 {
-    margin-top: 50px;
     color: rgb(255, 230, 0);
     font-weight: bold;
 }
@@ -144,55 +181,13 @@
     margin-bottom: 50px;
     color: azure;
     font-weight: bold;
-    font-size: large;
+    font-size: 1.4vw;
 }
 
-.subcontainerPets{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 80%;
-    justify-content: center;
-    align-items: center;
+.pets{
+    width: 90%;
 }
 
-.containerInfo {
-    display: flex;
-    flex-direction: space-between;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    /* border: 2px solid red; */
-    padding: 50px 50px 50px 0
-    
-}
-
-.containerInfo h1 {
-    margin-left: 80px;
-    margin-bottom: 50px;
-    width: 650px;
-    color: rgb(255, 230, 0);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    /* border: 2px solid red; */
-}
-
-.description h3 {
-    color: azure;
-    font-weight: bold;
-}
-
-.description {
-    margin-top: 50px;
-}
-
-.description p {
-    color: azure;
-    font-weight: bold;
-    font-size: 1.3rem;
-    /* text-align: center; */
-    margin-top: 50px;
-}
 
 .card {
     text-align: center;
@@ -249,9 +244,15 @@
 
 .google {
     width: 400px;
-    
 }
 
+.link {
+    text-decoration: none;
+}
 
+.age {
+    margin-left: 0.8vw;
+    font-size: 1.3vw;
+}
 
 
