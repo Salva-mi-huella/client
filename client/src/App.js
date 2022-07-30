@@ -20,12 +20,7 @@ import Paypal from './components/Donate/Paypal/Paypal';
 import Huellitas from './components/Huellitas/Huellitas';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 // import Payment from './components/Donate/Payment';
-import axios from 'axios';
 import PostPet from './components/PostPet/PostPet';
-
-
-axios.defaults.baseURL = "http://localhost:4000";
-
 
 
 function App() {
