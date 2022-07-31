@@ -2,17 +2,19 @@
     /* background-color: #f5f5f5; */
     display: flex;
     border-bottom: 1px solid #f5f5f55d;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 10vw;
+    padding-bottom: 9vw;
 }
 
 .banner div {
-    flex: 1;
-    padding: 80px 0 0 100px;
+    /* flex: 1; */
+    /* padding: 80px 0 0 100px; */
+    margin-left: 2.5vw
+
 }
 
 .banner h1 {
-    font-size: 3rem;
+    font-size: 4.2vw;
     font-weight: bold;
     margin-bottom: 1rem;
     color: rgb(255, 230, 0);
@@ -21,20 +23,15 @@
 }
 
 .banner p {
-    font-size: 1.2rem;
+    font-size: 1.5vw;
     color: azure;
     margin-right: 90px;
-    /* margin-bottom: 1rem; */
 }
-
-/* .banner img {
-    width: 50%;
-} */
 
 .banner img {
     width: 30%;
-    margin-right: 80px;
-    margin-bottom: 60px;
+    margin-right: 2.5vw;
+    margin-bottom: 3vw;
 }
 
 
@@ -42,15 +39,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
+    padding-top: 10vw;
+    padding-bottom: 6vw;
 }
 
 .containerA h3 {
-    font-size: 2rem;
+    font-size: 2.5vw;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 4vw;
     color: rgb(255, 230, 0);
-    
 }
 
 
@@ -65,30 +62,20 @@
     border-radius: 5px;
 }
 
-.subcontainerA img {
-    width: 120px;
-    border: 3px solid #0275d8;
-    border-radius: 200px;
-    margin: 20px;
-    margin-bottom: 40px;
-}
-
 .subcontainerA {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 40%;
-    height: 350px;
+    width: 50%;
+    height: 24vw;
     margin: 0 0 30px 30px;
 }
 
 .subcontainerA p {  
-    font-size: 1.1rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    font-size: 1.5vw;
+    margin-bottom: 4vw;
     color: azure
-
 }
 
 .subcontainerB {
@@ -97,15 +84,14 @@
     align-items: center;
     text-align: center;
     width: 40%;
-    /* border: 1px solid #0275d8; */
-    height: 350px;
+    height: 24vw;
     margin: 0 0 30px 30px;
 }
 
 .subcontainerB p {
-    margin-top: 30px;
-    margin-bottom: 40px;
-    font-size: 1.1rem;
+    margin-top: 2.3vw;
+    margin-bottom: 6.4vw;
+    font-size: 1.5vw;
     color: azure
 }
 
@@ -116,6 +102,15 @@
     align-items: center;
 }
 
+.title {
+    font-size: 2.4vw;
+    font-weight: bold;
+    margin-bottom: 80px;
+    color: azure;
+    display: flex;
+    justify-content: center;
+}
+
 .foundations {
     display: flex;
     flex-direction: row;
@@ -124,12 +119,13 @@
 }
 
 .foundation  {
-    width: 100px;
-    height: 100px;
-    border: 6px solid rgb(255, 230, 1);
+    width: 6vw;
+    height: 6vw;
+    border: 4px solid purple;
     border-radius: 200px;
-    margin-top: 20px;
-    margin-left: 60px;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    margin-left: 4.5vw;
 }
 
 .payment {
@@ -141,14 +137,15 @@
     display: flex;
     width: 90%;
     justify-content: space-around;
-    margin-top: 100px;
+    margin-top: 8vw;
     margin-bottom: 200px;
     color: azure;
 }
 
 .renders h4 {
     font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: 1.7vw;
+    margin-bottom: 1vw;
 }
 
 .mp {
@@ -177,12 +174,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 23px;
-    color: #f5f5f5;
+    font-size: 1.7vw;
+    margin-left: 1vw;
+    font-weight: bold;
+    color: purple;
     text-align: center;
 }
 
-.renderFoundation span {
-    margin-top: 20px;
-
-}

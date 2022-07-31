@@ -14,20 +14,33 @@ export default function ProductDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const history = useHistory();
-    const { user } = useAuth0();
-
+    //const { user, isAuthenticated } = useAuth0();
 
 
     const [numero, setNumero] = React.useState(1)
+    const [user, setUser] = React.useState({
+        name: "Juliano",
+        lastname: "Perez",
+        points:10000,
+
+    })
 
 
     const product = useSelector (state=> state.productDetail);
     const userInfo = useSelector (state=> state.user);
-
+    
+    
     useEffect(() => {
+       /*  if(user){
+            dispatch(getUserByEmail(user.email));
+            const userPoints = userInfo.points
+            console.log(userPoints)
+        } */
         dispatch(getProductDetail(id));
-        dispatch(getUserByEmail(user.email));
     }, [dispatch, id]);
+
+    
+
 
     const increment = () => {
         if(numero<10){
@@ -54,40 +67,42 @@ export default function ProductDetail() {
         }
     }
 
-    const canje = () => {
-        if(user.points>=product.points*numero){
-            Swal.fire({
-                title: 'Espera!',
-                text: "Estas seguro/a de que quieres canjear este producto?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si quiero canjear!'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  Swal.fire(
-                    'Canjeado!',
-                    'Canjeaste ' + numero + " " + product.name + " por " + product.points*numero + " puntos exitosamente. Te quedan " + (user.points - product.points*numero) + " huellitas.",
-                    'success'
-                  )
-                    history.push('/tienda');
-                    dispatch(updateUser({points: userInfo.points - product.points*numero}, user.email));
-                }
-              })
-             /* setUser({
-               name: user.name,
-                lastname: user.lastname,
-                points: (parseInt(user.points) - (numero*product.price))
-            }) */
-        }else{
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'No tienes suficientes huellitas!',
-              })
+    var canje = () => {
+            if(user.points >= product.points*numero){
+                Swal.fire({
+                    title: 'Espera!',
+                    text: "Estas seguro/a de que quieres canjear este producto?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si quiero canjear!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    Swal.fire(
+                        'Canjeado!',
+                        'Canjeaste ' + numero + " " + product.name + " por " + product.points*numero + " puntos exitosamente. Te quedan " + (user.points - product.points*numero) + " huellitas.",
+                        'success'
+                    )
+                        history.push('/tienda');
+                        //dispatch(updateUser({points: userInfo.points - product.points*numero}, user.email));
+                        setUser({
+                        name: user.name,
+                            lastname: user.lastname,
+                            points: (parseInt(user.points) - (numero*product.price))
+                        })
+                    }
+                })
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No tienes suficientes huellitas!',
+                })
+                //console.log(userInfo.points, product.points*numero)
         }
     }
+
     return (
         product && product.name ?
         <div className={styles.container}>

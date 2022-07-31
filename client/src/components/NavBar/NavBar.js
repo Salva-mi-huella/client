@@ -1,20 +1,23 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './NavBar.module.css';
 import logo from '../../assets/logo.png';
-import profile from '../../assets/profile.png';
-import paw from '../../assets/paw.png';
+import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from '../Profile/ProfileMenu';
 
+export default function NavBar({userInfo}) {
 
-export default function NavBar() {
+const { isAuthenticated, loginWithRedirect } = useAuth0();
 
-   const { isAuthenticated, loginWithRedirect } = useAuth0();
+const dispatch = useDispatch();
+
+ useEffect(()=>{
+}, [isAuthenticated, dispatch]);
+
+const userDetail = useSelector(state => state.user);
    
-
-
-
     return (
             <nav className={styles.nav}>
                  <div>
@@ -29,21 +32,15 @@ export default function NavBar() {
                     <Link className={styles.link} to='/huellitas'><p>Huellitas</p></Link>
                 </div>
 
-                <div className={styles.navCenter}>
                 { isAuthenticated ? 
                         <div className={styles.profile}>
+                          {userDetail.points && <div><span>{userDetail && userDetail.points}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
                           <ProfileMenu></ProfileMenu>
-                          {/* <Link to='/perfil'><img  className={styles.icons} src={profile} alt='profile'></img> </Link>
-                            <img  className={styles.icons} src={paw} alt='paw'></img>
-                          <button onClick={()=>logout({returnTo:'http://localhost:3000/home'})}>Cerrar sesión</button>  */}
                         </div>
                       : 
                       <div className={styles.signUp}>
-                        <button onClick={() => loginWithRedirect()} >INICIAR SESIÓN </button> 
-                        <span> | </span>
-                        <button onClick={() => loginWithRedirect()} >REGISTRARSE</button>
+                        <button onClick={() => loginWithRedirect()} >Ingresar</button> 
                       </div>}
-                </div>
             </nav>
             
        )

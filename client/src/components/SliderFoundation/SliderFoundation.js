@@ -24,10 +24,11 @@ export const SliderFoundation = () => {
     const settings = {
         dots: true,
         infinite: false,
-        speed: 500,
+        speed: 400,
         slidesToShow: 3,
         slidesToScroll: 3,
         initialSlide: 0,
+        autoplay:true,
         responsive: [
             {
                 breakpoint: 1024,

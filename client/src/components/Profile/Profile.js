@@ -4,11 +4,8 @@ import { postUser } from '../../redux/actions/index';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileFoundation from '../ProfileFoundation/ProfileFoundation';
 import ProfileUser from '../ProfileUser/ProfileUser';
+import ProfileAdmin from '../ProfileAdmin/ProfileAdmin';
 import jwt from "jsonwebtoken";
-
-
-
-
 
 export default function Profile() {
 
@@ -65,14 +62,14 @@ export default function Profile() {
     }, [getAccessTokenSilently, user?.sub]);
    
 
+    if(decode && decode.permissions[0] === "read:foundationProfile") return <ProfileFoundation />
+    
+    else if(decode && decode.permissions[0] === "read:adminProfile") return <ProfileAdmin/>
+    
     return (
-        decode &&
-         (decode.permissions[0] === "read:foundationProfile" ? <ProfileFoundation /> :
-         <ProfileUser />
-         )
-        // <React.Fragment>
-        //     <PermanentDrawerLeft/>
-        // </React.Fragment>
-        
-    )
+        <div>
+            <ProfileUser />
+        </div>
+
+)
 }

@@ -2,7 +2,8 @@ import styles from "./Form.module.css";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useSelector, useDispatch  } from "react-redux";
 import { useEffect, useState} from "react";
-import { getAllPets, getFoundations } from "../../../redux/actions";
+import { getAllPets, getFoundations, postRequestAdopt } from "../../../redux/actions";
+import Swal from 'sweetalert2'
 
 export default function Formulario() {
 
@@ -18,9 +19,7 @@ useEffect(() => {
   const petDetail = useSelector(state => state.petDetail)
   const pets = useSelector(state => state.allPets)
   const foundations = useSelector(state => state.foundations)
-  console.log("Aqui las pets",pets)
-  console.log("Aqui las fundaciones",foundations)
-  console.log(petDetail)
+
 
   return (
     <div className={styles.container}>
@@ -91,15 +90,23 @@ useEffect(() => {
           return errores;
         }}
         onSubmit={(values, { resetForm }) => {          
-          setSubmittedForm(true)
-          setTimeout(()=> setSubmittedForm(false),5000)
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Enviado con éxito',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          dispatch(postRequestAdopt({
+            values
+          }))
           resetForm();
         }}
       >
         {({errors}) => (
           <Form>
             <div className={styles.title}>
-              <h1 className={styles.titletext}>FORMULARIO DE ADOPCION</h1>
+              <h1 className={styles.titletext}>FORMULARIO DE ADOPCIÓN</h1>
             </div>
 
             <div className={styles.groupinp}>
@@ -154,7 +161,7 @@ useEffect(() => {
               <div className={styles.inp}>
                 <label htmlFor="age">Edad</label>
                 <Field
-                  className="form-control w-25 opacity-25"
+                  className="form-control w-50 opacity-25"
                   type="number"
                   name="age"
                   id="age"                  
@@ -201,9 +208,6 @@ useEffect(() => {
 
             <div className={styles.boton}>
               <button className={styles.send}>ENVIAR</button>
-            </div>
-            <div className={styles.check}>
-              {submittedForm && <p className={styles.success}> ¡ Formulario enviado exitosamente !</p>}
             </div>
           </Form>
         )}

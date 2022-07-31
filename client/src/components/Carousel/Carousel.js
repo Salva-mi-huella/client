@@ -11,7 +11,7 @@ import Button2 from './Button2'
 import Button3 from './Button3'
 
 
-export default function ControlledCarousel() {
+export default function ControlledCarousel({foundations}) {
     const [index, setIndex] = useState(0);
     
     const handleSelect = (selectedIndex, e) => {
@@ -33,7 +33,7 @@ export default function ControlledCarousel() {
             
             <div className={styles.containertext}>
                 <h1 className={styles.titles}>Adopciones</h1>
-                <p className={styles.paragraph}>Encuentra a tu mejor amigo.<br/>Busca mascotas en nuestra red de refugios.</p>
+                <p className={styles.paragraph}>¿Estás listo para encontrar a tu mejor amigo?<br/>Busca a tu compañero en nuestra red de refugios.</p>
                 <Link className={styles.link} to={'/adoptar'}>
                     <Button />
                 </Link>
@@ -51,12 +51,10 @@ export default function ControlledCarousel() {
 
         <Carousel.Item>
         <div className={styles.container}>
-            <div>
-                <img
-                className={styles.imgfoundation}
-                src={img3}
-                alt="First slide"
-                />
+            <div className={styles.foundations}>
+            {foundations.length>0 && foundations.map(f => (
+                <img src={f.images[0]} alt='foundation'></img>
+            ))}
             </div>
             <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Fundaciones</h1>
@@ -79,7 +77,7 @@ export default function ControlledCarousel() {
             </div>
             <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Donaciones</h1>
-                <p className={styles.paragraph}>Tu aporte de hoy puede ser mi comida de mañana.</p>
+                <p className={styles.paragraph}>Tu aporte de hoy puede salvar una huella.</p>
                 <Link className={styles.link} to={'/donar'}>
                 <Button3></Button3>
                 </Link>

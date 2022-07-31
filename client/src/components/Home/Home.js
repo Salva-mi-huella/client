@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
-import { getFoundations, postUser } from '../../redux/actions';
+import { getFoundations, postUser, getUserByEmail } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
+import { setUserSession, getUserSession } from "../../utils";
 
 export default function Home() {
 
@@ -34,8 +35,16 @@ export default function Home() {
                     picture
                 }));
             }
+
+            setUserSession(user);
+            
         }
-    }, [])
+        if (user) {
+            dispatch(getUserByEmail(getUserSession().email));
+        }
+
+    }, [user, isAuthenticated, dispatch]);
+
 
 
     return (
@@ -50,7 +59,7 @@ export default function Home() {
             </div>
 
             <div>
-                <Carousel />
+                <Carousel foundations={foundations} />
             </div>
 
             <div className={styles.userInfo}>
@@ -61,10 +70,12 @@ export default function Home() {
 
                 </div>
 
-                <div className={styles.subInfo}>
 
-                    <h1>Sumate a Huellitas</h1>
-                    {/* <img src={paw} alt='paw'></img> */}
+                    <div className={styles.subInfo}>
+                        <div>
+                            <h1>Sumate a Huellitas</h1>
+                            <img src={paw} alt='paw'></img>
+                        </div>
 
                     <p>Nuestro programa de beneficios gratuito en el que podés ganar puntos y canjear por productos en nuestra tienda.</p>
                     <Link className={styles.link} to='/huellitas'><button>VER MÁS</button></Link>
@@ -75,22 +86,6 @@ export default function Home() {
             <div>
                 <SliderFoundation />
             </div>
-
-            {/* <section className={styles.foundations}>
-                <div>
-                    <h1>Nuestras Fundaciones</h1>
-                </div>
-                
-                <div className={styles.logos}>
-                  {foundations.length>0 && foundations.map(foundation => (
-                    <div>
-                        <Link to={`/fundacion/${foundation.id}`} ><img src={foundation.img[0]} alt='foundationImage'></img></Link>
-                        <h4>{foundation.name}</h4>  
-                    </div>
-                    ))}
-                </div>
-            </section> */}
-
 
 
             <div>

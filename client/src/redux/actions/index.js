@@ -3,18 +3,18 @@ import axios from 'axios';
 export const GET_FOUNDATION_DETAIL = 'GET_FOUNDATION_DETAIL';
 export const GET_PET_DETAIL = 'GET_PET_DETAIL';
 export const GET_FOUNDATIONS = 'GET_FOUNDATIONS';
-export const GET_All_PETS = 'GET_AllPETS';
+export const GET_ALL_PETS = 'GET_ALL_PETS';
 export const GET_CURRENCY = 'GET_CURRENCY';
 export const FILTERS_CONFIG = 'FILTERS_CONFIG';
-export const GET_All_PRODUCTS = 'GET_All_PRODUCTS';
+export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS';
 export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
 export const PETS_FILTERED = 'PETS_FILTERED'
 export const POST_USER = 'POST_USER'
 export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
+export const GET_USERS = 'GET_USERS'
 export const UPDATE_USER = 'UPDATE_USER'
 export const GET_USER = 'GET_USER'
 export const POST_DONATION = 'POST_DONATION'
-
 
 
 
@@ -59,9 +59,9 @@ export function getFoundations(){
 export function getAllPets(){
     return async function (dispatch){
         try {
-            const info = await axios("http://localhost:4000/pets")
+            const info = await axios("/pets")
             return dispatch({
-                type:GET_All_PETS,
+                type:GET_ALL_PETS,
                 payload: info.data
             })
         } catch (error) {
@@ -71,14 +71,13 @@ export function getAllPets(){
             // })
         }
     }
-
 }
 
 
 export  function getPetDetail(id){
     return async function (dispatch){
         try{
-            const info = await axios(`http://localhost:4000/pets/${id}`)
+            const info = await axios(`/pets/${id}`)
             return dispatch({
                 type: GET_PET_DETAIL,
                 payload: info.data
@@ -177,6 +176,7 @@ export function updateUser(data, email) {
 export function getUserByEmail(email) {
     return async function (dispatch) {
         try {
+            console.log(email)
             const user = await axios.get(`/users/${email}`);
 
             return dispatch({
@@ -193,9 +193,9 @@ export function getUserByEmail(email) {
 export function getAllProducts(){
     return async function (dispatch){
         try {
-            const info = await axios("http://localhost:4000/products")
+            const info = await axios("/products")
             return dispatch({
-                type:GET_All_PRODUCTS,
+                type:GET_ALL_PRODUCTS,
                 payload: info.data
             })
         } catch (error) {
@@ -210,7 +210,7 @@ export function getAllProducts(){
 export function postDonation(order){
     return async function (dispatch){
         try {
-            const info = await axios.post("http://localhost:4000/donations", order)
+            const info = await axios.post("/donations", order)
             return dispatch({
                 type: POST_DONATION,
                 payload: info.data
@@ -223,11 +223,36 @@ export function postDonation(order){
         }
     }
 }
-
+// POST DB
 export function postNews (data){
     return  function (){
             axios.post("/news", data)
-
     }
 }
+export function postPets (data){
+    return  function (){
+            axios.post("/pets", data)
+    }
+}
+export function postRequestAdopt (data){
+    return function(){
+        axios.post("/request_adopt", data)
+    }
+}
+
+export function getUsers(){
+    return async function (dispatch){
+        try {
+            const allUsers = await axios("/users")
+            return dispatch({
+                type:GET_USERS,
+                payload: allUsers.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+}
+
 

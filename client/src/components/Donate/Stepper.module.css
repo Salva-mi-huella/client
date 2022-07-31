@@ -1,14 +1,10 @@
-.title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 80px;
-    color: azure
-}
 
 .label {
     font-weight: bold;
     color: azure;
-    margin-left: 80px;
+    /* margin-left: 5.5vw; */
+    display:flex;
+    justify-content: center;
 }
 
 .buttonStepper {
@@ -34,18 +30,20 @@
 .foundations button {
     transition: 1s;
     cursor: pointer;
-    /* border: 2px groove #0275d8; */
     border: none;
     background-color: transparent;
     margin-bottom: 20px;
     border-radius: 200px;
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
+    width: 7vw;
+    height: 7vw;
+    /* margin-right: 20px; */
 }
 
 .foundations h5 {
-    font-size: 1.0rem;
+    font-size: 1.1vw;
+    text-align: center;
+    margin-top: 0.3vw;
+    margin-left: 0.4vw;
     font-weight: bold;
     color: azure;
 }
@@ -53,7 +51,7 @@
 .foundation  {
     width: 100px;
     height: 100px;
-    border: 2px groove #0275d8;
+    border: 2px groove purple;
     border-radius: 200px;
 }
 
@@ -122,9 +120,14 @@
     color: azure;
 }
 
+.amount {
+    width: 35vw;
+}
 
 .amount label {
-    color: azure
+    color: azure;
+    font-size: 1.3vw;
+    width: 10vw;
 }
 
 .amount input {
@@ -132,6 +135,8 @@
     color: azure;
     border: 1px solid rgba(240, 255, 255, 0.377);
     border-radius: 5px;
+    width: 7vw;
+    height: 2vw;
 }
 
 .link {

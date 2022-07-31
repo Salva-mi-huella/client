@@ -11,19 +11,20 @@
     display: flex;
     justify-content: center;
     margin-left: 100px;
-    margin-top: 130px;
-    margin-bottom: 75px;
+    margin-left: 2vw;
+    margin-top: 8vw;
+    margin-bottom: 8vw;
 }
 
 .eslogan div h2 {
-    font-size: 4rem;
+    font-size: 4.3vw;
     color: rgb(255, 230, 0);
     /* color: rgb(195, 29, 201); */
-    margin-left: 350px;
+    margin-left: 25vw;
 }
 .eslogan img{
-    width: 200px;
-    margin-right: 100px;
+    width: 14vw;
+    margin-right: 7vw;
 }
 
 .eslogan div p {
@@ -83,7 +84,7 @@
 
 }
 
-.signUpContainer {}
+
 
 .links button {
     color:azure;

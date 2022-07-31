@@ -9,12 +9,9 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import paw from '../../assets/paw-print.png';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -38,7 +35,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 45, height: 45 }}><img className={style.user} src={user.picture} alt=''></img></Avatar>
+            <Avatar sx={{ width: 45, height: 45}}><img className={style.user} src={user.picture} alt=''></img></Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -58,7 +55,7 @@ export default function AccountMenu() {
             mt: 1.5,
             '& .MuiAvatar-root': {
               width: 32,
-              height: 32,
+              height: 20,
               ml: -0.5,
               mr: 1,
             },
@@ -81,18 +78,14 @@ export default function AccountMenu() {
       >
         <Link className={style.link} to='/perfil'>
             <MenuItem sx={{ color:'white' }}>
-            <Avatar /> Mi Perfil
+            <AccountCircle sx={{ marginRight: '10px'}}/> Mi Perfil
             </MenuItem>
         </Link>
-
-        <MenuItem>
-          <img className={style.paw} src={paw} alt='alt'></img> 2300
-        </MenuItem>
         <Divider />
         <MenuItem>
-          <ListItemIcon sx={{ color:'white' }}>
-            <Logout onClick={()=>logout({returnTo:'http://localhost:3000/home'})} fontSize="small" />
-          Cerrar sesión
+          <ListItemIcon onClick={()=>logout({returnTo: process.env.REACT_APP_API ? `${process.env.REACT_APP_API}/home` : "http://localhost:3000/home"})} sx={{ color:'white' }}>
+            <Logout sx={{ marginRight: '10px'}} onClick={()=>logout({returnTo:process.env.REACT_APP_API ? `${process.env.REACT_APP_API}/home` : "http://localhost:3000/home"})} fontSize="small" />
+              Cerrar sesión
           </ListItemIcon>
         </MenuItem>
       </Menu>
