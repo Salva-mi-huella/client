@@ -9,6 +9,7 @@ import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
+import { setUserSession, getUserSession } from "../../utils";
 
 export default function Home() {
 
@@ -34,8 +35,12 @@ export default function Home() {
                     picture
                 }));
             }
+
+            setUserSession(user);
+            
         }
-        if (isAuthenticated) dispatch(getUserByEmail(user.email));
+        
+        dispatch(getUserByEmail(getUserSession().email));
 
     }, [user, isAuthenticated, dispatch]);
 
