@@ -4,12 +4,14 @@
     flex-direction: column;
     justify-content: space-between;
     height: auto;
-
+    padding-top: 2vw;;
+    /* width: 60% */
 }
 
 .title{
     display: flex;
     justify-content: center;
+    margin-bottom: 1vw;;
     
 }
 
@@ -22,8 +24,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 60px;
-    width: 400px;    
+    height: 6vw;
+    width: 20vw;
+    color: azure;
+
 }
 
 .groupinp{
@@ -63,6 +67,7 @@
 label{
     color: white;
     font-weight:500;    
+    font-size:1.5vw;
 }
 
 .send {
@@ -70,38 +75,44 @@ label{
     display: inline-block;
     padding: 10px 20px;
     color: white;
-    font-size: 20px;
+    font-size: 1.8vw;
     font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+    margin-top: 1.7vw;
     letter-spacing: 2px;
     border-radius: 5px;    
     background-color: transparent;
     border: transparent;
-    
 }
 
 .send:hover {
     background: #FCEC4F;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #FCEC4F,
+    /* box-shadow: 0 0 5px #FCEC4F,
                 0 0 25px #FCEC4F,
                 0 0 50px #FCEC4F,
-                0 0 100px#FCEC4F;
+                0 0 100px#FCEC4F; */
     opacity:0.8;
 }
 
 .error{
     color: red;
-    font-size: 15px;
+    font-size: 1vw;
     font-weight: 500;
 }
 .success{
     color: #FCEC4F;
     font-size: 30px;
     font-weight: 700;
+}
+
+.inputsForm {
+    color: white !important;
+    background-color: #CBB1E1 !important;
+    border: none !important;
+    font-weight: bold;
 }

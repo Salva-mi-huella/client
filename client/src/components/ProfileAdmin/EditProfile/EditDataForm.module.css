@@ -9,37 +9,28 @@
     justify-content: center;
 } */
 .title{
-    font-size: 50px;
+    font-size: 3.5vw;
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: azure;
-    margin-bottom: 30px;
+    margin-bottom: 2vw;
   }
   
   .items { 
-     font-weight: bold;
+     /* font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: azure;
-    margin-bottom: 30px;
+    color: azure; */
+    /* margin-bottom: 30px; */
   }
   
   .titleContainer {
     display: flex; 
     justify-content: space-between;
-    width: 1000px;
-  }
-  
-  .photo{
-      width: 200px;
-      height: 200px;
   }
   
   .data{
       display: flex;
       flex-direction: column;
-      /* justify-content: center; */
-      /* align-items: center; */
-      margin-top: 20px;
   }
   
   .dataContainer{
@@ -52,7 +43,7 @@
       background-color: blueviolet;
       border-radius: 5rem;
       box-shadow: 0px 0px 15px 5px #0000005e;
-      font-size: 20px;
+      font-size: 1.5vw;;
       height: 63vh;
       width: 65vw;
     }
@@ -63,14 +54,13 @@
       /* left: 100px; */
     }
   .info{
-      display: flex;
+      /* display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-top: 20px;
-      font-size: 20px;
+      font-size: 1vw;
     color: black;
-    font-weight: 300;
+    font-weight: 300; */
   }
   
   .button {
@@ -83,11 +73,11 @@
     font-weight: bold;
     cursor: pointer;
     font-family: "JetBrains Mono",monospace;
-    padding-left: 15px;
-    padding-right: 15px;
-    height: 30px;
-    font-size: 18px;
-    margin-top: 15px;
+    height: 2vw;
+    width: 15vw;
+    font-size: 1.3vw;
+    margin-right: 3.5vw;
+    margin-top: 1.5vw;
     transition: 0.5s;
   }
   
@@ -100,12 +90,12 @@
   }
   
   .input{
-      width: 230px;
-      height: 35px;
+      width: 16vw;
+      height: 2vw;
       border-radius: 10px;
       border: 1px solid #e7c6ff;
-      margin-right: 80px;
-      margin-bottom: 50px;
+      margin-right: 3vw;
+      margin-bottom: 3.5vw;
       /* font-size: 15px; */
       /* font-weight: 300; */
       /* color: azure; */
@@ -115,12 +105,8 @@
   .error{
       color: red;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 1.3vw;
       margin-top: -35px;
       /* margin-left: 350px; */
   }
   
-  .paw {
-    width: 40px;
-    height: 40px;
-  }

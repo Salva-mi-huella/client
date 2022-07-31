@@ -67,11 +67,12 @@ const Donations = () => {
     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, foundation?.donations.length - page * rowsPerPage));
 
     return (
-
         <div className={styles.tableDonations}>
-            <div className={styles.h3}> Historial de Donaciones </div>
+
+            <h3 className={styles.donationTitle}> Historial de Donaciones </h3>
+
             <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%'  }}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>

@@ -11,9 +11,10 @@
 }
 
 .logo {
-    width: 60px;
-    margin-bottom: 30px;
-    margin-left: 30px;
+    width: 4vw;
+    height: 4vw;
+    margin-bottom: 2vw;
+    margin-left: 2vw;
 }
 
 .icons {
@@ -28,17 +29,18 @@
 
 .navCenter p {
     transition: 0.3s;
-    margin-right: 17px;
-    margin-left: 15px;
+    margin-right: 1.5vw;
+    margin-left: 1.5vw;
     color: azure;
 }
 
 .navCenter p:hover {
     transition: 0.3s;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     transform: scale(1.05);
     color: rgb(255, 230, 0);
     cursor: pointer;
+    font-weight: bold;
 }
 
 .link {
@@ -49,35 +51,36 @@
 
 .signUp button {
     transition: 0.3s;
-    background-color: rgba(255, 255, 255, 0.876);
-    color: #9C27B0;
+    background-color: #6e117f;
+    color: rgba(255, 255, 255, 0.876);
     border: none;
-    margin-right: 30px;
-    margin-bottom: 17px;
+    margin-right: 3vw;
+    margin-bottom: 1.5vw;
     border-radius: 5px;
-    font-size: 17px;
+    font-size: 1vw;
     cursor: pointer;
-    width: 100px;
-    height: 27px;
+    width: 8vw;
+    height: 2vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .signUp button:hover {
     transition: 0.3s;
-    background-color:#a20ebc;
-    color: #f5f5f5;
+    background-color: rgba(255, 255, 255, 0.876);
+    color: #6e117f;
 }
 
 .profile {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
-    margin-bottom: 10px;
+    margin-right: 2vw;
+    margin-bottom: 1vw;
 }
 
 .paw {
-    width: 50px;
+    width: 3.3vw;
+    height: 3.3vw;
 }
 
 .profile span {

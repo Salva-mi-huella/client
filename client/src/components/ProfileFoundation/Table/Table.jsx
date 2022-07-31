@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import styles from './Table.module.css'
+import { useSelector } from 'react-redux';
 
 function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
@@ -45,11 +46,19 @@ const rows = [
 
 export default function BasicTable() {
 
+    const user = JSON.parse(localStorage.getItem('user'));
+    let foundation = useSelector(state => state.foundations);
 
+    if (user) {
+        foundation = foundation.find(f => f.email === user.email);
+        console.log(foundation, 'foundation info');
+    }
 
     return (
         <div className={styles.Table}>
-            
+
+            <h3 className={styles.MDTableTitle} >Requests</h3>
+
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029' }}
             >

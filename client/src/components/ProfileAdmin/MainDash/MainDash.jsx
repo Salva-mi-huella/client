@@ -5,14 +5,14 @@ import Table from '../Table/Table';
 
 import '../MainDash/MainDash.css';
 
-const MainDash = () => {
+const MainDash = ({requests_foundations}) => {
     return (
         <div className='MainDash'>
 
             <h1> Movimientos del Mes </h1>
 
             <Cards />
-            <Table />
+            <Table requests_foundations={requests_foundations}/>
 
         </div>
     )

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import style from "./PostNews.module.css"
+
 import Swal from 'sweetalert2'
 import { useDispatch } from "react-redux";
 import { postNews } from "../../../redux/actions";
+
+import style from "./PostNews.module.css"
 
 export default function PostNews() {
 
@@ -67,34 +69,41 @@ export default function PostNews() {
 
     }
 
-
     return (
-        <div className={style.containerSection}>
-            <form onSubmit={e => handleSubmit(e)} className={style.form}>
-                <h2 className={style.h2}> Escribe una nueva noticia</h2>
+        <div className={style.postNewsContainer}>
+
+            <form onSubmit={e => handleSubmit(e)} className={style.postNewsForm}>
+                <h3 className={style.postNewsTitle}> Escribe una nueva noticia</h3>
                 <div>
                     <label className={style.label} htmlFor="title">Titulo</label>
                     <input className={style.inputText} required onChange={(e) => handleChange(e)} type="text" id="title" name="title" value={input.title} />
                 </div>
                 <div>
                     <label className={style.label} htmlFor="news">Noticia:</label>
-                    <textarea className={style.textarea} required onChange={(e) => handleChange(e)} id="news" name="news" value={input.news} ></textarea>
+                    <textarea
+                        className={style.textarea}
+                        required onChange={(e) => handleChange(e)}
+                        id="news" name="news" value={input.news} >
+                    </textarea>
                 </div>
                 <div>
                     <label className={style.label} htmlFor="image"> Fotos: </label>
                     <input className={style.inputText} required onChange={(e) => handleChange(e)} type="file" id="image" name="image" />
                 </div>
-                <input className={style.btn} type="submit" value="Postear" />
+                <input className={style.btnPostNew} type="submit" value="Postear" />
             </form>
 
             <div className={style.resultContainer}>
                 {/* TODO: <NewsCard /> */}
+
                 {input.title
-                    ? <h1 className={style.h1} >{input.title}</h1>
-                    : <h1 className={style.h1} >Titulo</h1>}
-                {input.news
-                    ? <p>{input.news}</p>
-                    : <p>Texto</p>}
+                    ? <h3 className={style.h1} >{input.title}</h3>
+                    : <h3 className={style.h1} >Titulo</h3>}
+                <div className={style.newDescriptionContainer} >
+                    {input.news
+                        ? <p className={style.inputTextResult} >{input.news}</p>
+                        : <p>Texto</p>}
+                </div>
                 {renderImg
                     ? <img src={renderImg} />
                     : <p>Imagen</p>}

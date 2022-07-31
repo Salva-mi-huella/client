@@ -9,7 +9,7 @@ const MainDash = () => {
     return (
         <div className={styles.MainDash}>
 
-            <h1 className={styles.h1} > Movimientos del Mes </h1>
+            <h1 className={styles.h1Dash} > Movimientos del Mes </h1>
 
             <Cards />
             <Table />
