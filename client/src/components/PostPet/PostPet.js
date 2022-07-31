@@ -137,16 +137,26 @@ var date = Date();
                   <ErrorMessage name="age" component={()=> (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
                 </div>
                 <div className={styles.sexo}>
-                  <label htmlFor="gender">Sexo</label>
-                  <Field
-                    as="select"
-                    className="form-control opacity-50"
-                    name="gender"
-                    id="gender"
-                  >
-                    <option value="Macho" defaultValue="Macho">Macho</option>
-                    <option value="Hembra">Hembra</option>
-                  </Field>
+                  <label>Sexo</label>
+                  <div>
+                    <label htmlFor="gender">Macho</label>
+                    <Field
+                      className="form-check-input mx-3"
+                      type="radio"
+                      name="gender"
+                      
+                      value="Macho"
+                    />
+                    <label htmlFor="gender">Hembra</label>
+                    <Field
+                      className="form-check-input mx-3"
+                      type="radio"
+                      name="gender"
+                  
+                      value="Hembra"
+                    />
+                    <ErrorMessage name="type" component={()=> (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
+                  </div>
                 </div>
               </div>
 
@@ -165,7 +175,7 @@ var date = Date();
                 <ErrorMessage name="description" component={()=> (<div className={styles.error}>{errors.description}</div>)}></ErrorMessage>
               </div>
 
-              <div>
+              <div className={styles.image}>
                 <label>Imagenes</label>
                 <input className="form-control opacity-75" type="File" id="file" onChange={(e) => uploadImage(e)}/>
               </div>
