@@ -5,6 +5,10 @@ import { CardsData } from '../Data/Data';
 import styles from '../Cards/Cards.module.css';
 
 const Cards = () => {
+
+    
+
+
     return (
         <div className={styles.analyticsCards}>
             {CardsData.map((card, id) => {

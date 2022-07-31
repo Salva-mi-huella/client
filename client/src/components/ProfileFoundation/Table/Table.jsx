@@ -57,7 +57,8 @@ export default function BasicTable() {
     return (
         <div className={styles.Table}>
 
-            <h3 className={styles.MDTableTitle} >Requests</h3>
+            {/* <h3 className={styles.MDTableTitle} >Requests</h3> */}
+            <h3 className={styles.MDTableTitle}> Tabla de solicitudes </h3>
 
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029' }}
