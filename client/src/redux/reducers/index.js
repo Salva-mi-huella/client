@@ -21,6 +21,7 @@ import {
     DELETE_ALL_FROM_CART,
     DELETE_ONE_FROM_CART,
     CLEAR_CART,
+    GET_ALL_NEWS
     GET_REQUESTS_FOUNDATIONS
 } from "../actions"
 
@@ -39,6 +40,7 @@ const initialState = {
     user: {},
     donations: [],
     cart:[],
+    news: []
     requests_foundations: [],
 }
 
@@ -120,6 +122,8 @@ export default function rootReducer(state = initialState, action) {
         }
 
         case CLEAR_CART: return {...state, cart:[]}
+
+        case GET_ALL_NEWS: return {...state, news: action.payload}
 
         default: return {...state}
 

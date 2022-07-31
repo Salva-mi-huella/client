@@ -12,7 +12,7 @@ import Profile from './components/Profile/Profile';
 import AboutUs from './components/About us/AboutUs';
 import Donate from './components/Donate/Donate';
 import PetStore from './components/PetStore/Store';
-import News from './components/Donate/Payment';
+import News from './components/News/News';
 import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
 // import PostNews from './components/Profile/PostNews/PostNews';
