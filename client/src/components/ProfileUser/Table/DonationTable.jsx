@@ -7,8 +7,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import sad_pets from '../../../assets/sad-pets.png';
+import {Link} from 'react-router-dom'
 
-import './RequestTable.css'
+import './DonationTable.css'
 
 const makeStyles = (status) => {
     if (status === 'Aprobado') {
@@ -32,9 +34,11 @@ const makeStyles = (status) => {
 }
 
 export default function DonationTable({userDetail}) {
+
     return (
         <div className="Table">
-            <h1 className='titles'> Mis donaciones </h1>
+            {userDetail.donations?.length>0 &&<h1 className='titles'> Mis donaciones </h1>}
+            {userDetail.donations?.length > 0 ? (
             <TableContainer component={Paper}
                 style={{ backgroundColor: 'transparent', width: '90%' }}
             >
@@ -49,7 +53,7 @@ export default function DonationTable({userDetail}) {
                         </TableRow>
                     </TableHead>
                     <TableBody> 
-                        {userDetail.donations.length>0 && userDetail.donations.map((d) => (
+                        {userDetail.donations?.length>0 && userDetail.donations.map((d) => (
                         <TableRow>
                             <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{d.foundationId} </TableCell>
                             <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{`${d.amount} usd`}</TableCell>
@@ -57,10 +61,17 @@ export default function DonationTable({userDetail}) {
                             <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{d.date} </TableCell>
                             {/* <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}><span className="status" style={makeStyles(row.status)} >{row.status}</span></TableCell> */}
                         </TableRow>
-                                ))}
+                                ))  }
                     </TableBody>
                 </Table>
-            </TableContainer>
+            </TableContainer>)
+                        :
+                        <div className='noDonations'>
+                            <h1>No tienes donaciones efectuadas aún</h1>
+                            <img src={sad_pets} alt='sad-pets'></img>
+                            <Link to='/donar'><button>Quiero donar</button></Link>
+                        </div>
+                         }
         </div>
     );
 }

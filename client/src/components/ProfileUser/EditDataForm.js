@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {updateUser} from '../../redux/actions';
 import { useAuth0 } from '@auth0/auth0-react';
-import jwt from "jsonwebtoken";
 import styles from './EditDataForm.module.css';
 import { set, useForm } from 'react-hook-form';
 import { getUserByEmail } from '../../redux/actions';
-import { alignProperty } from '@mui/material/styles/cssUtils';
+import Swal from 'sweetalert2';
+
 
 
 
@@ -35,11 +35,27 @@ export default function EditDataForm({datos,setDatos}) {
         }
 
         try {
-          if (!Object.keys(errors).length) dispatch(updateUser(data, user.email))
+          if (!Object.keys(errors).length) {
+            Swal.fire({
+              title: '¿Estás seguro de querer guardar los cambios?',
+              showDenyButton: true,
+              // showCancelButton: true,
+              confirmButtonText: 'Guardar',
+              // cancelButtonText: 'Cancelar',
+              denyButtonText: `Cancelar`,
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                dispatch(updateUser(data, user.email))
+                Swal.fire('¡Tus datos han sido actualizado con éxito!', '', 'success')
+              } else if (result.isDenied) {
+                Swal.fire('Cambios no actualizados', '', 'info')
+              }
+            })
+          }
         } catch (error) {
           console.log(error.message)
         }
-        alert('Datos actualizados');
       }
 
     return (
@@ -108,8 +124,8 @@ export default function EditDataForm({datos,setDatos}) {
                         {errors.telephone_number?.type === "pattern" && <p className={styles.error}>El teléfono debe tener solo números</p>}
                    </div>
 
-                   <div>
-                      <label className={styles.items}>¿Te gustaría ofrecerte como persona de tránsito?</label>
+                   <div className={styles.transit}>
+                      <label >¿Te gustaría ofrecerte como persona de tránsito?</label>
                       <label htmlFor='Sí'><input id='Sí' {...register('transit')} value='Sí' type='radio' name='transit'/>Sí</label>
                       <label htmlFor='No'><input id='No' {...register('transit')} value='No' type='radio' name='transit'/>No</label>
                    </div>

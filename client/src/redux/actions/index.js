@@ -15,6 +15,8 @@ export const GET_USERS = 'GET_USERS'
 export const UPDATE_USER = 'UPDATE_USER'
 export const GET_USER = 'GET_USER'
 export const POST_DONATION = 'POST_DONATION'
+export const POST_REQUEST_FOUNDATION = 'POST_REQUEST_FOUNDATION'
+export const GET_REQUESTS_FOUNDATIONS = 'GET_REQUESTS_FOUNDATIONS'
 export const ADD_TO_CART= 'ADD_TO_CART'
 export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
 export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
@@ -209,6 +211,23 @@ export function getAllProducts(){
     }
 }
 
+export function getRequestsFoundations(){
+    return async function (dispatch){
+        try {
+            const info = await axios("/request_foundations")
+            return dispatch({
+                type:GET_REQUESTS_FOUNDATIONS,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
+}
+
 export function postDonation(order){
     return async function (dispatch){
         try {
@@ -238,7 +257,12 @@ export function postPets (data){
 }
 export function postRequestAdopt (data){
     return function(){
-        axios.post("/request_adopt", data)
+        try{
+            axios.post("/request_adopts", data)
+        }
+        catch (e) {
+            console.log(e)
+        }
     }
 }
 
@@ -254,7 +278,23 @@ export function getUsers(){
             console.log(error)
         }
     }
+}
 
+export function postRequestFoundation(data){
+    return async function (dispatch){
+        try {
+            const info = await axios.post("/request_foundations", data)
+            return dispatch({
+                type: POST_REQUEST_FOUNDATION,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
 }
 
 //SHOPPING CART

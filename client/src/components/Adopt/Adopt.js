@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card.js'
-import banner from '../../assets/banneradopt.png'
+import banner from '../../assets/adopt-banner.png'
 import steps from '../../assets/adoptSteps.png'
 import { useSelector } from 'react-redux';
 import style from './Adopt.module.css'
@@ -20,32 +20,34 @@ export default function Adopt(){
     return (
         <>
             <div className={style.banner}>
+                <div>
                 <h1 className={style.sectionTitle}>Adoptá</h1>
-                <p >En este espacio va un eslogan para captar la atención</p>
+                <p >En este espacio va un eslogan para captar<br></br> la atención del usuario</p>
+                </div>
                 <img src={banner} alt="Banner of animals"/>
             </div>
+
             <div className={style.containerFunctionality}>
                 <h2 className={style.innerTittles}>¿Cómo funciona?</h2>
                 <div className={style.containerSteps} >
                     <div>
                         <div className={style.functionalitySteps}>
-                            <span>-Paso 1-</span>
-                            <p>Lo primero que debes hacer es elegir aquel animal que más se adapte a tus necesidades,
-                                para ello tendras distintos filtros disponibles que te ayudarán a tomar la decision.
+                            <span>- Paso 1 -</span>
+                            <p>Lo primero que debes hacer buscar en nuestra red de refugios a tu huella favorita.
+                                Para ello tendras distintos filtros disponibles que te ayudarán a tomar la decision.
                             </p>
                         </div>
                         <div className={style.functionalitySteps}>
-                            <span>-Paso 2-</span>
-                            <p> Una vez elegido dicho animal tendras que presionar el boton "Salva mi huella",
-                                de esta manera podras ponerte en contacto con la fundación que tenga la posesión del animal
-                                para coordinar la entrega.
+                            <span>- Paso 2 -</span>
+                            <p> Una vez que hayas encontrado a tu compañero ideal tendrás que presionar sobre el botón "Salva mi huella",
+                              para ponerte en contacto con la fundación y empezar el proceso de adopción.
                             </p>
                         </div>
                     </div>
                     <img id={style.steps} src={steps} alt="steps"/>
                 </div>
             </div>
-            <h2 className={style.innerTittles} >Conoce nuestras Huellas</h2>
+            {/* <h2 className={style.innerTittles} >Conoce nuestras Huellas</h2> */}
             <div className={style.allAnimals}>
                 <Filters/>
             </div>

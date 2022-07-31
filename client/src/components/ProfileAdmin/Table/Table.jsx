@@ -10,9 +10,6 @@ import Paper from '@mui/material/Paper';
 
 import './Table.css'
 
-function createData(date, foundationName, email, number, status) {
-    return { date, foundationName, email, number, status };
-}
 
 const makeStyles = (status) => {
     if (status === 'Aprobado') {
@@ -35,15 +32,7 @@ const makeStyles = (status) => {
     }
 }
 
-const rows = [
-    createData('29/06/2022', "Gatitos a Salvo", "gatitosasalvo@gmail.com", '0112357621',"Aprobado"),
-    createData('04/07/2022', "Huellitas Heridas", "huellitasheridas@hotmail.com", '0110327423',"Aprobado" ),
-    createData('12/07/2022', "Garritas en tránsito", "garritas en tránsito@hotmail.com","0114528493","Aprobado"  ),
-    createData('18/07/2022', "Hogar dulce hogar", "hogardulcehogar.10@gmail.com","0112508432","Pendiente" ),
-    createData('29/07/2022', "Mision Animal", "misionanimal@gmail.com","0113709411","Pendiente"),
-];
-
-export default function BasicTable() {
+export default function BasicTable({requests_foundations}) {
     return (
         <div className="Table">
             <h3> Tabla de solicitudes </h3>
@@ -61,21 +50,22 @@ export default function BasicTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
-                            <TableRow
-                                key={row.name}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {row.date}
-                                </TableCell>
-                                <TableCell align="left">{row.foundationName}</TableCell>
-                                <TableCell align="left">{row.email}</TableCell>
-                                <TableCell align="left" className="ciudad">{row.number}</TableCell>
-                                <TableCell align="left">
-                                    <span className="transit" style={makeStyles(row.status)} >{row.status} </span>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                    {requests_foundations.map((r) => (
+                        <TableRow
+                            key={r.name}
+                        >
+                            <TableCell component="th" scope="row">
+                                01/08/2022
+                            </TableCell>
+                            <TableCell align="left">{r.name}</TableCell>
+                            <TableCell align="left">{r.email}</TableCell>
+                            <TableCell align="left" className="ciudad">-</TableCell>
+                            {/* <TableCell align="left">{row.date}</TableCell> */}
+                            <TableCell align="left">
+                                <span className="transit" style={makeStyles('Pendiente')} >Pendiente </span>
+                            </TableCell>
+                        </TableRow>
+                    ))}
                     </TableBody>
                 </Table>
             </TableContainer>

@@ -1,12 +1,14 @@
 import React from "react";
 import style from "./Contact.module.css";
 import { useState} from "react";
+import {  useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 import paw from "../../assets/paw-heart.png";
 import difusion from "../../assets/promocion.png";
 import donate from "../../assets/donate-heart.png";
 import Swal from "sweetalert2";
+import { postRequestFoundation } from "../../redux/actions";
 
 
 export default function Contact() {
@@ -15,22 +17,23 @@ export default function Contact() {
     //ESTADO PARA LOS ERRORES
    const [error, setError] = useState({})
    const history = useHistory()
+   const dispatch = useDispatch()
 
 
     const [input, setInput] = useState({
-        foundation_name: '',
+        name: '',
         email: '',
         message: '',
-        telefono: ''
+        // telephone: ''
     })
 
     function validateForm(input) {
         let error ={}
         const regEmail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/g
 
-        if(!input.foundation_name) error.foundation_name = '*'
+        if(!input.name) error.name = '*'
 
-        if(input.foundation_name && input.foundation_name.length < 3 ) error.foundation_name = 'mínimo 3 caracteres'
+        if(input.name && input.name.length < 3 ) error.name = 'mínimo 3 caracteres'
         
         if(!input.email) error.email = '*'
         
@@ -58,8 +61,8 @@ export default function Contact() {
 
     function sendEmail(e){
         e.preventDefault();
-        if (!Object.keys(error).length && input.foundation_name && input.email && input.message) {
-
+        if (!Object.keys(error).length && input.name && input.email && input.message) {
+      dispatch(postRequestFoundation(input))
       emailjs.sendForm('service_q0212bn', 'template_b1658cp', e.target, 'Aq8UicE7cYgpn5IXB')
       .then((result) => {
           console.log(result);
@@ -91,10 +94,10 @@ export default function Contact() {
                 history.push('/home')
             }})
       setInput({
-            foundation_name: '',
+            name: '',
             email: '',
             message: '',
-            telefono: ''
+            // telefono: ''
         })
            
     }
@@ -128,9 +131,9 @@ export default function Contact() {
                         
                           <label className={style.label}>Nombre de la Fundación</label> 
                           <div className={style.cont}>
-                            <input required className={style.input} type="text" name="foundation_name" value={input.foundation_name} id={style.name} onChange={e => handleChange(e)} placeholder="Nombre..." />
+                            <input required className={style.input} type="text" name="name" value={input.name} id={style.name} onChange={e => handleChange(e)} placeholder="Nombre..." />
                           </div>
-                            {error.foundation_name && <p className={`${style.error}`}>{error.foundation_name}</p>}
+                            {error.name && <p className={`${style.error}`}>{error.name}</p>}
 
                           <label className={style.label}>Email</label>
                         <div className={style.cont}>
@@ -140,7 +143,7 @@ export default function Contact() {
 
                         <label className={style.label}>Teléfono de contacto</label>
                         <div className={style.cont}>
-                          <input required className={style.input} type="text" name="telefono" value={input.telefono}  onChange={e => handleChange(e)} placeholder="Número de telefono"/>
+                          <input className={style.input} type="text" name="telefono" value={input.telefono}  onChange={e => handleChange(e)} placeholder="Número de telefono"/>
                           {error.telefono && <p className={`${style.error}`}>{error.telefono}</p>}
                         </div>
 

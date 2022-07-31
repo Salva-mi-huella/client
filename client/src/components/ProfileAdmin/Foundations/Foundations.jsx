@@ -41,7 +41,7 @@ const Foundations = () => {
                             <TableCell align="left">Ciudad</TableCell>
                             <TableCell align="left">Localidad</TableCell>
                             <TableCell align="left">Email</TableCell>
-                            <TableCell align="left">Desafiliar Fundación</TableCell>
+                            <TableCell align="left">Estado</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -53,7 +53,7 @@ const Foundations = () => {
                                 <TableCell align="left">{f.state}</TableCell>
                                 <TableCell align="left" className="ciudad">{f.city}</TableCell>
                                 <TableCell align="left">{f.email}</TableCell>
-                                <TableCell align="left"><button className='btn'>Desafiliar</button></TableCell>
+                                <TableCell align="left"><button className='btn'>Dar de baja</button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
