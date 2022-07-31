@@ -56,7 +56,6 @@ const InfoPets = () => {
     return (
         <div className={styles.tablePets}>
 
-
             <h3 className={styles.petTitle}> Tabla de Animales </h3>
 
             <TableContainer component={Paper}

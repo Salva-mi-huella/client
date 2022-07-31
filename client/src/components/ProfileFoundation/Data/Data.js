@@ -36,11 +36,11 @@ export const SidebarData = [
     },
     {
         icon: MdUploadFile,
-        heading: "Publicar Noticia"
+        heading: "Nueva Noticia"
     },
     {
         icon: MdUpload,
-        heading: "Publicar Huella"
+        heading: "Nueva Huella"
     },
     {
         icon: MdPaid,

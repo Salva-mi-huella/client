@@ -5,18 +5,19 @@ import { useDispatch } from "react-redux";
 import { postPets } from "../../redux/actions";
 
 export default function PostPet() {
-var date = Date();
+  var date = Date();
 
-  const [imag, setImag ] = useState("");
+  const [imag, setImag] = useState("");
 
   const dispatch = useDispatch()
-  const uploadImage = (e) =>{
+  const uploadImage = (e) => {
     setImag(e.target.files[0])
   }
-  
+
 
   return (
-    <div className={styles.container}>
+
+    <div className={styles.postPetsContainer}>
       <Formik
         initialValues={{
           name: "",
@@ -28,52 +29,52 @@ var date = Date();
           description: "",
           adopted: false,
         }}
-        
+
         validate={(values) => {
           let errores = {};
-  
+
           //VALIDACION NOMBRE
           if (!values.name) {
             errores.name = "Por favor ingrese un nombre";
-          } else if(values.name.length < 3){
+          } else if (values.name.length < 3) {
             errores.name = "El nombre debe incluir mas de 3 caracteres";
-          }else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
+          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
             errores.name = "El nombre solo puede contener letras y espacios";
           }
 
           //VALIDACION RADIO
-          if(values.type === ""){
-            errores.type="Selecciona el sexo de la mascota"
+          if (values.type === "") {
+            errores.type = "Selecciona el sexo de la mascota"
           }
 
           //VALIDACION EDAD
-          if(!values.age){
-            errores.age="Por favor ingresa la edad"
-          }else if(values.age < 0){
-            errores.age="Por favor ingresa una edad valida para tu mascota"
+          if (!values.age) {
+            errores.age = "Por favor ingresa la edad"
+          } else if (values.age < 0) {
+            errores.age = "Por favor ingresa una edad valida para tu mascota"
           }
 
           //VALIDACION MENSAJE
-          if(!values.description){
-            errores.description="Por favor cuentanos mas sobre la mascota"
+          if (!values.description) {
+            errores.description = "Por favor cuentanos mas sobre la mascota"
           }
 
           return errores;
         }}
 
-        onSubmit={async(values, { resetForm }) => {
+        onSubmit={async (values, { resetForm }) => {
 
           const data = new FormData();
-          data.append("file", imag); 
+          data.append("file", imag);
           data.append("upload_preset", "koafybza");
-          const res = await fetch ("https://api.cloudinary.com/v1_1/djasy7hxk/image/upload",
-          {
-            method: "POST",
-            body: data
-          })
+          const res = await fetch("https://api.cloudinary.com/v1_1/djasy7hxk/image/upload",
+            {
+              method: "POST",
+              body: data
+            })
           let file = await res.json()
           dispatch(postPets({
-            images : [file.secure_url],
+            images: [file.secure_url],
             name: values.name,
             age: values.age,
             type: values.type,
@@ -83,9 +84,9 @@ var date = Date();
           resetForm();
         }}
       >
-        {({errors}) => (
+        {({ errors }) => (
           <Form>
-            <div className={styles.formu}>
+            <div className={styles.postPetForm}>
               <div className={styles.titles}>
                 <h1>Mis Huellas</h1>
               </div>
@@ -99,7 +100,7 @@ var date = Date();
                     name="name"
                     id="name"
                   />
-                  <ErrorMessage name="name" component={()=> (<div className={styles.error}>{errors.name}</div>)}></ErrorMessage>
+                  <ErrorMessage name="name" component={() => (<div className={styles.error}>{errors.name}</div>)}></ErrorMessage>
                 </div>
               </div>
 
@@ -123,7 +124,7 @@ var date = Date();
                       id="cat"
                       value="Gato"
                     />
-                    <ErrorMessage name="type" component={()=> (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
+                    <ErrorMessage name="type" component={() => (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
                   </div>
                 </div>
                 <div className={styles.edad}>
@@ -134,7 +135,7 @@ var date = Date();
                     name="age"
                     id="age"
                   />
-                  <ErrorMessage name="age" component={()=> (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
+                  <ErrorMessage name="age" component={() => (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
                 </div>
                 <div className={styles.sexo}>
                   <label>Sexo</label>
@@ -144,7 +145,7 @@ var date = Date();
                       className="form-check-input mx-3"
                       type="radio"
                       name="gender"
-                      
+
                       value="Macho"
                     />
                     <label htmlFor="gender">Hembra</label>
@@ -152,10 +153,10 @@ var date = Date();
                       className="form-check-input mx-3"
                       type="radio"
                       name="gender"
-                  
+
                       value="Hembra"
                     />
-                    <ErrorMessage name="type" component={()=> (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
+                    <ErrorMessage name="type" component={() => (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
                   </div>
                 </div>
               </div>
@@ -172,12 +173,12 @@ var date = Date();
                   rows="4"
                   placeholder="Mensaje..."
                 ></Field>
-                <ErrorMessage name="description" component={()=> (<div className={styles.error}>{errors.description}</div>)}></ErrorMessage>
+                <ErrorMessage name="description" component={() => (<div className={styles.error}>{errors.description}</div>)}></ErrorMessage>
               </div>
 
               <div className={styles.image}>
                 <label>Imagenes</label>
-                <input className="form-control opacity-75" type="File" id="file" onChange={(e) => uploadImage(e)}/>
+                <input className="form-control opacity-75" type="File" id="file" onChange={(e) => uploadImage(e)} />
               </div>
 
               <div className={styles.wrap}>
