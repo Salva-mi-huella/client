@@ -16,7 +16,6 @@ import styles from './InfoPets.module.css';
 
 import { getFoundations } from '../../../redux/actions';
 
-
 const makeStyles = (status) => {
     if (status) {
         return {
@@ -30,12 +29,6 @@ const makeStyles = (status) => {
             color: 'white'
         }
     }
-    // else if (status === 'Pendiente') {
-    //     return {
-    //         background: '#59bfff',
-    //         color: 'white'
-    //     }
-    // }
 }
 
 const InfoPets = () => {
@@ -43,19 +36,20 @@ const InfoPets = () => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-    const { user } = useAuth0();
-    const dispatch = useDispatch();
+    const user = JSON.parse(localStorage.getItem('user'));
+    // const { user } = useAuth0();
     let foundation = useSelector(state => state.foundations);
 
     if (user) {
-        console.log(user, 'user info');
+        // console.log(user, 'user info');
         foundation = foundation.find(f => f.email === user.email);
-        console.log(foundation, 'foundation info');
+        // console.log(foundation, 'foundation info');
     }
 
-    React.useEffect(() => {
-        dispatch(getFoundations());
-    }, [dispatch])
+    // const dispatch = useDispatch();
+    // React.useEffect(() => {
+    //     dispatch(getFoundations());
+    // }, [dispatch])
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -67,7 +61,7 @@ const InfoPets = () => {
     };
 
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, foundation.pets.length - page * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, foundation?.pets.length - page * rowsPerPage);
 
     return (
 

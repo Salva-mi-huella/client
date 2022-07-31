@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Sidebar from './Sidebar/Sidebar.jsx'
 import MainDash from './MainDash/MainDash.jsx';
@@ -13,8 +14,15 @@ import PostPet from '../PostPet/PostPet.js';
 
 
 import styles from '../ProfileFoundation/ProfileFoundation.module.css';
+import { getFoundations } from '../../redux/actions/index.js';
 
 export default function ProfileFoundation() {
+
+    const dispatch = useDispatch();
+
+    React.useEffect(() => {
+        dispatch(getFoundations());
+    }, [dispatch])
 
     const [optionSelection, setOptionSelection] = useState(0)
 
