@@ -19,7 +19,8 @@ import {
     ADD_TO_CART,
     DELETE_ALL_FROM_CART,
     DELETE_ONE_FROM_CART,
-    CLEAR_CART
+    CLEAR_CART,
+    GET_ALL_NEWS
 } from "../actions"
 
 
@@ -36,7 +37,8 @@ const initialState = {
     users:[],
     user: {},
     donations: [],
-    cart:[]
+    cart:[],
+    news: []
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -113,6 +115,8 @@ export default function rootReducer(state = initialState, action) {
         }
 
         case CLEAR_CART: return {...state, cart:[]}
+
+        case GET_ALL_NEWS: return {...state, news: action.payload}
 
         default: return {...state}
 

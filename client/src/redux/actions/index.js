@@ -19,6 +19,7 @@ export const ADD_TO_CART= 'ADD_TO_CART'
 export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
 export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
 export const CLEAR_CART= 'CLEAR_CART'
+export const GET_ALL_NEWS = 'GET_ALL_NEWS'
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -65,6 +66,23 @@ export function getAllPets(){
             return dispatch({
                 type:GET_ALL_PETS,
                 payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
+}
+
+export function getAllNews(){
+    return async function (dispatch){
+        try {
+            const news = await axios("/news")
+            return dispatch({
+                type:GET_ALL_NEWS,
+                payload: news.data
             })
         } catch (error) {
             // return dispatch({     
