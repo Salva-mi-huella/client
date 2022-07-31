@@ -1,35 +1,13 @@
 .carousel{
     width: 100%;
-    border: 1px solid #ccc;
-    box-shadow: 7px 7px 15px #592A08; 
-    padding-top: 100px;
+    margin-top: -25px;
     padding-bottom: 100px;
-}
-.containeradoptions{
-    background-image: url("../../assets/images/background-paws.jpg"); 
-    background-size: cover;   
-    display: flex;
-    justify-content: space-between;       
-    height: 350px; 
-}
-.containerimg{    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 550px;
-    height: 350px;
-}
-.imgadoption{
-    width: 230px;
-    height: 300px;
 }
 
 .imgadoption:hover{
     filter: brightness(85%);
     transition-duration: 1s;
     cursor: pointer;   
-  
 }
 .imgadoption:not(:hover){
     transition-duration: 1s;  
@@ -52,14 +30,44 @@
 }
 
 .foundations {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr; */
     display: flex;
     width: 35vw;
     align-items: center;
     justify-content: center;
     margin-left: 3vw;
     flex-wrap: wrap;
+}
+
+
+.titles{
+    font-size: 3.7vw;
+    color: rgb(255, 230, 0);
+    font-weight: bold;
+    margin-bottom: 3vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.paragraph{
+    font-size: 1.8vw;
+    text-align: center;
+    color: azure;
+    margin-bottom: 4vw;
+}
+
+.container{
+    background-size: cover;   
+    display: flex;
+    justify-content: space-evenly;  
+    width: 100%;
+    height: 38vw;
+    padding-top: 5vw;  
+    padding-bottom: 5vw;  
+    background: linear-gradient(70deg, rgb(174, 140, 182) 0%, rgb(99, 59, 218) 97%);
+    
+}
+
+.link {
+    text-decoration: none;
 }
 
 .foundations img {
@@ -69,58 +77,24 @@
     border-radius: 3vw;
     border: 2px solid purple;
 }
-
-.titles{
-    /* color: black; */
-    font-size: 3.7vw;
-    color: rgb(255, 230, 0);
-    font-weight: bold;
-    margin-bottom: 1.5vw;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.paragraph{
-    /* color: black; */
-    font-size: 1.7vw;
-    text-align: center;
-    color: azure;
-    margin-bottom: 40px;
-}
-
-.container{
-    /* background-image: url("../../images/background-paws.jpg");  */
-    background-size: cover;   
-    display: flex;
-    justify-content: space-evenly;  
-    width: 100%;
-    height: 350px;   
-    /* background-color: red */
-    
-}
-
 .imgdonation{
     width: 600px;
     height: 600px;
 }
 
-.imgfoundation{
-    width: 650px;
+.containerimg{    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 350px;
 }
 
-
-.carousel-control-next-icon{
-    color: red;
-    background-color: blue;
+.imgadoption{
+    width: 230px;
+    height: 300px;
 }
-.carousel-control-prev-icon{
-    color:red;
-    background-color: blue;
-}
-
-.link {
-    text-decoration: none;
-}
-
 
 
 

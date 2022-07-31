@@ -28,8 +28,8 @@ const userDetail = useSelector(state => state.user);
                     <Link className={styles.link} to='/donar'><p>Donar</p></Link>
                     <Link className={styles.link} to='/noticias'> <p>Noticias</p></Link>
                     <Link className={styles.link} to='/nosotros'><p>Nosotros</p></Link>
-                    <Link className={styles.link} to='/tienda'><p>Tienda</p></Link>
                     <Link className={styles.link} to='/huellitas'><p>Huellitas</p></Link>
+                    <Link className={styles.link} to='/tienda'><p>Tienda</p></Link>
                 </div>
 
                 { isAuthenticated ? 

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
 import img1 from '../../assets/images/gato2.png'
 import img2 from '../../assets/images/perro2.png'
-import img3 from '../../assets/images/fundaciones.png'
 import img4 from '../../assets/images/donaciones.png'
 import Button from './Button'
 import Button2 from './Button2'
@@ -19,7 +18,7 @@ export default function ControlledCarousel({foundations}) {
     };
     
     return (
-        <Carousel variant="dark" className={styles.carousel} activeIndex={index} onSelect={handleSelect}>
+        <Carousel className={styles.carousel} activeIndex={index} onSelect={handleSelect}>
 
         <Carousel.Item> 
         <div className={styles.container}>
@@ -29,7 +28,7 @@ export default function ControlledCarousel({foundations}) {
                     src={img1}
                     alt="First img - Slide one"
                 />                       
-            </div>
+        </div>
             
             <div className={styles.containertext}>
                 <h1 className={styles.titles}>Adopciones</h1>

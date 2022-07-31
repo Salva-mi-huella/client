@@ -9,7 +9,7 @@ import paypal from '../../assets/paypal.png';
 import mp from '../../assets/mercadopago.png';
 import instagram from '../../assets/instagram.png';
 import email from '../../assets/email-2.png';
-import web from '../../assets/web.png';
+import web from '../../assets/web (2).png';
 
 
 export default function Foundation () {
@@ -43,8 +43,16 @@ export default function Foundation () {
                     </div>
 
                     <div className={styles.description}>
-                        <h3>¿Quienes somos?</h3>
-                        <p>Desde 1996, somos una organización especializada en la ayuda  gatos abandonados y/o maltratados; una organización totalmente independiente que no recibe subvenciones de organismos oficiales, empresas ni partidos políticos. Practicamos el sacrificio cero, de...</p>
+                        <div>
+                            <h3>¿Quienes somos?</h3>
+                            <p>Desde 1996, somos una organización especializada en la ayuda  gatos abandonados y/o maltratados; una organización totalmente independiente que no recibe subvenciones de organismos oficiales, empresas ni partidos políticos. Practicamos el sacrificio cero, de...</p>
+                        </div>
+                        <div className={styles.containerDonate}>
+                            <h2>Dejá tu huella</h2>
+                            <p>En este apartado va un texto explicando las causas por las cuales las fundaciones necesitan ayuda. <br></br><br></br>¡Podés ayudarnos de muchas maneras!</p>
+
+                                <Link to='/donar'><button className={styles.donar}>Quiero ayudar</button></Link>
+                        </div>
                     </div>
             </div>
 
@@ -56,53 +64,14 @@ export default function Foundation () {
                 <PetSlick foundation={foundation}/>
             </div>
 
-            <div className={styles.containerDonate}>
-                <div>
-                    <h2>Dejá tu huella</h2>
-                    <p>¡Podés ayudarnos de muchas maneras!</p>
-                    <div>
-                        <img className={styles.paypal} src={paypal} alt='paypal'></img>
-                        <img className={styles.paypal} src={mp} alt='paypal'></img>
-                    </div>
-                </div>
-
-                <div className={styles.amounts}>
-                    {/* <div> */}
-                        <div>
-                            <button>$100</button>
-                            <button>$200</button>
-                            <button>$500</button>
-                        </div>
-                        <div>
-                            <button>$1000</button>
-                            <button>$2000</button>
-                            <button>$5000</button>
-                        </div>
-                    {/* </div> */}
-                    <div>
-                        <div>
-                            <label>Otro importe:</label>
-                            <input name='amount'  type='number' placeholder='$0,00'></input>
-                        </div>
-                        <Link to='/pago'><button className={styles.donar}>Donar</button></Link>
-                    </div>
-                </div>
-
-            </div>
-
-
-                    <h2 className={styles.titles}>Contactanos</h2>
                     <div className={styles.containerContact}>
-                    
-                            {/* <img className={styles.google} src={google} alt='google'></img> */}
-                            <GoogleMaps foundation={foundation} lat={foundation.lat} lng={foundation.lng} />
-                    
-                
+                        <GoogleMaps foundation={foundation} lat={foundation.lat} lng={foundation.lng} />
                         <div>
-                            <div>
+                            <h2 className={styles.title}>Contactanos</h2>
+                            <div className={styles.data}>
                              <h3>Teléfono:</h3><p>{foundation.telephone_number}</p> 
                             </div>
-                            <div>
+                            <div className={styles.data}>
                                 <h3>Ubicación:</h3><p>{`${foundation.address}, ${foundation.city}, ${foundation.state}.`}</p>
                             </div>
 

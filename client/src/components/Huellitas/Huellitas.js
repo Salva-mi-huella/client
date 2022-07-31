@@ -10,7 +10,7 @@ import product_b from '../../assets/product_b.jpg'
 import product_c from '../../assets/product_c.png'
 import register from '../../assets/check-profile.png'
 import invite from '../../assets/invite-friend.png'
-import saved from '../../assets/saved-pet.png'
+import rescued from '../../assets/rescued.png'
 
 
 
@@ -25,7 +25,7 @@ export default function Huellitas(){
                 <img src={banner} alt="Banner of animals"/>
                 <div>
                     <h1 className={style.sectionTitle}>Disfrutá de Huellitas</h1>
-                    <p >El programa donde más donaciones hacés, más te vamos a robar 🙂</p>
+                    <p >En este apartado va el eslogan del programa para llamar atención</p>
                     <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
                 </div>
             </div>
@@ -44,20 +44,30 @@ export default function Huellitas(){
 
             <h1 className={style.title}>¿De qué otra manera podés empezar a sumar?</h1>
             <div className={style.section}>
-                <div className={style.pictures}>
-                    <img src={register} alt=''></img>
-                    <img src={saved} alt=''></img>
-                    <img src={invite} alt=''></img>
-                </div>
                 <div className={style.subTitles}>
                     <div>
-                        <h3>Registrarte 500</h3>
+                        <img className={style.pictureA}src={register} alt=''></img>
+                        <h3>Por registrarte</h3>
+                        <div>
+                            <span>500</span>
+                            <img className={style.paw} src={paw} alt='paw'></img>
+                        </div>
                     </div>
                     <div>
-                        <h3>Por cada huella que salves 2000</h3>
+                        <img className={style.pictureB}src={rescued} alt=''></img>
+                        <h3>Por cada huella que salves</h3>
+                        <div>
+                            <span>2000</span>
+                            <img className={style.paw} src={paw} alt='paw'></img>
+                        </div>
                     </div>
                     <div>
-                        <h3>Por cada amigo que invites 1000</h3>
+                        <img className={style.pictureC} src={invite} alt=''></img>
+                        <h3>Por cada amigo que invites</h3>
+                        <div>
+                            <span>700</span>
+                            <img className={style.paw} src={paw} alt='paw'></img>
+                        </div>
                     </div>
                 </div>
             </div>
