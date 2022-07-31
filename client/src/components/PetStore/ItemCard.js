@@ -1,20 +1,12 @@
 import React, {useState} from "react";
 import styles from "./ItemCard.module.css";
 import img from "../../assets/paw-print.png";
+import { addToCart } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 
 export default function ItemCard(props) {
-
-    const [cont, setCont] = useState(0)
-
-    function contadorUp(){
-        setCont(cont + 1)
-    }
-    function contadorDown(){
-        if(cont > 0){
-        setCont(cont - 1)
-        }
-    }
+    const dispatch = useDispatch();
 
     return (
     <div className={styles.container}>
@@ -31,13 +23,8 @@ export default function ItemCard(props) {
             <img className={styles.paws} src={img}></img>
         </div>
 
-        <div className={styles.contador}>
-            <button className="btn btn-outline-dark" onClick={contadorDown}>-</button>
-            <h4>{cont}</h4>
-            <button className="btn btn-outline-dark" onClick={contadorUp}>+</button>
-        </div>
         <div className={styles.canje}>
-            <button  className="btn btn-dark">CANJEAR</button>
+            <button onClick={()=>dispatch(addToCart(props.id))} className="btn btn-dark">AGREGAR</button>
         </div>
     </div>
     );
