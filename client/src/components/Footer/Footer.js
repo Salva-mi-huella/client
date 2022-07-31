@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 import styles from '../Footer/Footer.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
+
 import ProfileMenu from '../Profile/ProfileMenu';
-import { style } from '@mui/system';
 
 import ig from '../../assets/instagram.png'
 import mail from '../../assets/email-2.png'
-import eslogan from '../../assets/eslogan2.png'
+
 
 
 
@@ -21,18 +21,6 @@ export default function Footer() {
 
   return (
     <>
-      <div className={styles.top}>
-        <div className={styles.eslogan}>
-          <div id='imagen'>
-            <img className={eslogan} src={eslogan} alt='eslogan'></img>
-          </div>
-          <div>
-            <p>vos también podes <span>todos los días</span></p>
-            <h2> Salvar mi huella</h2>
-          </div>
-        </div>
-      </div>
-
       <div className={styles.background}>
         <CDBFooter className="shadow" >
 

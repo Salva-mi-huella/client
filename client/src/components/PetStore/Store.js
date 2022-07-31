@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector} from 'react-redux'
-import { getAllProducts } from '../../redux/actions'
+import { addToCart, getAllProducts } from '../../redux/actions'
 import ItemCard from './ItemCard';
 import SearchBar from './SearchBar';
 import styles from './Store.module.css'
 import ReactPaginate from 'react-paginate';
+import ShoppingCart from './ShoppingCart';
 
 
 export default function Store() {
@@ -14,7 +15,8 @@ export default function Store() {
         dispatch(getAllProducts())
     }, [dispatch])
     
-    const products = useSelector((state) => state.allProducts)    
+    const products = useSelector((state) => state.allProducts) 
+    const shoppingCart = useSelector(state => state.cart)   
 
 //Paginado
 const [pageNumber, setPageNumber] = useState(0)
@@ -36,8 +38,6 @@ const pageCount = Math.ceil(products.length / productsPerPage)
 const changePage = ({selected}) =>{
     setPageNumber(selected)
 }
-
-
     return (
     <div className={styles.main}>
         <div className={styles.sidebar}>
@@ -64,7 +64,11 @@ const changePage = ({selected}) =>{
                 activeLinkClassName={styles.activebuttons}
             >
             </ReactPaginate>
+        </div>        
         </div>
+
+        <div>
+            <ShoppingCart />
         </div>
     
 

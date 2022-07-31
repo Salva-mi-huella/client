@@ -15,8 +15,10 @@ export const GET_USERS = 'GET_USERS'
 export const UPDATE_USER = 'UPDATE_USER'
 export const GET_USER = 'GET_USER'
 export const POST_DONATION = 'POST_DONATION'
-
-
+export const ADD_TO_CART= 'ADD_TO_CART'
+export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
+export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
+export const CLEAR_CART= 'CLEAR_CART'
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -253,6 +255,40 @@ export function getUsers(){
         }
     }
 
+}
+
+//SHOPPING CART
+
+export function addToCart(id){
+    return function(dispatch){
+        dispatch({
+        type:ADD_TO_CART,
+        payload:id
+    })
+    }
+}
+
+export function delFromCart(id, all=false){
+    return function(dispatch){
+    if(all){
+    return dispatch({
+        type:DELETE_ALL_FROM_CART,
+        payload:id
+    })}else{
+        return dispatch({
+            type:DELETE_ONE_FROM_CART,
+            payload:id
+        })
+    }
+    }
+}
+
+export function clearCart(){
+    return function(dispatch){
+        return dispatch({
+        type:CLEAR_CART
+    })
+    }
 }
 
 

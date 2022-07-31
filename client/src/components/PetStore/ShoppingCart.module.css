@@ -1,0 +1,47 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    width: 20vw;
+    height: 35vw;
+    border-radius: 8px;
+    background-color: aliceblue;
+    justify-content: space-evenly;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vw;
+}
+
+.bttnclear{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.itemContainer{
+    display: flex;
+    flex-direction: column;
+    height: 20vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+
+.itemCard{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 90px;
+    margin: 5px 0px 25px 30px;
+
+}
+
+.total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
