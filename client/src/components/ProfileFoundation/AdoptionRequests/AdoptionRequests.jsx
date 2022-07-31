@@ -20,8 +20,6 @@ const AdoptionRequests = () => {
   return (
     <div className={styles.adoptionRequest}>
 
-      <h3 className={styles.h3}> Tabla de solicitudes </h3>
-
       <Table />
 
       <img src={img} />
