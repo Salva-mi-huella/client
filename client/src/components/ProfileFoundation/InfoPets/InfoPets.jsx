@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { useAuth0 } from '@auth0/auth0-react';
 
 import TablePagination from '@mui/material/TablePagination';
 import Table from '@mui/material/Table';
@@ -13,8 +12,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import styles from './InfoPets.module.css';
-
-import { getFoundations } from '../../../redux/actions';
 
 const makeStyles = (status) => {
     if (status) {
@@ -37,19 +34,12 @@ const InfoPets = () => {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
     const user = JSON.parse(localStorage.getItem('user'));
-    // const { user } = useAuth0();
     let foundation = useSelector(state => state.foundations);
 
     if (user) {
-        // console.log(user, 'user info');
         foundation = foundation.find(f => f.email === user.email);
-        // console.log(foundation, 'foundation info');
     }
 
-    // const dispatch = useDispatch();
-    // React.useEffect(() => {
-    //     dispatch(getFoundations());
-    // }, [dispatch])
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -64,10 +54,10 @@ const InfoPets = () => {
         rowsPerPage - Math.min(rowsPerPage, foundation?.pets.length - page * rowsPerPage);
 
     return (
+        <div className={styles.tablePets}>
 
 
-        <div className={styles.Table}>
-            <h3 className={styles.h3}> Tabla de Animales </h3>
+            <h3 className={styles.petTitle}> Tabla de Animales </h3>
 
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
@@ -81,7 +71,6 @@ const InfoPets = () => {
                             <TableCell align="left">Genero</TableCell>
                             <TableCell align="left">Edad</TableCell>
                             <TableCell align="left">Status</TableCell>
-                            {/* <TableCell align="left">Actions</TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -139,11 +128,11 @@ const InfoPets = () => {
 
                                 </TableRow>
                             ))}
-                        {/* {emptyRows > 0 && (
+                        {emptyRows > 0 && (
                             <TableRow style={{ height: 53 * emptyRows }}>
                                 <TableCell colSpan={6} />
                             </TableRow>
-                        )} */}
+                        )}
                     </TableBody>
                 </Table>
 

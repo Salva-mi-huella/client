@@ -42,7 +42,6 @@ export default function Home() {
             }
 
             setUserSession(user);
-            
             dispatch(getUserByEmail(getUserSession().email));
         }
         
@@ -86,6 +85,7 @@ export default function Home() {
                             <Link className={styles.link} to='/huellitas'><button>VER MÁS</button></Link>
                         </div>
                     </div>
+
                 </div>
 
             <div>

@@ -1,15 +1,4 @@
-.infoPets {
-    background-color: #F1F15B;
-    color: purple;
-    margin: 5rem;
-    padding: 5rem;
-    text-align: center;
-    font-size: 3rem;
-    border-radius: 5rem;
-    justify-content: center;
-}
-
-.h3 {
+.petTitle {
     margin: 40px 15px;
     font-size: 45px;
     font-weight: 700;
@@ -24,17 +13,17 @@
     font-weight: 900 !important;
 }
 
-.Table {
+.tablePets {
     margin-left: 30px;
     max-height: 85vh;
     overflow-y: hidden;
 }
 
-.Table td, th {
+.tablePets td, th {
     border: none !important;
 }
 
-.Table:first-child {
+.tablePets:first-child {
     border-radius: 0.7rem !important;
 }
 
@@ -74,32 +63,15 @@
 } */
 
 
-/* select {} */
-
-.updateBtn {
-    width: 2rem;
-    height: 2rem;
-    margin-left: 1rem;
-    border-radius: 0.7rem;
-    background-color: var(--activeItem);
-    border: none;
-}
-
-.icon {
-    transition: all 300ms ease;
-    border-radius: 0.7rem;
-}
-
 @media screen and (max-width: 1200px) {
-    .Table {
+    .tablePets {
         width: 170%;
         margin-top: 2rem;
     }
 }
 
-
 @media screen and (max-width: 820px) {
-    .Table {
+    .tablePets {
         position: relative;
         display: flex;
         flex-direction: column;
