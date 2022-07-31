@@ -87,7 +87,6 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
 
             <div>
                 <SliderFoundation />
@@ -117,8 +116,6 @@ export default function Home() {
             <div>
                 <Footer />
             </div>
-
-
 
         </div>
     )
