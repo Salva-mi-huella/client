@@ -9,6 +9,10 @@ import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
+import eslogan from '../../assets/eslogan2.png'
+import Adoptants from './Adoptants';
+import register from '../../assets/register.png';
+import gift from '../../assets/gift-box.png';
 
 export default function Home() {
 
@@ -52,32 +56,57 @@ export default function Home() {
                 <img src={banner} alt='eslogan'></img>
             </div>
 
-            <div>
                 <Carousel foundations={foundations} />
-            </div>
 
                 <div className={styles.userInfo}>
-                    <div className={styles.subInfo}>
-                        <h1>¿Por qué registrarse?</h1>
-                        <p>Seguimiento de solicitudes de adopción, acceso al programa Huellitas, todo esto y mucho más! Es super simple y fácil, sumate!</p>
-                         <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
-
+                    <div className={styles.subInfoA}>
+                        <div>
+                            <h1>¿Por qué registrarse?</h1>
+                            <p>Administración de cuenta gratuita, seguimiento de solicitudes de adopción, acceso a Huellitas, todo esto y mucho más. Es super simple y fácil, ¡sumate!</p>
+                            <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
+                        </div>
+                            <img src={register} alt='register'></img>
                     </div>
 
-                    <div className={styles.subInfo}>
-                        <div>
-                            <h1>Sumate a Huellitas</h1>
-                            <img src={paw} alt='paw'></img>
+                    <div className={styles.subInfoA}>
+                            <img  className={styles.gift} src={gift} alt='gift'></img>
+                        <div className={styles.subInfoB}>
+                            <div>
+                                <h1>Sumate a Huellitas</h1>
+                                <img src={paw} alt='paw'></img>
+                            </div>
+                            <p>Nuestro programa de beneficios gratuito en el que podés ganar puntos y canjear por productos en nuestra tienda.</p>
+                            <Link className={styles.link} to='/huellitas'><button>VER MÁS</button></Link>
                         </div>
+                    </div>
 
-                        <p>Nuestro programa de beneficios gratuito en el que podés ganar puntos y canjear por productos en nuestra tienda.</p>
-                        <Link className={styles.link} to='/huellitas'><button>VER MÁS</button></Link>
+                    <div className={styles.subInfoB}>
+
 
                     </div>
                 </div>
 
             <div>
                 <SliderFoundation />
+            </div>
+
+            <div className={styles.top}>
+                <div className={styles.clients}>
+                    <h1>¡Adoptantes y huellas felices!</h1>
+                    <div>
+                        <Adoptants />
+                    </div>
+
+                </div>
+                <div className={styles.esloganFooter}>
+                    <div id='imagen'>
+                        <img className={styles.esloganFooter} src={eslogan} alt='eslogan'></img>
+                    </div>
+                    <div>
+                        <p>vos también podes <span>todos los días</span></p>
+                        <h2> Salvar mi huella</h2>
+                    </div>
+                </div>
             </div>
 
             <div>

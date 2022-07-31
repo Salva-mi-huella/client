@@ -80,9 +80,9 @@ export default function GoogleMaps({foundation, lat, lng}) {
             <div className={styles.subContainer}>
 
               <div className={styles.route}> 
-                <div>
+                <div className={styles.destination}>
                     <Autocomplete>
-                      <input type='text' placeholder='Origen' ref={originRef}></input>
+                      <input  defaultValue={`${foundation.address}, ${foundation.state}`} type='text' placeholder='Origen' ref={originRef}></input>
                     </Autocomplete>          
                     <Autocomplete>
                       <input type='text' placeholder='Destino'ref={destiantionRef}></input>
@@ -97,14 +97,11 @@ export default function GoogleMaps({foundation, lat, lng}) {
                         <button className={styles.x} onClick={clearRoute}><FaTimes /></button>
                     </div>
                     
-              </div>
-
                       <div className={styles.travel}>
-                          <h3>Distancia: {distance}</h3>
-                          <h3>Duración: {duration}</h3>
+                        {distance && <div> <h3>Distancia: {distance}</h3></div>}
+                        {duration && <div> <h3>Duración: {duration}</h3></div>}
                       </div>
-
-
+              </div>
             </div>
         </div>
     )
