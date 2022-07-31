@@ -104,9 +104,11 @@ export default function PostNews() {
                         ? <p className={style.inputTextResult} >{input.news}</p>
                         : <p>Texto</p>}
                 </div>
-                {renderImg
-                    ? <img src={renderImg} />
-                    : <p>Imagen</p>}
+                <div className={style.resultImageContainer} >
+                    {renderImg
+                        ? <img src={renderImg} className={style.resultImage} />
+                        : <p>Imagen</p>}
+                </div>
             </div>
 
         </div>
