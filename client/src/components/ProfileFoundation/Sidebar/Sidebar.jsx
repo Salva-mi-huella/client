@@ -62,7 +62,7 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                                 onClick={() => changeOption(index)}
                             >
                                 <item.icon />
-                                <span>{item.heading}</span>
+                                <span className='itemText'>{item.heading}</span>
                             </div>
                         );
                     })}

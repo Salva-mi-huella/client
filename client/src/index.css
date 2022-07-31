@@ -4,7 +4,7 @@
   --orange: #fca61f;
   --black: #242d49;
   --gray: #788097;
-  --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
+  --purple: linear-gradient(70deg, rgb(233, 201, 214) 0%, rgb(99, 59, 218) 97%);
   --pink: #FF919D;
   --glass: rgba(255, 255, 255, 0.54);
   --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
@@ -12,6 +12,27 @@
   /* --activeItem: #f799a354; */
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #8f54a0 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--purple);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
 
 body {
   margin: 0;
@@ -42,13 +63,13 @@ h2 {
 }
 
 h3 {
-  font-family: 'Raleway', sans-serif ;
+  font-family: 'Raleway', sans-serif;
   font-weight: bold
 }
 
 h4 {
-  font-family: 'Raleway', sans-serif ;
-  font-weight: bold 
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold
 }
 
 h5 {
@@ -57,7 +78,6 @@ h5 {
 }
 
 p {
-  font-family: 'Nunito', sans-serif ;
-  font-weight: bold 
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold
 }
-
