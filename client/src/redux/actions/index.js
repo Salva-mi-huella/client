@@ -15,8 +15,10 @@ export const GET_USERS = 'GET_USERS'
 export const UPDATE_USER = 'UPDATE_USER'
 export const GET_USER = 'GET_USER'
 export const POST_DONATION = 'POST_DONATION'
-
-
+export const ADD_TO_CART= 'ADD_TO_CART'
+export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
+export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
+export const CLEAR_CART= 'CLEAR_CART'
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -59,7 +61,7 @@ export function getFoundations(){
 export function getAllPets(){
     return async function (dispatch){
         try {
-            const info = await axios("http://localhost:4000/pets")
+            const info = await axios("/pets")
             return dispatch({
                 type:GET_ALL_PETS,
                 payload: info.data
@@ -71,14 +73,13 @@ export function getAllPets(){
             // })
         }
     }
-
 }
 
 
 export  function getPetDetail(id){
     return async function (dispatch){
         try{
-            const info = await axios(`http://localhost:4000/pets/${id}`)
+            const info = await axios(`/pets/${id}`)
             return dispatch({
                 type: GET_PET_DETAIL,
                 payload: info.data
@@ -194,7 +195,7 @@ export function getUserByEmail(email) {
 export function getAllProducts(){
     return async function (dispatch){
         try {
-            const info = await axios("http://localhost:4000/products")
+            const info = await axios("/products")
             return dispatch({
                 type:GET_ALL_PRODUCTS,
                 payload: info.data
@@ -211,7 +212,7 @@ export function getAllProducts(){
 export function postDonation(order){
     return async function (dispatch){
         try {
-            const info = await axios.post("http://localhost:4000/donations", order)
+            const info = await axios.post("/donations", order)
             return dispatch({
                 type: POST_DONATION,
                 payload: info.data
@@ -224,17 +225,20 @@ export function postDonation(order){
         }
     }
 }
-
+// POST DB
 export function postNews (data){
     return  function (){
             axios.post("/news", data)
-
     }
 }
 export function postPets (data){
     return  function (){
             axios.post("/pets", data)
-
+    }
+}
+export function postRequestAdopt (data){
+    return function(){
+        axios.post("/request_adopt", data)
     }
 }
 
@@ -251,6 +255,40 @@ export function getUsers(){
         }
     }
 
+}
+
+//SHOPPING CART
+
+export function addToCart(id){
+    return function(dispatch){
+        dispatch({
+        type:ADD_TO_CART,
+        payload:id
+    })
+    }
+}
+
+export function delFromCart(id, all=false){
+    return function(dispatch){
+    if(all){
+    return dispatch({
+        type:DELETE_ALL_FROM_CART,
+        payload:id
+    })}else{
+        return dispatch({
+            type:DELETE_ONE_FROM_CART,
+            payload:id
+        })
+    }
+    }
+}
+
+export function clearCart(){
+    return function(dispatch){
+        return dispatch({
+        type:CLEAR_CART
+    })
+    }
 }
 
 

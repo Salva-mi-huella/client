@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { removeUserSession } from "../../utils";
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,6 +24,10 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLogout = () => {
+    logout({returnTo: `${window.location.origin}/home`});
+    removeUserSession();
+  }
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -83,8 +88,8 @@ export default function AccountMenu() {
         </Link>
         <Divider />
         <MenuItem>
-          <ListItemIcon onClick={()=>logout({returnTo:'http://localhost:3000/home'})}sx={{ color:'white' }}>
-            <Logout sx={{ marginRight: '10px'}} onClick={()=>logout({returnTo:'http://localhost:3000/home'})} fontSize="small" />
+          <ListItemIcon onClick={handleLogout} sx={{ color:'white' }}>
+            <Logout sx={{ marginRight: '10px'}} onClick={handleLogout} fontSize="small" />
               Cerrar sesión
           </ListItemIcon>
         </MenuItem>

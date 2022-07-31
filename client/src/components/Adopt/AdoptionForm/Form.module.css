@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 800px;
+    height: auto;
+
 }
 
 .title{
@@ -28,6 +29,7 @@
 .groupinp{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content:space-around;
     padding: 10px;
 }

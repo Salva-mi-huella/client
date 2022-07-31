@@ -13,10 +13,12 @@ import eslogan from '../../assets/eslogan2.png'
 import Adoptants from './Adoptants';
 import register from '../../assets/register.png';
 import gift from '../../assets/gift-box.png';
+import { setUserSession, getUserSession } from "../../utils";
+
 
 export default function Home() {
 
-   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
+    const { loginWithRedirect, user, isAuthenticated } = useAuth0();
 
     const dispatch = useDispatch();
     const foundations = useSelector(state => state.foundations)
@@ -24,7 +26,7 @@ export default function Home() {
     useEffect(() => {
         // const id = this.props.match.params.foundationId
         dispatch(getFoundations());
-        
+
         if (isAuthenticated) {
             const { name, email, nickname, picture } = user;
             if (user.hasOwnProperty("family_name")) {
@@ -38,8 +40,12 @@ export default function Home() {
                     picture
                 }));
             }
+
+            setUserSession(user);
+            
+            dispatch(getUserByEmail(getUserSession().email));
         }
-        if (isAuthenticated) dispatch(getUserByEmail(user.email));
+        
 
     }, [user, isAuthenticated, dispatch]);
 
@@ -57,6 +63,7 @@ export default function Home() {
             </div>
 
                 <Carousel foundations={foundations} />
+
 
                 <div className={styles.userInfo}>
                     <div className={styles.subInfoA}>
@@ -79,16 +86,13 @@ export default function Home() {
                             <Link className={styles.link} to='/huellitas'><button>VER MÁS</button></Link>
                         </div>
                     </div>
-
-                    <div className={styles.subInfoB}>
-
-
-                    </div>
                 </div>
+            </div>
 
             <div>
                 <SliderFoundation />
             </div>
+
 
             <div className={styles.top}>
                 <div className={styles.clients}>
@@ -108,6 +112,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+
 
             <div>
                 <Footer />

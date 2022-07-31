@@ -9,12 +9,12 @@ import ProfileMenu from '../Profile/ProfileMenu';
 
 export default function NavBar({userInfo}) {
 
-const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+const { isAuthenticated, loginWithRedirect } = useAuth0();
 
 const dispatch = useDispatch();
 
  useEffect(()=>{
-}, [isAuthenticated, user, dispatch]);
+}, [isAuthenticated, dispatch]);
 
 const userDetail = useSelector(state => state.user);
    
