@@ -257,7 +257,12 @@ export function postPets (data){
 }
 export function postRequestAdopt (data){
     return function(){
-        axios.post("/request_adopt", data)
+        try{
+            axios.post("/request_adopts", data)
+        }
+        catch (e) {
+            console.log(e)
+        }
     }
 }
 
