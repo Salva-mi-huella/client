@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import styles from '../Footer/Footer.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from '../Profile/ProfileMenu';
-import { style } from '@mui/system';
 
 import ig from '../../assets/instagram.png'
 import mail from '../../assets/email-2.png'

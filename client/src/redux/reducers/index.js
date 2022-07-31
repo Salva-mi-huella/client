@@ -4,21 +4,23 @@ import {
     GET_FOUNDATION_DETAIL, 
     GET_PET_DETAIL, 
     GET_FOUNDATIONS, 
-    GET_All_PETS, 
+    GET_ALL_PETS, 
     FILTERS_CONFIG, 
     GET_CURRENCY, 
     POST_USER, 
     UPDATE_FOUNDATION, 
-    GET_All_PRODUCTS, 
+    GET_ALL_PRODUCTS, 
     PETS_FILTERED, 
     UPDATE_USER, 
-    GET_USER, 
+    GET_USER,
+    GET_USERS, 
     POST_DONATION, 
     GET_PRODUCT_DETAIL,
     ADD_TO_CART,
     DELETE_ALL_FROM_CART,
     DELETE_ONE_FROM_CART,
-    CLEAR_CART} from "../actions"
+    CLEAR_CART
+} from "../actions"
 
 
 const initialState = {
@@ -31,7 +33,6 @@ const initialState = {
     allProducts:[],
     productDetail: {},
     petsFiltered: [],
-    allProducts:[],
     users:[],
     user: {},
     donations: [],
@@ -62,7 +63,6 @@ export default function rootReducer(state = initialState, action) {
         case UPDATE_USER: return {...state}
 
         case GET_USER: 
-        console.log('hola', action.payload)
         return {...state, user: action.payload}
 
         case GET_ALL_PRODUCTS: return{...state, allProducts: action.payload}
