@@ -39,9 +39,8 @@ export default function Home() {
             setUserSession(user);
             
         }
-        if (user) {
-            dispatch(getUserByEmail(getUserSession().email));
-        }
+        
+        dispatch(getUserByEmail(getUserSession().email));
 
     }, [user, isAuthenticated, dispatch]);
 

@@ -83,8 +83,8 @@ export default function AccountMenu() {
         </Link>
         <Divider />
         <MenuItem>
-          <ListItemIcon onClick={()=>logout({returnTo: process.env.REACT_APP_API ? `${process.env.REACT_APP_API}/home` : "http://localhost:3000/home"})} sx={{ color:'white' }}>
-            <Logout sx={{ marginRight: '10px'}} onClick={()=>logout({returnTo:process.env.REACT_APP_API ? `${process.env.REACT_APP_API}/home` : "http://localhost:3000/home"})} fontSize="small" />
+          <ListItemIcon onClick={()=>logout({returnTo: "http://localhost:3000/home"})} sx={{ color:'white' }}>
+            <Logout sx={{ marginRight: '10px'}} onClick={()=>logout({returnTo: "http://localhost:3000/home"})} fontSize="small" />
               Cerrar sesión
           </ListItemIcon>
         </MenuItem>
