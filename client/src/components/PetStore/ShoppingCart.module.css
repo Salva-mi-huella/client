@@ -5,8 +5,9 @@
     width: 20vw;
     height: 35vw;
     border-radius: 8px;
-    background-color: aliceblue;
+    background-color: purple;
     justify-content: space-evenly;
+    margin-top: 10.5vw;;
 }
 
 .title{
@@ -28,6 +29,7 @@
     height: 20vw;
     overflow-y: scroll;
     overflow-x: hidden;
+    color: white;
 
 }
 
@@ -44,4 +46,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }

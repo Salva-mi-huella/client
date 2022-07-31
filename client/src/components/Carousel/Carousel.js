@@ -5,9 +5,6 @@ import Carousel from 'react-bootstrap/Carousel'
 import img1 from '../../assets/images/gato2.png'
 import img2 from '../../assets/images/perro2.png'
 import img4 from '../../assets/images/donaciones.png'
-import Button from './Button'
-import Button2 from './Button2'
-import Button3 from './Button3'
 
 
 export default function ControlledCarousel({foundations}) {
@@ -33,9 +30,7 @@ export default function ControlledCarousel({foundations}) {
             <div className={styles.containertext}>
                 <h1 className={styles.titles}>Adopciones</h1>
                 <p className={styles.paragraph}>¿Estás listo para encontrar a tu mejor amigo?<br/>Busca a tu compañero en nuestra red de refugios.</p>
-                <Link className={styles.link} to={'/adoptar'}>
-                    <Button />
-                </Link>
+                    <Link className={styles.link} to='/adoptar'><button>QUIERO ADOPTAR</button></Link>
             </div>
 
             <div  className={styles.containerimg}>               
@@ -58,9 +53,7 @@ export default function ControlledCarousel({foundations}) {
             <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Fundaciones</h1>
                 <p className={styles.paragraph}>¿Te gustaría ser parte de nuestra familia? <br/>Contactate con nosotros <br></br> y empezá ya el proceso de inscripción.</p>
-                <Link className={styles.link} to={'/contacto'}>
-                    <Button2></Button2>
-                </Link>
+                    <Link className={styles.link} to='/contacto'><button>QUIERO SER PARTE</button></Link>
             </div>
         </div>
         </Carousel.Item>
@@ -77,9 +70,7 @@ export default function ControlledCarousel({foundations}) {
             <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Donaciones</h1>
                 <p className={styles.paragraph}>Tu aporte de hoy puede salvar una huella.</p>
-                <Link className={styles.link} to={'/donar'}>
-                <Button3></Button3>
-                </Link>
+                <Link className={styles.link} to='/donar'><button>QUIERO DONAR</button></Link>
             </div>
         </div>
         </Carousel.Item>   

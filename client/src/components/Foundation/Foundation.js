@@ -76,7 +76,7 @@ export default function Foundation () {
                             </div>
 
                             <div className={styles.iconsContainer}>
-                            {foundation.website  && <a href={foundation.web} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
+                            {foundation.website  && <a href={foundation.website} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
                             {foundation.instagram && <a href={foundation.instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
                             {foundation.email && <a href={`mailto:${foundation.email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
                             </div>

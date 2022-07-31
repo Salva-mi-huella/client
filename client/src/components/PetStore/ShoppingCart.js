@@ -14,7 +14,7 @@ export default function ShoppingCart() {
   return (
     <div className={styles.main}>
         <div className={styles.title}>
-            <h1>Shopping Cart</h1>
+            <h1>Carrito</h1>
         </div>
         <div className={styles.bttnclear}>
             <button className="btn btn-dark" onClick={()=>dispatch(clearCart())}>Vaciar Carrito</button>

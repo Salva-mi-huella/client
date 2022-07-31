@@ -48,7 +48,7 @@ const changePage = ({selected}) =>{
         </div>
 
         <div className={styles.containeritems}>  
-            <h5>TIENDA DE HUELLITAS</h5>          
+            <h5>¡Encontrá los mejores productos para tu huella!</h5>          
             <div className={styles.items}>{displayProducts}</div>
             <div className={styles.pagination}>
             <ReactPaginate 

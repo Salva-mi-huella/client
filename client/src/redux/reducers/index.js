@@ -15,11 +15,13 @@ import {
     GET_USER,
     GET_USERS, 
     POST_DONATION, 
+    POST_REQUEST_FOUNDATION, 
     GET_PRODUCT_DETAIL,
     ADD_TO_CART,
     DELETE_ALL_FROM_CART,
     DELETE_ONE_FROM_CART,
-    CLEAR_CART
+    CLEAR_CART,
+    GET_REQUESTS_FOUNDATIONS
 } from "../actions"
 
 
@@ -36,7 +38,8 @@ const initialState = {
     users:[],
     user: {},
     donations: [],
-    cart:[]
+    cart:[],
+    requests_foundations: [],
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -78,6 +81,10 @@ export default function rootReducer(state = initialState, action) {
         case GET_USERS:  return {...state, users: action.payload}
         
         case POST_DONATION: return {...state}
+
+        case POST_REQUEST_FOUNDATION: return {...state}
+
+        case GET_REQUESTS_FOUNDATIONS: return {...state, requests_foundations: action.payload}
 
         case ADD_TO_CART: {
             let newItem = state.allProducts.find(product => product.id === action.payload)

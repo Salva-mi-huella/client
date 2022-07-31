@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar/Sidebar.jsx'
 import MainDash from './MainDash/MainDash.jsx';
 import EditProfile from './EditProfile/EditProfile.jsx';
@@ -6,11 +6,22 @@ import Users from './Users/Users.jsx';
 import Foundations from './Foundations/Foundations.jsx';
 import styles from '../ProfileAdmin/ProfileAdmin.module.css';
 import Request from './Request/Request.jsx';
+import { getRequestsFoundations } from '../../redux/actions/index.js';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 
 
 export default function ProfileAdmin() {
+
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(getRequestsFoundations())
+    }, [dispatch]);
+
+    const requests_foundations = useSelector(state => state.requests_foundations);
 
     const [optionSelection, setOptionSelection] = useState(0)
 
@@ -25,7 +36,7 @@ export default function ProfileAdmin() {
                 {
                     optionSelection === 0 && (
                         <>
-                            <MainDash />
+                            <MainDash requests_foundations={requests_foundations}/>
                         </>
                     )
                 }
@@ -53,7 +64,7 @@ export default function ProfileAdmin() {
                 {
                     optionSelection === 4 && (
                         <>
-                            <Request />
+                            <Request requests_foundations={requests_foundations} />
                         </>
                     )
                 }

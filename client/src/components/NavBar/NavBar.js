@@ -39,7 +39,7 @@ const userDetail = useSelector(state => state.user);
                         </div>
                       : 
                       <div className={styles.signUp}>
-                        <button onClick={() => loginWithRedirect()} >Ingresar</button> 
+                        <button onClick={() => loginWithRedirect()} >INGRESAR</button> 
                       </div>}
             </nav>
             

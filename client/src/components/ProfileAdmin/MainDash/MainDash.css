@@ -2,15 +2,18 @@
     /* padding-top: 1rem; */
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: center; */
+    /* justify-content: space-between; */
 }
 
 .MainDash>h1 {
     display: flex;
     justify-content: center;
     font-weight: 500;
-    font-size: 50px;
+    font-size: 3.5vw;
     color: white;
+    margin-bottom: 5vw;;
+    margin-top: 4vw;
 }
 
 @media screen and (max-width: 1200px) {

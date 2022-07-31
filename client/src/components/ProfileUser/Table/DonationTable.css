@@ -1,9 +1,55 @@
 .titles {
-    font-size: 50px;
+    font-size: 3vw;
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: azure;
     margin-bottom: 30px;
+}
+
+.noDonations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25vw;
+  margin-bottom: 5vw;;
+  width: 60vw;
+}
+
+.noDonations h1 {
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: azure;
+    margin-bottom: 5vw;
+    /* width: 50vw; */
+}
+
+.noDonations img {
+    width: 40vw;
+    height: 25vw;
+}
+
+.noDonations button {
+    transition: 0.3s;
+    background-color: #FCFCFD;
+    border-radius: 15px;
+    font-size: 1.5vw;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: purple;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "JetBrains Mono",monospace;
+    height: 3vw;
+    width: 25vw;
+}
+
+.noDonations button:hover {
+    transition: 0.3s;
+    color: #FCFCFD;
+    background-color: purple
 }
 
 .MuiTableRow-root>* {

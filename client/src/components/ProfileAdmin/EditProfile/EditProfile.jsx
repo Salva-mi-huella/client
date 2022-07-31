@@ -1,19 +1,18 @@
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {updateUser} from '../../../redux/actions'; 
 import { useAuth0 } from '@auth0/auth0-react';
-import jwt from "jsonwebtoken";
 import styles from './EditDataForm.module.css';
 import { set, useForm } from 'react-hook-form';
 import { getUserByEmail } from '../../../redux/actions';
-import { alignProperty } from '@mui/material/styles/cssUtils';
+import Swal from 'sweetalert2';
 
 
 export default function EditProfile({datos,setDatos}) {
 
   const { user, isLoading } = useAuth0();
-  const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const dispatch=useDispatch()
 
   useEffect(() => { 
@@ -25,18 +24,34 @@ export default function EditProfile({datos,setDatos}) {
 
   
   const onSubmit = (data, e) => {
-        // e.preventDefault()
-        console.log(data)
+
+        
         for(let prop in data) {
           if (data[prop]==='') delete data[prop]
         }
 
         try {
-          if (!Object.keys(errors).length) dispatch(updateUser(data, user.email))
+          if (!Object.keys(errors).length) {
+            Swal.fire({
+              title: '¿Estás seguro de querer guardar los cambios?',
+              showDenyButton: true,
+              // showCancelButton: true,
+              confirmButtonText: 'Guardar',
+              // cancelButtonText: 'Cancelar',
+              denyButtonText: `Cancelar`,
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                dispatch(updateUser(data, user.email))
+                Swal.fire('¡Tus datos han sido actualizado con éxito!', '', 'success')
+              } else if (result.isDenied) {
+                Swal.fire('Cambios no actualizados', '', 'info')
+              }
+            })
+          }
         } catch (error) {
           console.log(error.message)
         }
-        alert('Datos actualizados');
       }
 
     return (
@@ -55,11 +70,11 @@ export default function EditProfile({datos,setDatos}) {
 
                     <div>
                       <label className={styles.items}>Nombre:</label>
-                      <input className={styles.input} defaultValue={userDetail.name} type="text" maxLength={15} name="name" {...register("name", { maxLength: 15 , pattern: /^-?[a-zA-Z]*$/})} />
+                      <input className={styles.input} defaultValue={userDetail.name} type="text" maxLength={30} name="name" {...register("name", { maxLength: 30 , pattern: /^-?[a-zA-Z ]*$/})} />
                       {/* {errors.name?.type === "required" && <p className={styles.error}>El nombre es obligatorio</p>} */}
                     <label className={styles.items}>Email: {user.email}</label>
                         <div>
-                          {errors.name?.type === "maxLength" && <p className={styles.error}>El nombre debe tener 8 caracteres maximo</p>}
+                          {errors.name?.type === "maxLength" && <p className={styles.error}>El nombre debe tener 30 caracteres maximo</p>}
                           {errors.name?.type === "pattern" && <p className={styles.error}>El nombre debe tener solo letras</p>}
                         </div>
                     </div>
@@ -76,9 +91,6 @@ export default function EditProfile({datos,setDatos}) {
                        <div>
                           {errors.dni?.type === "maxLength" && <p className={styles.error}>El DNI debe tener 8 caracteres máximo</p>}
                           {errors.dni?.type === "pattern" && <p className={styles.error}>El DNI debe tener solo numeros</p>}
-                       </div>
-                       <div>
-                       {/* {errors.birthday?.type === "required" && <p className={styles.error}>La fecha de nacimiento es obligatoria</p>} */}
                        </div>
                    </div>
 
@@ -104,19 +116,10 @@ export default function EditProfile({datos,setDatos}) {
                         {errors.telephone_number?.type === "maxLength" && <p className={styles.error}>El teléfono debe tener 20 caracteres máximo</p>}
                         {errors.telephone_number?.type === "pattern" && <p className={styles.error}>El teléfono debe tener solo números</p>}
                    </div>
-
-{/*                    <div>
-                      <label className={styles.items}>¿Te gustaría ofrecerte como persona de tránsito?</label>
-                      <label htmlFor='Sí'><input id='Sí' {...register('transit')} value={true} type='radio' name='transit'/>Sí</label>
-                      <label htmlFor='No'><input id='No' {...register('transit')} value={false} type='radio' name='transit'/>No</label>
-                   </div> */}
                  </form>
                 
              </div>
          </div>
-             <div>
-                 {/* <img className={styles.photo} src={user.picture}></img> */}
-             </div>
  </div>
 
     )

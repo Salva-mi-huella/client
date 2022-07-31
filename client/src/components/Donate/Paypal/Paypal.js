@@ -3,7 +3,7 @@ import { Link,  } from 'react-router-dom'
 import {  useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import styles from './Paypal.module.css'
-import {postDonation, updateUser} from '../../../redux/actions/'
+import {getUserByEmail, postDonation, updateUser} from '../../../redux/actions/'
 import Swal from 'sweetalert2'
 import dog from '../../../assets/dog.png'
 
@@ -57,6 +57,7 @@ export default function Paypal({amount, foundation, user}){
                 const order = await actions.order.capture()
                 dispatch(postDonation(donation))
                 dispatch(updateUser({points:newPoints}, user.email))
+                dispatch(getUserByEmail(user.email))
                 Swal.fire({
                     title: '¡Tu donación ha sido exitosa!',
                     text: 'Gracias por ayudarnos a seguir salvando huellas',

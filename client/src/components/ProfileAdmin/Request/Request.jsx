@@ -9,9 +9,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import './Table.css'
-function createData(name, petId, userId, city, status) {
-    return { name, petId, userId, city, status };
-}
 
 const makeStyles = (status) => {
     if (status === 'Aprobado') {
@@ -34,15 +31,8 @@ const makeStyles = (status) => {
     }
 }
 
-const rows = [
-    createData('29/06/2022', "Gatitos a Salvo", "gatitosasalvo@gmail.com", '0112357621',"Aprobado"),
-    createData('04/07/2022', "Huellitas Heridas", "huellitasheridas@hotmail.com", '0110327423',"Aprobado" ),
-    createData('12/07/2022', "Garritas en tránsito", "garritas en tránsito@hotmail.com","0114528493","Aprobado"  ),
-    createData('18/07/2022', "Hogar dulce hogar", "hogardulcehogar.10@gmail.com","0112508432","Pendiente" ),
-    createData('29/07/2022', "Mision Animal", "misionanimal@gmail.com","0113709411","Pendiente"),
-];
 
-const Request = () => {
+const Request = ({requests_foundations}) => {
     return (
         <div className='containerRequest' >
             <h1>Solicitudes:</h1>
@@ -60,19 +50,20 @@ const Request = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+
+                    {requests_foundations.map((r) => (
                         <TableRow
-                            key={row.name}
+                            key={r.name}
                         >
                             <TableCell component="th" scope="row">
-                                {row.name}
+                                01/08/2022
                             </TableCell>
-                            <TableCell align="left">{row.petId}</TableCell>
-                            <TableCell align="left">{row.userId}</TableCell>
-                            <TableCell align="left" className="ciudad">{row.city}</TableCell>
+                            <TableCell align="left">{r.name}</TableCell>
+                            <TableCell align="left">{r.email}</TableCell>
+                            <TableCell align="left" className="ciudad">-</TableCell>
                             {/* <TableCell align="left">{row.date}</TableCell> */}
                             <TableCell align="left">
-                                <span className="transit" style={makeStyles(row.status)} >{row.status} </span>
+                                <span className="transit" style={makeStyles('Pendiente')} >Pendiente </span>
                             </TableCell>
                         </TableRow>
                     ))}

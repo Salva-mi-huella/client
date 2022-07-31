@@ -1,9 +1,11 @@
 .Cards {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 80%;
-  margin-left: 8rem;
+  margin-left: 8vw;
   gap: 10px;
+  margin-bottom: 5vw;
 }
 
 .parentContainer {
