@@ -56,8 +56,8 @@ export default function Footer() {
                 <CDBBox display="flex" className="mt-4 me-5 justify-content-center">
 
                   <div className={styles.iconContainer}>
-                    <a href='mailto:salvamihuella.10@gmail.com'><img src={mail} className={styles.icons} ></img></a>
-                    <a><img src={ig} className={styles.icons} ></img></a>
+                    <a href='mailto:salvamihuella.10@gmail.com'><img src={mail} className={styles.icons} alt='mail' ></img></a>
+                    <a><img src={ig} className={styles.icons} alt='ig' ></img></a>
                   </div>
 
                 </CDBBox>
@@ -117,29 +117,15 @@ export default function Footer() {
                 </CDBBox>
               </CDBBox>
 
-
-              {/* NOT USED */}
-              {/* <CDBBox>
-                <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-                  Products
-                </p>
-                <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-                  <CDBFooterLink href="/">Windframe</CDBFooterLink>
-                  <CDBFooterLink href="/">Loop</CDBFooterLink>
-                  <CDBFooterLink href="/">Contrast</CDBFooterLink>
-                </CDBBox>
-              </CDBBox> */}
-
-
             </CDBBox>
 
           </CDBBox>
 
 
         </CDBFooter>
-      </div>
       <div className={styles.copyright}>
         <small className="text-center mt-5">&copy; SALVA MI HUELLA, 2022. All rights reserved.</small>
+      </div>
       </div>
     </>
   );

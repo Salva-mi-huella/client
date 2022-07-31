@@ -1,7 +1,5 @@
 .carousel{
-    /* background-color: black; */
     width: 100%;
-    /* margin: 25px auto; */
     border: 1px solid #ccc;
     box-shadow: 7px 7px 15px #592A08; 
     padding-top: 100px;
@@ -42,6 +40,7 @@
     flex-direction: column;
     justify-content:center;
     align-items: center;   
+    width: 52vw;
 }
 
 .containertext2{    
@@ -52,21 +51,39 @@
     margin-right: 100px;
 }
 
+.foundations {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+    display: flex;
+    width: 35vw;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3vw;
+    flex-wrap: wrap;
+}
+
+.foundations img {
+    width: 6vw;
+    height: 6vw;
+    margin-left: 3vw;
+    border-radius: 3vw;
+    border: 2px solid purple;
+}
+
 .titles{
     /* color: black; */
-    font-size: 50px;
+    font-size: 3.7vw;
     color: rgb(255, 230, 0);
     font-weight: bold;
-    margin-bottom: 40px;
-    /* font-family: "Lucida Handwriting", "Courier New", monospace;     */
+    margin-bottom: 1.5vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .paragraph{
     /* color: black; */
-    font-size: 25px;
+    font-size: 1.7vw;
     text-align: center;
     color: azure;
-    font-family: "Lucida Handwriting", "Courier New", monospace;
     margin-bottom: 40px;
 }
 
@@ -77,6 +94,7 @@
     justify-content: space-evenly;  
     width: 100%;
     height: 350px;   
+    /* background-color: red */
     
 }
 

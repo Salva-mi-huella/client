@@ -1,15 +1,21 @@
 import React from "react";
 import style from "./Contact.module.css";
 import { useState} from "react";
+import { useHistory } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 import paw from "../../assets/paw-heart.png";
 import difusion from "../../assets/promocion.png";
 import donate from "../../assets/donate-heart.png";
+import Swal from "sweetalert2";
+
+
 export default function Contact() {
 
 
     //ESTADO PARA LOS ERRORES
-    const [error, setError] = useState({})
+   const [error, setError] = useState({})
+   const history = useHistory()
+
 
     const [input, setInput] = useState({
         foundation_name: '',
@@ -60,7 +66,30 @@ export default function Contact() {
       }, (error) => {
           console.log(error.text);
       });
-      alert("Formulario enviado")
+      Swal.fire({
+        title: '¡Tu mensaje ha sido enviado con éxito!',
+        text: 'Pronto nos comunicaremos contigo.',
+        // imageUrl: dog,
+        imageWidth: 100,
+        imageHeight: 100,
+        imageAlt: 'Custom image',
+        position: 'center',
+        width: '40rem',
+        height: '55rem',
+        icon: 'success',
+        showConfirmButton: true,
+        confirmButtonText: 'Volver al Home',
+        confirmButtonColor: 'purple',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown',
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+      }).then((result) => {
+        if (result.isConfirmed) {
+                history.push('/home')
+            }})
       setInput({
             foundation_name: '',
             email: '',
@@ -81,9 +110,9 @@ export default function Contact() {
 
                     <div className={style.containerWhy}>
                         <div className={style.container2}>
-                            <p > <img className={style.img1} src={difusion} width="60px" height="60px" alt='difusion'></img> Obtenga una Mayor Difusión</p>
-                            <p > <img className={style.img1} src={donate} width="60px" height="60px" alt='donar'></img> Reciba Donaciones </p>
-                            <p > <img className={style.img1} src={paw} width="60px" height="60px" alt='postear'></img> Postee de manera sencilla sus animales </p>
+                            <p > <img className={style.img1} src={difusion} width="60px" height="60px" alt='difusion'></img> Mayor difusión</p>
+                            <p > <img className={style.img1} src={donate} width="60px" height="60px" alt='donar'></img> Donaciones directas </p>
+                            <p > <img className={style.img1} src={paw} width="60px" height="60px" alt='postear'></img> Administración de cuenta gratuita </p>
                         </div>
                     </div>
                 </div>
@@ -92,32 +121,32 @@ export default function Contact() {
                 <div className={style.themeSwitchWrapper}></div>
 
                     <h1 className={style.h1}>Contacto</h1>
-                    <p className={style.p}>Para contactarse con nosotros complete el siguiente formulario, no dude en consultarnos.</p>
+                    {/* <p className={style.p}>¡Dejanos tu mensaje y nos pondremos en contacto con vos en la brevedad!</p> */}
 
                     <form className={style.form} id={style.contactForm}  onSubmit={sendEmail} >
                         
                         
                           <label className={style.label}>Nombre de la Fundación</label> 
                           <div className={style.cont}>
-                            <input className={style.input} type="text" name="foundation_name" value={input.foundation_name} id={style.name} onChange={e => handleChange(e)} placeholder="Nombre..." />
-                            {error.foundation_name && <p className={`${style.error}`}>{error.foundation_name}</p>}
+                            <input required className={style.input} type="text" name="foundation_name" value={input.foundation_name} id={style.name} onChange={e => handleChange(e)} placeholder="Nombre..." />
                           </div>
+                            {error.foundation_name && <p className={`${style.error}`}>{error.foundation_name}</p>}
 
                           <label className={style.label}>Email</label>
                         <div className={style.cont}>
-                          <input className={style.input} type="text" name="email" value={input.email}  onChange={e => handleChange(e)} placeholder="Email..."/>
-                          {error.email && <p className={`${style.error}`}>{error.email}</p>}
+                          <input required className={style.input} type="text" name="email" value={input.email}  onChange={e => handleChange(e)} placeholder="Email..."/>
                         </div>
+                          {error.email && <p className={`${style.error}`}>{error.email}</p>}
 
-                        <label className={style.label}>Telefono de contacto</label>
+                        <label className={style.label}>Teléfono de contacto</label>
                         <div className={style.cont}>
-                          <input className={style.input} type="text" name="telefono" value={input.telefono}  onChange={e => handleChange(e)} placeholder="Número de telefono"/>
+                          <input required className={style.input} type="text" name="telefono" value={input.telefono}  onChange={e => handleChange(e)} placeholder="Número de telefono"/>
                           {error.telefono && <p className={`${style.error}`}>{error.telefono}</p>}
                         </div>
 
                           <label className={style.label} >Mensaje</label>
                         <div className={style.cont}>
-                          <textarea className={style.textarea} name='message' value={input.message} onChange={e => handleChange(e)} rows="6" placeholder="Escribe tu mensaje..." id={style.message}></textarea>
+                          <textarea required className={style.textarea} name='message' value={input.message} onChange={e => handleChange(e)} rows="6" placeholder="Escribe tu mensaje..." id={style.message}></textarea>
                           {error.message && <p className={`${style.errorM}`}>{error.message}</p>}
                         </div>
 

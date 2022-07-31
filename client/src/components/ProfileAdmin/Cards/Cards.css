@@ -1,5 +1,8 @@
 .Cards {
   display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-left: 8rem;
   gap: 10px;
 }
 

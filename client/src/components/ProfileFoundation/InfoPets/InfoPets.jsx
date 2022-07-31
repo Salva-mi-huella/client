@@ -12,9 +12,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import './InfoPets.css';
-import { getFoundations } from '../../../redux/actions';
+import styles from './InfoPets.module.css';
 
+import { getFoundations } from '../../../redux/actions';
 
 const makeStyles = (status) => {
     if (status) {
@@ -29,12 +29,6 @@ const makeStyles = (status) => {
             color: 'white'
         }
     }
-    // else if (status === 'Pendiente') {
-    //     return {
-    //         background: '#59bfff',
-    //         color: 'white'
-    //     }
-    // }
 }
 
 const InfoPets = () => {
@@ -42,19 +36,20 @@ const InfoPets = () => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-    const { user } = useAuth0();
-    const dispatch = useDispatch();
+    const user = JSON.parse(localStorage.getItem('user'));
+    // const { user } = useAuth0();
     let foundation = useSelector(state => state.foundations);
 
     if (user) {
-        console.log(user, 'user info');
+        // console.log(user, 'user info');
         foundation = foundation.find(f => f.email === user.email);
-        console.log(foundation, 'foundation info');
+        // console.log(foundation, 'foundation info');
     }
 
-    React.useEffect(() => {
-        dispatch(getFoundations());
-    }, [dispatch])
+    // const dispatch = useDispatch();
+    // React.useEffect(() => {
+    //     dispatch(getFoundations());
+    // }, [dispatch])
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -66,15 +61,14 @@ const InfoPets = () => {
     };
 
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, foundation.length - page * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, foundation?.pets.length - page * rowsPerPage);
 
     return (
-        // <div className='infoPets' >Aca vamos a desplegar una tabla que contiene la info de todos los pets de la fundacion,
-        //     su estado de adopcion y los botones del estado ( available / unavailable )
-        // </div>
 
-        <div className="Table">
-            <h3 className="h3"> Tabla de Animales </h3>
+
+        <div className={styles.Table}>
+            <h3 className={styles.h3}> Tabla de Animales </h3>
+
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
             >
@@ -99,7 +93,7 @@ const InfoPets = () => {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        <img className='petImg' src={row.images[0]} />
+                                        <img className={styles.petImg} src={row.images[0]} />
                                         {row.name}
 
                                     </TableCell>
@@ -145,15 +139,16 @@ const InfoPets = () => {
 
                                 </TableRow>
                             ))}
-                        {emptyRows > 0 && (
+                        {/* {emptyRows > 0 && (
                             <TableRow style={{ height: 53 * emptyRows }}>
                                 <TableCell colSpan={6} />
                             </TableRow>
-                        )}
+                        )} */}
                     </TableBody>
                 </Table>
 
                 <TablePagination
+                    // className={styles.pagination}
                     component="div"
                     count={foundation.pets.length}
                     page={page}

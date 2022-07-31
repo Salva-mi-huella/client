@@ -24,7 +24,11 @@
     font-weight: 900 !important;
 }
 
-.MuiTableRow-root.MuiTableRow-head>
+.Table {
+    margin-left: 30px;
+    max-height: 85vh;
+    overflow-y: hidden;
+}
 
 .Table td, th {
     border: none !important;
@@ -50,7 +54,27 @@
     color: #00b5ff !important;
 }
 
-select {}
+/* .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: flex-end;
+    padding: 35px;
+} */
+
+/* .pagination> :first-child {
+    background-color: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    position: relative;
+} */
+
+
+/* select {} */
 
 .updateBtn {
     width: 2rem;

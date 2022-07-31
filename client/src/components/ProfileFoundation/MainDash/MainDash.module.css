@@ -1,0 +1,46 @@
+.MainDash {
+    /* padding-top: 1rem; */
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.h1 {
+    position: relative;
+    /* top: 20px; */
+    font-size: 50px;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 1200px) {
+    .MainDash {
+        justify-content: flex-start;
+        margin-top: 2rem;
+    }
+
+    .h1 {
+        font-weight: 600;
+        font-size: 40px;
+        position: relative;
+        top: 0px;
+    }
+
+}
+
+@media screen and (max-width: 848px) {
+    .h1 {
+        font-weight: 500;
+        font-size: 35px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .MainDash {
+        align-items: center;
+    }
+
+
+
+}

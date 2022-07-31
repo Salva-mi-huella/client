@@ -3,7 +3,7 @@ import {  useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { getFoundationDetail } from '../../redux/actions/index';
 import GoogleMaps from '../GoogleMaps/GoogleMaps';
-// import Map from '../Map/Map';
+import PetSlick from './PetsSlick';
 import styles from './Foundation.module.css'
 import paypal from '../../assets/paypal.png';
 import mp from '../../assets/mercadopago.png';
@@ -34,10 +34,10 @@ export default function Foundation () {
 
     return (  
 
-       foundation.id == params.foundationId && <div className={styles.container}>
+       foundation.id == params.foundationId && <div >
 
             <div className={styles.containerInfo}>
-                    <div>
+                    <div className={styles.namePicture}>
                         <h1>{foundation.name}</h1>
                         <img className={styles.foundationImage} src={foundation.images[0]} alt='foundation'></img>
                     </div>
@@ -49,17 +49,11 @@ export default function Foundation () {
             </div>
 
             <div className={styles.containerPets}>
-                <h2>Nuestras huellas</h2>
-                <p>En este apartado va una breve descripción para captar atención. </p>
-                <div  className={styles.subcontainerPets}>
-                    
-                {foundation.pets.map(pet => (
-                    <div key={pet.id} className={styles.card}> 
-                        <span>{pet.name}</span>
-                        <Link to={`/huella/${pet.id}`} ><img className={styles.petImage} src={pet.images[0]} alt='pet'></img></Link>
-                    </div>
-                ))}
+                <div className={styles.subPets}>
+                    <h2>Nuestras huellas</h2>
+                    <p>En este apartado va una breve descripción para captar atención. </p>
                 </div>
+                <PetSlick foundation={foundation}/>
             </div>
 
             <div className={styles.containerDonate}>

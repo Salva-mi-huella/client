@@ -1,10 +1,11 @@
-.containerSection{
+.containerSection {
     display: grid;
     grid-template-columns: 1fr 1fr;
     text-align: center;
     min-height: 100vh;
 }
-.form{
+
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,22 +13,26 @@
     justify-content: flex-start;
     border-right: 1px solid white;
 }
-h2{
+
+.h2 {
     padding-top: 3%;
     color: rgb(255, 230, 0);
     font-weight: bolder;
 }
-.form div{
+
+.form div {
     margin: 20px;
     display: flex;
     margin: 5px;
 }
-label{
+
+.label {
     font-size: 1.7rem;
     margin-right: 15px;
-    font-family:'Nunito', sans-serif ;
+    font-family: 'Nunito', sans-serif;
 }
-input[type=text], textarea{
+
+.inputText, .textarea {
     resize: none;
     background-color: rgba(99, 59, 218, 0.109);
     border-radius: 5px;
@@ -35,17 +40,19 @@ input[type=text], textarea{
     border-bottom: 1px solid white;
     padding: 9px;
 }
-textarea{
+
+.textarea {
     height: 300px;
     width: 30vw;
     padding: 9px;
 }
+
 .btn {
     margin-top: 30px;
     text-align: center;
 }
 
-.btn{
+.btn {
     background-color: #9C27B0;
     color: #fff;
     font-size: 22px;
@@ -60,31 +67,35 @@ textarea{
 .btn:hover {
     background-color: #7B1FA2;
     box-shadow:
-    -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001;
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001;
 }
 
-@media screen and (max-width: 800px){
-    .containerSection{
+@media screen and (max-width: 800px) {
+    .containerSection {
         grid-template-columns: 1fr;
     }
-    .resultContainer{
+
+    .resultContainer {
         background-color: red;
         display: none;
     }
-    .form{
+
+    .form {
         border-right: none;
     }
-    
+
 }
+
 /* Result of new */
-.resultContainer{
+.resultContainer {
     color: white;
     padding: 30px;
 }
-h1{
+
+.h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bolder;
     color: white;

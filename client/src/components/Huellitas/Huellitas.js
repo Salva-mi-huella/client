@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import product_a from '../../assets/product_a.jpg'
 import product_b from '../../assets/product_b.jpg'
 import product_c from '../../assets/product_c.png'
+import register from '../../assets/check-profile.png'
+import invite from '../../assets/invite-friend.png'
+import saved from '../../assets/saved-pet.png'
 
 
 
@@ -39,10 +42,24 @@ export default function Huellitas(){
                     </div>
                 </div>
 
-            <div className={style.titles}>
-                <h1>¿De qué otra manera podés empezar a sumar?</h1>
-                <div><h3>Por cada amigo que invites</h3><h4>200</h4><h3>Registrarte</h3><h4>100</h4>
-                    <h3>Por cada huella que salves</h3><h4>1000</h4></div>
+            <h1 className={style.title}>¿De qué otra manera podés empezar a sumar?</h1>
+            <div className={style.section}>
+                <div className={style.pictures}>
+                    <img src={register} alt=''></img>
+                    <img src={saved} alt=''></img>
+                    <img src={invite} alt=''></img>
+                </div>
+                <div className={style.subTitles}>
+                    <div>
+                        <h3>Registrarte 500</h3>
+                    </div>
+                    <div>
+                        <h3>Por cada huella que salves 2000</h3>
+                    </div>
+                    <div>
+                        <h3>Por cada amigo que invites 1000</h3>
+                    </div>
+                </div>
             </div>
 
             <div className={style.store}>

@@ -18,14 +18,14 @@ export default function Donate(){
     
     useEffect(()=>{
         dispatch(getFoundations());
-        dispatch(getUserByEmail(user.email));
+        if (isAuthenticated) dispatch(getUserByEmail(user.email));
     },[dispatch])
     
     const foundations = useSelector(state=> state.foundations)
     const userDetail = useSelector(state => state.user);
-    console.log(userDetail)
 
-    const {loginWithRedirect, user} = useAuth0();
+
+    const {isAuthenticated, loginWithRedirect, user} = useAuth0();
 
     const [donation, setDonation] = useState({
         foundation: '',
@@ -34,7 +34,6 @@ export default function Donate(){
     });
     
     let foundation = donation.foundation.length && foundations.filter(f => donation.foundation === f.images[0])[0]
-    console.log(foundation)
 
     const [checkout, setCheckout] = useState(false);
 
@@ -44,7 +43,7 @@ export default function Donate(){
         <> 
             <div className={style.banner}>
                 <div>
-                    <h1>Tu ayuda<br></br> puede salvar una huella</h1>
+                    <h1>Tu ayuda <br></br>puede salvar una huella</h1>
                     <br></br>
                     <p>Tu aporte económico es muy importante para que las fundaciones puedan pagar tratamientos, estudios médicos y alimentos para seguir ayudando a nuestros peludos amigos.
                     <br></br><br></br> Agradecemos tu apoyo, y sabemos que nuestras huellas también!</p>
@@ -55,11 +54,11 @@ export default function Donate(){
 
             <div className={style.containerA}>
                 <div className={style.subcontainerA}>
-                    <h3>Empezá a sumar huellitas!</h3>
+                    <h3>¡Empezá a sumar huellitas!</h3>
                     <p>Sumá 1 huellita por cada $5 pesos que dones para canjear por productos en nuestra tienda. Las fundaciones ganan, ¡y vos también! ¿Qué esperás para sumarte? 
                     </p>
                     <div>
-                    <Link to='/tienda'><button>VER TIENDA</button></Link>
+                    <Link to='/huellitas'><button>VER MÁS</button></Link>
                     </div>
                 </div>
                 <div className={style.subcontainerB}>
@@ -69,8 +68,10 @@ export default function Donate(){
                 </div>
             </div>
 
+            <h2 className={style.title}>Doná en tres simples pasos</h2>
+
             <div className={style.donate}>
-                <Stepper donation={donation} setDonation={setDonation} setCheckout={setCheckout} ></Stepper>
+                <Stepper isAuthenticated={isAuthenticated} donation={donation} setDonation={setDonation} setCheckout={setCheckout} foundation={foundation} loginWithRedirect={loginWithRedirect} ></Stepper>
             </div>
 
             <div className={style.renders}>
