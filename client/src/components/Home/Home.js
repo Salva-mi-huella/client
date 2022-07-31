@@ -37,7 +37,7 @@ export default function Home() {
             }
 
             setUserSession(user);
-            
+
         }
         if (user) {
             dispatch(getUserByEmail(getUserSession().email));
@@ -71,11 +71,11 @@ export default function Home() {
                 </div>
 
 
-                    <div className={styles.subInfo}>
-                        <div>
-                            <h1>Sumate a Huellitas</h1>
-                            <img src={paw} alt='paw'></img>
-                        </div>
+                <div className={styles.subInfo}>
+                    <div>
+                        <h1>Sumate a Huellitas</h1>
+                        <img src={paw} alt='paw'></img>
+                    </div>
 
                     <p>Nuestro programa de beneficios gratuito en el que podés ganar puntos y canjear por productos en nuestra tienda.</p>
                     <Link className={styles.link} to='/huellitas'><button>VER MÁS</button></Link>

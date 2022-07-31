@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { AnimatePresence, motion, AnimateSharedLayout } from "framer-motion/dist/framer-motion";
 
-
 import { SidebarData } from '../Data/Data.js';
-import { MdLogout, MdList, MdReorder } from 'react-icons/md';
-
 import logoDemo from '../../../assets/logos/Ellipse1.png'
+import { MdLogout, MdList, MdReorder } from 'react-icons/md';
 import '../Sidebar/Sidebar.css'
 
 const Sidebar = ({ optionSelection, setOptionSelection }) => {
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    let foundation = useSelector(state => state.foundations);
+
+    if (user) {
+        foundation = foundation.find(f => f.email === user.email);
+    }
 
     const [selected, setSelected] = useState(0);
     const [expanded, setExpaned] = useState(true)
@@ -40,16 +46,15 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
             >
 
                 {/* LOGO */}
-                <div className="logo">
-                    <img src={logoDemo} alt='Foundation logo' />
+                <div className="profileFoundationLogo">
+                    <img src={foundation?.images[0]} alt='Foundation logo' />
                     <span>
-                        {/* Foundation Name */}
                         H<span>o</span>me
                     </span>
                 </div>
 
                 {/* MENU */}
-                <div className="menu">
+                <div className="sideBar-Menu">
                     {SidebarData.map((item, index) => {
                         return (
                             <div className={selected === index ? 'menuItem active' : 'menuItem'}

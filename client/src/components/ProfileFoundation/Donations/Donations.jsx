@@ -68,10 +68,10 @@ const Donations = () => {
 
     return (
 
-        <div className={styles.Table}>
+        <div className={styles.tableDonations}>
             <div className={styles.h3}> Historial de Donaciones </div>
             <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%'  }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -97,7 +97,7 @@ const Donations = () => {
                                 </TableRow>
                             )) :
                             <TableCell component="th" scope="row"> Aun no hay donaciones </TableCell>}
-                        {emptyRows > 1 && (
+                        {emptyRows > 0 && (
                             <TableRow style={{ height: 53 * emptyRows }}>
                                 <TableCell colSpan={6} />
                             </TableRow>
@@ -106,9 +106,9 @@ const Donations = () => {
                 </Table>
 
                 <TablePagination
-                    className={styles.pagination}
+                    // className={styles.pagination}
                     component="div"
-                    count={foundation.donations.length}
+                    count={foundation?.donations.length}
                     page={page}
                     onPageChange={handleChangePage}
                     rowsPerPage={rowsPerPage}

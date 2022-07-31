@@ -49,7 +49,7 @@ export default function BasicTable() {
 
     return (
         <div className={styles.Table}>
-            <h3 className={styles.h3}> Tabla de solicitudes </h3>
+            
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029' }}
             >
