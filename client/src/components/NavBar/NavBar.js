@@ -6,15 +6,23 @@ import logo from '../../assets/logo.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from '../Profile/ProfileMenu';
+import {getUserByEmail} from '../../redux/actions';
+import { getUserSession } from '../../utils';
 
 export default function NavBar({userInfo}) {
 
 const { isAuthenticated, loginWithRedirect } = useAuth0();
 
+const user = JSON.parse(localStorage.getItem('user'));
+console.log(user)
+
 const dispatch = useDispatch();
 
  useEffect(()=>{
-}, [isAuthenticated, dispatch]);
+    if(user){
+      dispatch(getUserByEmail(user.email));
+    }
+}, [isAuthenticated, dispatch, user]);
 
 const userDetail = useSelector(state => state.user);
    

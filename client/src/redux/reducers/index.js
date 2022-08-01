@@ -21,7 +21,7 @@ import {
     DELETE_ALL_FROM_CART,
     DELETE_ONE_FROM_CART,
     CLEAR_CART,
-    GET_ALL_NEWS
+    GET_ALL_NEWS,
     GET_REQUESTS_FOUNDATIONS
 } from "../actions"
 
@@ -40,7 +40,7 @@ const initialState = {
     user: {},
     donations: [],
     cart:[],
-    news: []
+    news: [],
     requests_foundations: [],
 }
 

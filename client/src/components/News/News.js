@@ -53,7 +53,7 @@ export default function News() {
                     <Card sx={{ maxWidth: 400 }}>
                         <CardHeader
                             avatar={
-                            news.foundation.images?.map((image)=>{
+                            news.foundation?.images?.map((image)=>{
                                 return(
                                     <div>
                                         <img className={styles.avatar} src={image} alt=""/>

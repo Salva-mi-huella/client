@@ -34,13 +34,13 @@ export default function Filters(){
             filteringPets = filteringPets.filter(pet => pet.type === filters.type)
         }
         if(filters.foundation){
-            filteringPets = filteringPets.filter(pet => pet.foundation.name === filters.foundation)
+            filteringPets = filteringPets.filter(pet => pet.foundation?.name === filters.foundation)
         }
         if(filters.gender){
             filteringPets = filteringPets.filter(pet => pet.gender === filters.gender)
         }
         if(filters.city){
-            filteringPets = filteringPets.filter(pet => pet.foundation.name === filters.city)
+            filteringPets = filteringPets.filter(pet => pet.foundation?.name === filters.city)
         }
         if(filters.name){
             filteringPets = filteringPets.filter(pet => (pet.name).toLowerCase().includes((filters.name).toLowerCase()))

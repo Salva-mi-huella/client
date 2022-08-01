@@ -70,7 +70,7 @@ export default function EditProfile({datos,setDatos}) {
 
                     <div>
                       <label className={styles.items}>Nombre:</label>
-                      <input className={styles.input} defaultValue={userDetail.name} type="text" maxLength={30} name="name" {...register("name", { maxLength: 30 , pattern: /^-?[a-zA-Z ]*$/})} />
+                      <input className={styles.input} defaultValue={userDetail.name} type="text" maxLength={30} name="name" {...register("name", { maxLength: 30 , pattern: /^-?[a-zA-Z\s]*$/})} />
                       {/* {errors.name?.type === "required" && <p className={styles.error}>El nombre es obligatorio</p>} */}
                     <label className={styles.items}>Email: {user.email}</label>
                         <div>
