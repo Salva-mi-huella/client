@@ -1,4 +1,6 @@
-import * as React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {getRequestsAdopt} from '../../../redux/actions';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -35,13 +37,22 @@ const makeStyles = (status) => {
     }
 }
 
-const rows = [
-    createData('Maple', 1, 'Patitas Glew', 'Haedo', 'Julio 26 2022', 'Aprobado'),
-    createData('Yuki', 2, 'El Camp[ito Felino', 'Almagro', 'Julio 26 2022', 'Pendiente'),
-    createData('Cafecito', 3, 'Ayudacan', 'Padua', 'Julio 26 2022', 'Rechazado'),
-];
+export default function RequestTable({userId}) {
 
-export default function RequestTable() {
+    const dispatch=useDispatch()
+
+
+    useEffect(() => { 
+        dispatch(getRequestsAdopt())
+     }, [])
+
+     let requests = useSelector(state => state.requests_adopt);
+
+     requests = requests.filter(r => r.userId === userId)
+
+     console.log(requests, 'hola')
+
+
     return (
         <div className="Table">
             <h1 className="titles"> Mis solicitudes </h1>
@@ -58,20 +69,20 @@ export default function RequestTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {requests.map((r) => (
                             <TableRow
-                                key={row.name}
+                                key={r.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 }, color: 'white' }}
                             >
                                 <TableCell component="th" scope="row"
                                sx={{color: 'azure', fontSize:'22px'}}
                                 >
-                                    {row.name}
+                                    {r.pet.name}
                                 </TableCell>
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{row.userId} </TableCell>
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{row.date}</TableCell>
+                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{r.foundation.name} </TableCell>
+                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>01/08/2022</TableCell>
                                 <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>
-                                    <span className="status" style={makeStyles(row.status)} >{row.status}</span>
+                                    <span className="status" style={makeStyles('Pendiente')} >Pendiente</span>
                                 </TableCell>
                             </TableRow>
                         ))}

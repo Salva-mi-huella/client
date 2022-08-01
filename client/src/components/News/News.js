@@ -43,14 +43,10 @@ export default function News() {
     setExpanded(!expanded);
   };
 
-
-
   return (
-    news?.map((news)=>{
-        return(
-            <div className={styles.container}>
-                <div className={styles.containerCard}>
-                    <Card sx={{ maxWidth: 400 }}>
+      <div className={styles.container}>
+    {news?.map((news) => (
+            <Card sx={{ maxWidth: 400 }}>
                         <CardHeader
                             avatar={
                             news.foundation?.images?.map((image)=>{
@@ -93,10 +89,8 @@ export default function News() {
                                 </CardContent>
                             </Collapse>
                     </Card>
-                </div>
+            ))}
             </div>
-        )
-    })
     );
 }
 

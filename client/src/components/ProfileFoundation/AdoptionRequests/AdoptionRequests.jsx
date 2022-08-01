@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {getRequestsAdopt} from '../../../redux/actions';
+
 
 import Table from '../Table/Table.jsx';
 
@@ -21,9 +23,6 @@ const AdoptionRequests = () => {
     <div className={styles.adoptionRequest}>
 
       <Table />
-
-      <img src={img} />
-
 
     </div>
   )

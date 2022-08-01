@@ -17,6 +17,7 @@ export const GET_USER = 'GET_USER'
 export const POST_DONATION = 'POST_DONATION'
 export const POST_REQUEST_FOUNDATION = 'POST_REQUEST_FOUNDATION'
 export const GET_REQUESTS_FOUNDATIONS = 'GET_REQUESTS_FOUNDATIONS'
+export const GET_REQUESTS_ADOPT = 'GET_REQUESTS_ADOPT'
 export const ADD_TO_CART= 'ADD_TO_CART'
 export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
 export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
@@ -235,6 +236,23 @@ export function getRequestsFoundations(){
             const info = await axios("/request_foundations")
             return dispatch({
                 type:GET_REQUESTS_FOUNDATIONS,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
+}
+
+export function getRequestsAdopt(){
+    return async function (dispatch){
+        try {
+            const info = await axios("/request_adopts")
+            return dispatch({
+                type:GET_REQUESTS_ADOPT,
                 payload: info.data
             })
         } catch (error) {
