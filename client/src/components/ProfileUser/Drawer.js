@@ -220,7 +220,7 @@ export default function PersistentDrawerLeft() {
       <p>No hay favoritos.</p>
       </div>}
 
-    {request && <RequestTable></RequestTable>}
+    {request && <RequestTable userId={userDetail.id}></RequestTable>}
 
     </div>
   );

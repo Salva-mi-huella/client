@@ -1,4 +1,6 @@
-import * as React from 'react';
+import React, {useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {getRequestsAdopt} from '../../../redux/actions';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,7 +11,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import styles from './Table.module.css'
-import { useSelector } from 'react-redux';
 
 function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
@@ -46,6 +47,8 @@ const rows = [
 
 export default function BasicTable() {
 
+    const dispatch=useDispatch()
+
     const user = JSON.parse(localStorage.getItem('user'));
     let foundation = useSelector(state => state.foundations);
 
@@ -53,6 +56,15 @@ export default function BasicTable() {
         foundation = foundation.find(f => f.email === user.email);
         console.log(foundation, 'foundation info');
     }
+
+      useEffect(() => { 
+      dispatch(getRequestsAdopt())
+   }, [])
+
+   let requests = useSelector(state => state.requests_adopt);
+
+   requests = requests.filter(r => r.foundationId === foundation.id)
+   
 
     return (
         <div className={styles.Table}>
@@ -67,28 +79,30 @@ export default function BasicTable() {
                     <TableHead className={styles.TableHead}>
                         <TableRow>
                             <TableCell>Huellita </TableCell>
-                            <TableCell align="left">ID Huellita</TableCell>
-                            <TableCell align="left">ID Usuario</TableCell>
+                            <TableCell align="left">Usuario</TableCell>
+                            <TableCell align="left">Email</TableCell>
+                            <TableCell align="left">Teléfono</TableCell>
                             <TableCell align="left">Ciudad</TableCell>
                             <TableCell align="left">Fecha</TableCell>
                             <TableCell align="left">Status</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {requests.map((r) => (
                             <TableRow
-                                key={row.name}
+                                key={r.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {row.name}
+                                    {r.name}
                                 </TableCell>
-                                <TableCell align="left">{row.petId}</TableCell>
-                                <TableCell align="left">{row.userId}</TableCell>
-                                <TableCell align="left" className={styles.ciudad}>{row.city}</TableCell>
-                                <TableCell align="left">{row.date}</TableCell>
+                                <TableCell align="left">{r.user.name}</TableCell>
+                                <TableCell align="left">{r.user.email}</TableCell>
+                                <TableCell align="left" className={styles.ciudad}>{r.user.telephone_number || 'Sin especificar'}</TableCell>
+                                <TableCell align="left" className={styles.ciudad}>{r.user.city || 'Sin especificar'}</TableCell>
+                                <TableCell align="left">01/08/2022</TableCell>
                                 <TableCell align="left">
-                                    <span className={styles.status} style={makeStyles(row.status)} >{row.status}</span>
+                                    <span className={styles.status} style={makeStyles('Pendiente')} >Pendiente</span>
                                 </TableCell>
                             </TableRow>
                         ))}

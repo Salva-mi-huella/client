@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {updateUser} from '../../redux/actions';
+import {getRequestsAdopt, updateUser} from '../../redux/actions';
 import { useAuth0 } from '@auth0/auth0-react';
 import styles from './EditDataForm.module.css';
 import { set, useForm } from 'react-hook-form';
@@ -24,8 +24,7 @@ export default function EditDataForm({datos,setDatos}) {
      }, [])
 
      const userDetail = useSelector(state => state.user);
-
-
+ 
   
   const onSubmit = (data, e) => {
         // e.preventDefault()

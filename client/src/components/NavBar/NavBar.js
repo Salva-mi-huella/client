@@ -11,18 +11,18 @@ import { getUserSession } from '../../utils';
 
 export default function NavBar({userInfo}) {
 
-const { isAuthenticated, loginWithRedirect } = useAuth0();
+const { isAuthenticated, loginWithRedirect,user  } = useAuth0();
 
-const user = JSON.parse(localStorage.getItem('user'));
-console.log(user)
+// const user = JSON.parse(localStorage.getItem('user'));
+// console.log(user)
 
 const dispatch = useDispatch();
 
  useEffect(()=>{
-    if(user){
+    if(isAuthenticated){
       dispatch(getUserByEmail(user.email));
     }
-}, [isAuthenticated, dispatch, user]);
+}, [isAuthenticated, dispatch]);
 
 const userDetail = useSelector(state => state.user);
    

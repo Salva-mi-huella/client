@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useSelector, useDispatch  } from "react-redux";
 import { useEffect, useState} from "react";
-import { getAllPets, getFoundations, postRequestAdopt } from "../../../redux/actions";
+import { getAllPets, getFoundations, postRequestAdopt, getUserByEmail } from "../../../redux/actions";
 import Swal from 'sweetalert2'
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -10,7 +10,7 @@ export default function Formulario() {
 
 const [submittedForm, setSubmittedForm] = useState(false);
 
-const {isAuthenticated} = useAuth0();
+const {isAuthenticated, user} = useAuth0();
 
 
 const dispatch = useDispatch();
@@ -18,6 +18,9 @@ const dispatch = useDispatch();
 useEffect(() => {
   dispatch(getAllPets())
   dispatch(getFoundations())
+  if (isAuthenticated) {
+    dispatch(getUserByEmail(user.email))
+  }
 }, [dispatch]);
 
 const petDetail = useSelector(state => state.petDetail)
@@ -36,9 +39,10 @@ const userDetail = useSelector(state => state.user);
           phone: "",
           age: "",
           pet: petDetail.id,
-          foundation: petDetail.foundation.id,
+          foundation: petDetail.foundationId,
           textarea:"",
-          checkbox:false
+          checkbox:false,
+          // user: ''
         }}
         validate={(values) => {
           let errores = {};
@@ -96,10 +100,7 @@ const userDetail = useSelector(state => state.user);
         }}
         onSubmit={(values, { resetForm }) => {  
           console.log(values)
-          // const petId = pets.find(p => p.name === values.pet).id
-          // console.log(petId)
-          // const foundationId = foundations.find(f => f.name === values.foundation).id
-          // console.log(foundationId)
+          console.log(userDetail)
           
           Swal.fire({
             position: 'center',
@@ -110,7 +111,7 @@ const userDetail = useSelector(state => state.user);
           })
           dispatch(postRequestAdopt({
             age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, 
-            // pet: petId, foundation: foundationId
+            pet: values.pet, foundation: values.foundation, user: userDetail.id
           }))
           resetForm();
         }}
@@ -185,16 +186,16 @@ const userDetail = useSelector(state => state.user);
               <div className={styles.inp}>
                 <label htmlFor="pet">Huella</label>
                 <Field as="select"  className={`form-control w-75 ${styles.inputsForm}`} name="pet" id="pet">
-                  {petDetail && petDetail.name && <option selected defaultValue={petDetail.name} value={petDetail.name}>{petDetail.name}</option>  }              
-                  {pets && pets.map((pet) => petDetail.name !== pet.name?(<option value={pet.name}>{pet.name}</option>):null)}
+                  {petDetail && petDetail.name && <option selected defaultValue={petDetail.name} value={petDetail.id}>{petDetail.name}</option>  }              
+                  {pets && pets.map((pet) => petDetail.name !== pet.name?(<option value={pet.id}>{pet.name}</option>):null)}
                 </Field>
               </div>
 
               <div className={styles.inp}>
                 <label htmlFor="foundation">Fundación</label>
                 <Field as="select"  className={`form-control w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation">
-                {petDetail.foundation && petDetail.foundation.name && <option selected defaultValue={petDetail.foundation.id} value={petDetail.foundation.name}>{petDetail.foundation.name}</option>}
-                  {foundations && foundations.map((foundation)=> (<option value={foundation.name}>{foundation.name}</option>))}
+                {petDetail.foundation && petDetail.foundation.name && <option selected defaultValue={petDetail.foundation.id} value={petDetail.foundation.id}>{petDetail.foundation.name}</option>}
+                  {foundations && foundations.map((foundation)=> (<option value={foundation.id}>{foundation.name}</option>))}
                 </Field>                                  
               </div>
             </div>
