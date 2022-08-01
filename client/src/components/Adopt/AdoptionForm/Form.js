@@ -35,8 +35,8 @@ const userDetail = useSelector(state => state.user);
           email: "",
           phone: "",
           age: "",
-          pet:"",
-          foundation:"",
+          pet: petDetail.id,
+          foundation: petDetail.foundation.id,
           textarea:"",
           checkbox:false
         }}
@@ -95,8 +95,11 @@ const userDetail = useSelector(state => state.user);
           return errores;
         }}
         onSubmit={(values, { resetForm }) => {  
-          const petId = pets.find(p => p.name === values.pet).id
-          const foundationId = foundations.find(f => f.name === values.foundation).id
+          console.log(values)
+          // const petId = pets.find(p => p.name === values.pet).id
+          // console.log(petId)
+          // const foundationId = foundations.find(f => f.name === values.foundation).id
+          // console.log(foundationId)
           
           Swal.fire({
             position: 'center',
@@ -106,7 +109,8 @@ const userDetail = useSelector(state => state.user);
             timer: 1500
           })
           dispatch(postRequestAdopt({
-            age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, petId: petId, foundationId: foundationId, userId: userDetail.id
+            age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, 
+            // pet: petId, foundation: foundationId
           }))
           resetForm();
         }}
@@ -180,16 +184,16 @@ const userDetail = useSelector(state => state.user);
 
               <div className={styles.inp}>
                 <label htmlFor="pet">Huella</label>
-                <Field as="select" className={`form-control w-75 ${styles.inputsForm}`} name="pet" id="pet">
-                  {petDetail && petDetail.name && <option selected value={petDetail.name}>{petDetail.name}</option>  }              
+                <Field as="select"  className={`form-control w-75 ${styles.inputsForm}`} name="pet" id="pet">
+                  {petDetail && petDetail.name && <option selected defaultValue={petDetail.name} value={petDetail.name}>{petDetail.name}</option>  }              
                   {pets && pets.map((pet) => petDetail.name !== pet.name?(<option value={pet.name}>{pet.name}</option>):null)}
                 </Field>
               </div>
 
               <div className={styles.inp}>
                 <label htmlFor="foundation">Fundación</label>
-                <Field as="select" className={`form-control w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation">
-                {petDetail.foundation && petDetail.foundation.name && <option selected value={petDetail.foundation.name}>{petDetail.foundation.name}</option>}
+                <Field as="select"  className={`form-control w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation">
+                {petDetail.foundation && petDetail.foundation.name && <option selected defaultValue={petDetail.foundation.id} value={petDetail.foundation.name}>{petDetail.foundation.name}</option>}
                   {foundations && foundations.map((foundation)=> (<option value={foundation.name}>{foundation.name}</option>))}
                 </Field>                                  
               </div>
