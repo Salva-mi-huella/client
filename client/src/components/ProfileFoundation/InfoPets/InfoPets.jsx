@@ -17,13 +17,19 @@ const makeStyles = (status) => {
     if (status) {
         return {
             background: 'rgb(145 254 159 / 47%)',
-            color: 'green'
+            color: 'green',
+            width: '60px',
+            justifyContent: 'center',
+            textAlign: 'center',
         }
     }
     else if (!status) {
         return {
             background: '#59bfff',
-            color: 'white'
+            color: 'white',
+            width: '60px',
+            justifyContent: 'center',
+            textAlign: 'center',
         }
     }
 }
@@ -59,16 +65,16 @@ const InfoPets = () => {
             <h3 className={styles.petTitle}> Tabla de Animales </h3>
 
             <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
             >
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table sx={{ minWidth: 650, }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Huellita </TableCell>
-                            <TableCell align="left">Fecha de alta</TableCell>
+                            <TableCell >Huellita </TableCell>
                             <TableCell align="left">Tipo</TableCell>
                             <TableCell align="left">Genero</TableCell>
                             <TableCell align="left">Edad</TableCell>
+                            <TableCell align="left">Fecha de alta</TableCell>
                             <TableCell align="left">Status</TableCell>
                         </TableRow>
                     </TableHead>
@@ -83,15 +89,19 @@ const InfoPets = () => {
                                     <TableCell component="th" scope="row">
                                         <img className={styles.petImg} src={row.images[0]} />
                                         {row.name}
-
                                     </TableCell>
-                                    <TableCell align="left">{row.post_date}</TableCell>
-                                    <TableCell align="left">{row.type}</TableCell>
-                                    <TableCell align="left">{row.gender}</TableCell>
-                                    <TableCell align="left">{row.age}</TableCell>
+
+                                    <TableCell className={styles.tableCell} align="left">{row.type}</TableCell>
+                                    <TableCell className={styles.tableCell} align="left">{row.gender}</TableCell>
+                                    <TableCell className={styles.tableCell} align="left">{row.age}</TableCell>
+                                    <TableCell className={styles.tableCell} align="left">{row.post_date}</TableCell>
 
                                     {/* ADOPTION STATUS */}
                                     <TableCell align="left">
+
+                                        <span className={styles.status} style={makeStyles(row.adopted)}> {row.adopted ? 'Adoptado' : 'En adopcion'}</span>
+
+                                        {/* 
                                         <select
                                             onChange={(e) => { console.log('Me adoptaron?', e.target.value) }}
                                             // defaultValue={row.adopted ? 'Adoptado' : 'En adopcion'}
@@ -115,7 +125,7 @@ const InfoPets = () => {
                                                 {row.adopted ? 'Adoptado' : 'En adopcion'}
                                             </option>
 
-                                        </select>
+                                        </select> */}
 
                                         {/* <span className="status" style={makeStyles(row.adopted)} >
                                         {row.status ? 'Adoptado' : 'En adopcion'}
@@ -123,6 +133,7 @@ const InfoPets = () => {
                                         {/* <button className='updateBtn' >
                                         <MdEdit className='icon' />
                                     </button> */}
+
                                     </TableCell>
 
                                 </TableRow>
@@ -136,19 +147,19 @@ const InfoPets = () => {
                 </Table>
 
                 <TablePagination
-                    // className={styles.pagination}
+                    className={styles.pagination}
                     component="div"
                     count={foundation.pets.length}
                     page={page}
                     onPageChange={handleChangePage}
                     rowsPerPage={rowsPerPage}
-                    rowsPerPageOptions={[5, 10]}
+                    rowsPerPageOptions={[10]}
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
 
             </TableContainer>
 
-        </div>
+        </div >
     )
 }
 
