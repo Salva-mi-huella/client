@@ -125,7 +125,7 @@ export default function EditDataForm({datos,setDatos}) {
 
                    <div className={styles.transit}>
                       <label >¿Te gustaría ofrecerte como persona de tránsito?</label>
-                      <label htmlFor='Sí'><input id='Sí' {...register('transit')} value='Sí' type='radio' name='transit'/>Sí</label>
+                      <label htmlFor='Si'><input id='Si' {...register('transit')} value='Si' type='radio' name='transit'/>Sí</label>
                       <label htmlFor='No'><input id='No' {...register('transit')} value='No' type='radio' name='transit'/>No</label>
                    </div>
                  </form>
