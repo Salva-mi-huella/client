@@ -17,6 +17,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styles from './CampaignCard.module.css';
+import {Link} from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -50,7 +51,7 @@ export default function News({news}) {
             </div>
             <span>{news.post_date}</span>
             <p>{news.description}</p>
-            <button>QUIERO AYUDAR</button>
+            <Link to='/donar'><button>QUIERO AYUDAR</button></Link>
         </div>
             {/* <Card sx={{ maxWidth: 400 }}>
                         <CardHeader
