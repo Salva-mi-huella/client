@@ -44,7 +44,7 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
   useEffect(()=>{
       dispatch(getFoundations())
       dispatch(getCurrency())
-  },[dispatch])
+  },[])
   
   let amount1 = function(){
     let newAmount = ''
@@ -127,7 +127,6 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
                 </StepLabel>
                 <StepContent>
                 <Typography color='common.white'>{step.description}</Typography>
-                {console.log(Typography)}
                 {step.label === 'Elegí la fundación' && 
                 <div className={style.foundations}>
                 {foundations.map(f=>(
