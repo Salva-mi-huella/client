@@ -8,14 +8,11 @@ import PetDetail from './components/Adopt/PetDetail/PetDetail';
 import Adopt from './components/Adopt/Adopt'
 import Foundation  from './components/Foundation/Foundation';
 import Profile from './components/Profile/Profile';
-// import ProfileUser from './components/ProfileUser/ProfileUser';
 import AboutUs from './components/About us/AboutUs';
 import Donate from './components/Donate/Donate';
 import PetStore from './components/PetStore/Store';
-import News from './components/News/News';
 import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
-// import PostNews from './components/Profile/PostNews/PostNews';
 import Paypal from './components/Donate/Paypal/Paypal';
 import Huellitas from './components/Huellitas/Huellitas';
 import ProductDetail from './components/ProductDetail/ProductDetail';
@@ -40,7 +37,6 @@ function App() {
         <Route exact path='/tienda'> <NavBar/> <PetStore/></Route>
         <Route exact path='/tienda/:id'> <NavBar/> <ProductDetail/></Route>
         <Route exact path='/huellitas'> <NavBar/> <Huellitas/></Route>
-        <Route exact path='/noticias'> <NavBar/> <News/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
         <Route exact path='/a'> <NavBar/> <PostPet/> </Route>
         <Route exact path='/formulario-publicar-mascota'> <NavBar/> <PostPet/></Route>
