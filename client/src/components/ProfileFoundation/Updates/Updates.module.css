@@ -4,12 +4,12 @@
     flex-direction: column;
 
     position: relative;
-    top: 1.5rem;
+    top: 7rem;
 
     max-height: 62vh;
     width: 90%;
     /* margin: 1rem; */
-    padding: 1.5rem;
+    padding: 1rem;
     gap: 1rem;
 
     font-size: 13px;
@@ -20,14 +20,38 @@
 }
 
 .singleUpdateContainer {
+    background-color: rgba(63, 63, 63, 0.058);
     display: flex;
+    border-radius: 20px;
+    padding: 1rem;
     gap: 1rem;
 }
 
-.singleUpdateContainer>img {
+.singleNew {
+    margin-bottom: 1rem;
+}
+
+.singleUpdateImg {
     width: 3.2rem;
     height: 3.2rem;
-    border-radius: 50px;
+    border-radius: 15px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.singleUpdateDate {
+    position: relative;
+    bottom: 0.3rem;
+}
+
+.campaign {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: -0.2rem;
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
 }
 
 .singleNew>div>p:nth-of-type(1) {
@@ -39,10 +63,10 @@
 }
 
 .singleNew>span:nth-of-type(1) {
+    font-size: .9rem;
     color: var(--gray);
     font-weight: 500;
     font-style: italic;
-    margin-top: 0.5rem;
 }
 
 @media screen and (max-width: 1200px) {
@@ -65,4 +89,3 @@
         font-size: 10px;
     }
 }
-
