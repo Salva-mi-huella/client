@@ -99,37 +99,95 @@
 
 
 /* Cards */
+.containerAnimals{
+    display: grid;
+    grid-template-columns: 90% auto;
+}
+
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
     min-height: 50vh;
-    justify-content: center;
+    justify-content: flex-end;
+    padding: 10px 3% 3% 10px;
 }
 .card{
     text-align: center;
     width: 270px;
-    height: 300px;
-    margin: 20px;
+    height: 280px;
+    border-radius: 20px ;
+    display: flex;   
+    flex-direction: column;
+    margin: 0px 7px 88px 7px;
+    background-color: rgba(99, 59, 218, 0.485);
+    transition: 0.5s;
 
 }
-.linkCard{
+.card:hover{
+    width: 290px;
+    height: 300px;
+    margin: 0px 0px 50px 0px;
+}
+.link{
     text-decoration: none;
 }
-.card span{
+.header{
+    display:flex ;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header i {
+    font-size: 1.2rem;
     color: white;
+    margin-right: 14px;
+    cursor: pointer;
+}
+.header i:hover {
+    font-size: 1.3rem;
+    color: rgb(255, 145, 145);
+}
+.coral{
+    color: rgb(255, 145, 145)!important;
+}
+.header span, p{
+    color: white;
+    text-decoration: none;
     font-weight: bold;
     text-decoration: none;
-    font-family: 'Raleway', sans-serif;
+    /* padding: 5px; */
+    /* padding-bottom: 0px; */
+    /* margin-top: 5px; */
+    margin-left: 25px;
     font-size: 1.4rem;
+    transition: 0.4s;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.header p{
+    font-size: small;
+    padding: 0px;
+    margin-bottom: 8px;
+    text-align: center;
 }
 .card:hover span{
     font-weight: 900;
     color: rgb(255, 230, 0);
 }
+.card:hover p{
+    font-weight: 900;
+    color: rgb(255, 230, 0);
+}
+.header span:hover{
+    color: rgba(249, 224, 0, 0.884);
+}
+.containerImg{
+    min-height: 100%;
+}
 .img{
     width: 100%;
-    border-radius: 10px;
-    height: 224px;
+    height: 100%;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.4s;
     cursor: pointer;
@@ -267,7 +325,7 @@
     color: rgba(255, 245, 245, 0.54);
 }
 
-/* Pages */
+/* ----PAGES----- */
 ul{
     list-style: none;
     display: flex;
@@ -296,5 +354,101 @@ ul .pages{
     color: rgb(99, 59, 218);
 }
 
+/* ----- ASIDE  -----*/
+.containerAside{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.itemAside{
+    font-size: 1.5rem;
+    background-color: rgba(99, 59, 218, 0.838);
+    color: rgb(255, 145, 145);
+    box-shadow: rgba(0, 0, 0, 0.236) 0px 5px 15px;
+    width: 3.5rem;
+    height: 2.8rem;
+    /* margin-right: 2-; */
+    text-align: center;
+    border-radius: 18px 0 0 18px;
+    transition: 0.6s;
+    cursor: pointer;
+    position: -webkit-sticky;
+    position: sticky;
+    backdrop-filter: blur(5px);
+    right: 0;
+    top: 70px;
+    margin-bottom: 20px;
+}
+.itemAside:hover  {
+    font-size: 1.8rem;
+}
+.itemAsideFilter{
+    padding-top: 10px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(99, 59, 218, 0.838);
+    color: rgb(255, 230, 0);
+    box-shadow: rgba(0, 0, 0, 0.236) 0px 5px 15px;
+    width: 4rem;
+    text-align: center;
+    border-radius: 18px 0 0 18px;
+    transition: 0.6s;
+    cursor: pointer;
+    position: -webkit-sticky;
+    position: sticky;
+    backdrop-filter: blur(5px);
+    right: 0;
+    top: 130px;
+    transition: 0.6s;
+    /* margin-bottom: 20px; */
+}
 
-
+/* Clean filters */
+.itemFiltTitle{
+    font-size: 1rem;
+    text-align: center !important;
+    margin: 0!important;
+    padding: 5px;
+}
+.containerItems{
+    display: none;
+}
+.containerItems{
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    transition: 0.6s;
+}
+.containerItems>div{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.cleanFilters{
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: transparent;
+    color: rgb(255, 230, 0);
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.itemFilt{
+    font-style: italic;
+    font-size: small;
+}
+.itemAsideFilter:hover .containerItems{
+    display: flex;
+}
+.itemAsideFilter:hover {
+    display: flex;
+    width: 8rem;
+}
