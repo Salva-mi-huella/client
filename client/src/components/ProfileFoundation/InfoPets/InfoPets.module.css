@@ -14,8 +14,10 @@
 }
 
 .tablePets {
-    margin-left: 30px;
-    max-height: 85vh;
+    width: 100%;
+    margin-left: 2rem;
+    min-height: 85vh;
+    max-height: 100%;
     overflow-y: hidden;
 }
 
@@ -34,6 +36,12 @@
     height: 2rem;
 }
 
+.tableCell {
+    margin: -10px 20px -10px 10px;
+    /* width: 2.5rem; */
+    height: 3.65rem;
+}
+
 .status {
     padding: 8px;
     border-radius: 9px;
@@ -43,14 +51,14 @@
     color: #00b5ff !important;
 }
 
-/* .pagination {
+.pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     align-content: flex-end;
     padding: 35px;
-} */
+}
 
 /* .pagination> :first-child {
     background-color: greenyellow;

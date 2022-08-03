@@ -14,7 +14,7 @@ import PostPet from '../PostPet/PostPet.js';
 
 
 import styles from '../ProfileFoundation/ProfileFoundation.module.css';
-import { getFoundations } from '../../redux/actions/index.js';
+import { getFoundations, getRequestsAdopt } from '../../redux/actions/index.js';
 
 export default function ProfileFoundation() {
 
@@ -22,7 +22,10 @@ export default function ProfileFoundation() {
 
     React.useEffect(() => {
         dispatch(getFoundations());
+        dispatch(getRequestsAdopt())
     }, [dispatch])
+
+
 
     const [optionSelection, setOptionSelection] = useState(0)
 
@@ -86,13 +89,13 @@ export default function ProfileFoundation() {
                         </>
                     )
                 }
-                {
+                {/* {
                     optionSelection === 7 && (
                         <>
                             <Inbox />
                         </>
                     )
-                }
+                } */}
             </div>
 
         </div >
