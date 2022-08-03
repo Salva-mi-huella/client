@@ -2,19 +2,20 @@
     display: flex;
     flex-direction: column;
     width: 95%;
-    justify-content: space-evenly;
-    gap: 3rem;
+    justify-content: flex-start;
 }
 
 .updates {
+    /* background-color: #ee4ffc; */
     position: relative;
-    top: 10px;
+    top: .5rem;
 }
 
 .RightSideTitle {
     position: relative;
-    font-size: 2.3rem;
-    font-weight: 500;
+    top: 7rem;
+    font-size: 2rem;
+    font-weight: 300;
 }
 
 .btnContainer {

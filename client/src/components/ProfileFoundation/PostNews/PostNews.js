@@ -6,14 +6,18 @@ import { postNews } from "../../../redux/actions";
 
 import style from "./PostNews.module.css"
 
-export default function PostNews() {
+export default function PostNews({ foundation }) {
 
     const dispatch = useDispatch()
+
+    console.log(foundation, '')
 
     const [input, setInputs] = useState({
         title: '',
         news: '',
-        image: ''
+        image: '',
+        campaign: false,
+        foundationsImage: foundation.images[0]
     })
     const [renderImg, setRenderImg] = useState('')
 
@@ -31,6 +35,12 @@ export default function PostNews() {
 
         } else setInputs({ ...input, [e.target.name]: e.target.value })
 
+    }
+
+    let hanldeCheck = (e) => {
+        if (e.target.checked) {
+            setInputs({ ...input, campaign: e.target.value })
+        }
     }
 
     function handleSubmit(e) {
@@ -52,9 +62,18 @@ export default function PostNews() {
                             body: data
                         })
                     let file = await res.json()
+                    // console.log({
+                    //     title: input.title,
+                    //     campaign: input.campaign,
+                    //     description: input.news,
+                    //     images: [file.secure_url]
+                    // })
+
                     dispatch(postNews({
                         title: input.title,
-                        little_description: input.news,
+                        campaign: input.campaign,
+                        description: input.news,
+                        foundationsImage: foundation.images[0],
                         images: [file.secure_url] //location of public URL
                     }))
 
@@ -62,7 +81,9 @@ export default function PostNews() {
                     setInputs({
                         title: '',
                         news: '',
-                        image: ''
+                        image: '',
+                        campaign: '',
+                        foundationsImage: ''
                     })
                 }
             })
@@ -75,6 +96,14 @@ export default function PostNews() {
             <form onSubmit={e => handleSubmit(e)} className={style.postNewsForm}>
                 <h3 className={style.postNewsTitle}> Escribe una nueva noticia</h3>
                 <div>
+                    <input
+                        id="campaign"
+                        onChange={(e) => hanldeCheck(e)}
+                        type="checkbox"
+                        name="campaign"
+                        value={!input.campaign}
+                        className={style.checkbox}
+                    />
                     <label className={style.label} htmlFor="title">Titulo</label>
                     <input className={style.inputText} required onChange={(e) => handleChange(e)} type="text" id="title" name="title" value={input.title} />
                 </div>

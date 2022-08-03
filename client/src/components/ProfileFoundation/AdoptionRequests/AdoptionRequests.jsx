@@ -29,7 +29,7 @@ const makeStyles = (status) => {
   }
   else if (status === 'Pendiente') {
     return {
-      background: '#59bfff',
+      background: '#F1F15B',
       color: 'white'
     }
   }
@@ -134,7 +134,7 @@ const AdoptionRequests = () => {
                       <option
                         hidden selected
                         className="status"
-                        style={makeStyles("Aprobado")}
+                        style={makeStyles("Pendiente")}
                       >
                         Pendiente
                         {/* {r.adopted ? 'Aprobado' : 'Pendiente'} */}

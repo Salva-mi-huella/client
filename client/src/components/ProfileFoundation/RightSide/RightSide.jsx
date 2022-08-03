@@ -6,7 +6,7 @@ import styles from './RightSide.module.css';
 const RightSide = () => {
     return (
         <div className={styles.RightSide}>
-            <div className={styles.updates} >
+            <div className={styles.updates}>
                 <h3 className={styles.RightSideTitle}> Recientes </h3>
                 <Updates />
             </div>
