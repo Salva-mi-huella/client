@@ -23,7 +23,8 @@ import SettingsAccessibilityIcon from '@mui/icons-material/SettingsAccessibility
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
 import RequestTable from './Table/RequestTable';
 import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
@@ -97,8 +98,9 @@ export default function PersistentDrawerLeft() {
   const [favs, setFavs] = React.useState(false);
   const [myData, setMyData] = React.useState(true);
   const [request, setRequests] = React.useState(false);
+  const [products, setProducts] = React.useState(false);
   const [donations, setDonations] = React.useState(false);
-  const { user, isLoading } = useAuth0();
+  const { user, isLoading , logout} = useAuth0();
   const dispatch = useDispatch();
 
   console.log(user)
@@ -135,12 +137,14 @@ export default function PersistentDrawerLeft() {
     setDonations(false);
     setFavs(false);
     setRequests(false);
+    setProducts(false);
   }
   const viewDonations = () => {
     setMyData(false);
     setDonations(true);
     setFavs(false);
     setRequests(false);
+    setProducts(false);
   }
   
   const viewFavs = () => {
@@ -148,12 +152,22 @@ export default function PersistentDrawerLeft() {
     setDonations(false);
     setFavs(true);
     setRequests(false);
+    setProducts(false);
   }
   const viewAdoptSolicitudes = () => {
     setMyData(false);
     setDonations(false);
     setFavs(false);
     setRequests(true);
+    setProducts(false);
+  }
+
+  const viewProducts = () => {
+    setMyData(false);
+    setDonations(false);
+    setFavs(false);
+    setRequests(false);
+    setProducts(true);
   }
 
   return (
@@ -203,7 +217,9 @@ export default function PersistentDrawerLeft() {
             <ListItemButton onClick={viewDonations} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><VolunteerActivismIcon sx={{color: 'white'}}/></ListItemIcon>Mis donaciones</ListItemButton>
             <ListItemButton onClick={viewFavs} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><FavoriteIcon sx={{color: 'white'}}/></ListItemIcon>Favoritos</ListItemButton>
             <ListItemButton onClick={viewAdoptSolicitudes} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><ContentPasteIcon sx={{color: 'white'}}/></ListItemIcon>Solicitudes de adopción</ListItemButton>
+            <ListItemButton onClick={viewProducts} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><Inventory2Icon sx={{color: 'white'}}/></ListItemIcon>Mis productos</ListItemButton>
             <ListItemButton sx={{color: 'rgb(255, 230, 0)', marginBottom:'20px', fontWeight: 'bold', fontSize:'20px', fontFamily: 'Gill Sans'}}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{userDetail.points}</ListItemButton>
+            <ListItemButton onClick={()=>logout({returnTo:`${window.location.origin}/home`})} sx={{color: 'white', marginTop:'16vh'}}><ListItemIcon><LogoutIcon sx={{color: 'white'}}/></ListItemIcon>Cerrar Sesión</ListItemButton>
         </List>    
         <Divider />
       </Drawer>
@@ -219,6 +235,13 @@ export default function PersistentDrawerLeft() {
       <h1>Favoritos</h1>
       <p>No hay favoritos.</p>
       </div>}
+
+    {products && 
+    <div className={styles.favs}>
+      <h1>Mis productos</h1>
+      <p>No hay productos.</p>
+    </div>
+      }
 
     {request && <RequestTable userId={userDetail.id}></RequestTable>}
 

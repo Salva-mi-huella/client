@@ -56,7 +56,11 @@ export default function EditDataForm({datos,setDatos}) {
           console.log(error.message)
         }
       }
-
+  
+      const onChange = (e) => {
+        
+      }
+  
     return (
   
      <div className={styles.dataContainer}>
@@ -101,11 +105,11 @@ export default function EditDataForm({datos,setDatos}) {
                    </div>
 
                    <div>
-                      <label className={styles.items}>Dirección:</label>
-                      <input className={styles.input} defaultValue={userDetail.address}  type="text" maxLength={30} name="address" {...register("address", { maxLength: 30 })}/>
                       {/* {errors.address?.type === "required" && <p className={styles.error}>La dirección es obligatoria</p>} */}
                       <label className={styles.items}>Ciudad: </label>
                       <input className={styles.input}  defaultValue={userDetail.city} type="text" maxLength={20} name="city" {...register("city", { maxLength:20 , pattern: /^-?[a-zA-Z]*$/})}/>
+                      <label className={styles.items}>Dirección:</label>
+                      <input className={styles.input} defaultValue={userDetail.address}  type="text" maxLength={30} name="address" {...register("address", { maxLength: 30 })}/>
                       {/* {errors.city?.type === "required" && <p className={styles.error}>La ciudad es obligatoria</p>} */}
                       <div>
                         {errors.address?.type === "maxLength" && <p className={styles.error}>La dirección debe tener 30 caracteres máximo</p>}
