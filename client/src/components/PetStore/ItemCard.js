@@ -11,7 +11,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 
 export default function ItemCard(props) {
@@ -59,7 +59,7 @@ export default function ItemCard(props) {
                         <img className={styles.paws} src={img} alt='points'></img>
                     </div>
                     <IconButton onClick={()=>dispatch(addToCart(props.id))} aria-label="add to favorites">
-                        <ShoppingCartIcon sx={{color: 'yellow'}} />
+                        <AddShoppingCartIcon sx={{color: 'yellow'}} />
                     </IconButton>
                 </div>
             </CardActions>

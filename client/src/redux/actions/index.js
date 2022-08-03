@@ -182,8 +182,10 @@ export function updateFoundation(id) {
 
 export function updateUser(data, email) {
     return async function (dispatch) {
+        console.log(data, email,"------")
         try {
             const updatedUser = await axios.put(`/users/${email}`, data);
+            
 
             return dispatch({
                 type: UPDATE_USER,
@@ -199,7 +201,6 @@ export function updateUser(data, email) {
 export function getUserByEmail(email) {
     return async function (dispatch) {
         try {
-            console.log(email)
             const user = await axios.get(`/users/${email}`);
 
             return dispatch({
