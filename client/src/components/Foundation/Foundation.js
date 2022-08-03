@@ -10,6 +10,7 @@ import instagram from '../../assets/instagram.png';
 import email from '../../assets/email-2.png';
 import web from '../../assets/web (2).png';
 import Form from './PostMessage/Form';
+import Aside from './Aside.js'
 
 
 export default function Foundation () {
@@ -68,29 +69,49 @@ export default function Foundation () {
                     <h2>Nuestras huellas</h2>
                     <p>En este apartado va una breve descripción para captar atención. </p>
                 </div>
+                <Aside/>
                 <PetSlick foundation={foundation}/>
             </div>
 
                     <div className={styles.containerContact}>
                         <GoogleMaps foundation={foundation} lat={foundation.lat} lng={foundation.lng} />
                         <div>
-                            <h2 className={styles.title}>Contactanos</h2>
-                            <div className={styles.data}>
-                             <h3>Teléfono:</h3><p>{foundation.telephone_number}</p> 
-                            </div>
-                            <div className={styles.data}>
-                                <h3>Ubicación:</h3><p>{`${foundation.address}, ${foundation.city}, ${foundation.state}.`}</p>
-                            </div>
-
-                            <div className={styles.iconsContainer}>
-                            {foundation.website  && <a href={foundation.website} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>}
-                            {foundation.instagram && <a href={foundation.instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='instagram'></img></a>}
-                            {foundation.email && <a href={`mailto:${foundation.email}`}><img className={styles.icons} src={email} alt='email'></img></a>}
-                            </div>
 
                         <Form foundationId={foundation.id}></Form>
                             
                         </div>
+
+                    </div>
+
+                    <div className={styles.data}>
+                            <div >
+                                <h3>{foundation.name}</h3><img src={foundation.images[0]} alt='foundationImage'></img>
+                            </div>
+
+                            <div >
+                             <h3>Teléfono:</h3><p>{foundation.telephone_number}</p> 
+                            </div>
+
+                            <div>
+                               <p>{`${foundation.address}, ${foundation.city}, ${foundation.state}.`}</p>
+                            </div>
+
+
+                            <div>
+                                {foundation.email &&
+                                <div>
+                                    <a href={`mailto:${foundation.email}`}><img className={styles.icons} src={email} alt='email'></img></a>
+                                </div>}
+                                {foundation.website &&
+                                <div>
+                                <a href={foundation.website} target="_blank" rel='noreferrer'><img  className={styles.icons} src={web} alt='web'></img></a>
+                                </div>}
+
+                                {foundation.instagram &&
+                                <div>
+                                <a href={foundation.instagram} target="_blank" rel='noreferrer'><img  className={styles.icons} src={instagram} alt='web'></img></a>
+                                </div>}
+                            </div>
 
                     </div>
     

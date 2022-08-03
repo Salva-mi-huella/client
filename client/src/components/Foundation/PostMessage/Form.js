@@ -54,7 +54,7 @@ const dispatch = useDispatch();
             icon: 'success',
             title: 'Mensaje enviado con éxito',
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
           })
           dispatch(postMessage({
          name: values.name, email: values.email, message: values.textarea, foundation: foundationId
@@ -65,7 +65,7 @@ const dispatch = useDispatch();
         {({errors}) => (
           <Form>
             <div className={styles.title}>
-              <h1 className={styles.titletext}>Dejanos un mensaje!</h1>
+              <h1 className={styles.titletext}>¡Dejanos un mensaje!</h1>
             </div>
 
             <div className={styles.groupinp}>
@@ -96,7 +96,7 @@ const dispatch = useDispatch();
 
             <div className={styles.textarea}>
               <label htmlFor="Textarea" className="form-label">
-                ¿ Qué te gustaría saber ?
+                ¿Qué te gustaría saber de nosotros?
               </label>
               <Field as="textarea" className={`form-control ${styles.inputsForm}`} id="textarea" name="textarea" rows="4" placeholder="Mensaje...">
               </Field>
