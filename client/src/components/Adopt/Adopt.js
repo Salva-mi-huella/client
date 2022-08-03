@@ -48,7 +48,6 @@ export default function Adopt(){
                     <img id={style.steps} src={steps} alt="steps"/>
                 </div>
             </div>
-            {/* <h2 className={style.innerTittles} >Conoce nuestras Huellas</h2> */}
             <div className={style.allAnimals}>
                 <Filters/>
             </div>
@@ -66,8 +65,8 @@ export default function Adopt(){
                                     />
                                 ))}
 
-                            <Paginate/>
                         </div>
+                            <Paginate/>
                     </div>
                     <div>
                         <Aside/>

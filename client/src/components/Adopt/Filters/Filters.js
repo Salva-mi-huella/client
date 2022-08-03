@@ -7,6 +7,7 @@ import FilterByType from "./FilterByType";
 import SearchBar from "./SearchBar";
 import style from '../Adopt.module.css'
 import { filtersConfig, getAllPets, petsFiltered } from "../../../redux/actions";
+import Swal from 'sweetalert2'
 
 
 
@@ -21,7 +22,7 @@ export default function Filters(){
     const arrAllPets = useSelector(state=> state.allPets )
     const filters = useSelector(state=> state.filtersConfig )
 
-    //In case browser reload
+    //In case browser reload, ARREGLAR
     useEffect(()=>{
         return function clean(){
             dispatch(filtersConfig({type:null,foundation:null,gender:null }))}
@@ -45,28 +46,26 @@ export default function Filters(){
         if(filters.name){
             filteringPets = filteringPets.filter(pet => (pet.name).toLowerCase().includes((filters.name).toLowerCase()))
         }
-        if(!filteringPets.length && arrAllPets.length && !filters.name) alert("No hay animales en adopcion con esas caracteristicas")
+        if(!filteringPets.length && arrAllPets.length && !filters.name){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No tenemos animales con esas caracteristicas',
+              })
+        } 
         
         dispatch(petsFiltered(filteringPets)) 
         
     },[filters,arrAllPets])
     return(
         <div className={style.allAnimals__filters}>
-        <FilterByType/>
-        <SearchBar/>
-        <div className={style.containerToggle}>
-            <div className={style.filterIcon}>
-                <i className="fa-solid fa-filter"></i>
-                <i className="fa-solid fa-bars"></i>
+            <FilterByType/>
+            <SearchBar/>
+            <div className={style.filtersBy}>
+                <FilterByFoundation/>
+                <FilterByGender/>
+                <FilterByLocation/>
             </div>
-            <div className={style.containerFiltersBy}>
-                <div className={style.filtersBy}>
-                    <FilterByFoundation/>
-                    <FilterByGender/>
-                    <FilterByLocation/>
-                </div>
-            </div>
-    </div>
-</div>
+        </div>
     )
 }
