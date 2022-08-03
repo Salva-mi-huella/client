@@ -7,6 +7,7 @@ import style from './Adopt.module.css'
 import Paginate from './Filters/Paginate.js';
 import Filters from './Filters/Filters.js';
 import Loading from '../Loading/Loading'
+import Aside from './Aside/Aside.js';
 
 
 export default function Adopt(){
@@ -51,23 +52,30 @@ export default function Adopt(){
             <div className={style.allAnimals}>
                 <Filters/>
             </div>
-            <div className={style.cardContainer}>
-                
-                {renderPerPage ?
-                    renderPerPage.map(pet => (
-                        <Card 
-                        id={pet.id}
-                        key= {pet.id}
-                        name={pet.name}
-                        img={pet.images} 
-                        />
-                    ))
-                    :
-                    <Loading/>
-                }
-                
-                <Paginate/>
-            </div>
+            {renderPerPage  ?
+                <div className={style.containerAnimals}>
+                    <div>
+                        <div className={style.cardContainer}>
+                                {renderPerPage.map(pet => (
+                                    <Card 
+                                    id={pet.id}
+                                    key= {pet.id}
+                                    age ={pet.age}
+                                    name={pet.name}
+                                    img={pet.images} 
+                                    />
+                                ))}
+
+                            <Paginate/>
+                        </div>
+                    </div>
+                    <div>
+                        <Aside/>
+                    </div>
+                </div>
+            :
+                <Loading/>
+            }
         </>
     )
 }
