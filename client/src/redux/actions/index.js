@@ -302,6 +302,17 @@ export function postRequestAdopt (data){
     }
 }
 
+export function postMessage (data){
+    return function(){
+        try{
+            axios.post("/messages", data)
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+}
+
 export function getUsers(){
     return async function (dispatch){
         try {
