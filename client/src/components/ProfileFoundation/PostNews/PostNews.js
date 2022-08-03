@@ -111,6 +111,7 @@ export default function PostNews({ foundation }) {
                     <label className={style.label} htmlFor="news">Noticia:</label>
                     <textarea
                         className={style.textarea}
+                        maxLength="400"
                         required onChange={(e) => handleChange(e)}
                         id="news" name="news" value={input.news} >
                     </textarea>
