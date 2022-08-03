@@ -70,7 +70,7 @@ const AdoptionRequests = () => {
   return (
     <div className={styles.tableRequests}>
 
-      {/* <Table /> */}
+     
       <h3 className={styles.requestTableTitle}> Tabla de solicitudes </h3>
 
       <TableContainer component={Paper}

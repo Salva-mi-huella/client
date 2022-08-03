@@ -10,7 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import './RequestTable.css'
+import styles from'./RequestTable.css'
 
 function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
@@ -41,6 +41,9 @@ export default function RequestTable({userId}) {
 
     const dispatch=useDispatch()
 
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
 
     useEffect(() => { 
         dispatch(getRequestsAdopt())
@@ -52,43 +55,107 @@ export default function RequestTable({userId}) {
 
      console.log(requests, 'hola')
 
+     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests?.length - page * rowsPerPage));
+
 
     return (
-        <div className="Table">
-            <h1 className="titles"> Mis solicitudes </h1>
-            <TableContainer component={Paper}
-                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', backgroundColor: 'transparent', width: '90%' }}
-            >
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell  sx={{color: 'yellow', fontSize:'30px'}}>Huella </TableCell>
-                            <TableCell align="left"  sx={{color: 'yellow', fontSize:'30px'}}>Fundación</TableCell>
-                            <TableCell align="left"  sx={{color: 'yellow', fontSize:'30px'}}>Fecha</TableCell>
-                            <TableCell align="left"  sx={{color: 'yellow', fontSize:'30px'}}>Estado</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {requests.map((r) => (
-                            <TableRow
-                                key={r.id}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 }, color: 'white' }}
-                            >
-                                <TableCell component="th" scope="row"
-                               sx={{color: 'azure', fontSize:'22px'}}
-                                >
-                                    {r.pet.name}
-                                </TableCell>
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>{r.foundation.name} </TableCell>
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>01/08/2022</TableCell>
-                                <TableCell align="left" sx={{color: 'azure', fontSize:'22px'}}>
-                                    <span className="status" style={makeStyles('Pendiente')} >Pendiente</span>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </div>
+        <div className={styles.tableRequests}>
+
+     
+      <h3 className={styles.requestTableTitle}> Tabla de solicitudes </h3>
+
+      <TableContainer component={Paper}
+        style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
+      >
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead >
+            <TableRow sx={styles.TableRow} >
+              <TableCell>Huellita </TableCell>
+              <TableCell align="left">Fundacion</TableCell>
+              <TableCell align="left">Fecha</TableCell>
+              <TableCell align="left">Status</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {requests && requests
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((r) => (
+                <TableRow
+                  key={r.id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  {/* <TableCell component="th" scope="row">
+                    <img className={styles.petImg} src={r.pet.images[0]} />
+                    {r.pet.name}
+                  </TableCell> */}
+
+                  <TableCell className={styles.tableCell} align="left">{r.pet.name}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{r.foundationId}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{r.post_date}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">
+
+                    {/* <span className={styles.status} style={makeStyles('Pendiente')} > Pendiente </span> */}
+                    {/* REQUEST STATUS */}
+                    <select
+                      onChange={(e) => { console.log('Request status: ', e.target.value) }}
+                      style={makeStyles()}
+                    // style={makeStyles(r.adopted)}
+                    >
+
+                      <option
+                        value={"Rechazado"}
+                        className="status"
+                        // style={makeStyles(r.adopted)}
+                        style={makeStyles("Rechazado")}
+                        disabled
+                      > Rechazado
+                      </option>
+
+                      <option
+                        value={"Aprobado"}
+                        className="status"
+                        style={makeStyles("Aprobado")}
+                        disabled
+                      > Aprobado
+                      </option>
+
+                      <option
+                        hidden selected
+                        className="status"
+                        style={makeStyles("Pendiente")}
+                        disabled
+                      >
+                        Pendiente
+                        {/* {r.adopted ? 'Aprobado' : 'Pendiente'} */}
+                      </option>
+
+                    </select>
+
+                  </TableCell>
+                </TableRow>
+              ))}
+            {emptyRows > 0 && (
+              <TableRow style={{ height: 53 * emptyRows }}>
+                <TableCell colSpan={6} />
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+
+        {/* <TablePagination
+          className={styles.pagination}
+          component="div"
+          count={foundation.request_adopts.length}
+          page={page}
+          onPageChange={handleChangePage}
+          rowsPerPage={rowsPerPage}
+          rowsPerPageOptions={[10]}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        /> */}
+      </TableContainer>
+
+    </div>
     );
-}
+} 
+
+
