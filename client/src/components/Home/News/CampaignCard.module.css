@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border: 3px solid red; */
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    width: 80%;
+    margin-left: 10vw;
+  }
+
+  .container div {
+    margin-left: 3vw;
+  }
+  .campaignImage {
+    width: 45vw;
+    height: 25vw;
+    object-fit: cover;
+  }
+
+  .foundationImage {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 7vw;
+    border: 2px solid rgb(18, 18, 119);
+  }
+
+  .titleSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .titleSection h1 {
+   text-align: center;
+  }
+  
+ .container span {
+    color: white;
+    font-weight: bold;
+    font-size: 1vw;
+ }
+
+ .container p {
+    color: white;
+    font-weight: bold;
+    font-size: 1.4vw;
+ }
+
+ .container button {
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2vw;
+    font-weight: bold;
+    cursor: pointer;
+
+ }

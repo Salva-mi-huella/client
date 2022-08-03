@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -16,8 +16,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { getAllNews } from '../../redux/actions';
-import styles from './News.module.css';
+import styles from './CampaignCard.module.css';
+import {Link} from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -30,23 +30,30 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function News() {
+export default function News({news}) {
+
   const [expanded, setExpanded] = React.useState(false);
-  const dispatch = useDispatch();
-  const news = useSelector(state => state.news);
-
-    useEffect(() => {
-        dispatch(getAllNews());
-    }, [dispatch]);
-
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  console.log(news)
+
+
+
   return (
       <div className={styles.container}>
-    {news?.map((news) => (
-            <Card sx={{ maxWidth: 400 }}>
+        <img className={styles.campaignImage} src={news.images[0]} alt='campaignImage'></img>
+        <div>
+            <div className={styles.titleSection} >
+                <h1>{news.title}</h1>
+                <img  className={styles.foundationImage} src={news.foundationsImage} alt='foundation'></img>
+            </div>
+            <span>{news.post_date}</span>
+            <p>{news.description}</p>
+            <Link to='/donar'><button>QUIERO AYUDAR</button></Link>
+        </div>
+            {/* <Card sx={{ maxWidth: 400 }}>
                         <CardHeader
                             avatar={
                             news.foundation?.images?.map((image)=>{
@@ -88,9 +95,7 @@ export default function News() {
                                     </Typography>
                                 </CardContent>
                             </Collapse>
-                    </Card>
-            ))}
+                    </Card> */}
             </div>
     );
 }
-
