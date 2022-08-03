@@ -27,9 +27,9 @@ export default function Card({id, name,img,age}){
         }else{  
             const favs = JSON.parse(localStorage.getItem('fav'));
             if(favs){
-                arrFavs = [...favs,name]
+                arrFavs = [...favs,id]
                 localStorage.setItem("fav", JSON.stringify(arrFavs))
-            }else localStorage.setItem("fav", JSON.stringify([name]))
+            }else localStorage.setItem("fav", JSON.stringify([id]))
             setFav(true)
         } 
     }
