@@ -62,7 +62,7 @@ export default function EditDataForm({datos,setDatos}) {
       }
   
     return (
-  
+  <div className={styles.container}>
      <div className={styles.dataContainer}>
 
          <div className={styles.data}>
@@ -139,6 +139,7 @@ export default function EditDataForm({datos,setDatos}) {
              <div>
                  {/* <img className={styles.photo} src={user.picture}></img> */}
              </div>
+ </div>
  </div>
 
     )

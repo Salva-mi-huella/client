@@ -58,7 +58,7 @@ export default function DonationTable({userDetail}) {
         <div className={styles.tableRequests}>
 
      
-      <h3 className={styles.requestTableTitle}> Tabla de solicitudes </h3>
+      <h3 className={styles.requestTableTitle}> Tabla de donaciones </h3>
 
       <TableContainer component={Paper}
         style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
@@ -69,7 +69,9 @@ export default function DonationTable({userDetail}) {
               <TableCell align='left'>Fundacion </TableCell>
               <TableCell align='left'>Importe </TableCell>
               <TableCell align="left">Huellitas</TableCell>
+              <TableCell align="left">Metodo</TableCell>
               <TableCell align="left">Fecha</TableCell>
+              
              {/*  <TableCell align="left">Status</TableCell> */}
             </TableRow>
           </TableHead>
@@ -86,6 +88,7 @@ export default function DonationTable({userDetail}) {
                   <TableCell className={styles.tableCell} align="left">{d.foundationId}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{`${d.amount} usd`}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{d.points}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{d.method.toUpperCase()}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{d.date}</TableCell>
                  {/*  <TableCell className={styles.tableCell} align="left">
                     

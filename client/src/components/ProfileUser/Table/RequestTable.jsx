@@ -58,6 +58,7 @@ export default function RequestTable({userId}) {
      const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests?.length - page * rowsPerPage));
 
 
+
     return (
         <div className={styles.tableRequests}>
 
@@ -73,7 +74,7 @@ export default function RequestTable({userId}) {
               <TableCell>Huellita </TableCell>
               <TableCell align="left">Fundacion</TableCell>
               <TableCell align="left">Fecha</TableCell>
-              <TableCell align="left">Status</TableCell>
+              <TableCell align="left">Estado</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -92,46 +93,7 @@ export default function RequestTable({userId}) {
                   <TableCell className={styles.tableCell} align="left">{r.pet.name}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{r.foundationId}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{r.post_date}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">
-
-                    {/* <span className={styles.status} style={makeStyles('Pendiente')} > Pendiente </span> */}
-                    {/* REQUEST STATUS */}
-                    <select
-                      onChange={(e) => { console.log('Request status: ', e.target.value) }}
-                      style={makeStyles()}
-                    // style={makeStyles(r.adopted)}
-                    >
-
-                      <option
-                        value={"Rechazado"}
-                        className="status"
-                        // style={makeStyles(r.adopted)}
-                        style={makeStyles("Rechazado")}
-                        disabled
-                      > Rechazado
-                      </option>
-
-                      <option
-                        value={"Aprobado"}
-                        className="status"
-                        style={makeStyles("Aprobado")}
-                        disabled
-                      > Aprobado
-                      </option>
-
-                      <option
-                        hidden selected
-                        className="status"
-                        style={makeStyles("Pendiente")}
-                        disabled
-                      >
-                        Pendiente
-                        {/* {r.adopted ? 'Aprobado' : 'Pendiente'} */}
-                      </option>
-
-                    </select>
-
-                  </TableCell>
+                  <TableCell className={styles.tableCell} align="left">{r.status} </TableCell>
                 </TableRow>
               ))}
             {emptyRows > 0 && (
