@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getRequestsAdopt, updateUser} from '../../redux/actions';
+import { updateUser} from '../../redux/actions';
 import { useAuth0 } from '@auth0/auth0-react';
 import styles from './EditDataForm.module.css';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { getUserByEmail } from '../../redux/actions';
 import Swal from 'sweetalert2';
 
@@ -15,13 +15,13 @@ import Swal from 'sweetalert2';
 
 export default function EditDataForm({datos,setDatos}) {
 
-  const { user, isLoading } = useAuth0();
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+  const { user } = useAuth0();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const dispatch=useDispatch()
 
   useEffect(() => { 
         dispatch(getUserByEmail(user.email))
-     }, [])
+     }, [dispatch, user.email])
 
      const userDetail = useSelector(state => state.user);
  
@@ -57,12 +57,9 @@ export default function EditDataForm({datos,setDatos}) {
         }
       }
   
-      const onChange = (e) => {
-        
-      }
-  
+      
     return (
-  
+  <div className={styles.container}>
      <div className={styles.dataContainer}>
 
          <div className={styles.data}>
@@ -139,6 +136,7 @@ export default function EditDataForm({datos,setDatos}) {
              <div>
                  {/* <img className={styles.photo} src={user.picture}></img> */}
              </div>
+ </div>
  </div>
 
     )

@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getRequestsAdopt} from '../../../redux/actions';
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,14 +8,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
 import styles from'./RequestTable.css'
 
-function createData(name, petId, userId, city, date, status) {
+/* function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
-}
+} */
 
-const makeStyles = (status) => {
+/* const makeStyles = (status) => {
     if (status === 'Aprobado') {
         return {
             background: 'green',
@@ -35,7 +33,7 @@ const makeStyles = (status) => {
             color: 'white'
         }
     }
-}
+} */
 
 export default function RequestTable({userId}) {
 
@@ -47,7 +45,7 @@ export default function RequestTable({userId}) {
 
     useEffect(() => { 
         dispatch(getRequestsAdopt())
-     }, [])
+     }, [dispatch])
 
      let requests = useSelector(state => state.requests_adopt);
 
@@ -56,6 +54,7 @@ export default function RequestTable({userId}) {
      console.log(requests, 'hola')
 
      const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests?.length - page * rowsPerPage));
+
 
 
     return (
@@ -73,7 +72,7 @@ export default function RequestTable({userId}) {
               <TableCell>Huellita </TableCell>
               <TableCell align="left">Fundacion</TableCell>
               <TableCell align="left">Fecha</TableCell>
-              <TableCell align="left">Status</TableCell>
+              <TableCell align="left">Estado</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -92,46 +91,7 @@ export default function RequestTable({userId}) {
                   <TableCell className={styles.tableCell} align="left">{r.pet.name}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{r.foundationId}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{r.post_date}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">
-
-                    {/* <span className={styles.status} style={makeStyles('Pendiente')} > Pendiente </span> */}
-                    {/* REQUEST STATUS */}
-                    <select
-                      onChange={(e) => { console.log('Request status: ', e.target.value) }}
-                      style={makeStyles()}
-                    // style={makeStyles(r.adopted)}
-                    >
-
-                      <option
-                        value={"Rechazado"}
-                        className="status"
-                        // style={makeStyles(r.adopted)}
-                        style={makeStyles("Rechazado")}
-                        disabled
-                      > Rechazado
-                      </option>
-
-                      <option
-                        value={"Aprobado"}
-                        className="status"
-                        style={makeStyles("Aprobado")}
-                        disabled
-                      > Aprobado
-                      </option>
-
-                      <option
-                        hidden selected
-                        className="status"
-                        style={makeStyles("Pendiente")}
-                        disabled
-                      >
-                        Pendiente
-                        {/* {r.adopted ? 'Aprobado' : 'Pendiente'} */}
-                      </option>
-
-                    </select>
-
-                  </TableCell>
+                  <TableCell className={styles.tableCell} align="left">{r.status} </TableCell>
                 </TableRow>
               ))}
             {emptyRows > 0 && (

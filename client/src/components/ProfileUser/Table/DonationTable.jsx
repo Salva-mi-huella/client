@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,12 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import sad_pets from '../../../assets/sad-pets.png';
-import {Link} from 'react-router-dom'
-
 import styles from './DonationTable.css'
 
-const makeStyles = (status) => {
+/* const makeStyles = (status) => {
     if (status === 'Aprobado') {
         return {
             background: 'green',
@@ -32,7 +27,7 @@ const makeStyles = (status) => {
             color: 'white'
         }
     }
-}
+} */
 
 export default function DonationTable({userDetail}) {
     /* const dispatch=useDispatch()
@@ -58,7 +53,7 @@ export default function DonationTable({userDetail}) {
         <div className={styles.tableRequests}>
 
      
-      <h3 className={styles.requestTableTitle}> Tabla de solicitudes </h3>
+      <h3 className={styles.requestTableTitle}> Tabla de donaciones </h3>
 
       <TableContainer component={Paper}
         style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
@@ -69,7 +64,9 @@ export default function DonationTable({userDetail}) {
               <TableCell align='left'>Fundacion </TableCell>
               <TableCell align='left'>Importe </TableCell>
               <TableCell align="left">Huellitas</TableCell>
+              <TableCell align="left">Metodo</TableCell>
               <TableCell align="left">Fecha</TableCell>
+              
              {/*  <TableCell align="left">Status</TableCell> */}
             </TableRow>
           </TableHead>
@@ -86,6 +83,7 @@ export default function DonationTable({userDetail}) {
                   <TableCell className={styles.tableCell} align="left">{d.foundationId}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{`${d.amount} usd`}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{d.points}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{d.method.toUpperCase()}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{d.date}</TableCell>
                  {/*  <TableCell className={styles.tableCell} align="left">
                     
