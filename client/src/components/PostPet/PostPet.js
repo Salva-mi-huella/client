@@ -11,7 +11,7 @@ export default function PostPet() {
 
   const dispatch = useDispatch()
   const uploadImage = (e) => {
-    setImag(e.target.files[0])
+    setImag(e.target.files[0, 1, 2])
   }
 
 
@@ -50,13 +50,19 @@ export default function PostPet() {
           //VALIDACION EDAD
           if (!values.age) {
             errores.age = "Por favor ingresa la edad"
-          } else if (values.age < 0) {
+          } else if (values.age < 0 || values.age > 20) {
             errores.age = "Por favor ingresa una edad valida para tu mascota"
           }
 
           //VALIDACION MENSAJE
           if (!values.description) {
             errores.description = "Por favor cuentanos mas sobre la mascota"
+          } else if (values.description.length > 400) {
+            errores.description = "Superaste el limite de caracteres: " + (values.description.length - 1)
+          }
+
+          if (values.images.length < 3) {
+            errores.images = "Por favor, selecciona al menos 3 imagenes (manten presionado ctrl mientras seleccionas)"
           }
 
           return errores;
@@ -73,14 +79,25 @@ export default function PostPet() {
               body: data
             })
           let file = await res.json()
-          dispatch(postPets({
+
+          console.log({
             images: [file.secure_url],
             name: values.name,
             age: values.age,
             type: values.type,
             gender: values.gender,
             description: values.description
-          }))
+          })
+
+          // dispatch(postPets({
+          //   images: [file.secure_url],
+          //   name: values.name,
+          //   age: values.age,
+          //   type: values.type,
+          //   gender: values.gender,
+          //   description: values.description
+          // }))
+
           resetForm();
         }}
       >
@@ -88,10 +105,11 @@ export default function PostPet() {
           <Form>
             <div className={styles.postPetForm}>
               <div className={styles.titles}>
-                <h1>Mis Huellas</h1>
+                <h1 className={styles.postPetTitle} >Mis Huellas</h1>
               </div>
 
-              <div className={styles.groupinp}>
+              <div className={styles.inputNameContainer}>
+
                 <div className="w-75 text-dark">
                   <label htmlFor="name">Nombre</label>
                   <Field
@@ -102,13 +120,16 @@ export default function PostPet() {
                   />
                   <ErrorMessage name="name" component={() => (<div className={styles.error}>{errors.name}</div>)}></ErrorMessage>
                 </div>
+
               </div>
 
-              <div className={styles.group2}>
+              <div className={styles.inputCheckContainer}>
+
                 <div className={styles.checks}>
                   <label>Tipo de huella</label>
+
                   <div>
-                    <label htmlFor="type">Perro</label>
+                    <label htmlFor="dog">Perro</label>
                     <Field
                       className="form-check-input mx-3"
                       type="radio"
@@ -126,7 +147,10 @@ export default function PostPet() {
                     />
                     <ErrorMessage name="type" component={() => (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
                   </div>
+
                 </div>
+
+
                 <div className={styles.edad}>
                   <label htmlFor="age">Edad</label>
                   <Field
@@ -178,7 +202,8 @@ export default function PostPet() {
 
               <div className={styles.image}>
                 <label>Imagenes</label>
-                <input className="form-control opacity-75" type="File" id="file" onChange={(e) => uploadImage(e)} />
+                <input multiple className="form-control opacity-75" type="File" id="file" onChange={(e) => uploadImage(e)} />
+                <ErrorMessage name="images" component={() => (<div className={styles.error}>{errors.images}</div>)}></ErrorMessage>
               </div>
 
               <div className={styles.wrap}>

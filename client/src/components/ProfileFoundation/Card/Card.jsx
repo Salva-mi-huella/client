@@ -9,7 +9,9 @@ import { MdDisabledByDefault } from 'react-icons/md';
 import '../Card/Card.css'
 
 const Card = (props) => {
+
     const [expanded, setExpanded] = useState(false);
+
     return (
         <AnimateSharedLayout>
             {expanded ? (

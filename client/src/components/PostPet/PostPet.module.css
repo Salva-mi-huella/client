@@ -1,16 +1,18 @@
 .postPetsContainer {
+  background-color: #fff;
 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 
-  width: 80vw;
-  height: 75vh;
-
-  margin: 2rem;
+  width: 84vw;
+  height: 85vh;
+  padding: .5rem;
+  /* margin: .5rem; */
 
 }
 
 .postPetForm {
+  background-color: red;
 
   display: flex;
   flex-direction: column;
@@ -24,7 +26,7 @@
   margin: 1rem;
 
   border: 1px solid #FCEC4F;
-  border-radius: 8px;
+  border-radius: .8rem;
   box-shadow: 0px 5px 26px 0px #FCEC4F;
 
 }
@@ -32,36 +34,47 @@
 .titles {
   display: flex;
   justify-content: center;
-
+  letter-spacing: .3rem;
+  font-weight: 600;
 }
 
-div h1 {
+.postPetTitle {
   color: #FCEC4F;
-  font-weight: 900;
+  font-weight: 700;
 }
 
-.groupinp {
-  display: flex;
-  justify-content: center;
+.inputNameContainer {
+  background: white;
+
+  margin: .3rem;
   padding: 10px;
+
+  display: flex;
+
 }
 
-.group2 {
+.inputCheckContainer {
+  background-color: green;
+
+  margin: .3rem;
+  padding: 10px;
+
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
 
-  margin: 15px 0 15px 0;
+  align-items: center;
+
 }
 
 .checks {
+
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
   min-width: 100px;
+
 }
 
 .textarea {
