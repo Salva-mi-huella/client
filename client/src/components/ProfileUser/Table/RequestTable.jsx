@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getRequestsAdopt} from '../../../redux/actions';
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,14 +8,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
 import styles from'./RequestTable.css'
 
-function createData(name, petId, userId, city, date, status) {
+/* function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
-}
+} */
 
-const makeStyles = (status) => {
+/* const makeStyles = (status) => {
     if (status === 'Aprobado') {
         return {
             background: 'green',
@@ -35,7 +33,7 @@ const makeStyles = (status) => {
             color: 'white'
         }
     }
-}
+} */
 
 export default function RequestTable({userId}) {
 
@@ -47,7 +45,7 @@ export default function RequestTable({userId}) {
 
     useEffect(() => { 
         dispatch(getRequestsAdopt())
-     }, [])
+     }, [dispatch])
 
      let requests = useSelector(state => state.requests_adopt);
 
