@@ -52,7 +52,7 @@ export default function BasicTable() {
 
     useEffect(() => {
         dispatch(getRequestsAdopt())
-    }, [])
+    }, [dispatch])
 
     requests = requests.filter(r => r.foundationId === foundation.id)
     // console.log(requests, 'requests_adopt');

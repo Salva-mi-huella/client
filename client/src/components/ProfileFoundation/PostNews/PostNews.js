@@ -136,7 +136,7 @@ export default function PostNews({ foundation }) {
                 </div>
                 <div className={style.resultImageContainer} >
                     {renderImg
-                        ? <img src={renderImg} className={style.resultImage} />
+                        ? <img src={renderImg} alt='your img' className={style.resultImage} />
                         : <p>Imagen</p>}
                 </div>
             </div>

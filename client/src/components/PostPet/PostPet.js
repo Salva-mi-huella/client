@@ -2,27 +2,36 @@ import React, { useState } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import styles from "./PostPet.module.css";
 import { useDispatch } from "react-redux";
+
 import { postPets } from "../../redux/actions";
-import Card from "../Adopt/Card";
 
 export default function PostPet() {
-  var date = Date();
-
-  const [imag, setImag] = useState("");
 
   const dispatch = useDispatch()
+  var date = Date();
+
+  const [imag, setImag] = useState([]);
+
+
   const uploadImage = (e) => {
-    setImag(e.target.files[0, 1, 2])
+    // setImag(imag)
+    // setImag(e.target.files[0])
+    //[e.target.name]: e.target.files[0]
+
+    setImag({ ...imag, [e.target.name]: e.target.files[0] })
+    console.log(imag)
   }
 
 
   return (
 
     <div className={styles.postPetsContainer}>
+
       <Formik
         initialValues={{
           name: "",
           images: `${imag}`,
+          // images: [],
           type: "",
           age: "",
           gender: "",
@@ -45,26 +54,30 @@ export default function PostPet() {
 
           //VALIDACION RADIO
           if (values.type === "") {
-            errores.type = "Selecciona el sexo de la mascota"
+            errores.type = "Selecciona su tipo"
+          }
+
+          if (values.gender === "") {
+            errores.gender = "Selecciona el genero"
           }
 
           //VALIDACION EDAD
           if (!values.age) {
             errores.age = "Por favor ingresa la edad"
           } else if (values.age < 0 || values.age > 20) {
-            errores.age = "Por favor ingresa una edad valida para tu mascota"
+            errores.age = "Por favor ingresa una edad valida"
           }
 
           //VALIDACION MENSAJE
           if (!values.description) {
-            errores.description = "Por favor cuentanos mas sobre la mascota"
+            errores.description = "Por favor cuentanos mas sobre la huella"
           } else if (values.description.length > 400) {
             errores.description = "Superaste el limite de caracteres: " + (values.description.length - 1)
           }
 
-          if (values.images.length < 3) {
-            errores.images = "Por favor, selecciona al menos 3 imagenes (manten presionado ctrl mientras seleccionas)"
-          }
+          // if (!values.images) {
+          //   errores.images = "Por favor, selecciona al menos 3 imagenes (manten presionado ctrl mientras seleccionas)"
+          // }
 
           return errores;
         }}
@@ -72,7 +85,7 @@ export default function PostPet() {
         onSubmit={async (values, { resetForm }) => {
 
           const data = new FormData();
-          data.append("file", imag);
+          data.append(`file`, imag);
           data.append("upload_preset", "koafybza");
           const res = await fetch("https://api.cloudinary.com/v1_1/djasy7hxk/image/upload",
             {
@@ -80,9 +93,8 @@ export default function PostPet() {
               body: data
             })
           let file = await res.json()
-
           console.log({
-            images: [file.secure_url],
+            images: imag,
             name: values.name,
             age: values.age,
             type: values.type,
@@ -123,42 +135,69 @@ export default function PostPet() {
               </div>
 
 
+
+              {/* CHECKBOX CONTAINER*/}
               <div className={styles.secondContainer}>
 
-                {/* CHECKBOX */}
+                {/* - 1 - EDAD */}
                 <div className={styles.firstCheckboxContainer}>
-                  <label>Tipo de huella</label>
 
-                  <div className={styles.checkboxType}>
-                    <label htmlFor="dog">Perro</label>
+                  <div className={styles.edadContainer}>
+                    <label className={styles.checkboxLabels} htmlFor="age">Edad</label>
+                    <Field className="form-control w-25 h-25 opacity-50" type="number" name="age" id="age" />
+                  </div>
+
+                  <div className={styles.errorBox}>
+                    <ErrorMessage name="age" component={() => (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
+                  </div>
+
+                </div>
+
+                {/* - 2 - TIPO */}
+                <div className={styles.firstCheckboxContainer}>
+                  {/* <label>Tipo de huella</label> */}
+
+                  <div className={styles.checkbox}>
+                    <label className={styles.checkboxLabels} htmlFor="dog">Perro</label>
                     <Field className="form-check-input mx-3" type="radio" name="type" id="dog" value="Perro" />
-                    <label htmlFor="gender">Gato</label>
+                    <label className={styles.checkboxLabels} htmlFor="cat">Gato</label>
                     <Field className="form-check-input mx-3" type="radio" name="type" id="cat" value="Gato" />
+                  </div>
+
+                  <div className={styles.errorBox}>
                     <ErrorMessage name="type" component={() => (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
+                  </div>
+
+                </div>
+
+
+                {/* -3 - GENERO */}
+                <div className={styles.secondCheckboxContainer}>
+                  {/* <label>Sexo</label> */}
+
+                  <div className={styles.checkbox}>
+                    <label className={styles.checkboxLabels} htmlFor="gender">Macho</label>
+                    <Field className="form-check-input mx-3" type="radio" name="gender" id="male" value="Macho" />
+                    <label className={styles.checkboxLabels} htmlFor="gender">Hembra</label>
+                    <Field className="form-check-input mx-3" type="radio" name="gender" id="female" value="Hembra" />
+                  </div>
+
+                  <div className={styles.errorBox}>
+                    <ErrorMessage name="gender" component={() => (<div className={styles.error}>{errors.gender}</div>)}></ErrorMessage>
                   </div>
                 </div>
 
 
-                {/* EDAD */}
-                <div className={styles.edad}>
-                  <label htmlFor="age">Edad</label>
-                  <Field className="form-control w-50 opacity-50" type="number" name="age" id="age" />
-                  <ErrorMessage name="age" component={() => (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
-                </div>
-
-
-                {/* GENERO */}
-                <div className={styles.sexo}>
-                  <label>Sexo</label>
-                  <div>
-                    <label htmlFor="gender">Macho</label>
-                    <Field className="form-check-input mx-3" type="radio" name="gender" value="Macho" />
-                    <label htmlFor="gender">Hembra</label>
-                    <Field className="form-check-input mx-3" type="radio" name="gender" value="Hembra" />
-                    <ErrorMessage name="type" component={() => (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
-                  </div>
-                </div>
               </div>
+
+
+              {/* ERRORS CONTAINER */}
+
+              {/* <div className={styles.errorContainer}> */}
+              {/* <ErrorMessage name="age" component={() => (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage> */}
+              {/* <ErrorMessage name="type" component={() => (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage> */}
+              {/* <ErrorMessage name="gender" component={() => (<div className={styles.error}>{errors.gender}</div>)}></ErrorMessage> */}
+
 
               <div className={styles.textarea}>
                 <label htmlFor="textarea" className="form-label">
@@ -175,9 +214,18 @@ export default function PostPet() {
                 <ErrorMessage name="description" component={() => (<div className={styles.error}>{errors.description}</div>)}></ErrorMessage>
               </div>
 
-              <div className={styles.image}>
-                <label>Imagenes</label>
-                <input multiple className="form-control opacity-75" type="File" id="file" onChange={(e) => uploadImage(e)} />
+              <label>Imagenes</label>
+              <div className={styles.imageContainer}>
+
+                <input name="image1" type="File" id="file" className="form-control opacity-75 w-50"
+                  onChange={(e) => uploadImage(e)} />
+
+                <input name="image2" type="File" id="file" className="form-control opacity-75 w-50"
+                  onChange={(e) => uploadImage(e)} />
+
+                <input name="image3" type="File" id="file" className="form-control opacity-75 w-50"
+                  onChange={(e) => uploadImage(e)} />
+
                 <ErrorMessage name="images" component={() => (<div className={styles.error}>{errors.images}</div>)}></ErrorMessage>
               </div>
 
@@ -189,18 +237,7 @@ export default function PostPet() {
         )}
       </Formik>
 
-      {/* <div className={styles.cardContainer}>
-        <Card
-          name={'nombre'}
-          img={'https://res.cloudinary.com/djasy7hxk/image/upload/v1659119458/Huellas_folder/780878_l3gk2o.jpg'}
 
-        id={values.id}
-        key={pet.id}
-        name={values.name}
-        img={[file.secure_url]}
-        />
-
-      </div> */}
 
     </div>
   );

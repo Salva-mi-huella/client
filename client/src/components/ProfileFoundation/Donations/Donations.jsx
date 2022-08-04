@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // import { useAuth0 } from '@auth0/auth0-react';
 // import { getFoundations } from '../../../redux/actions';
@@ -50,7 +50,7 @@ const Donations = () => {
     if (user) {
         // console.log(user, 'user info');
         foundation = foundation.find(f => f.email === user.email);
-        // console.log(foundation, 'foundation info');
+        console.log(foundation, 'foundation info');
     }
 
     // React.useEffect(() => {

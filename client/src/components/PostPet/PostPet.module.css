@@ -6,6 +6,7 @@
   width: 84vw;
   height: 85vh;
   padding: .5rem;
+  gap: 1rem;
   /* margin: .5rem; */
 
 }
@@ -22,6 +23,7 @@
   height: 95%;
   padding: 2rem;
   margin: 1rem;
+  /* gap: .5rem; */
 
   border: 1px solid #FCEC4F;
   border-radius: .8rem;
@@ -32,6 +34,9 @@
 .titles {
   display: flex;
   justify-content: center;
+
+  margin: -.5rem;
+
   letter-spacing: .3rem;
   font-weight: 600;
 }
@@ -42,30 +47,48 @@
 }
 
 .inputNameContainer {
-  /* background-color: green; */
-
-  margin: .3rem;
-  padding: 10px;
-
   display: flex;
-
 }
 
 .secondContainer {
-  background-color: green;
+  /* background-color: rgb(0, 202, 0); */
 
-  margin: .3rem;
-  padding: 10px;
+  margin-top: 2rem;
+  gap: 2rem;
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   align-items: center;
 
 }
 
+
+.zeroCheckboxContainer {}
+
+.edadContainer {
+  /* background-color: #fff; */
+  /* border-radius: 1rem; */
+
+  margin-bottom: -.7rem;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-around;
+  align-items: center;
+  text-align: justify;
+
+}
+
+.checkboxLabels {
+  font-size: 1rem;
+  max-width: 90px;
+}
+
+
 .firstCheckboxContainer {
-  background-color: rgba(0, 0, 0, 0.308);
+  background-color: rgba(0, 0, 0, 0.108);
   border-radius: 1rem;
 
   display: flex;
@@ -73,7 +96,7 @@
   flex-wrap: wrap;
   /* gap: .3rem; */
 
-  padding: 1rem;
+  padding: .7rem;
 
   align-items: center;
   text-align: justify;
@@ -83,37 +106,21 @@
 
 }
 
-.firstCheckboxContainer> :first-child {
-  letter-spacing: 2px;
-  font-size: 2rem;
-}
-
-.checkboxType {
-  /* background-color: #fff; */
+.checkbox {
   display: flex;
-  /* gap: 1rem; */
-  justify-content: space-around;
-
-
-}
-
-.textarea {
-  margin: 15px 0 15px 0;
-}
-
-.image {
-  margin: 15px 0 15px 0;
-}
-
-.edad {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  width: 200px;
+
 }
 
-.sexo {
+
+.secondCheckboxContainer {
+  background-color: rgba(0, 0, 0, 0.108);
+  border-radius: 1rem;
+
+  padding: .7rem;
+
+
   display: flex;
   flex-direction: column;
   min-width: 100px;
@@ -121,8 +128,22 @@
   align-items: center;
 }
 
+.textarea {
+  margin: 15px 0 15px 0;
+}
+
+.imageContainer {
+  display: flex;
+  /* margin: 1rem; */
+  /* background-color: green; */
+}
+
 
 .wrap {
+  /* background-color: #fff; */
+  /* margin-top: -1rem; */
+  /* margin-bottom: -1rem; */
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,10 +213,18 @@
   display: none;
 }
 
+/* ERRORS */
+.errorBox {
+  margin-top: 1rem;
+  /* background-color: yellow; */
+}
+
+
 .error {
   color: red;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 500;
+  width: fit-content;
 }
 
 .cardContainer {
@@ -204,3 +233,5 @@
   min-height: 50vh;
   justify-content: center;
 }
+
+@media screen and (max-width: 1600px) {}

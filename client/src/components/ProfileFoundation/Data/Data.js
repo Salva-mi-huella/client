@@ -1,8 +1,6 @@
 //  Sidebar Imports 
-import axios from 'axios';
 
 import {
-    MdList,
     MdSettings,
     MdUploadFile,
     MdOutgoingMail,
@@ -11,8 +9,6 @@ import {
     MdUpload,
     MdReceipt,
     MdRule,
-    MdSchedule,
-    MdHome,
     MdHowToVote
 } from 'react-icons/md';
 
