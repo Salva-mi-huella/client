@@ -1,5 +1,4 @@
 .postPetsContainer {
-  background-color: #fff;
 
   display: flex;
   /* justify-content: center; */
@@ -12,7 +11,6 @@
 }
 
 .postPetForm {
-  background-color: red;
 
   display: flex;
   flex-direction: column;
@@ -44,7 +42,7 @@
 }
 
 .inputNameContainer {
-  background: white;
+  /* background-color: green; */
 
   margin: .3rem;
   padding: 10px;
@@ -53,7 +51,7 @@
 
 }
 
-.inputCheckContainer {
+.secondContainer {
   background-color: green;
 
   margin: .3rem;
@@ -66,14 +64,36 @@
 
 }
 
-.checks {
+.firstCheckboxContainer {
+  background-color: rgba(0, 0, 0, 0.308);
+  border-radius: 1rem;
 
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  /* gap: .3rem; */
+
+  padding: 1rem;
+
   align-items: center;
-  text-align: center;
-  justify-content: center;
+  text-align: justify;
+  justify-content: space-between;
+
   min-width: 100px;
+
+}
+
+.firstCheckboxContainer> :first-child {
+  letter-spacing: 2px;
+  font-size: 2rem;
+}
+
+.checkboxType {
+  /* background-color: #fff; */
+  display: flex;
+  /* gap: 1rem; */
+  justify-content: space-around;
+
 
 }
 
@@ -176,4 +196,11 @@
   color: red;
   font-size: 15px;
   font-weight: 500;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 50vh;
+  justify-content: center;
 }

@@ -3,6 +3,7 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import styles from "./PostPet.module.css";
 import { useDispatch } from "react-redux";
 import { postPets } from "../../redux/actions";
+import Card from "../Adopt/Card";
 
 export default function PostPet() {
   var date = Date();
@@ -102,84 +103,58 @@ export default function PostPet() {
         }}
       >
         {({ errors }) => (
+
           <Form>
+
+            {/* TITULO */}
             <div className={styles.postPetForm}>
               <div className={styles.titles}>
-                <h1 className={styles.postPetTitle} >Mis Huellas</h1>
+                <h1 className={styles.postPetTitle} > Mis Huellas </h1>
               </div>
 
-              <div className={styles.inputNameContainer}>
 
-                <div className="w-75 text-dark">
+              {/* NOMBRE */}
+              <div className={styles.inputNameContainer}>
+                <div className="w-100 text-dark">
                   <label htmlFor="name">Nombre</label>
-                  <Field
-                    className="form-control opacity-50"
-                    type="text"
-                    name="name"
-                    id="name"
-                  />
+                  <Field className="form-control opacity-50" type="text" name="name" id="name" />
                   <ErrorMessage name="name" component={() => (<div className={styles.error}>{errors.name}</div>)}></ErrorMessage>
                 </div>
-
               </div>
 
-              <div className={styles.inputCheckContainer}>
 
-                <div className={styles.checks}>
+              <div className={styles.secondContainer}>
+
+                {/* CHECKBOX */}
+                <div className={styles.firstCheckboxContainer}>
                   <label>Tipo de huella</label>
 
-                  <div>
+                  <div className={styles.checkboxType}>
                     <label htmlFor="dog">Perro</label>
-                    <Field
-                      className="form-check-input mx-3"
-                      type="radio"
-                      name="type"
-                      id="dog"
-                      value="Perro"
-                    />
+                    <Field className="form-check-input mx-3" type="radio" name="type" id="dog" value="Perro" />
                     <label htmlFor="gender">Gato</label>
-                    <Field
-                      className="form-check-input mx-3"
-                      type="radio"
-                      name="type"
-                      id="cat"
-                      value="Gato"
-                    />
+                    <Field className="form-check-input mx-3" type="radio" name="type" id="cat" value="Gato" />
                     <ErrorMessage name="type" component={() => (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
                   </div>
-
                 </div>
 
 
+                {/* EDAD */}
                 <div className={styles.edad}>
                   <label htmlFor="age">Edad</label>
-                  <Field
-                    className="form-control w-50 opacity-50"
-                    type="number"
-                    name="age"
-                    id="age"
-                  />
+                  <Field className="form-control w-50 opacity-50" type="number" name="age" id="age" />
                   <ErrorMessage name="age" component={() => (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
                 </div>
+
+
+                {/* GENERO */}
                 <div className={styles.sexo}>
                   <label>Sexo</label>
                   <div>
                     <label htmlFor="gender">Macho</label>
-                    <Field
-                      className="form-check-input mx-3"
-                      type="radio"
-                      name="gender"
-
-                      value="Macho"
-                    />
+                    <Field className="form-check-input mx-3" type="radio" name="gender" value="Macho" />
                     <label htmlFor="gender">Hembra</label>
-                    <Field
-                      className="form-check-input mx-3"
-                      type="radio"
-                      name="gender"
-
-                      value="Hembra"
-                    />
+                    <Field className="form-check-input mx-3" type="radio" name="gender" value="Hembra" />
                     <ErrorMessage name="type" component={() => (<div className={styles.error}>{errors.type}</div>)}></ErrorMessage>
                   </div>
                 </div>
@@ -213,6 +188,20 @@ export default function PostPet() {
           </Form>
         )}
       </Formik>
+
+      {/* <div className={styles.cardContainer}>
+        <Card
+          name={'nombre'}
+          img={'https://res.cloudinary.com/djasy7hxk/image/upload/v1659119458/Huellas_folder/780878_l3gk2o.jpg'}
+
+        id={values.id}
+        key={pet.id}
+        name={values.name}
+        img={[file.secure_url]}
+        />
+
+      </div> */}
+
     </div>
   );
 }
