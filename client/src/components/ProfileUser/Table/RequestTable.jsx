@@ -35,7 +35,7 @@ import styles from'./RequestTable.css'
     }
 } */
 
-export default function RequestTable({userId}) {
+export default function RequestTable({userId, foundations}) {
 
     const dispatch=useDispatch()
 
@@ -89,7 +89,7 @@ export default function RequestTable({userId}) {
                   </TableCell> */}
 
                   <TableCell className={styles.tableCell} align="left">{r.pet.name}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">{r.foundationId === 1 ? "Refugio el campito" : null || r.foundationId === 2 ? "Gatitos de Palermo" :null || r.foundationId === 3 ? "El campito Felino" :null || r.foundationId === 4 ? "Naricitas Frias" :null || r.foundationId === 5 ? "Refugio Feliz" :null || r.foundationId === 6 ? "Proyecto 4 patas" :null || r.foundationId === 7 ? "Ayudacan" :null || r.foundationId === 8 ? "Patitas Glew" :null}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{foundations.find(f => f.id === r.foundationId).name}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{r.post_date}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{r.status} </TableCell>
                 </TableRow>

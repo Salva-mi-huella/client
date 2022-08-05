@@ -111,6 +111,7 @@ export default function PersistentDrawerLeft() {
  }, [dispatch, user.email])
 
  const userDetail = useSelector(state => state.user);
+ const foundations = useSelector(state => state.foundations);
 
 //  const points = function() {
 //   let points = 0;
@@ -229,7 +230,7 @@ export default function PersistentDrawerLeft() {
     </Box>
     {myData && <EditDataForm />}
 
-    {donations && <DonationTable userDetail={userDetail}></DonationTable>}
+    {donations && <DonationTable userDetail={userDetail} foundations={foundations}></DonationTable>}
 
     {favs && <div className={styles.favs}>
       <h1>Favoritos</h1>
@@ -243,7 +244,7 @@ export default function PersistentDrawerLeft() {
     </div>
       }
 
-    {request && <RequestTable userId={userDetail.id}></RequestTable>}
+    {request && <RequestTable userId={userDetail.id} foundations={foundations}></RequestTable>}
 
     </div>
   );
