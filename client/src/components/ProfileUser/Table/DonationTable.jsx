@@ -80,7 +80,7 @@ export default function DonationTable({userDetail}) {
                     <img className={styles.petImg} src={r.pet.images[0]} />
                     {r.pet.name}
                   </TableCell> */}
-                  <TableCell className={styles.tableCell} align="left">{d.foundationId}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{d.foundationId === 1 ? "Refugio el campito" : null || d.foundationId === 2 ? "Gatitos de Palermo" :null || d.foundationId === 3 ? "El campito Felino" :null || d.foundationId === 4 ? "Naricitas Frias" :null || d.foundationId === 5 ? "Refugio Feliz" :null || d.foundationId === 6 ? "Proyecto 4 patas" :null || d.foundationId === 7 ? "Ayudacan" :null || d.foundationId === 8 ? "Patitas" :null}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{`${d.amount} usd`}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{d.points}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{d.method.toUpperCase()}</TableCell>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { AnimatePresence, motion, AnimateSharedLayout } from "framer-motion/dist/framer-motion";
+// import { AnimatePresence, motion, AnimateSharedLayout } from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 
 import { SidebarData } from '../Data/Data.js';
-import logoDemo from '../../../assets/logos/Ellipse1.png'
-import { MdLogout, MdList, MdReorder } from 'react-icons/md';
+// import logoDemo from '../../../assets/logos/Ellipse1.png'
+import { MdLogout, MdList } from 'react-icons/md';
 import '../Sidebar/Sidebar.css'
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -22,7 +23,7 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
     const [selected, setSelected] = useState(0);
     const [expanded, setExpaned] = useState(true)
 
-    const {logout} = useAuth0();
+    const { logout } = useAuth0();
 
 
     const sidebarVariants = {
@@ -72,7 +73,7 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                         );
                     })}
 
-                    <div className="menuItem" onClick={()=>logout({returnTo:`${window.location.origin}/home`})}>
+                    <div className="menuItem" onClick={() => logout({ returnTo: `${window.location.origin}/home` })}>
                         <MdLogout />
                         <span>
                             Cerrar Sesion

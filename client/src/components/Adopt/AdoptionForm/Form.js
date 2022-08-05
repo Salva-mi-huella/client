@@ -1,16 +1,18 @@
 import styles from "./Form.module.css";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useSelector, useDispatch  } from "react-redux";
-import { useEffect, useState} from "react";
+import { useEffect, useState, useRef} from "react";
 import { getAllPets, getFoundations, postRequestAdopt, getUserByEmail } from "../../../redux/actions";
 import Swal from 'sweetalert2'
 import { useAuth0 } from '@auth0/auth0-react';
+import emailjs from 'emailjs-com';
 
-export default function Formulario() {
 
-const [submittedForm, setSubmittedForm] = useState(false);
+export default function Formulario({setModal, setCheck, check}) {
 
-const {isAuthenticated, user} = useAuth0();
+const [submittedForm, , setSubmittedForm] = useState(false);
+
+const {isAuthenticated, user, loginWithRedirect} = useAuth0();
 
 
 const dispatch = useDispatch();
@@ -26,23 +28,36 @@ useEffect(() => {
 const petDetail = useSelector(state => state.petDetail)
 const pets = useSelector(state => state.allPets)
 const foundations = useSelector(state => state.foundations)
-const userDetail = useSelector(state => state.user);
-  
-  
+const userDetail = useSelector(state => state.user)
+
+
+
+const handleOnClick = () => {
+  setModal(true);
+}
+
+const handleOnCheck = () => {
+  setCheck(false);
+}
+
+const ref = useRef(null)
+
+
+
   return (
     <div className={styles.container}>
       <Formik
+        innerRef={ref}
         initialValues={{
-          name: "",
+          name: userDetail?.name ? userDetail.name : "",
           lastname: "",
-          email: "",
-          phone: "",
+          email: userDetail?.email ? userDetail.email : "",
+          phone: userDetail?.telephone_number ? userDetail.telephone_number : "",
           age: "",
-          pet: petDetail.id,
+          pet: petDetail?.id ? petDetail.id : "",
           foundation: petDetail.foundationId,
           textarea:"",
-          checkbox:false,
-          // user: ''
+          checkbox:"",
         }}
         validate={(values) => {
           let errores = {};
@@ -60,9 +75,9 @@ const userDetail = useSelector(state => state.user);
           if (!values.lastname) {
             errores.lastname = "Por favor ingrese un apellido";
           } else if(values.lastname.length < 3){
-            errores.lastname = "El nombre debe incluir más de 3 caracteres"}
+            errores.lastname = "El apellido debe incluir más de 3 caracteres"}
             else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.lastname)) {
-            errores.lastname =
+              errores.lastname =
               "El apellido solo puede contener letras y espacios";
           }
 
@@ -71,14 +86,14 @@ const userDetail = useSelector(state => state.user);
             errores.email =
             "Por favor escribe un correo válido ej:correo@correo.com";
           }
-
+          
           //VALDIACION TELEFONO
           if(!values.phone){
             errores.phone="Por favor ingresa un teléfono de contacto"
           }else if(values.phone.length < 7 || values.phone.length > 10){
             errores.phone="El teléfono de contacto debe tener 10 digitos"
           }
-
+          
           //VALIDACION EDAD
           if(!values.age){
             errores.age="Por favor ingresa tu edad"
@@ -88,53 +103,109 @@ const userDetail = useSelector(state => state.user);
           
           //VALIDACION MENSAJE
           if(!values.textarea){
-            errores.textarea="Por favor escríbenos porque te gustaría adoptar"
+            errores.textarea="Por favor cuéntanos porque te gustaría adoptar"
           }
 
           //VALIDACION CHECKBOX
           if(values.checkbox !== true){
-            errores.checkbox="Debes aceptar nuestros términos y condiciones para continuar con el proceso de adopción"
+            errores.checkbox="Debes aceptar el acuerdo de adopción para continuar"
           }
           
           return errores;
         }}
+        
         onSubmit={(values, { resetForm }) => {  
           
+          const petSelected = pets.find(p => p.id == values.pet)?.name
+          const foundationSelected = foundations.find(f => f.id == values.foundation)?.name
+
+
+          values.petSelected=petSelected
+          values.foundationSelected=foundationSelected
+
+          
+          
+          // Swal.fire({
+            //   position: 'center',
+            //   icon: 'success',
+            //   title: 'Enviado con éxito',
+          //   showConfirmButton: false,
+          //   timer: 2000
+          // })
+
           Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Enviado con éxito',
-            showConfirmButton: false,
-            timer: 1500
+            title: `¿Estás seguro de querer enviar el formulario?`,
+            text: !isAuthenticated && '¡Registrate antes para sumar huellitas en caso de que concrete la adopción!',
+            showClass: {
+              popup: 'swal2-show',
+              backdrop: 'swal2-backdrop-show',
+              icon: 'swal2-icon-show'
+            },
+            color: 'purple',
+            padding: '2rem',
+            width: '40rem',
+            heigth: '60rem',
+            
+            showDenyButton: !isAuthenticated && true,
+            showCancelButton: true,
+            showConfirmButton: true,
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: `Cancelar`,
+            denyButtonText: `Registrarse`,
+            
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+              position: 'center',
+              icon: 'success',
+              text: 'Ahora podrás visualizarla desde tu perfil',
+              title: 'Tu solicitud ha sido enviada con éxito',
+              showConfirmButton: false,
+              timer: 2000
+              })
+              dispatch(postRequestAdopt({
+                age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, 
+                pet: values.pet, foundation: values.foundation, user: userDetail.id
+              }))
+
+              emailjs.send('service_q0212bn', 'template_zja2jzv', values, 'Aq8UicE7cYgpn5IXB')
+              .then((result) => {
+                console.log(result);
+              }, (error) => {
+              console.log(error.text);
+            });
+
+              resetForm();
+            } else if (result.isDenied) {
+              loginWithRedirect()
+            } 
           })
-          dispatch(postRequestAdopt({
-            age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, 
-            pet: values.pet, foundation: values.foundation, user: userDetail.id
-          }))
-          resetForm();
-        }}
+
+          // dispatch(postRequestAdopt({
+          //   age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, 
+          //   pet: values.pet, foundation: values.foundation, user: userDetail.id
+          // }))
+          
+          }}
       >
         {({errors}) => (
           <Form>
-            <div className={styles.title}>
-              <h1 className={styles.titletext}>FORMULARIO DE ADOPCIÓN</h1>
-            </div>
 
             <div className={styles.groupinp}>
               <div className={styles.inp}>
-                <label htmlFor="name">Nombres</label>
+                <label htmlFor="name">Nombre</label>
                 <Field 
                   // className="form-control opacity-25"
                   className={`form-control ${styles.inputsForm}` }
                   type="text"
                   name="name"
-                  id="name"                  
-                />
+                  id="name"                 
+                /> 
                 <ErrorMessage name="name" component={()=> (<div className={styles.error}>{errors.name}</div>)}></ErrorMessage>
               </div>
 
               <div className={styles.inp}>
-                <label htmlFor="lastname">Apellidos</label>
+                <label htmlFor="lastname">Apellido</label>
                 <Field
                   className={`form-control ${styles.inputsForm}`}
                   type="text"
@@ -153,7 +224,7 @@ const userDetail = useSelector(state => state.user);
                   type="email"
                   name="email"
                   id="email"
-                />
+                /> 
                 <ErrorMessage name="email" component={()=> (<div className={styles.error}>{errors.email}</div>)}></ErrorMessage>
               </div>
 
@@ -164,7 +235,7 @@ const userDetail = useSelector(state => state.user);
                   type="tel"
                   name="phone"
                   id="phone"
-                />
+                /> 
                 <ErrorMessage name="phone" component={()=> (<div className={styles.error}>{errors.phone}</div>)}></ErrorMessage>
               </div>
             </div>
@@ -183,9 +254,8 @@ const userDetail = useSelector(state => state.user);
 
               <div className={styles.inp}>
                 <label htmlFor="pet">Huella</label>
-                <Field as="select"  className={`form-control w-75 ${styles.inputsForm}`} name="pet" id="pet">
-                  {petDetail && petDetail.name && <option selected defaultValue={petDetail.name} value={petDetail.id}>{petDetail.name}</option>  }              
-                  {pets && pets.map((pet) => petDetail.name !== pet.name?(<option value={pet.id}>{pet.name}</option>):null)}
+                <Field defaultValue={petDetail.name} as="select" className={`form-control w-75 ${styles.inputsForm}`} name="pet" id="pet">
+                  {pets && pets.map((pet) => ref.current?.values?.foundation == pet.foundationId?(<option  value={pet.id}>{pet.name}</option>):null)}
                 </Field>
               </div>
 
@@ -193,7 +263,7 @@ const userDetail = useSelector(state => state.user);
                 <label htmlFor="foundation">Fundación</label>
                 <Field as="select"  className={`form-control w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation">
                 {petDetail.foundation && petDetail.foundation.name && <option selected defaultValue={petDetail.foundation.id} value={petDetail.foundation.id}>{petDetail.foundation.name}</option>}
-                  {foundations && foundations.map((foundation)=> (<option value={foundation.id}>{foundation.name}</option>))}
+                  {foundations && foundations.filter(f => f.id !== petDetail.foundationId).map((foundation)=> (<option value={foundation.id}>{foundation.name}</option>))}
                 </Field>                                  
               </div>
             </div>
@@ -208,10 +278,12 @@ const userDetail = useSelector(state => state.user);
             </div>
 
             <div className={styles.check}>
-              <Field type="checkbox" className="form-check-input me-4" name="checkbox"></Field>
+              {check ? 
+              <Field type="checkbox" onClick={handleOnCheck} checked="true" value="true" className="form-check-input me-4" name="checkbox"></Field> : 
+              <Field type="checkbox" className="form-check-input me-4" name="checkbox"></Field>}
               <label>
-                He leído y acepto todos los {" "}
-                <a href="/tienda">términos y condiciones.</a>
+                He leído y acepto el {" "}
+                <button onClick={handleOnClick} type="button" >acuerdo de adopción.</button>
               </label>
             </div>
             <div className={styles.checkerror}>
@@ -219,7 +291,7 @@ const userDetail = useSelector(state => state.user);
             </div>
 
             <div className={styles.boton}>
-              <button className={styles.send}>ENVIAR</button>
+              <button  className={styles.send}>ENVIAR</button>
             </div>
           </Form>
         )}
