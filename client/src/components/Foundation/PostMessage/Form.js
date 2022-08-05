@@ -1,14 +1,10 @@
 import styles from "./Form.module.css";
 import { Form, Formik, Field, ErrorMessage } from "formik";
-import { useSelector, useDispatch  } from "react-redux";
-import { useEffect, useState} from "react";
+import { useDispatch  } from "react-redux";
 import { postMessage } from "../../../redux/actions";
 import Swal from 'sweetalert2'
 
 export default function MessageForm({foundationId}) {
-
-const [submittedForm, setSubmittedForm] = useState(false);
-
 
 
 const dispatch = useDispatch();

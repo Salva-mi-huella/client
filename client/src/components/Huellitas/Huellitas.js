@@ -4,12 +4,7 @@ import banner from '../../assets/banner-huellitas-3.png'
 import { useAuth0 } from '@auth0/auth0-react';
 import paw from '../../assets/paw-print.png'
 import { Link } from 'react-router-dom';
-// import register from '../../assets/user-checked2.png'
 import register from '../../assets/user-checked.png'
-import refer from '../../assets/refer2.png'
-// import rescued from '../../assets/rescued2.png'
-// import rescued from '../../assets/rescued3.png'
-// import rescued from '../../assets/pet.png'
 import rescued from '../../assets/animal-care.png'
 
 

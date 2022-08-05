@@ -113,17 +113,16 @@ const ref = useRef(null)
           
           return errores;
         }}
-        onSubmit={(values, { resetForm }) => { 
+        
+        onSubmit={(values, { resetForm }) => {  
           
           const petSelected = pets.find(p => p.id == values.pet)?.name
           const foundationSelected = foundations.find(f => f.id == values.foundation)?.name
-          console.log(petSelected)
-          console.log(foundationSelected)
+
 
           values.petSelected=petSelected
           values.foundationSelected=foundationSelected
 
-          console.log(values)
           
           
           // Swal.fire({
