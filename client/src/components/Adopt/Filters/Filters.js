@@ -25,8 +25,12 @@ export default function Filters(){
     //In case browser reload, ARREGLAR
     useEffect(()=>{
         return function clean(){
-            dispatch(filtersConfig({type:null,foundation:null,gender:null }))}
-    },[])
+            dispatch(filtersConfig({type:null }))
+            dispatch(filtersConfig({foundation:null }))
+            dispatch(filtersConfig({gender:null }))
+            dispatch(filtersConfig({name:null }))
+        }
+    },[dispatch])
 
     useEffect(()=>{
 
@@ -52,11 +56,11 @@ export default function Filters(){
                 title: 'Oops...',
                 text: 'No tenemos animales con esas caracteristicas',
               })
-        } 
-        
+        }
+        filteringPets = filteringPets.filter(pet => !pet.adopted)
         dispatch(petsFiltered(filteringPets)) 
         
-    },[filters,arrAllPets])
+    },[filters,arrAllPets, dispatch])
     return(
         <div className={style.allAnimals__filters}>
             <FilterByType/>
