@@ -99,8 +99,6 @@ const userDetail = useSelector(state => state.user);
           return errores;
         }}
         onSubmit={(values, { resetForm }) => {  
-          console.log(values)
-          console.log(userDetail)
           
           Swal.fire({
             position: 'center',
