@@ -24,7 +24,9 @@ export default function PetDetail(){
 
     useEffect(()=>{
         dispatch(getPetDetail(id));
+        window.scrollTo(0, 0);
     }, [dispatch, id])
+
 
     useEffect(() => {
         pet.images && setRenderImg(pet.images[0]);

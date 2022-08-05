@@ -63,7 +63,9 @@ export default function rootReducer(state = initialState, action) {
 
         case GET_ALL_PETS: return {...state, allPets: action.payload }
 
-        case GET_CURRENCY: return {...state, currency: action.payload }
+        case GET_CURRENCY: 
+        console.log(action.payload)
+        return {...state, currency: action.payload }
 
         case FILTERS_CONFIG: return{...state,
             filtersConfig:{ ...state.filtersConfig, [action.filter]: action.payload[action.filter]}}
