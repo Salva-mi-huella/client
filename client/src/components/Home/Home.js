@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
 import { getFoundations, postUser, getUserByEmail } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
-import banner from '../../assets/banner.png';
+import banner from '../../assets/banner-1.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import eslogan from '../../assets/eslogan2.png'
@@ -14,6 +14,7 @@ import Adoptants from './Adoptants';
 import register from '../../assets/register.png';
 import gift from '../../assets/gift-box.png';
 import { setUserSession, getUserSession } from "../../utils";
+import News from './News/News';
 
 
 export default function Home() {
@@ -94,13 +95,7 @@ export default function Home() {
 
 
             <div className={styles.top}>
-                <div className={styles.clients}>
-                    <h1>¡Adoptantes y huellas felices!</h1>
-                    <div>
-                        <Adoptants />
-                    </div>
-
-                </div>
+                    <News></News>
                 <div className={styles.esloganFooter}>
                     <div id='imagen'>
                         <img className={styles.esloganFooter} src={eslogan} alt='eslogan'></img>

@@ -14,7 +14,7 @@ import PostPet from '../PostPet/PostPet.js';
 
 
 import styles from '../ProfileFoundation/ProfileFoundation.module.css';
-import { getFoundations } from '../../redux/actions/index.js';
+import { getFoundations, getRequestsAdopt } from '../../redux/actions/index.js';
 
 export default function ProfileFoundation() {
 
@@ -22,7 +22,17 @@ export default function ProfileFoundation() {
 
     React.useEffect(() => {
         dispatch(getFoundations());
+        dispatch(getRequestsAdopt())
     }, [dispatch])
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    let foundation = useSelector(state => state.foundations);
+    if (user) {
+        foundation = foundation.find(f => f.email === user.email);
+    }
+
+
+
 
     const [optionSelection, setOptionSelection] = useState(0)
 
@@ -32,6 +42,7 @@ export default function ProfileFoundation() {
             <div className={styles.containerGlass} >
 
                 <Sidebar
+                    foundation={foundation}
                     optionSelection={optionSelection}
                     setOptionSelection={setOptionSelection}
                 />
@@ -39,57 +50,57 @@ export default function ProfileFoundation() {
                 {
                     optionSelection === 0 && (
                         <>
-                            <MainDash />
-                            <RightSide />
+                            <MainDash foundation={foundation} />
+                            <RightSide foundation={foundation} />
                         </>
                     )
                 }
                 {
                     optionSelection === 1 && (
                         <>
-                            <EditProfile />
+                            <EditProfile foundation={foundation} />
                         </>
                     )
                 }
                 {
                     optionSelection === 2 && (
                         <>
-                            <InfoPets />
+                            <InfoPets foundation={foundation} />
                         </>
                     )
                 }
                 {
                     optionSelection === 3 && (
                         <>
-                            <AdoptionRequests />
+                            <AdoptionRequests foundation={foundation} />
                         </>
                     )
                 }
                 {
                     optionSelection === 4 && (
                         <>
-                            <PostNews />
+                            <PostNews foundation={foundation} />
                         </>
                     )
                 }
                 {
                     optionSelection === 5 && (
                         <>
-                            <PostPet />
+                            <PostPet foundation={foundation} />
                         </>
                     )
                 }
                 {
                     optionSelection === 6 && (
                         <>
-                            <Donations />
+                            <Donations foundation={foundation} />
                         </>
                     )
                 }
                 {
                     optionSelection === 7 && (
                         <>
-                            <Inbox />
+                            <Inbox foundation={foundation} />
                         </>
                     )
                 }

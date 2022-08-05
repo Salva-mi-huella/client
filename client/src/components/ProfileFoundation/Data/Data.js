@@ -1,6 +1,6 @@
 //  Sidebar Imports 
+
 import {
-    MdList,
     MdSettings,
     MdUploadFile,
     MdOutgoingMail,
@@ -9,12 +9,17 @@ import {
     MdUpload,
     MdReceipt,
     MdRule,
-    MdSchedule,
-    MdHome,
     MdHowToVote
 } from 'react-icons/md';
 
 import { FaHome } from 'react-icons/fa';
+
+// async function getDetails() {
+//  Traer la info de las fundaciones, filtrar por usuario logueado y
+//  llenar los campos de las cards con info dinamica
+//     const details = await axios.get()
+// }
+
 
 // Sidebar Data
 export const SidebarData = [
@@ -46,11 +51,12 @@ export const SidebarData = [
         icon: MdPaid,
         heading: "Donaciones"
     },
-    // {
-    //     icon: MdOutgoingMail,
-    //     heading: "Mensajes"
-    // },
+    {
+        icon: MdOutgoingMail,
+        heading: "Mensajes"
+    },
 ];
+
 
 //  MainDash Data
 export const CardsData = [

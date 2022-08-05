@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Card from './Card.js'
 import banner from '../../assets/adopt-banner.png'
 import steps from '../../assets/adoptSteps.png'
@@ -7,6 +7,7 @@ import style from './Adopt.module.css'
 import Paginate from './Filters/Paginate.js';
 import Filters from './Filters/Filters.js';
 import Loading from '../Loading/Loading'
+import Aside from './Aside/Aside.js';
 
 
 export default function Adopt(){
@@ -47,27 +48,33 @@ export default function Adopt(){
                     <img id={style.steps} src={steps} alt="steps"/>
                 </div>
             </div>
-            {/* <h2 className={style.innerTittles} >Conoce nuestras Huellas</h2> */}
             <div className={style.allAnimals}>
                 <Filters/>
             </div>
-            <div className={style.cardContainer}>
-                
-                {renderPerPage ?
-                    renderPerPage.map(pet => (
-                        <Card 
-                        id={pet.id}
-                        key= {pet.id}
-                        name={pet.name}
-                        img={pet.images} 
-                        />
-                    ))
-                    :
-                    <Loading/>
-                }
-                
-                <Paginate/>
-            </div>
+            {renderPerPage  ?
+                <div className={style.containerAnimals}>
+                    <div>
+                        <div className={style.cardContainer}>
+                                {renderPerPage.map(pet => (
+                                    <Card 
+                                    id={pet.id}
+                                    key= {pet.id}
+                                    age ={pet.age}
+                                    name={pet.name}
+                                    img={pet.images} 
+                                    />
+                                ))}
+
+                        </div>
+                            <Paginate/>
+                    </div>
+                    <div>
+                        <Aside/>
+                    </div>
+                </div>
+            :
+                <Loading/>
+            }
         </>
     )
 }

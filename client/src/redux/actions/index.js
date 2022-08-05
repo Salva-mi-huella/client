@@ -187,8 +187,10 @@ export function updateFoundation(data,id) {
 
 export function updateUser(data, email) {
     return async function (dispatch) {
+        console.log(data, email,"------")
         try {
             const updatedUser = await axios.put(`/users/${email}`, data);
+            
 
             return dispatch({
                 type: UPDATE_USER,
@@ -204,7 +206,6 @@ export function updateUser(data, email) {
 export function getUserByEmail(email) {
     return async function (dispatch) {
         try {
-            console.log(email)
             const user = await axios.get(`/users/${email}`);
 
             return dispatch({
@@ -297,6 +298,17 @@ export function postRequestAdopt (data){
     return function(){
         try{
             axios.post("/request_adopts", data)
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+}
+
+export function postMessage (data){
+    return function(){
+        try{
+            axios.post("/messages", data)
         }
         catch (e) {
             console.log(e)

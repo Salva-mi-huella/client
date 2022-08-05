@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useEffect} from 'react'
 import {  useDispatch, useSelector } from 'react-redux';
 import { getFoundations, getCurrency } from '../../redux/actions/index.js';
 import style from './Stepper.module.css'
@@ -10,7 +9,6 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import paypal from '../../assets/paypal.png'
 import mercadoPago from '../../assets/mercadopago.png'
@@ -103,10 +101,6 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
     if (activeStep === 1)  setDonation({...donation, method: ''})
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
   const handleOnClick = (e) => {
     e.target.name ? setDonation({...donation, [e.target.name]: e.target.alt}) : setDonation({...donation, amount: e.target.innerText})
   }
@@ -127,7 +121,6 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
                 </StepLabel>
                 <StepContent>
                 <Typography color='common.white'>{step.description}</Typography>
-                {console.log(Typography)}
                 {step.label === 'Elegí la fundación' && 
                 <div className={style.foundations}>
                 {foundations.map(f=>(

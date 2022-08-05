@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { delFromCart, clearCart} from '../../redux/actions'
+import { delFromCart, clearCart, addToCart} from '../../redux/actions'
 import styles from './ShoppingCart.module.css'
 
 export default function ShoppingCart() {
@@ -11,31 +11,36 @@ export default function ShoppingCart() {
     let total = 0;
     data.map(d => total+= (d.points*d.quantity))
 
+    ShoppingCart.total = total;
+
   return (
     <div className={styles.main}>
-        <div className={styles.title}>
-            <h1>Carrito</h1>
-        </div>
-        <div className={styles.bttnclear}>
-            <button className="btn btn-dark" onClick={()=>dispatch(clearCart())}>Vaciar Carrito</button>
-        </div>
-
-            <div className={styles.itemContainer}>
+        <div className={styles.itemContainer}>
             {data.map(d=>(
-                <div className={styles.itemCard}>
-                    <p>Item: {d.name}</p>
-                    <p>{d.points} x {d.quantity} = {d.points * d.quantity}</p>
-                    <div>
-                        <button className="btn btn-dark" onClick={()=>dispatch(delFromCart(d.id))}>-</button>
-                        <button className="btn btn-dark" onClick={()=>dispatch(delFromCart(d.id, true))}>X</button>
+                <div className={styles.mainitems}>
+                    <div className={styles.containerimagecart}>
+                        <img src={d.images}/>
                     </div>
+                    <div className={styles.priceitem}>
+                        <p>{d.name}{" "}{d.points} x {d.quantity} = {d.points * d.quantity}</p>                        
+                    <div>
+                        <button className="" onClick={()=>dispatch(delFromCart(d.id))}>-</button>
+                        <button className="" onClick={()=>dispatch(delFromCart(d.id, true))}>X</button>
+                        <button className="" onClick={()=>dispatch(addToCart(d.id))}>+</button>
+                    </div>
+                    <hr/>
                 </div>
-            ))}
             </div>
+            ))}
+    </div>
 
         <div className={styles.total}>            
             <h5>Total compra: {total}</h5>
-        </div>    
+        </div>  
+        
+        <div className={styles.bttnclear}>
+            <button className="" onClick={()=>dispatch(clearCart())}>Vaciar Carrito</button>
+        </div>
         
     </div>
   )

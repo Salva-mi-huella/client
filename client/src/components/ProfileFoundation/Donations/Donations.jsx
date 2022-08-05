@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // import { useAuth0 } from '@auth0/auth0-react';
 // import { getFoundations } from '../../../redux/actions';
@@ -14,6 +14,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import styles from '../Donations/Donations.module.css';
+
+
 
 const makeStyles = (method) => {
 
@@ -48,7 +50,7 @@ const Donations = () => {
     if (user) {
         // console.log(user, 'user info');
         foundation = foundation.find(f => f.email === user.email);
-        // console.log(foundation, 'foundation info');
+        console.log(foundation, 'foundation info');
     }
 
     // React.useEffect(() => {
@@ -72,7 +74,7 @@ const Donations = () => {
             <h3 className={styles.donationTitle}> Historial de Donaciones </h3>
 
             <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '80%' }}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -107,13 +109,13 @@ const Donations = () => {
                 </Table>
 
                 <TablePagination
-                    // className={styles.pagination}
+                    className={styles.pagination}
                     component="div"
                     count={foundation?.donations.length}
                     page={page}
                     onPageChange={handleChangePage}
                     rowsPerPage={rowsPerPage}
-                    rowsPerPageOptions={[5, 10]}
+                    rowsPerPageOptions={[10]}
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
 

@@ -1,52 +1,24 @@
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { getAllNews } from '../../redux/actions';
-import styles from './News.module.css';
+import styles from './CampaignCard.module.css';
+import {Link} from 'react-router-dom';
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
-export default function News() {
-  const [expanded, setExpanded] = React.useState(false);
-  const dispatch = useDispatch();
-  const news = useSelector(state => state.news);
+export default function News({news}) {
 
-    useEffect(() => {
-        dispatch(getAllNews());
-    }, [dispatch]);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
       <div className={styles.container}>
-    {news?.map((news) => (
-            <Card sx={{ maxWidth: 400 }}>
+        <img className={styles.campaignImage} src={news.images[0]} alt='campaignImage'></img>
+        <div>
+            <div className={styles.titleSection} >
+                <h1>{news.title}</h1>
+                <img  className={styles.foundationImage} src={news.foundationsImage} alt='foundation'></img>
+            </div>
+            <span>{news.post_date}</span>
+            <p>{news.description}</p>
+            <Link to='/donar'><button>QUIERO AYUDAR</button></Link>
+        </div>
+            {/* <Card sx={{ maxWidth: 400 }}>
                         <CardHeader
                             avatar={
                             news.foundation?.images?.map((image)=>{
@@ -88,9 +60,7 @@ export default function News() {
                                     </Typography>
                                 </CardContent>
                             </Collapse>
-                    </Card>
-            ))}
+                    </Card> */}
             </div>
     );
 }
-

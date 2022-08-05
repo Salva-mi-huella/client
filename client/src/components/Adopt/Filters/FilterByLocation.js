@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector  } from 'react-redux'
 import { filtersConfig, getFoundations } from '../../../redux/actions'
 import style from '../Adopt.module.css'
@@ -7,6 +7,7 @@ import style from '../Adopt.module.css'
 export default function FilterByLocation(){
 
     const dispatch = useDispatch()
+    const [active,setActive] = useState(false)
 
     useEffect(()=>{
         dispatch(getFoundations())
@@ -25,12 +26,15 @@ export default function FilterByLocation(){
    
     function handleChange(e){
         let city = e.target.value
-        if(e.target.value === "null") city = null
+        if(e.target.value === "null") {
+            setActive(false)
+            city = null}
+        else setActive(true)
         dispatch(filtersConfig({city}))
     }
 
     return(
-        <select className={style.filterConfig}  defaultValue="Ubicación" onChange={(e)=>handleChange(e)} id="gender">
+        <select className={` ${style.filterConfig} ${active ? style.active : null}`}  defaultValue="Ubicación" onChange={(e)=>handleChange(e)} id="gender">
             <option disabled >Ubicación</option>
             <option value="null"> Todas </option>
             {foundationXLocation && foundationXLocation.map(foundation =>(

@@ -122,3 +122,36 @@
     text-decoration: none;  
 }
 
+.shoppingcart{
+    transition: 0.3s;
+    background-color: #6e117f;
+    color: rgba(255, 255, 255, 0.876);
+    border: none;
+    margin-right: 3vw;
+    margin-bottom: 1.5vw;
+    border-radius: 5px;
+    font-size: 1vw;
+    cursor: pointer;
+    width: 8vw;
+    height: 2vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.shoppingcart:hover{
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.876);
+    color: #6e117f;
+}
+
+.mainmodal{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0;
+}
+
+.modalfooter{
+    display: flex;
+    justify-content: center;
+}
+

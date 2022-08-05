@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {getRequestsAdopt} from '../../../redux/actions';
+import { getRequestsAdopt } from '../../../redux/actions';
 
+import TablePagination from '@mui/material/TablePagination';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,11 +11,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import styles from './Table.module.css'
-
-function createData(name, petId, userId, city, date, status) {
-    return { name, petId, userId, city, date, status };
-}
+import styles from './Table.module.css';
 
 const makeStyles = (status) => {
     if (status === 'Aprobado') {
@@ -37,34 +34,40 @@ const makeStyles = (status) => {
     }
 }
 
-const rows = [
-    createData('Maple', 1, 159, 'Haedo', 'Julio 26 2022', 'Aprobado'),
-    createData('Yuki', 2, 237, 'Almagro', 'Julio 26 2022', 'Pendiente'),
-    createData('Cafecito', 3, 262, 'Padua', 'Julio 26 2022', 'Aprobado'),
-    createData('Bella', 4, 305, 'Caballito', 'Julio 26 2022', 'Rechazado'),
-    createData('Ahri', 5, 356, 'Palermo', 'Julio 26 2022', 'Aprobado'),
-];
-
 export default function BasicTable() {
 
-    const dispatch=useDispatch()
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(4);
+
+    const dispatch = useDispatch()
 
     const user = JSON.parse(localStorage.getItem('user'));
     let foundation = useSelector(state => state.foundations);
+    let requests = useSelector(state => state.requests_adopt);
+
 
     if (user) {
         foundation = foundation.find(f => f.email === user.email);
-        console.log(foundation, 'foundation info');
+        console.log(foundation, 'Foundation');
     }
 
-      useEffect(() => { 
-      dispatch(getRequestsAdopt())
-   }, [])
+    useEffect(() => {
+        dispatch(getRequestsAdopt())
+    }, [dispatch])
 
-   let requests = useSelector(state => state.requests_adopt);
+    requests = requests.filter(r => r.foundationId === foundation.id)
+    console.log(requests, 'requests_adopt');
 
-   requests = requests.filter(r => r.foundationId === foundation.id)
-   
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+
+    const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests?.length - page * rowsPerPage));
 
     return (
         <div className={styles.Table}>
@@ -88,26 +91,45 @@ export default function BasicTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {requests.map((r) => (
-                            <TableRow
-                                key={r.id}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {r.name}
-                                </TableCell>
-                                <TableCell align="left">{r.user.name}</TableCell>
-                                <TableCell align="left">{r.user.email}</TableCell>
-                                <TableCell align="left" className={styles.ciudad}>{r.user.telephone_number || 'Sin especificar'}</TableCell>
-                                <TableCell align="left" className={styles.ciudad}>{r.user.city || 'Sin especificar'}</TableCell>
-                                <TableCell align="left">01/08/2022</TableCell>
-                                <TableCell align="left">
-                                    <span className={styles.status} style={makeStyles('Pendiente')} >Pendiente</span>
-                                </TableCell>
+                        {requests && requests
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((r) => (
+                                <TableRow
+                                    key={r.id}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {r.pet.name}
+                                    </TableCell>
+                                    <TableCell align="left">{r.user.name}</TableCell>
+                                    <TableCell align="left">{r.user.email}</TableCell>
+                                    <TableCell align="left" className={styles.ciudad}>{r.user.telephone_number || 'Sin especificar'}</TableCell>
+                                    <TableCell align="left" className={styles.ciudad}>{r.user.city || 'Sin especificar'}</TableCell>
+                                    <TableCell align="left">01/08/2022</TableCell>
+                                    <TableCell align="left">
+                                        <span className={styles.status} style={makeStyles('Pendiente')} >Pendiente</span>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        {emptyRows > 0 && (
+                            <TableRow style={{ height: 53 * emptyRows }}>
+                                <TableCell colSpan={6} />
                             </TableRow>
-                        ))}
+                        )}
                     </TableBody>
                 </Table>
+
+                <TablePagination
+                    className={styles.pagination}
+                    component="div"
+                    count={foundation.request_adopts.length}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    rowsPerPage={rowsPerPage}
+                    rowsPerPageOptions={[4]}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
+
             </TableContainer>
         </div>
     );

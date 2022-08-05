@@ -54,6 +54,7 @@ export default function GoogleMaps({foundation, lat, lng}) {
     return (
 
         <div>
+            <h1 className={styles.title} > ¿Donde estamos? </h1>
             <div>
               {/* Google Map Box */}
               <GoogleMap
