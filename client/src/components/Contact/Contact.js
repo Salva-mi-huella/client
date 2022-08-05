@@ -24,12 +24,13 @@ export default function Contact() {
         name: '',
         email: '',
         message: '',
-        // telephone: ''
+        telephone: ''
     })
 
     function validateForm(input) {
         let error ={}
         const regEmail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/g
+        const regPhone = /^-?[0-9]*$/
 
         if(!input.name) error.name = '*'
 
@@ -42,6 +43,13 @@ export default function Contact() {
         if(!input.message) error.message = '*'
         
         if(input.message && input.message.length < 10) error.message = 'mínimo 10 caracteres'
+
+        if(!input.telephone) error.telephone = '*'
+
+        if(input.telephone && input.telephone.length > 15) error.telephone = 'teléfono invalido'
+
+        if(input.telephone && !regPhone.test(input.telephone)) error.telephone = 'teléfono invalido'
+
     
         return error;
     }
@@ -61,7 +69,7 @@ export default function Contact() {
 
     function sendEmail(e){
         e.preventDefault();
-        if (!Object.keys(error).length && input.name && input.email && input.message) {
+        if (!Object.keys(error).length && input.name && input.email && input.message && input.telephone) {
       dispatch(postRequestFoundation(input))
       emailjs.sendForm('service_q0212bn', 'template_b1658cp', e.target, 'Aq8UicE7cYgpn5IXB')
       .then((result) => {
@@ -97,7 +105,7 @@ export default function Contact() {
             name: '',
             email: '',
             message: '',
-            // telefono: ''
+            telephone: ''
         })
            
     }
@@ -132,19 +140,19 @@ export default function Contact() {
                           <label className={style.label}>Nombre de la Fundación</label> 
                           <div className={style.cont}>
                             <input required className={style.input} type="text" name="name" value={input.name} id={style.name} onChange={e => handleChange(e)} placeholder="Nombre..." />
-                          </div>
                             {error.name && <p className={`${style.error}`}>{error.name}</p>}
+                          </div>
 
                           <label className={style.label}>Email</label>
                         <div className={style.cont}>
                           <input required className={style.input} type="text" name="email" value={input.email}  onChange={e => handleChange(e)} placeholder="Email..."/>
-                        </div>
                           {error.email && <p className={`${style.error}`}>{error.email}</p>}
+                        </div>
 
                         <label className={style.label}>Teléfono de contacto</label>
                         <div className={style.cont}>
-                          <input className={style.input} type="text" name="telefono" value={input.telefono}  onChange={e => handleChange(e)} placeholder="Número de telefono"/>
-                          {error.telefono && <p className={`${style.error}`}>{error.telefono}</p>}
+                          <input className={style.input} type="text" name="telephone" value={input.telephone}  onChange={e => handleChange(e)} placeholder="Número de telefono"/>
+                          {error.telephone && <p className={`${style.error}`}>{error.telephone}</p>}
                         </div>
 
                           <label className={style.label} >Mensaje</label>

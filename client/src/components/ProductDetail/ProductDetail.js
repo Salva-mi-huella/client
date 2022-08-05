@@ -114,7 +114,7 @@ export default function ProductDetail() {
                 <p className={styles.description}>{product.description}</p>
                 <div >
                     <div className={styles.price}>
-                    <img className={styles.huellita} src={huellita}></img>
+                    <img className={styles.huellita} alt="foto-huellita" src={huellita}></img>
                     <p className={styles.points}> {product.points*numero}</p>
                     </div>
                     

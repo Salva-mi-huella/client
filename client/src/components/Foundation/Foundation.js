@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {  useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { getFoundationDetail } from '../../redux/actions/index';
@@ -14,28 +14,20 @@ import Aside from './Aside.js'
 
 
 export default function Foundation () {
-    // const [input, setInput] = useState({
-    //     amount: 0,
-    // })
 
     const dispatch = useDispatch();
     const params = useParams();
     const foundation = useSelector(state => state.foundationDetail)
-    console.log(foundation)
 
     useEffect(() => { 
         dispatch(getFoundationDetail(params.foundationId))
-     }, [])
+     }, [dispatch, params.foundationId])
 
-
-    //  const handleOnChange = (e) => {
-    //     setInput({...input, [e.target.name]: e.target.value})
-    //    }
 
 
     return (  
 
-       foundation.id == params.foundationId && <div >
+       foundation.id === parseInt(params.foundationId) && <div >
 
             <div className={styles.containerInfo}>
                     <div className={styles.namePicture}>
@@ -53,7 +45,6 @@ export default function Foundation () {
 
              <div className={styles.containerDonate}>
                 <div>
-                    {/* <img src={heart_paw} alt="heart-paw"></img> */}
                     <h2>Dejá tu huella</h2>
                     <img src={heart_paw} alt="heart-paw"></img>
 

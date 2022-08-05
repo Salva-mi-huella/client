@@ -48,14 +48,15 @@ export default function BasicTable() {
 
     if (user) {
         foundation = foundation.find(f => f.email === user.email);
+        console.log(foundation, 'Foundation');
     }
 
     useEffect(() => {
         dispatch(getRequestsAdopt())
-    }, [])
+    }, [dispatch])
 
     requests = requests.filter(r => r.foundationId === foundation.id)
-    // console.log(requests, 'requests_adopt');
+    console.log(requests, 'requests_adopt');
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -98,7 +99,7 @@ export default function BasicTable() {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        {r.name}
+                                        {r.pet.name}
                                     </TableCell>
                                     <TableCell align="left">{r.user.name}</TableCell>
                                     <TableCell align="left">{r.user.email}</TableCell>

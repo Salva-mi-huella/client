@@ -1,12 +1,13 @@
 .postPetsContainer {
 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 
-  width: 80vw;
-  height: 75vh;
-
-  margin: 2rem;
+  width: 84vw;
+  height: 85vh;
+  padding: .5rem;
+  gap: 1rem;
+  /* margin: .5rem; */
 
 }
 
@@ -22,9 +23,10 @@
   height: 95%;
   padding: 2rem;
   margin: 1rem;
+  /* gap: .5rem; */
 
   border: 1px solid #FCEC4F;
-  border-radius: 8px;
+  border-radius: .8rem;
   box-shadow: 0px 5px 26px 0px #FCEC4F;
 
 }
@@ -33,63 +35,121 @@
   display: flex;
   justify-content: center;
 
+  margin: -.5rem;
+
+  letter-spacing: .3rem;
+  font-weight: 600;
 }
 
-div h1 {
+.postPetTitle {
   color: #FCEC4F;
-  font-weight: 900;
+  font-weight: 700;
 }
 
-.groupinp {
+.inputNameContainer {
   display: flex;
-  justify-content: center;
-  padding: 10px;
 }
 
-.group2 {
+.secondContainer {
+  /* background-color: rgb(0, 202, 0); */
+
+  margin-top: 2rem;
+  gap: 2rem;
+
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+
   align-items: center;
-  width: 100%;
 
-  margin: 15px 0 15px 0;
 }
 
-.checks {
+
+.zeroCheckboxContainer {}
+
+.edadContainer {
+  /* background-color: #fff; */
+  /* border-radius: 1rem; */
+
+  margin-bottom: -.7rem;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-around;
+  align-items: center;
+  text-align: justify;
+
+}
+
+.checkboxLabels {
+  font-size: 1rem;
+  max-width: 90px;
+}
+
+
+.firstCheckboxContainer {
+  background-color: rgba(0, 0, 0, 0.108);
+  border-radius: 1rem;
+
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  /* gap: .3rem; */
+
+  padding: .7rem;
+
   align-items: center;
-  text-align: center;
-  justify-content: center;
+  text-align: justify;
+  justify-content: space-between;
+
   min-width: 100px;
+
+}
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.secondCheckboxContainer {
+  background-color: rgba(0, 0, 0, 0.108);
+  border-radius: 1rem;
+
+  padding: .7rem;
+
+
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  text-align: center;
+  align-items: center;
 }
 
 .textarea {
   margin: 15px 0 15px 0;
 }
 
-.image {
-  margin: 15px 0 15px 0;
+.imageTitleContainer {
+
+  display: flex;
+  justify-content: space-around;
 }
 
-.edad {
+.imageContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 200px;
-}
-
-.sexo {
-  display: flex;
-  flex-direction: column;
-  min-width: 100px;
-  text-align: center;
-  align-items: center;
+  /* margin: 1rem; */
+  /* background-color: green; */
 }
 
 
 .wrap {
+  /* background-color: #fff; */
+  /* margin-top: -1rem; */
+  /* margin-bottom: -1rem; */
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,8 +219,25 @@ div h1 {
   display: none;
 }
 
+/* ERRORS */
+.errorBox {
+  margin-top: 1rem;
+  /* background-color: yellow; */
+}
+
+
 .error {
   color: red;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 500;
+  width: fit-content;
 }
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 50vh;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1600px) {}

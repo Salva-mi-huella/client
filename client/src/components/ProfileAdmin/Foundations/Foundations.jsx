@@ -1,38 +1,49 @@
 import React, { useEffect } from 'react';
-import './Foundations.css'
-import {  useDispatch, useSelector } from 'react-redux';
-import {getFoundations} from "../../../redux/actions"
+import { useDispatch, useSelector } from 'react-redux';
+import { getFoundations, updateFoundation } from "../../../redux/actions"
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
-
-import './Table.css'
+import styles from '../Foundations/Foundations.module.css';
 
 
 const Foundations = () => {
 
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-  useEffect(() => { 
-    dispatch(getFoundations())
- },[dispatch])
+    useEffect(() => {
+        dispatch(getFoundations())
+    }, [dispatch])
 
-  const foundations = useSelector(state => state.foundations)
-  console.log(foundations)
+    const foundations = useSelector(state => state.foundations)
 
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
 
-  return (
-    <div className='containerFoundation'>
-      <h1>Fundaciones:</h1>
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+    const handleUpdate = (e, id) => {
+        dispatch(updateFoundation({ status: e.target.value }, id))
+    }
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, foundations.length - page * rowsPerPage);
+    return (
+        <div className={styles.tableDonations}>
+            <h3 className={styles.donationTitle}>Fundaciones:</h3>
 
-                <TableContainer component={Paper}
-            >
-                <Table sx={{ minWidth: 650 }} aria-label="simple table" className='conatinerTable'>
+            <TableContainer className={styles.cont} style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }} component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>N°</TableCell>
@@ -41,28 +52,47 @@ const Foundations = () => {
                             <TableCell align="left">Ciudad</TableCell>
                             <TableCell align="left">Localidad</TableCell>
                             <TableCell align="left">Email</TableCell>
-                            <TableCell align="left">Estado</TableCell>
+
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {foundations.map((f) => (
-                                <TableRow key={f.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                        {foundations.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((f) => (
+                            <TableRow className={styles.row} key={f.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 <TableCell component="th" scope="row">{f.id}</TableCell>
                                 <TableCell align="left">{f.name}</TableCell>
                                 <TableCell align="left">{f.telephone_number}</TableCell>
                                 <TableCell align="left">{f.state}</TableCell>
                                 <TableCell align="left" className="ciudad">{f.city}</TableCell>
                                 <TableCell align="left">{f.email}</TableCell>
-                                <TableCell align="left"><button className='btn'>Dar de baja</button></TableCell>
+                                <TableCell align="left">
+                                    {f.status === "Activa" ? <button value={f.status === "Activa" ? "Inactiva" : "Activa"} onClick={e => handleUpdate(e, f.id)} className={styles.boton} key={f.id}>Dar de baja</button> :
+                                        <button value={f.status === "Activa" ? "Inactiva" : "Activa"} onClick={e => handleUpdate(e, f.id)} className={styles.boton1} key={f.id}>Dar de alta</button>}
+                                </TableCell>
                             </TableRow>
                         ))}
+                        {emptyRows > 0 && (
+                            <TableRow style={{ height: 53 * emptyRows }}>
+                                <TableCell colSpan={6} />
+                            </TableRow>
+                        )}
                     </TableBody>
                 </Table>
+
+                <TablePagination
+                    className={styles.pagination}
+                    component="div"
+                    count={foundations.length}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    rowsPerPage={rowsPerPage}
+                    rowsPerPageOptions={[10]}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
             </TableContainer>
-    
-    
-    </div>
-  )
+
+
+        </div>
+    )
 }
 
 export default Foundations

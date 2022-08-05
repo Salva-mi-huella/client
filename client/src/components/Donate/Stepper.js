@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useEffect} from 'react'
 import {  useDispatch, useSelector } from 'react-redux';
 import { getFoundations, getCurrency } from '../../redux/actions/index.js';
 import style from './Stepper.module.css'
@@ -10,7 +9,6 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import paypal from '../../assets/paypal.png'
 import mercadoPago from '../../assets/mercadopago.png'
@@ -44,7 +42,7 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
   useEffect(()=>{
       dispatch(getFoundations())
       dispatch(getCurrency())
-  },[])
+  },[dispatch])
   
   let amount1 = function(){
     let newAmount = ''
@@ -101,10 +99,6 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
     if (activeStep === 2)  setDonation({...donation, amount: ''})
     if (activeStep === 1)  setDonation({...donation, method: ''})
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
   };
 
   const handleOnClick = (e) => {

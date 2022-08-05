@@ -1,0 +1,53 @@
+.cont{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  .row{
+    border-bottom: 1px solid #e5e5e5;
+  }
+.Table{
+    display: flex;
+    flex-direction: column;
+    width: 69vw;
+    max-height: 40vh;
+    margin-left: 9.7rem;
+}
+
+.title {
+    display: flex;
+    font-size: 37px;
+    font-weight: 500;
+}
+
+.MuiTableRow-root>* {
+    padding: 10px;
+}
+
+.MuiTableRow-root.MuiTableRow-head>* {
+    font-weight: 900 !important;
+}
+
+.Table td, th {
+    border: none !important;
+    
+}
+
+.Table:first-child {
+    border-radius: 0.7rem !important;
+}
+
+.status {
+    padding: 8px;
+    border-radius: 9px;
+}
+
+.transito{
+    padding: 0.5rem;
+    border-radius: 990px;
+}
+.estado{
+    margin-left: 20rem;
+}
+
+
+
+

@@ -1,7 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { UpdatesData } from '../Data/Data';
 import styles from './Updates.module.css';
 
 const Updates = () => {
