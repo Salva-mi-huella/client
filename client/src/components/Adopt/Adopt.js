@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Card from './Card.js'
 import banner from '../../assets/adopt-banner.png'
 import steps from '../../assets/adoptSteps.png'

@@ -11,15 +11,24 @@ export default function Paginate(){
     
     const {filtered} = useSelector(state => state.petsFiltered)
     let [actualPage, setActualPage] = useState(1)
+    const [active , setActive] = useState('')
     
     useEffect(()=>{
         if(filtered){
             let firstIndex = (actualPage * 12) - 12
             let lastIndex = (actualPage * 12)
             let renderPage = filtered.slice(firstIndex, lastIndex)
+            setActive(actualPage)
             dispatch(petsFiltered(filtered,renderPage))
         }
-    },[actualPage])
+    },[actualPage,dispatch,filtered])
+
+    const filters = useSelector(state=> state.filtersConfig )
+    useEffect(()=>{
+        setActualPage(1)
+    },[filters])
+
+
     // Setup number of rendering pages
     let pagesUI = []
     if(filtered){
@@ -48,7 +57,7 @@ export default function Paginate(){
                 }
                 {
                     pagesUI.map(n=>(
-                        <li key={n} className={style.pages} onClick={e => handleSelect(e)} value={n} >{n}</li>
+                        <li key={n} className={`${style.pages} ${active === n ? style.activePage : null}`} onClick={e => handleSelect(e)} value={n} >{n}</li>
                     ))
                 }
                 {
