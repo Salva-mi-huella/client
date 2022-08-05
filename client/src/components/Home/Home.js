@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
 import { getFoundations, postUser, getUserByEmail } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
-import banner from '../../assets/banner.png';
+import banner from '../../assets/banner-1.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import eslogan from '../../assets/eslogan2.png'
