@@ -3,6 +3,9 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 2vw;
+    font-size: 3vw;
+    font-weight: bold;
+    color: rgb(255, 230, 0);
 }
 
 .subContainer {

@@ -3,6 +3,7 @@ import styles from "./AboutUs.module.css";
 import githubpng from "../../assets/pngegg.png";
 import fotolauti from "../../assets/fotoLauti.jpeg";
 import henry from "../../assets/henry.png";
+import Footer from "../Footer/Footer";
 
 
 export default function AboutUs(){
@@ -131,6 +132,8 @@ export default function AboutUs(){
                 </div>
                 </div>
             </div>
+
+            <Footer/>
         </div>
     )
 }
