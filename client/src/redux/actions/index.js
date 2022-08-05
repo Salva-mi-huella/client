@@ -22,7 +22,10 @@ export const ADD_TO_CART= 'ADD_TO_CART'
 export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
 export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
 export const CLEAR_CART= 'CLEAR_CART'
+export const STORE_FILTERS = 'STORE_FILTERS'
 export const GET_ALL_NEWS = 'GET_ALL_NEWS'
+export const GET_SEARCH_PRODUCTS = 'GET_SEARCH_PRODUCTS';
+
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -378,5 +381,33 @@ export function clearCart(){
     })
     }
 }
+
+//SearchBar store
+export function getSearchProducts(name){
+    return async function (dispatch){
+        try {
+            const info = await axios(`/products?name=${name}`)
+            return dispatch({
+                type:GET_ALL_PRODUCTS,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
+}
+
+//FILTERS STORE
+export const storeFilters = (fByAZ, fByPrice, fByType, fByCategory) => {
+    return function(dispatch) {
+        return dispatch({ 
+            type: STORE_FILTERS, 
+            payload:{fByAZ,fByPrice,fByType,fByCategory}
+        });
+    };
+};
 
 

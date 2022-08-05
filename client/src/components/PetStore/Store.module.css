@@ -16,15 +16,17 @@
 }
 .sidebar{
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    justify-content: flex-start;
+    flex-direction: column;
     width: 15vw;
     height: 100vh;
     margin-left: 2.8vw;
     margin-top: 8vw;
-    /* border-radius: 8px; */
-    border-right: 1px solid black;
-    background-size:cover;   
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    box-shadow: 19px 15px 10px 3px rgba(0, 0, 0, 0.25); 
+    background-color: #6e117f;
+    padding: 1vw;
 }
 
 .containeritems{
@@ -58,7 +60,7 @@
 }
 
 .pagbuttons{
-    background-color: #FCEC4F;
+    background-color: #6e117f;;
     border-radius: 4px;
     width: 40px;
     height: 40px;
@@ -66,7 +68,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 20px;
     font-weight: 600;
@@ -77,7 +79,7 @@
 }
 
 .activebuttons{
-    background-color:#5D3DD2;
+    background-color:white;
     border-radius: 4px;
     width: 60px;
     height: 40px;
@@ -85,7 +87,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #6e117f;
     text-decoration: none;    
 }
 
@@ -94,15 +96,15 @@
 }
 
 .prevnext{
-    background-color: #FCEC4F;
+    background-color: #6e117f;;
     border-radius: 4px;
-    width: 100px;
+    width: 120px;
     height: 40px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 20px;
     font-weight: 600;
@@ -110,15 +112,15 @@
 
 .prevnext:hover{
     cursor: pointer;
-    background-color:#5D3DD2;
+    background-color:white;;
     border-radius: 4px;
-    width: 100px;
+    width: 120px;
     height: 40px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #6e117f;;
     text-decoration: none;  
 }
 
@@ -153,5 +155,88 @@
 .modalfooter{
     display: flex;
     justify-content: center;
+}
+
+.filters{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1vw;    
+}
+
+.searchbar{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2vw;
+}
+
+.filters select{
+    text-align: center;
+    height: 2.5vw;
+    width: 15vw;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #6e117f;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.typefilters{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align:left;
+    width:150px;
+}
+
+.typefilters h2{
+    color: white;
+}
+
+.typefilters select{
+    border: none;
+    overflow: hidden;
+    width: 10vw;
+    height: 10vw;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.typefilters select:focus{
+    outline: none;
+}
+
+.typefilters option{
+    color: white;
+    margin: 1vw;
+}
+
+.categoryfilters{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align:left;
+    width:150px;
+}
+
+.categoryfilters h2{
+    color: white;
+}
+.categoryfilters select{
+    border: none;
+    overflow: hidden;
+    width: 10vw;
+    height: 10vw;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.categoryfilters select:focus{
+    outline: none;
+}
+
+.categoryfilters option{
+    color: white;
+    margin: 1vw;
 }
 
