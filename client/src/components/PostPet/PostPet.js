@@ -214,7 +214,12 @@ export default function PostPet() {
                 <ErrorMessage name="description" component={() => (<div className={styles.error}>{errors.description}</div>)}></ErrorMessage>
               </div>
 
-              <label>Imagenes</label>
+              <div className={styles.imageTitleContainer}>
+                <label>Imagen 1</label>
+                <label>Imagen 2</label>
+                <label>Imagen 3</label>
+              </div>
+
               <div className={styles.imageContainer}>
 
                 <input name="image1" type="File" id="file" className="form-control opacity-75 w-50"

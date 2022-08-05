@@ -95,7 +95,7 @@ export default function PostNews({ foundation }) {
 
             <form onSubmit={e => handleSubmit(e)} className={style.postNewsForm}>
                 <h3 className={style.postNewsTitle}> Escribe una nueva noticia</h3>
-                <div>
+                <div className={style.firstSection}>
                     <input
                         id="campaign"
                         onChange={(e) => hanldeCheck(e)}
@@ -103,6 +103,7 @@ export default function PostNews({ foundation }) {
                         name="campaign"
                         value={!input.campaign}
                         className={style.checkbox}
+                        title='Selecciona si tu noticia es urgente'
                     />
                     <label className={style.label} htmlFor="title">Titulo</label>
                     <input className={style.inputText} required onChange={(e) => handleChange(e)} type="text" id="title" name="title" value={input.title} />
@@ -117,7 +118,7 @@ export default function PostNews({ foundation }) {
                     </textarea>
                 </div>
                 <div>
-                    <label className={style.label} htmlFor="image"> Fotos: </label>
+                    <label className={style.label} htmlFor="image"> Foto: </label>
                     <input className={style.inputText} required onChange={(e) => handleChange(e)} type="file" id="image" name="image" />
                 </div>
                 <input className={style.btnPostNew} type="submit" value="Postear" />

@@ -132,6 +132,12 @@
   margin: 15px 0 15px 0;
 }
 
+.imageTitleContainer {
+
+  display: flex;
+  justify-content: space-around;
+}
+
 .imageContainer {
   display: flex;
   /* margin: 1rem; */

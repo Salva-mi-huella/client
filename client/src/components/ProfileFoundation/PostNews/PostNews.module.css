@@ -17,6 +17,13 @@
     border-right: 1px solid white;
 }
 
+.firstSection {
+    /* background-color: rgb(56, 255, 56); */
+    display: flex;
+    justify-content: space-between;
+}
+
+
 .postNewsTitle {
     /* margin: 1rem; */
     position: relative;
@@ -26,6 +33,10 @@
     font-weight: 500;
     color: #F1F15B;
 
+}
+
+.checkbox {
+    margin: 1rem;
 }
 
 .postNewsForm div {
