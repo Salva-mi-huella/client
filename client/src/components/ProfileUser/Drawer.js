@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -100,7 +100,7 @@ export default function PersistentDrawerLeft() {
   const [request, setRequests] = React.useState(false);
   const [products, setProducts] = React.useState(false);
   const [donations, setDonations] = React.useState(false);
-  const { user, isLoading , logout} = useAuth0();
+  const { user , logout} = useAuth0();
   const dispatch = useDispatch();
 
   console.log(user)
@@ -108,9 +108,10 @@ export default function PersistentDrawerLeft() {
   useEffect(() => { 
     console.log(user.email)
     dispatch(getUserByEmail(user.email))
- }, [])
+ }, [dispatch, user.email])
 
  const userDetail = useSelector(state => state.user);
+ const foundations = useSelector(state => state.foundations);
 
 //  const points = function() {
 //   let points = 0;
@@ -229,7 +230,7 @@ export default function PersistentDrawerLeft() {
     </Box>
     {myData && <EditDataForm />}
 
-    {donations && <DonationTable userDetail={userDetail}></DonationTable>}
+    {donations && <DonationTable userDetail={userDetail} foundations={foundations}></DonationTable>}
 
     {favs && <div className={styles.favs}>
       <h1>Favoritos</h1>
@@ -243,7 +244,7 @@ export default function PersistentDrawerLeft() {
     </div>
       }
 
-    {request && <RequestTable userId={userDetail.id}></RequestTable>}
+    {request && <RequestTable userId={userDetail.id} foundations={foundations}></RequestTable>}
 
     </div>
   );

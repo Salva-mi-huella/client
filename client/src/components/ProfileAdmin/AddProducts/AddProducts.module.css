@@ -1,0 +1,118 @@
+.postProductContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+}
+.containerSelect{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    margin: 1.5rem 0;
+}
+.contactContainer {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+.h3title{
+    color: white;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+.label, .button, .description {
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 0.1rem;
+  }
+  
+  
+  .label, .description {
+    color: #2d2d2f;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+  }
+  
+/*   .form {
+    width: 31.25rem;
+    position: relative;
+    margin-top: 1rem;
+    padding: 1rem 0;
+  } */
+  
+  .input, .textarea, .label {
+    width: 40vw;
+    display: block;
+  }
+  
+  .input, .textarea {
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  
+  .input::placeholder, .textarea::placeholder {
+    color: #0107129c;
+  }
+
+  
+  .input, .textarea {
+    color: #010712;
+    font-weight: 500;
+    background: #FCFDFD;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.334);
+    padding: 0.5rem 0;
+    outline: none;
+    resize: none;
+    margin-bottom: 6px;
+  }
+.pictures{
+    margin-bottom: 2rem;
+}
+.typeCat{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-family: 'Jost', sans-serif;
+    color: #2d2d2f;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+}
+.select{
+    width: 10vw;
+    display: flex;
+    border: none;
+    border-radius: 30px;
+    padding: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+}
+.post{
+    width: 40vw;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: rgba(214, 71, 253, 0.678);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    margin-top: 1.5rem;
+}
+.form{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    padding: 1rem 5rem;
+}
+.error{
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}

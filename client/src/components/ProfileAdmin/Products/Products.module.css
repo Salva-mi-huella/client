@@ -1,0 +1,112 @@
+.donationTitle {
+    margin-top: 5rem ;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #FFFF;
+  }
+  
+  .MuiTableRow-root>* {
+    padding: 10px;
+  }
+  
+  .MuiTableRow-root.MuiTableRow-head>* {
+    font-weight: 900 !important;
+  }
+  
+  .tableDonations {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    min-height: 80vh;
+    max-height: 90vh;
+    overflow-y: none;
+  }
+  
+  .tableDonations td, th {
+    border: none !important;
+  }
+  
+  .tableDonations:first-child {
+    border-radius: 0.7rem !important;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .tableDonations {
+        width: 170%;
+        margin-top: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 820px) {
+    .tableDonations {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 23rem;
+    }
+  }
+  .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      align-content: flex-end;
+      padding: 35px;
+      margin-top: 1rem;
+  }
+  .row{
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .cont{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  .points{
+    color: rgb(10, 175, 10);
+  }
+  .select{
+    border: none;
+  }
+  .select>option{
+    border: none;
+  }
+
+.button {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #07c;
+}
+
+.button:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}

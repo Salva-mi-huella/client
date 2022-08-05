@@ -25,7 +25,11 @@ import {
     GET_ALL_NEWS,
     GET_REQUESTS_FOUNDATIONS,
     GET_REQUESTS_ADOPT,
-    GET_SEARCH_PRODUCTS
+    GET_SEARCH_PRODUCTS,
+    UPDATE_PRODUCT,
+    GET_DONATIONS,
+    POST_PRODUCT,
+    UPDATE_REQUEST_FOUNDATION
 
 } from "../actions"
 
@@ -48,6 +52,7 @@ const initialState = {
     news: [],
     requests_foundations: [],
     requests_adopt: [],
+    donations: []
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -199,7 +204,17 @@ export default function rootReducer(state = initialState, action) {
 
         case GET_ALL_NEWS: return {...state, news: action.payload}
 
+
         case GET_SEARCH_PRODUCTS: return { ...state, allProductsFiltered: action.payload }
+
+        case UPDATE_PRODUCT: return {...state}
+
+        case GET_DONATIONS: return {...state, donations: action.payload}
+        
+        case POST_PRODUCT: return {...state}
+
+        case UPDATE_REQUEST_FOUNDATION: return {...state}
+
 
         default: return {...state}
 

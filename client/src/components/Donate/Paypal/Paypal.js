@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, useState} from 'react'
-import { Link,  } from 'react-router-dom'
 import {  useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import styles from './Paypal.module.css'
@@ -98,7 +97,7 @@ export default function Paypal({amount, foundation, user}){
                 // height: '50px'
             }
         }).render(paypal.current)
-    }, [])
+    }, [dispatch, amount1, donation, history, newPoints, user.email])
  
     return(
        <div className={show ? styles.modal : styles.success}>

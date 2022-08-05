@@ -87,7 +87,7 @@ const InfoPets = () => {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        <img className={styles.petImg} src={row.images[0]} />
+                                        <img className={styles.petImg} alt='pet icon' src={row.images[0]} />
                                         {row.name}
                                     </TableCell>
 

@@ -150,14 +150,11 @@
 .coral{
     color: rgb(255, 145, 145)!important;
 }
-.header span, p{
+.header span{
     color: white;
     text-decoration: none;
     font-weight: bold;
     text-decoration: none;
-    /* padding: 5px; */
-    /* padding-bottom: 0px; */
-    /* margin-top: 5px; */
     margin-left: 25px;
     font-size: 1.4rem;
     transition: 0.4s;

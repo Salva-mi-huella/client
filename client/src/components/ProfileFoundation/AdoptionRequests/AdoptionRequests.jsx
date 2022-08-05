@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import TablePagination from '@mui/material/TablePagination';
 import Table from '@mui/material/Table';
@@ -70,7 +70,7 @@ const AdoptionRequests = () => {
   return (
     <div className={styles.tableRequests}>
 
-      {/* <Table /> */}
+     
       <h3 className={styles.requestTableTitle}> Tabla de solicitudes </h3>
 
       <TableContainer component={Paper}
@@ -97,7 +97,7 @@ const AdoptionRequests = () => {
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    <img className={styles.petImg} src={r.pet.images[0]} />
+                    <img className={styles.petImg} alt='pet icon' src={r.pet.images[0]} />
                     {r.pet.name}
                   </TableCell>
 
