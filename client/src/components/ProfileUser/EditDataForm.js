@@ -8,11 +8,6 @@ import { getUserByEmail } from '../../redux/actions';
 import Swal from 'sweetalert2';
 
 
-
-
-
-
-
 export default function EditDataForm({datos,setDatos}) {
 
   const { user, isLoading } = useAuth0();
