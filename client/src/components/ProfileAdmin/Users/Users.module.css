@@ -1,0 +1,139 @@
+
+.cont{
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+min-width: 20vw;
+max-width: 100vw;
+}
+.row{
+  border-bottom: 1px solid #e5e5e5;
+
+}
+.row1{
+  /* font-size: 0.99rem; */
+  font-size-adjust: 0.5rem;
+
+}
+.donationTitle {
+  margin-top: 5rem ;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #FFFF;
+}
+
+.MuiTableRow-root>* {
+  padding: 10px;
+}
+
+.MuiTableRow-root.MuiTableRow-head>* {
+  font-weight: 900 !important;
+}
+
+.tableDonations {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  min-width: 50vw;
+  max-width: 100vw;
+  min-height: 80vh;
+  max-height: 90vh;
+  overflow-y: none;
+}
+
+.tableDonations td, th {
+  border: none !important;
+}
+
+.tableDonations:first-child {
+  border-radius: 0.7rem !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .tableDonations {
+      width: 170%;
+      margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .tableDonations {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 10rem;
+  }
+  .row1{
+    font-size: 0.5rem;
+    font-size-adjust: 0.5rem;
+  }
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: flex-end;
+    padding: 35px;
+    margin-top: 1rem;
+}
+.status{
+  display: flex;
+  font-size: 0.9rem;
+  margin-left: 1.5rem;
+}
+.noAplica1{
+  font-size: 1.2rem;
+  margin-left: 1.3rem;
+}
+.noAplica2{
+  font-size: 1.2rem;
+  margin-left: 3rem;
+}
+
+.btn {
+  background-color: #f43737;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  border-style: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 30px;
+  padding: 6px;
+  text-align: center;
+  transition: color 100ms;
+  width: 8rem;
+  vertical-align: baseline;
+  user-select: none;
+
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #f47373;
+}
+/* --------------------------- BTN ADMIN */
+.btn1 {
+  background-color: #15c3cf;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  border-style: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 30px;
+  padding: 6px;
+  text-align: center;
+  transition: color 100ms;
+  width: 8rem;
+  vertical-align: baseline;
+  user-select: none;
+
+}
+
+.btn1:hover,
+.btn1:focus {
+  background-color: #91e8e7;
+}

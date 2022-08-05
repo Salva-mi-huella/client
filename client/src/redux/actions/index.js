@@ -23,6 +23,11 @@ export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
 export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
 export const CLEAR_CART= 'CLEAR_CART'
 export const GET_ALL_NEWS = 'GET_ALL_NEWS'
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
+export const GET_DONATIONS = 'GET_DONATIONS'
+export const POST_PRODUCT = 'POST_PRODUCT'
+export const UPDATE_REQUEST_FOUNDATION = 'UPDATE_REQUEST_FOUNDATION'
+
 
 export function getFoundationDetail(id){
     return function(dispatch) {
@@ -164,14 +169,14 @@ export function postUser(user) {
     }
 }
 
-export function updateFoundation(id) {
+export function updateFoundation(data,id) {
     return async function (dispatch) {
         try {
-            const updatedFoundation = await axios.put(`/foundations/${id}`);
+            const updatedFoundation = await axios.put(`/foundations/${id} `, data);
 
             return dispatch({
                 type: UPDATE_FOUNDATION,
-                payload: updatedFoundation
+                payload: updatedFoundation.data
             })
         }
         catch (error) {
@@ -240,10 +245,7 @@ export function getRequestsFoundations(){
                 payload: info.data
             })
         } catch (error) {
-            // return dispatch({     
-                // Agregar componente de pagina en construccion
-                // Por si algun dia se cae la DB
-            // })
+            console.log(error)
         }
     }
 }
@@ -379,4 +381,67 @@ export function clearCart(){
     }
 }
 
+// UPDATE PRODUCTS
 
+export function updateProduct(data, id) {
+    
+    return async function (dispatch) {
+        try {
+            const updatedProduct = await axios.put(`/products/${id}`, data);
+
+            return dispatch({
+                type: UPDATE_PRODUCT,
+                payload: updatedProduct
+            })
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+// GET DONATIONS
+export function getDonations(){
+    return async function (dispatch){
+        try {
+            const allDonations = await axios("/donations")
+            return dispatch({
+                type:GET_DONATIONS,
+                payload: allDonations.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+//POST PRODUCTS
+export function postProduct(data){
+    console.log(data)
+    return async function (dispatch){
+        try {
+            const info = await axios.post("/products", data)
+            return dispatch({
+                type: POST_PRODUCT,
+                payload: info.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+} 
+//UPDATE REQUEST_FOUNDATIONS
+export function updateRequestFoundation(data, id) {
+    return async function (dispatch) {
+        try {
+            const updatedRequest = await axios.put(`/request_foundations/${id}`, data);
+
+            return dispatch({
+                type: UPDATE_REQUEST_FOUNDATION,
+                payload: updatedRequest
+            })
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+}
