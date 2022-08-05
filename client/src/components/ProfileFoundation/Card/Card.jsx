@@ -2,14 +2,16 @@ import React, { useState } from 'react'
 
 import Chart from 'react-apexcharts';
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { AnimatePresence, motion, AnimateSharedLayout } from "framer-motion/dist/framer-motion";
+import { motion, AnimateSharedLayout } from "framer-motion/dist/framer-motion";
 import 'react-circular-progressbar/dist/styles.css';
 import { MdDisabledByDefault } from 'react-icons/md';
 
 import '../Card/Card.css'
 
 const Card = (props) => {
+
     const [expanded, setExpanded] = useState(false);
+
     return (
         <AnimateSharedLayout>
             {expanded ? (
