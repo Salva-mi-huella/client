@@ -1,0 +1,114 @@
+.termsSection {
+    background-color: rgba(99, 59, 218, 0.485);
+    /* padding: 2rem; */
+    /* padding-top: 1rem; */
+    margin-left: 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 2%;
+    height: 35vw;
+    width: 45vw;
+}
+    
+.terms_header {
+      font-size: 2.5vw;
+      font-weight: bold;
+      margin: 2vw 0 1vw;
+      text-align: center;
+}
+
+.terms {
+      width: 40vw;
+      height: 25vw;
+      overflow: auto;
+      padding: 1rem 1rem 1rem;
+      margin-bottom: 1.7vw;
+      line-height: 1.2;
+}
+  
+      
+.terms p {
+      margin: 1rem;
+      font-size: 1.5vw;
+      }
+      em {
+        font-style: italic;
+ }
+
+
+  .terms-container {
+    display: grid;
+    /* width: 30vw; */
+    margin: auto;
+    box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.2);
+  }
+    
+    .btn_container {
+      background-color: rgba(48, 24, 118, 0.304);
+      box-shadow: 0px -2px 5px rgba(0, 0, 0, .1);
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+    }
+      
+      .btn_accept {
+        transition: 0.3s;
+        all: unset;
+        width: 35%;
+        display: inline-block;
+        text-align: center;
+        background-color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 2vw;
+        font-size: 1.2vw;
+        font-weight: 800;
+        transition: all 250ms ease-in-out;
+        /* opacity: .6; */
+      }
+
+      .btn_accept:hover {
+        transition: 0.3s;
+        /* background-color: #FCEC4F;
+        color: rgba(99, 59, 218, 0.485); */
+        background-color: rgba(148, 115, 246, 0.485);
+        color: white;
+      }
+      
+        /* &.enabled {
+          cursor: pointer;
+          opacity: 1;
+          background-color: $primary;
+          color: $light;
+        }
+          
+          &:focus {
+            outline: 3px solid $blue;
+          } */
+
+      .btn_message {
+        position: absolute;
+        padding: 1rem 1.5rem;
+        top: -45px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 250ms ease-in-out;
+      }
+        
+        
+        /* &::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: -15px;
+          transform: translateX(-50%);
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-top: 15px solid $primary;
+        }
+        
+        &.visible {
+          top: -65px;
+          opacity: 1;
+        } */
+      

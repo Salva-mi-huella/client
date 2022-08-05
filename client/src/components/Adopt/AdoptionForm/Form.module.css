@@ -64,6 +64,14 @@
     justify-content: center;
 }
 
+.check button {
+    background-color: transparent;
+    border: none;
+    color: rgba(27, 13, 73, 0.485);
+    text-decoration: underline;
+    font-weight: 900;
+}
+
 label{
     color: white;
     font-weight:500;    
@@ -100,9 +108,15 @@ label{
 }
 
 .error{
-    color: red;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.568);
     font-size: 1vw;
     font-weight: 500;
+    border-radius: 3vw;
+    padding: 0.4vw;
+    text-align: center;
+    margin-top: 1vw;
+
 }
 .success{
     color: #FCEC4F;
@@ -116,3 +130,5 @@ label{
     border: none !important;
     font-weight: bold;
 }
+
+
