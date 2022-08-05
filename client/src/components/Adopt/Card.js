@@ -6,22 +6,17 @@ export default function Card({id, name,img,age}){
 
     const [fav, setFav] = useState(false)
     
-    //Quiero que cuando se refresque la pagina siga apareciendo en amarillo
-    // useEffect(()=>{
-    //     return function(){
-    //         let favs = JSON.parse(localStorage.getItem('fav'));
-    //         let bool = favs.includes(name)
-    //         console.log(bool)
-    //         setFav(bool)
-         
-    //     }
-    // })
+    useEffect(()=>{
+            let favs = JSON.parse(localStorage.getItem('fav'));
+            let bool = favs.includes(id)
+            setFav(bool)
+        },[fav,id])
     
     let arrFavs = []
     function handleFav (){
         if(fav){
             const favs = JSON.parse(localStorage.getItem('fav'));
-            arrFavs = favs.filter(f => f !== name)
+            arrFavs = favs.filter(f => f !== id)
             localStorage.setItem("fav", JSON.stringify(arrFavs))
             setFav(false)
         }else{  

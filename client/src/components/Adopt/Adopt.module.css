@@ -221,7 +221,13 @@
     gap: 15px;
     flex-direction: row;
     justify-content: center;
-
+    cursor: pointer;
+}
+.filtersBy select{
+    cursor: pointer;
+}
+.filtersBy select:hover{
+    color: rgb(255, 230, 0);
 }
 
 .filtersBy span{
@@ -240,11 +246,9 @@
     font-weight: bold;
 }
 .btnFilterType:hover{
-    color:rgb(223, 219, 219);
+    color:rgb(255, 230, 0);
 }
-.btnFilterType:focus{
-    color:rgb(255, 230, 0) ;
-}
+
 
 /* Filter by foundation */
 .filterConfig{
@@ -310,7 +314,7 @@ ul .pages{
     border-radius: 100%;
     /* height: 30px; */
     border: 1.4px solid rgb(99, 59, 218);
-    transition: 1s;
+    transition: 0.3s;
 }
 .pages:hover{
     background-color: rgb(99, 59, 218);
@@ -321,7 +325,9 @@ ul .pages{
     font-size: 30px;
     color: rgb(99, 59, 218);
 }
-
+.activePage{
+    background-color: rgb(99, 59, 218);
+}
 /* ----- ASIDE  -----*/
 .containerAside{
     height: 100%;
@@ -350,5 +356,9 @@ ul .pages{
 }
 .itemAside:hover  {
     font-size: 1.8rem;
+}
+.active{
+    color: rgb(255, 230, 0);
+    font-weight: bolder;
 }
 
