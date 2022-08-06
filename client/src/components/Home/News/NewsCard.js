@@ -36,8 +36,6 @@ export default function News({news}) {
     setExpanded(!expanded);
   };
 
-
-
   return (
       <div className={styles.container}>
             <Card sx={{ maxWidth: 400, height: 450, backgroundColor: "rgba(99, 59, 218, 0.485)"}}>

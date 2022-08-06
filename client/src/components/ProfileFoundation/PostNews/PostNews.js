@@ -10,7 +10,7 @@ export default function PostNews({ foundation }) {
 
     const dispatch = useDispatch()
 
-    console.log(foundation, '')
+    // console.log(foundation, '')
 
     const [input, setInputs] = useState({
         title: '',
