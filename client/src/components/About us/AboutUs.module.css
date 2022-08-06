@@ -45,9 +45,8 @@
     text-align: center;
     padding-bottom: 5rem;
     padding-top: 5rem;
-    margin-top: 5rem;
+    margin-top: 5vw;
     display: flex;
-    /* box-shadow: 7px 0px 12px 0px #C1DA19; */
 }
 
 .historyInfo{
@@ -55,9 +54,8 @@
     text-align: center;
     width: 50%;
     margin-left: 5rem;
-    margin-top: 2rem;
+    margin-top: 7vw;
     color: azure;
-    margin-bottom: -2rem;
 }
 
 .nosotros{
@@ -76,15 +74,17 @@
     text-align: center;
     margin-bottom: 20px;
     margin-top: 4rem;
+    
 }
 
 .titles {
-    font-size: 3rem;
+    font-size: 4vw;
     font-weight: bold;
     text-align: center;
     margin-bottom: 1.5rem;
     color: yellow;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 226, 8);
 }
 
 
@@ -135,4 +135,26 @@
 .coFounder{
     font-size: 1rem;
     text-align: center;
+}
+
+.henryImage {
+    border: 3px solid green;
+    background-color:  rgb(255, 226, 8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38vw;
+    height: 35vw;
+    margin-left: 5vw;
+    margin-right: 8vw;
+}
+
+.history img {
+    object-fit: cover;
+    width: 25vw;
+    height: 18vw;
+    /* margin-right: 1vw;; */
+    margin-bottom: 4vw;
+    /* border-radius: 40%; */
 }

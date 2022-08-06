@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from './Card.js'
 import banner from '../../assets/adopt-banner.png'
 import steps from '../../assets/adoptSteps.png'
@@ -8,12 +8,20 @@ import Paginate from './Filters/Paginate.js';
 import Filters from './Filters/Filters.js';
 import Loading from '../Loading/Loading'
 import Aside from './Aside/Aside.js';
+import Footer from '../Footer/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 
 export default function Adopt(){
     
     const {filtered,pages} = useSelector(state => state.petsFiltered)
-    
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     let renderPerPage = [] 
     if(pages) renderPerPage = pages
     else if (filtered) renderPerPage = filtered.slice(0,12)
@@ -32,13 +40,17 @@ export default function Adopt(){
                 <h2 className={style.innerTittles}>¿Cómo funciona?</h2>
                 <div className={style.containerSteps} >
                     <div>
-                        <div className={style.functionalitySteps}>
+                        <div className={style.functionalitySteps}
+                            data-aos="fade-right"
+                            data-aos-duration="500">
                             <span>- Paso 1 -</span>
                             <p>Lo primero que debes hacer buscar en nuestra red de refugios a tu huella favorita.
                                 Para ello tendras distintos filtros disponibles que te ayudarán a tomar la decision.
                             </p>
                         </div>
-                        <div className={style.functionalitySteps}>
+                        <div className={style.functionalitySteps}
+                            data-aos="fade-left"
+                            data-aos-duration="1000">
                             <span>- Paso 2 -</span>
                             <p> Una vez que hayas encontrado a tu compañero ideal tendrás que presionar sobre el botón "Salva mi huella",
                               para ponerte en contacto con la fundación y empezar el proceso de adopción.
@@ -75,6 +87,7 @@ export default function Adopt(){
             :
                 <Loading/>
             }
+            <Footer/>
         </>
     )
 }

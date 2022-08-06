@@ -4,15 +4,11 @@
 }
 
 .main input{
-    background-color: yellow !important;
-    opacity: 0.8;
+    opacity: 0.9;
+    border-radius: 8px;
+    margin-right: 2vw;
+    width: 13vw;
 }
 
-.main button{
-    border: none;
-    border-radius: 8px;
-    background-color: #5D3DD2;
-    opacity: 0.8;
-}
 
 

@@ -28,8 +28,10 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import RequestTable from './Table/RequestTable';
 import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
-import { getUserByEmail } from '../../redux/actions';
 import { getUserSession } from '../../utils/index.js';
+import { getAllPets, getUserByEmail } from '../../redux/actions';
+import Card from '../Adopt/Card'
+
 
 
 
@@ -103,15 +105,15 @@ export default function PersistentDrawerLeft() {
   const { user, logout } = useAuth0();
   const dispatch = useDispatch();
 
-  console.log(user, 'user')
-
   useEffect(() => {
-    console.log(user.email)
+
     dispatch(getUserByEmail(user.email))
   }, [dispatch])
 
-  const userDetail = useSelector(state => state.user);
-  const foundations = useSelector(state => state.foundations);
+ const userDetail = useSelector(state => state.user);
+ const foundations = useSelector(state => state.foundations);
+ const pets = useSelector(state => state.allPets);
+ const favsPets = pets?.filter(p => p.id === userDetail.favs?.find(f => f === p.id));
 
   //  const points = function() {
   //   let points = 0;
@@ -233,8 +235,13 @@ export default function PersistentDrawerLeft() {
       {donations && <DonationTable userDetail={userDetail} foundations={foundations}></DonationTable>}
 
       {favs && <div className={styles.favs}>
-        <h1>Favoritos</h1>
-        <p>No hay favoritos.</p>
+      <h1 className={styles.favsTitle}>Favoritos</h1>
+      <div className={styles.favs}>
+        {favsPets.length > 0 ? favsPets.map(f => 
+        <Card id={f.id} name={f.name} img={f.images} age={f.age}/>
+        ) : <h1>No hay favoritos</h1>}
+      </div>
+
       </div>}
 
       {products &&
