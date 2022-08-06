@@ -9,7 +9,8 @@ import {
     MdUpload,
     MdReceipt,
     MdRule,
-    MdHowToVote
+    MdHowToVote,
+    MdPerson
 } from 'react-icons/md';
 
 import { FaHome } from 'react-icons/fa';
@@ -50,6 +51,10 @@ export const SidebarData = [
     {
         icon: MdPaid,
         heading: "Donaciones"
+    },
+    {
+        icon: MdPerson,
+        heading: "Usuarios"
     },
     {
         icon: MdOutgoingMail,
