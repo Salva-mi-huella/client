@@ -48,7 +48,7 @@ export default function BasicTable() {
 
     if (user) {
         foundation = foundation.find(f => f.email === user.email);
-        console.log(foundation, 'Foundation');
+        // console.log(foundation, 'Foundation');
     }
 
     useEffect(() => {
@@ -56,7 +56,7 @@ export default function BasicTable() {
     }, [dispatch])
 
     requests = requests.filter(r => r.foundationId === foundation.id)
-    console.log(requests, 'requests_adopt');
+    // console.log(requests, 'requests_adopt');
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -95,6 +95,7 @@ export default function BasicTable() {
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((r) => (
                                 <TableRow
+                                    className={styles.bodyRow}
                                     key={r.id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
