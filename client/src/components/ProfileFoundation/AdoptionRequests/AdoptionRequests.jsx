@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import TablePagination from '@mui/material/TablePagination';
 import Table from '@mui/material/Table';
@@ -11,17 +11,18 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import styles from './AdoptionRequests.module.css'
+import { updatePetStatus, updateRequestFoundation } from '../../../redux/actions';
 
 
 
 const makeStyles = (status) => {
-  if (status === 'Aprobado') {
+  if (status === 'Aprobada') {
     return {
       background: 'rgb(145 254 159 / 47%)',
       color: 'green'
     }
   }
-  else if (status === 'Rechazado') {
+  else if (status === 'Rechazada') {
     return {
       background: '#ffadad8f',
       color: 'red'
@@ -37,6 +38,8 @@ const makeStyles = (status) => {
 
 
 const AdoptionRequests = () => {
+
+  const dispatch = useDispatch();
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -63,6 +66,13 @@ const AdoptionRequests = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
+  const handleChangeSelect = (e, request) => {
+    dispatch(updateRequestFoundation(request.id, { status: e.target.value })); 
+    if (e.target.value === "Aprobada") {
+      dispatch(updatePetStatus(request.petId, { adopted: true }));
+    }
+  }
 
   const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests?.length - page * rowsPerPage));
 
@@ -111,28 +121,29 @@ const AdoptionRequests = () => {
                     {/* <span className={styles.status} style={makeStyles('Pendiente')} > Pendiente </span> */}
                     {/* REQUEST STATUS */}
                     <select
-                      onChange={(e) => { console.log('Request status: ', e.target.value) }}
-                      style={makeStyles()}
-                    // style={makeStyles(r.adopted)}
+                      onChange={(e) => { handleChangeSelect(e, r) }}
+                      style={makeStyles(r.status)}
+                      defaultValue={r.status}
                     >
 
                       <option
-                        value={"Rechazado"}
+                        value={"Rechazada"}
                         className="status"
                         // style={makeStyles(r.adopted)}
                         style={makeStyles("Rechazado")}
-                      > Rechazado
+                      > Rechazada
                       </option>
 
                       <option
-                        value={"Aprobado"}
+                        value={"Aprobada"}
                         className="status"
-                        style={makeStyles("Aprobado")}
-                      > Aprobado
+                        style={makeStyles("Aprobada")}
+                      > Aprobada
                       </option>
 
                       <option
                         hidden selected
+                        value={"Pendiente"}
                         className="status"
                         style={makeStyles("Pendiente")}
                       >

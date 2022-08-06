@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from './Card.js'
 import banner from '../../assets/adopt-banner.png'
 import steps from '../../assets/adoptSteps.png'
@@ -17,7 +17,11 @@ AOS.init();
 export default function Adopt(){
     
     const {filtered,pages} = useSelector(state => state.petsFiltered)
-    
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     let renderPerPage = [] 
     if(pages) renderPerPage = pages
     else if (filtered) renderPerPage = filtered.slice(0,12)
