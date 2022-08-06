@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
-import { getFoundations, postUser, getUserByEmail } from '../../redux/actions';
+import { getFoundations, postUser, getUserByEmail, getAllPets } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
-import banner from '../../assets/banner-1.png';
+import banner from '../../assets/banner-home.jpg';
+import yellow_paw from '../../assets/yellow-paw.png';
+import yellow_waves from '../../assets/yellow-waves.png';
+import banner_footer from '../../assets/banner-footer.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import eslogan from '../../assets/eslogan2.png'
@@ -15,6 +18,9 @@ import register from '../../assets/register.png';
 import gift from '../../assets/gift-box.png';
 import { setUserSession, getUserSession } from "../../utils";
 import News from './News/News';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 
 export default function Home() {
@@ -25,7 +31,7 @@ export default function Home() {
     const foundations = useSelector(state => state.foundations)
 
     useEffect(() => {
-        // const id = this.props.match.params.foundationId
+        dispatch(getAllPets())
         dispatch(getFoundations());
 
         if (isAuthenticated) {
@@ -43,7 +49,7 @@ export default function Home() {
             }
 
             setUserSession(user);
-            dispatch(getUserByEmail(getUserSession().email));
+            dispatch(getUserByEmail(user?.email));
         }
         
 
@@ -56,17 +62,21 @@ export default function Home() {
 
             <div className={styles.eslogan}>
                 <div>
-                    <h1>Salvá<br></br>mi huella</h1>
+                    <img className={styles.yellow_paw} src={yellow_paw} alt="eslogan" />
+                    <h1>SALVÁ</h1>
+                    <h2>MI HUELLA</h2>
                     <p>En este espacio va a ir el eslogan principal del sitio.</p>
                 </div>
-                <img src={banner} alt='eslogan'></img>
+                <img className={styles.banner} src={banner} alt='eslogan'></img>
             </div>
 
                 <Carousel foundations={foundations} />
 
 
                 <div className={styles.userInfo}>
-                    <div className={styles.subInfoA}>
+                    <div className={styles.subInfoA} 
+                        data-aos="fade-right"
+                        data-aos-duration="1000">
                         <div>
                             <h1>¿Por qué registrarse?</h1>
                             <p>Administración de cuenta gratuita, seguimiento de solicitudes de adopción, acceso a Huellitas, todo esto y mucho más. Es super simple y fácil, ¡sumate!</p>
@@ -75,7 +85,9 @@ export default function Home() {
                             <img src={register} alt='register'></img>
                     </div>
 
-                    <div className={styles.subInfoA}>
+                    <div className={styles.subInfoA} 
+                        data-aos="fade-left"
+                        data-aos-duration="1300">
                             <img  className={styles.gift} src={gift} alt='gift'></img>
                         <div className={styles.subInfoB}>
                             <div>
@@ -89,8 +101,11 @@ export default function Home() {
 
                 </div>
 
+                <img className={styles.waves} src={yellow_waves} alt='waves'></img>
+
             <div>
                 <SliderFoundation />
+                <img className={styles.catFooter} src={banner_footer} alt='catFooter'></img>
             </div>
 
 

@@ -31,6 +31,8 @@ import {
     POST_PRODUCT,
     UPDATE_REQUEST_FOUNDATION,
     POST_FOUNDATION
+    UPDATE_REQUEST_ADOPT,
+    UPDATE_PET_STATUS
 
 } from "../actions"
 
@@ -52,8 +54,7 @@ const initialState = {
     cart:[],
     news: [],
     requests_foundations: [],
-    requests_adopt: [],
-    donations: []
+    requests_adopt: []
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -219,6 +220,10 @@ export default function rootReducer(state = initialState, action) {
         case UPDATE_REQUEST_FOUNDATION: return {...state}
 
         case POST_FOUNDATION: return {...state}
+
+        case UPDATE_REQUEST_ADOPT: return {...state}
+        
+        case UPDATE_PET_STATUS: return {...state}
 
 
         default: return {...state}

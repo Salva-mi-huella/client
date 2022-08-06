@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from './Huellitas.module.css'
 import banner from '../../assets/banner-huellitas-3.png'
 import { useAuth0 } from '@auth0/auth0-react';
@@ -14,6 +14,9 @@ export default function Huellitas(){
 
    const { loginWithRedirect } = useAuth0();
 
+   useEffect(() => {
+        window.scrollTo(0, 0);
+   }, [])
 
     return (
         <div className={style.container}>
