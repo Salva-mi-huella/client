@@ -15,6 +15,9 @@ import register from '../../assets/register.png';
 import gift from '../../assets/gift-box.png';
 import { setUserSession, getUserSession } from "../../utils";
 import News from './News/News';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 
 export default function Home() {
@@ -66,7 +69,9 @@ export default function Home() {
 
 
                 <div className={styles.userInfo}>
-                    <div className={styles.subInfoA}>
+                    <div className={styles.subInfoA} 
+                        data-aos="fade-right"
+                        data-aos-duration="1000">
                         <div>
                             <h1>¿Por qué registrarse?</h1>
                             <p>Administración de cuenta gratuita, seguimiento de solicitudes de adopción, acceso a Huellitas, todo esto y mucho más. Es super simple y fácil, ¡sumate!</p>
@@ -75,7 +80,9 @@ export default function Home() {
                             <img src={register} alt='register'></img>
                     </div>
 
-                    <div className={styles.subInfoA}>
+                    <div className={styles.subInfoA} 
+                        data-aos="fade-left"
+                        data-aos-duration="1300">
                             <img  className={styles.gift} src={gift} alt='gift'></img>
                         <div className={styles.subInfoB}>
                             <div>
