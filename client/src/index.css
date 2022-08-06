@@ -44,7 +44,8 @@ body {
   overflow-x: hidden;
   /* background: rgb(238,128,172) !important;
   background: linear-gradient(54deg, rgba(238,128,172,1) 0%, rgba(163,136,241,1) 97%) !important */
-  background: linear-gradient(70deg, rgb(233, 201, 214) 0%, rgb(99, 59, 218) 97%);
+  /* background: linear-gradient(70deg, rgb(233, 201, 214) 0%, rgb(99, 59, 218) 97%); */
+  background-color: rgb(99, 59, 218) !important
 }
 
 code {

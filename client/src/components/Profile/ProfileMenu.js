@@ -26,8 +26,10 @@ export default function AccountMenu() {
   };
   const handleLogout = () => {
     logout({returnTo: `${window.location.origin}/home`});
+    localStorage.clear();
     removeUserSession();
   }
+  
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
