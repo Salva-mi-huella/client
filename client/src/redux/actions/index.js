@@ -29,6 +29,7 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const GET_DONATIONS = 'GET_DONATIONS'
 export const POST_PRODUCT = 'POST_PRODUCT'
 export const UPDATE_REQUEST_FOUNDATION = 'UPDATE_REQUEST_FOUNDATION'
+export const POST_FOUNDATION = 'POST_FOUNDATION'
 
 
 
@@ -485,6 +486,21 @@ export function updateRequestFoundation(data, id) {
         }
         catch (error) {
             console.log(error);
+        }
+    }
+}
+//POST FOUNDATIONS
+export function postFoundation(data) {
+    console.log(data,"Soy yo")
+    return async function (dispatch) {
+        try {
+            const info = await axios.post("/foundations", data)
+            return dispatch({
+                type: POST_FOUNDATION,
+                payload: info.data
+            })
+        } catch (error) {
+            console.log(error)
         }
     }
 }
