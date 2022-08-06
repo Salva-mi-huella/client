@@ -15,7 +15,7 @@ export default function Card({id, name,img,age}){
 
     useEffect(()=>{
             let favs = JSON.parse(localStorage.getItem('fav'));
-            let bool = favs.includes(id)
+            let bool = favs?.includes(id)
             setFav(bool)
         },[fav,id])
     
