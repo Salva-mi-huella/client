@@ -11,11 +11,11 @@ import Inbox from './Inbox/Inbox.jsx';
 import Donations from './Donations/Donations.jsx';
 import PostNews from './PostNews/PostNews';
 import PostPet from '../PostPet/PostPet.js';
+import Transito from './Transito/Transito.jsx';
 
 
 import styles from '../ProfileFoundation/ProfileFoundation.module.css';
 import { getFoundations, getRequestsAdopt } from '../../redux/actions/index.js';
-import Users from '../ProfileAdmin/Users/Users.jsx';
 
 export default function ProfileFoundation() {
 
@@ -101,7 +101,7 @@ export default function ProfileFoundation() {
                 {
                     optionSelection === 7 && (
                         <>
-                            <Users />
+                            <Transito />
                         </>
                     )
                 }

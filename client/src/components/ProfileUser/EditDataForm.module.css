@@ -27,9 +27,9 @@
     margin-left: 20vw;
     justify-content: center;
     align-items: center;
-    background-color: rgba(204, 69, 163, 0.452);
+    /* background-color: rgba(204, 69, 163, 0.452); */
     border-radius: 2rem;
-    box-shadow: 0px 0px 15px 5px #0000005e;
+    /* box-shadow: 0px 0px 15px 5px #0000005e; */
     font-size: 1.5vw;;
     height: 63vh;
     width: 65vw;

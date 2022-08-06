@@ -54,7 +54,7 @@ export const SidebarData = [
     },
     {
         icon: MdPerson,
-        heading: "Usuarios"
+        heading: "Transito"
     },
     {
         icon: MdOutgoingMail,
