@@ -143,15 +143,17 @@ export function getCurrency(){
     return async function (dispatch){
         try {
             const info = await axios.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+            if (info === "" || info === null || info === undefined || info.data === "") throw new Error('La API no responde')
             return dispatch({
                 type: GET_CURRENCY,
                 payload: info.data
             })
+        
         } catch (error) {
-            // return dispatch({     
-                // Agregar componente de pagina en construccion
-                // Por si algun dia se cae la DB
-            // })
+           dispatch({
+                type: GET_CURRENCY,
+                payload: [{error}, {casa: {venta: 300}}]
+            })
         }
     }
 }
