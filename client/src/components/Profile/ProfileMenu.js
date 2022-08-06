@@ -40,7 +40,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 45, height: 45, marginRight: 2}}><img className={style.user} src={user.picture} alt=''></img></Avatar>
+            <Avatar sx={{ width: 45, height: 45, marginRight: 2}}><img className={style.user} src={user.picture} alt='Profile Img'></img></Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -89,7 +89,7 @@ export default function AccountMenu() {
         <Divider />
         <MenuItem>
           <ListItemIcon onClick={handleLogout} sx={{ color:'white' }}>
-            <Logout sx={{ marginRight: '10px'}} onClick={handleLogout} fontSize="small" />
+            <Logout sx={{ marginRight: '10px'}} fontSize="small" />
               Cerrar sesión
           </ListItemIcon>
         </MenuItem>

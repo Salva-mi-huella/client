@@ -17,6 +17,7 @@ export default function Donate(){
 
     
     useEffect(()=>{
+        window.scrollTo(0, 0);
         dispatch(getFoundations());
         if (isAuthenticated) dispatch(getUserByEmail(user.email));
     },[dispatch])

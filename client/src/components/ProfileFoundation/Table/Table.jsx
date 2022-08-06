@@ -122,7 +122,7 @@ export default function BasicTable() {
                 <TablePagination
                     className={styles.pagination}
                     component="div"
-                    count={foundation.request_adopts.length}
+                    count={foundation?.request_adopts.length}
                     page={page}
                     onPageChange={handleChangePage}
                     rowsPerPage={rowsPerPage}

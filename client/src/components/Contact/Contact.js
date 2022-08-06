@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./Contact.module.css";
 import { useState} from "react";
 import {  useDispatch } from 'react-redux';
@@ -19,6 +19,9 @@ export default function Contact() {
    const history = useHistory()
    const dispatch = useDispatch()
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     const [input, setInput] = useState({
         name: '',

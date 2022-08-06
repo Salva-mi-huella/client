@@ -6,23 +6,30 @@ import logo from '../../assets/logo.png';
 import paw from '../../assets/paw-print.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from '../Profile/ProfileMenu';
-import {getUserByEmail} from '../../redux/actions';
+import {getFoundations, getUserByEmail} from '../../redux/actions';
 import { getUserSession } from '../../utils';
 
 export default function NavBar({userInfo}) {
 
-const { isAuthenticated, loginWithRedirect,user  } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, user  } = useAuth0();
 
-// const user = JSON.parse(localStorage.getItem('user'));
-// console.log(user)
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch();
+  const foundations = useSelector(state => state.foundations);
+
+  const checkFoundation = () => {
+    return foundations?.find(f => f.email === user?.email)
+  }
+
 
  useEffect(()=>{
-    if(isAuthenticated){
+    dispatch(getFoundations());
+    const isFoundation = checkFoundation();
+    if(isAuthenticated && !isFoundation){
       dispatch(getUserByEmail(user.email));
     }
 }, [isAuthenticated, dispatch]);
+
 
 const userDetail = useSelector(state => state.user);
    
@@ -39,15 +46,16 @@ const userDetail = useSelector(state => state.user);
                     <Link className={styles.link} to='/tienda'><p>Tienda</p></Link>
                 </div>
 
-                { isAuthenticated ? 
-                        <div className={styles.profile}>
-                          {userDetail.points && <div><span>{userDetail && userDetail.points}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
-                          <ProfileMenu></ProfileMenu>
-                        </div>
-                      : 
-                      <div className={styles.signUp}>
-                        <button onClick={() => loginWithRedirect()} >INGRESAR</button> 
-                      </div>}
+                { isAuthenticated && user ? 
+                    <div className={styles.profile}>
+                      {userDetail.points && !checkFoundation() && !userDetail.admin && <div><span>{userDetail.points}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
+                      <ProfileMenu></ProfileMenu>
+                    </div>
+                    : 
+                    <div className={styles.signUp}>
+                      <button onClick={() => loginWithRedirect()} >INGRESAR</button> 
+                    </div>
+                }
             </nav>
             
        )

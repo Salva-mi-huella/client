@@ -29,7 +29,8 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const GET_DONATIONS = 'GET_DONATIONS'
 export const POST_PRODUCT = 'POST_PRODUCT'
 export const UPDATE_REQUEST_FOUNDATION = 'UPDATE_REQUEST_FOUNDATION'
-
+export const UPDATE_REQUEST_ADOPT = "UPDATE_REQUEST_ADOPT";
+export const UPDATE_PET_STATUS = "UPDATE_PET_STATUS";
 
 
 export function getFoundationDetail(id){
@@ -476,6 +477,37 @@ export function updateRequestFoundation(data, id) {
         }
         catch (error) {
             console.log(error);
+        }
+    }
+}
+
+export function updateRequestAdopt(id, data) {
+    return async function (dispatch) {
+        console.log(data);
+        try {
+            const updatedRequest = await axios.put(`/request_adopts/${id}`, data);
+            return dispatch({
+                type: UPDATE_REQUEST_ADOPT,
+                payload: updatedRequest.data
+            })
+        }   
+        catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+export function updatePetStatus(id, data) {
+    return async function (dispatch) {
+        try {
+            const updatedStatus = await axios.put(`/pets/status/${id}`, data);
+            return dispatch({
+                type: UPDATE_PET_STATUS,
+                payload: updatedStatus.data
+            });
+        }
+        catch (error) {
+            console.log(error)
         }
     }
 }
