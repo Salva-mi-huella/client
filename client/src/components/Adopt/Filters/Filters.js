@@ -58,6 +58,7 @@ export default function Filters(){
               })
         }
         filteringPets = filteringPets.filter(pet => !pet.adopted)
+        filteringPets = filteringPets.filter(pet => pet.foundation.status === "Activa")
         dispatch(petsFiltered(filteringPets)) 
         
     },[filters,arrAllPets, dispatch])

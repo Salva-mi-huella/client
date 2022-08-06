@@ -8,6 +8,7 @@ import Paginate from './Filters/Paginate.js';
 import Filters from './Filters/Filters.js';
 import Loading from '../Loading/Loading'
 import Aside from './Aside/Aside.js';
+import Footer from '../Footer/Footer';
 
 
 export default function Adopt(){
@@ -75,6 +76,7 @@ export default function Adopt(){
             :
                 <Loading/>
             }
+            <Footer/>
         </>
     )
 }
