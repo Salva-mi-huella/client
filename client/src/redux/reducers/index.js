@@ -30,6 +30,7 @@ import {
     GET_DONATIONS,
     POST_PRODUCT,
     UPDATE_REQUEST_FOUNDATION,
+    POST_FOUNDATION
     UPDATE_REQUEST_ADOPT,
     UPDATE_PET_STATUS
 
@@ -217,6 +218,8 @@ export default function rootReducer(state = initialState, action) {
         case POST_PRODUCT: return {...state}
 
         case UPDATE_REQUEST_FOUNDATION: return {...state}
+
+        case POST_FOUNDATION: return {...state}
 
         case UPDATE_REQUEST_ADOPT: return {...state}
         
