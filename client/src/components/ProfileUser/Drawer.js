@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -28,6 +28,7 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import RequestTable from './Table/RequestTable';
 import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
+import { getUserSession } from '../../utils/index.js';
 import { getAllPets, getUserByEmail } from '../../redux/actions';
 import Card from '../Adopt/Card'
 
@@ -101,28 +102,28 @@ export default function PersistentDrawerLeft() {
   const [request, setRequests] = React.useState(false);
   const [products, setProducts] = React.useState(false);
   const [donations, setDonations] = React.useState(false);
-  const { user , logout} = useAuth0();
+  const { user, logout } = useAuth0();
   const dispatch = useDispatch();
 
-  useEffect(() => { 
-    console.log(user.email)
+  useEffect(() => {
+
     dispatch(getUserByEmail(user.email))
- }, [dispatch, user.email])
+  }, [dispatch])
 
  const userDetail = useSelector(state => state.user);
  const foundations = useSelector(state => state.foundations);
  const pets = useSelector(state => state.allPets);
  const favsPets = pets?.filter(p => p.id === userDetail.favs?.find(f => f === p.id));
 
-//  const points = function() {
-//   let points = 0;
-//   userDetail.donations?.forEach(donation => {
-//     points += donation.points;
-//   }) 
-//   return points 
-// }()
+  //  const points = function() {
+  //   let points = 0;
+  //   userDetail.donations?.forEach(donation => {
+  //     points += donation.points;
+  //   }) 
+  //   return points 
+  // }()
 
-// console.log(points)
+  // console.log(points)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -148,7 +149,7 @@ export default function PersistentDrawerLeft() {
     setRequests(false);
     setProducts(false);
   }
-  
+
   const viewFavs = () => {
     setMyData(false);
     setDonations(false);
@@ -175,7 +176,7 @@ export default function PersistentDrawerLeft() {
   return (
     <div><Box sx={{ display: 'flex', color: 'black' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: 'purple'}}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: 'purple' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -206,51 +207,51 @@ export default function PersistentDrawerLeft() {
         open={open}
       >
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose} sx={{color: 'white' }}>
+          <IconButton onClick={handleDrawerClose} sx={{ color: 'white' }}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List 
-                 style={{ color: 'azure', display: 'flex', flexDirection: 'column ' , justifyContent: 'center', alignItems: 'flex-start', marginLeft:'20px'}}>
+        <List
+          style={{ color: 'azure', display: 'flex', flexDirection: 'column ', justifyContent: 'center', alignItems: 'flex-start', marginLeft: '20px' }}>
 
-            <ListItemButton onClick={goHome} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><HomeIcon sx={{color: 'white'}}/></ListItemIcon>Home</ListItemButton>
-            <ListItemButton onClick={viewData} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><SettingsAccessibilityIcon sx={{color: 'white'}}/></ListItemIcon>Mis datos</ListItemButton>
-            <ListItemButton onClick={viewDonations} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><VolunteerActivismIcon sx={{color: 'white'}}/></ListItemIcon>Mis donaciones</ListItemButton>
-            <ListItemButton onClick={viewFavs} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><FavoriteIcon sx={{color: 'white'}}/></ListItemIcon>Favoritos</ListItemButton>
-            <ListItemButton onClick={viewAdoptSolicitudes} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><ContentPasteIcon sx={{color: 'white'}}/></ListItemIcon>Solicitudes de adopción</ListItemButton>
-            <ListItemButton onClick={viewProducts} sx={{color: 'white', marginBottom:'20px'}}><ListItemIcon><Inventory2Icon sx={{color: 'white'}}/></ListItemIcon>Mis productos</ListItemButton>
-            <ListItemButton sx={{color: 'rgb(255, 230, 0)', marginBottom:'20px', fontWeight: 'bold', fontSize:'20px', fontFamily: 'Gill Sans'}}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{userDetail.points}</ListItemButton>
-            <ListItemButton onClick={()=>logout({returnTo:`${window.location.origin}/home`})} sx={{color: 'white', marginTop:'16vh'}}><ListItemIcon><LogoutIcon sx={{color: 'white'}}/></ListItemIcon>Cerrar Sesión</ListItemButton>
-        </List>    
+          <ListItemButton onClick={goHome} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><HomeIcon sx={{ color: 'white' }} /></ListItemIcon>Home</ListItemButton>
+          <ListItemButton onClick={viewData} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><SettingsAccessibilityIcon sx={{ color: 'white' }} /></ListItemIcon>Mis datos</ListItemButton>
+          <ListItemButton onClick={viewDonations} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><VolunteerActivismIcon sx={{ color: 'white' }} /></ListItemIcon>Mis donaciones</ListItemButton>
+          <ListItemButton onClick={viewFavs} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><FavoriteIcon sx={{ color: 'white' }} /></ListItemIcon>Favoritos</ListItemButton>
+          <ListItemButton onClick={viewAdoptSolicitudes} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><ContentPasteIcon sx={{ color: 'white' }} /></ListItemIcon>Solicitudes de adopción</ListItemButton>
+          <ListItemButton onClick={viewProducts} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><Inventory2Icon sx={{ color: 'white' }} /></ListItemIcon>Mis productos</ListItemButton>
+          <ListItemButton sx={{ color: 'rgb(255, 230, 0)', marginBottom: '20px', fontWeight: 'bold', fontSize: '20px', fontFamily: 'Gill Sans' }}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{userDetail.points}</ListItemButton>
+          <ListItemButton onClick={() => logout({ returnTo: `${window.location.origin}/home` })} sx={{ color: 'white', marginTop: '16vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
+        </List>
         <Divider />
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
       </Main>
     </Box>
-    {myData && <EditDataForm />}
+      {myData && <EditDataForm />}
 
-    {donations && <DonationTable userDetail={userDetail} foundations={foundations}></DonationTable>}
+      {donations && <DonationTable userDetail={userDetail} foundations={foundations}></DonationTable>}
 
-    {favs && <div>
+      {favs && <div className={styles.favs}>
       <h1 className={styles.favsTitle}>Favoritos</h1>
       <div className={styles.favs}>
         {favsPets.length > 0 ? favsPets.map(f => 
         <Card id={f.id} name={f.name} img={f.images} age={f.age}/>
         ) : <h1>No hay favoritos</h1>}
       </div>
-      {/* :<p>No hay favoritos.</p> */}
+
       </div>}
 
-    {products && 
-    <div className={styles.favs}>
-      <h1>Mis productos</h1>
-      <p>No hay productos.</p>
-    </div>
+      {products &&
+        <div className={styles.favs}>
+          <h1>Mis productos</h1>
+          <p>No hay productos.</p>
+        </div>
       }
 
-    {request && <RequestTable userId={userDetail.id} foundations={foundations}></RequestTable>}
+      {request && <RequestTable userId={userDetail.id} foundations={foundations}></RequestTable>}
 
     </div>
   );

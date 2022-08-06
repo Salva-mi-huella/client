@@ -11,6 +11,7 @@ import Inbox from './Inbox/Inbox.jsx';
 import Donations from './Donations/Donations.jsx';
 import PostNews from './PostNews/PostNews';
 import PostPet from '../PostPet/PostPet.js';
+import Transito from './Transito/Transito.jsx';
 
 
 import styles from '../ProfileFoundation/ProfileFoundation.module.css';
@@ -99,6 +100,13 @@ export default function ProfileFoundation() {
                 }
                 {
                     optionSelection === 7 && (
+                        <>
+                            <Transito />
+                        </>
+                    )
+                }
+                {
+                    optionSelection === 8 && (
                         <>
                             <Inbox foundation={foundation} />
                         </>
