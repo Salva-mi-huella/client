@@ -6,6 +6,7 @@ import paw from '../../assets/paw-print.png'
 import { Link } from 'react-router-dom';
 import register from '../../assets/user-checked.png'
 import rescued from '../../assets/animal-care.png'
+import Footer from '../Footer/Footer'
 
 
 
@@ -94,6 +95,8 @@ export default function Huellitas(){
                 </div>
                 <Link to='/tienda'><button>VER CATÁLOGO COMPLETO</button></Link>
             </div>
+
+            <Footer/>
 
         </div>
     )
