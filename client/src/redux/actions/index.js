@@ -18,20 +18,23 @@ export const POST_DONATION = 'POST_DONATION'
 export const POST_REQUEST_FOUNDATION = 'POST_REQUEST_FOUNDATION'
 export const GET_REQUESTS_FOUNDATIONS = 'GET_REQUESTS_FOUNDATIONS'
 export const GET_REQUESTS_ADOPT = 'GET_REQUESTS_ADOPT'
-export const ADD_TO_CART = 'ADD_TO_CART'
-export const DELETE_ONE_FROM_CART = 'DELETE_ONE_FROM_CART'
-export const DELETE_ALL_FROM_CART = 'DELETE_ALL_FROM_CART'
-export const CLEAR_CART = 'CLEAR_CART'
+export const ADD_TO_CART= 'ADD_TO_CART'
+export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
+export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
+export const CLEAR_CART= 'CLEAR_CART'
+export const STORE_FILTERS = 'STORE_FILTERS'
 export const GET_ALL_NEWS = 'GET_ALL_NEWS'
+export const GET_SEARCH_PRODUCTS = 'GET_SEARCH_PRODUCTS';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const GET_DONATIONS = 'GET_DONATIONS'
 export const POST_PRODUCT = 'POST_PRODUCT'
 export const UPDATE_REQUEST_FOUNDATION = 'UPDATE_REQUEST_FOUNDATION'
 
 
-export function getFoundationDetail(id) {
-    return function (dispatch) {
-        try {
+
+export function getFoundationDetail(id){
+    return function(dispatch) {
+        try{
             return axios(`/foundations/${id}`)
                 .then(detail =>
                     dispatch({ type: GET_FOUNDATION_DETAIL, payload: detail.data }))
@@ -140,15 +143,18 @@ export function getCurrency() {
     return async function (dispatch) {
         try {
             const info = await axios.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+            if (info === "" || info === null || info === undefined || info.data === "") throw new Error('La API no responde')
             return dispatch({
                 type: GET_CURRENCY,
                 payload: info.data
             })
+        
         } catch (error) {
-            // return dispatch({     
-            // Agregar componente de pagina en construccion
-            // Por si algun dia se cae la DB
-            // })
+           dispatch({
+                type: GET_CURRENCY,
+                payload: [{error}, {casa: {venta: 300}}]
+            })
+
         }
     }
 }
@@ -387,6 +393,36 @@ export function clearCart() {
     }
 }
 
+
+//SearchBar store
+export function getSearchProducts(name){
+    return async function (dispatch){
+        try {
+            const info = await axios(`/products?name=${name}`)
+            return dispatch({
+                type:GET_ALL_PRODUCTS,
+                payload: info.data
+            })
+        } catch (error) {
+            // return dispatch({     
+                // Agregar componente de pagina en construccion
+                // Por si algun dia se cae la DB
+            // })
+        }
+    }
+}
+
+//FILTERS STORE
+export const storeFilters = (fByAZ, fByPrice, fByType, fByCategory) => {
+    return function(dispatch) {
+        return dispatch({ 
+            type: STORE_FILTERS, 
+            payload:{fByAZ,fByPrice,fByType,fByCategory}
+        });
+    };
+};
+
+
 // UPDATE PRODUCTS
 
 export function updateProduct(data, id) {
@@ -405,6 +441,7 @@ export function updateProduct(data, id) {
         }
     }
 }
+
 
 // GET DONATIONS
 export function getDonations() {

@@ -16,6 +16,8 @@ export const SliderFoundation = () => {
     const dispatch = useDispatch();
     const foundations = useSelector(state => state.foundations)
 
+    const activeFoundations = foundations.filter(f => f.status === 'Activa')
+
 
     useEffect(() => {
         dispatch(getFoundations())
@@ -67,7 +69,7 @@ export const SliderFoundation = () => {
             <Slider {...settings}>
 
 
-                {foundations.length > 0 ? foundations.map(f => (
+                {activeFoundations.length > 0 ? activeFoundations.map(f => (
                     <div className={styles.foundationContainer}>
                         <div className={styles.logoContainer}>
                             <Link to={`/fundacion/${f.id}`}><img className={styles.logo} src={f.images[0]} alt='foundationImage' /></Link>
