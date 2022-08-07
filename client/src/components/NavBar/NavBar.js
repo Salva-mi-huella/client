@@ -20,6 +20,10 @@ export default function NavBar({userInfo}) {
   const checkFoundation = () => {
     return foundations?.find(f => f.email === user?.email)
   }
+  const handleLogin =() =>{
+    loginWithRedirect()
+    localStorage.clear()
+  }
 
 
  useEffect(()=>{
@@ -53,7 +57,7 @@ const userDetail = useSelector(state => state.user);
                     </div>
                     : 
                     <div className={styles.signUp}>
-                      <button onClick={() => loginWithRedirect()} >INGRESAR</button> 
+                      <button onClick={handleLogin} >INGRESAR</button> 
                     </div>
                 }
             </nav>
