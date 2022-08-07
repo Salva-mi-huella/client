@@ -22,6 +22,8 @@
     width: 40vw;
     height: 40vw;
     object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 6px 5px 23px 1px #1B1B19;
 }
 
 .button {
@@ -79,8 +81,9 @@
     flex-direction: column;
     justify-content: flex-start;
     color: black;
-    /* margin-top: -1rem; */
+    margin-right: 5rem;
 }
+
 
 .price div {
     display: flex;
@@ -110,18 +113,21 @@
 .type{
     display: flex;
     flex-direction: column;
-    margin-bottom: -5rem;
+    margin-top: 1rem;
     font-size: 0.8rem;
     
 }
 .pet{
     margin-bottom: 0rem;
     font-size: 1rem;
-    margin-top: 1rem;
 }
 .description{
-    font-size: 1.5vw;
-    color: white;
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .name{
     font-size: 3.2vw;
@@ -131,6 +137,7 @@
     margin-bottom: 2vw;
     margin-top: 3vw;
     font-weight: bold;
+
 }
 
 .containerButton{
@@ -183,9 +190,21 @@
     color: white;
 }
 .unidad{
+    font-size: 0.7rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+}
+.contenedor{
+    margin: 8vh;
+}
+.bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1vw;
     margin-left: -0.5vw;
     margin-top: -1vw;
     color: white;
-    
 }

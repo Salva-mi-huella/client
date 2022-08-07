@@ -36,6 +36,7 @@ import Card from '../Adopt/Card'
 
 
 
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -247,6 +248,7 @@ export default function PersistentDrawerLeft() {
 
 
     {products && <ProductsTable userDetail={userDetail}></ProductsTable>}
+
 
 
       {request && <RequestTable userId={userDetail.id} foundations={foundations}></RequestTable>}
