@@ -104,7 +104,7 @@ export default function PostNews({ foundation }) {
                 <div>
                     {/* <label className={style.label} htmlFor="news">Noticia:</label> */}
                     <textarea
-                        placeholder="Descripcion de la noticia..."
+                        placeholder="Describe la noticia. Maximo 500 caracteres..."
                         className={style.textarea}
                         maxLength="500"
                         required onChange={(e) => handleChange(e)}
