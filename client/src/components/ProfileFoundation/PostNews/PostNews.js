@@ -78,6 +78,7 @@ export default function PostNews({ foundation }) {
                     }))
 
                     Swal.fire('Posteado!', '', 'success')
+                    setRenderImg('')
                     setInputs({
                         title: '',
                         news: '',
@@ -85,6 +86,7 @@ export default function PostNews({ foundation }) {
                         campaign: '',
                         foundationsImage: ''
                     })
+
                 }
             })
 
@@ -96,6 +98,22 @@ export default function PostNews({ foundation }) {
             <form onSubmit={e => handleSubmit(e)} className={style.postNewsForm}>
                 <h3 className={style.postNewsTitle}> Escribe una nueva noticia</h3>
                 <div className={style.firstSection}>
+                    {/* <label className={style.label} htmlFor="title">Titulo</label> */}
+                    <input placeholder="Titulo..." className={style.inputText} required onChange={(e) => handleChange(e)} type="text" id="title" name="title" value={input.title} />
+                </div>
+                <div>
+                    {/* <label className={style.label} htmlFor="news">Noticia:</label> */}
+                    <textarea
+                        placeholder="Descripcion de la noticia..."
+                        className={style.textarea}
+                        maxLength="500"
+                        required onChange={(e) => handleChange(e)}
+                        id="news" name="news" value={input.news} >
+                    </textarea>
+                </div>
+                <div>
+
+                    <label className={style.label} >Campaña</label>
                     <input
                         id="campaign"
                         onChange={(e) => hanldeCheck(e)}
@@ -105,20 +123,8 @@ export default function PostNews({ foundation }) {
                         className={style.checkbox}
                         title='Selecciona si tu noticia es urgente'
                     />
-                    <label className={style.label} htmlFor="title">Titulo</label>
-                    <input className={style.inputText} required onChange={(e) => handleChange(e)} type="text" id="title" name="title" value={input.title} />
-                </div>
-                <div>
-                    <label className={style.label} htmlFor="news">Noticia:</label>
-                    <textarea
-                        className={style.textarea}
-                        maxLength="400"
-                        required onChange={(e) => handleChange(e)}
-                        id="news" name="news" value={input.news} >
-                    </textarea>
-                </div>
-                <div>
-                    <label className={style.label} htmlFor="image"> Foto: </label>
+
+                    {/* <label className={style.label} htmlFor="image"> Foto: </label> */}
                     <input className={style.inputText} required onChange={(e) => handleChange(e)} type="file" id="image" name="image" />
                 </div>
                 <input className={style.btnPostNew} type="submit" value="Postear" />
