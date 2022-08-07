@@ -12,6 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
 import verify from '../../../assets/verificado.png'
+import Swal from 'sweetalert2'
 import styles from '../Users/Users.module.css';
 
 const Users = () => {
@@ -38,6 +39,26 @@ const Users = () => {
 
     const handleAdmin = (e, email) => {
         dispatch(updateUser({ admin: e.target.value }, email))
+        Swal.fire({
+            title: '¡Proceso de solicitud enviado!',
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            position: 'center',
+            width: '40rem',
+            height: '55rem',
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonText: 'OK',
+            confirmButtonColor: 'purple',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown',
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+          })
+        
     }
 
     const [page, setPage] = React.useState(0);
@@ -66,7 +87,7 @@ const Users = () => {
                             <TableCell>Usuario</TableCell>
                             <TableCell align="left">Nombre</TableCell>
                             <TableCell align="left">Email</TableCell>
-                            <TableCell align="left">City</TableCell>
+                            <TableCell align="left">Ciudad</TableCell>
                             <TableCell align="left">DNI</TableCell>
                             <TableCell align="left">Teléfono</TableCell>
                             <TableCell align="left">Tránsito</TableCell>

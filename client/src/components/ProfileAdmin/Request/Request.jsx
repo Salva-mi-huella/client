@@ -10,6 +10,7 @@ import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
 import { updateRequestFoundation } from '../../../redux/actions'
 import styles from '../Request/Request.module.css';
+import Swal from 'sweetalert2';
 
 
 const Request = ({ requests_foundations }) => {
@@ -31,6 +32,25 @@ const Request = ({ requests_foundations }) => {
 
     const handleUpdate = (e, id) => {
         dispatch(updateRequestFoundation({ status: e.target.value }, id))
+        Swal.fire({
+            title: '¡Proceso de solicitud enviado!',
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            position: 'center',
+            width: '40rem',
+            height: '55rem',
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonText: 'OK',
+            confirmButtonColor: 'purple',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown',
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+          })
     }
 
     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests_foundations.length - page * rowsPerPage));
