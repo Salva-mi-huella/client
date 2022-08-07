@@ -110,19 +110,18 @@ export default function ProductDetail() {
                 <img className={styles.image} src={product.images}></img>
             </div>
             <div className={styles.info}>
-                <h1 className={styles.name}>{product.name}</h1>
-                <p className={styles.description}>{product.description}</p>
-                <div >
-                    <div className={styles.price}>
-                    <img className={styles.huellita} alt="foto-huellita" src={huellita}></img>
-                    <p className={styles.points}> {product.points*numero}</p>
-                    </div>
-                    
-                    <div>
-                        <p className={styles.unidad}>Huellitas por unidad: {product.points}</p>
-                    </div>
+                <div className={styles.contenedor}>
+                    <h1 className={styles.name}>{product.name}</h1>
+                    <p className={styles.description}>{product.description}</p>
                 </div>
-                <div className={styles.containerButton}>
+                <div className={styles.bottom}>
+                    <div >
+                        <div className={styles.price}>
+                            <img className={styles.huellita} alt="foto-huellita" src={huellita}></img>
+                            <p className={styles.points}> {product.points*numero}</p>
+                        </div>
+                    </div>
+{/*                 <div className={styles.containerButton}>
                     <div className={styles.moreLess}>
                         <button className={styles.button2} onClick={decrement}>-</button>
                         <p className={styles.numero}>{numero}</p>
@@ -131,10 +130,11 @@ export default function ProductDetail() {
                     <div>
                         <button className={styles.button} onClick={canje}>CANJEAR</button>
                     </div>
-                </div>
-                <div className={styles.type}>
-                <p className={styles.pet}>Mascotas</p>
-                <p>{product.type}</p>
+                </div> */}
+                    <div className={styles.type}>
+                        <p className={styles.pet}>Mascotas</p>
+                        <p>{product.type}</p>
+                    </div>
                 </div>
             </div>
         </div>
