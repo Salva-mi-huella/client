@@ -69,7 +69,7 @@ const Inbox = () => {
             <TableContainer component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
             >
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table sx={{ maxWidth: 800. }} aria-label="simple table">
                     <TableHead >
                         <TableRow sx={styles.TableRow} >
                             <TableCell align="left">Usuario</TableCell>
@@ -94,7 +94,7 @@ const Inbox = () => {
                                     <TableCell className={styles.tableCell} align="left">{r.name}</TableCell>
                                     <TableCell className={styles.tableCell} align="left">{r.email}</TableCell>
                                     <TableCell className={styles.ciudad} align="left" >{r.message || 'Sin especificar'}</TableCell>
-                                    <TableCell className={styles.tableCell} align="left">DATE?</TableCell>
+                                    {/* <TableCell className={styles.tableCell} align="left">DATE?</TableCell> */}
 
                                 </TableRow>
                             ))}

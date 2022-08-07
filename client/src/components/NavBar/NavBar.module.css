@@ -51,12 +51,13 @@
 
 .signUp button {
     transition: 0.3s;
-    background-color: #6e117f;
-    color: rgba(255, 255, 255, 0.876);
+    background-color:white;
+    color: rgb(99, 59, 218);
     border: none;
     margin-right: 3vw;
     margin-bottom: 1.5vw;
-    border-radius: 5px;
+    border-radius: 0.3vw;
+    font-weight: bold;
     font-size: 1vw;
     cursor: pointer;
     width: 8vw;
@@ -66,8 +67,7 @@
 
 .signUp button:hover {
     transition: 0.3s;
-    background-color: rgba(255, 255, 255, 0.876);
-    color: #6e117f;
+    background-color:rgb(255, 226, 8)
 }
 
 .profile {

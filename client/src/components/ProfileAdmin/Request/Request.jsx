@@ -1,76 +1,120 @@
 import React from 'react';
-import './Request.css'
+import { useDispatch } from 'react-redux';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
+import { updateRequestFoundation } from '../../../redux/actions'
+import styles from '../Request/Request.module.css';
 
-import './Table.css'
 
-const makeStyles = (status) => {
-    if (status === 'Aprobado') {
-        return {
-            background: 'rgb(145 254 159 / 47%)',
-            color: 'green'
-        }
+const Request = ({ requests_foundations }) => {
+
+    const dispatch = useDispatch()
+
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+
+    const handleUpdate = (e, id) => {
+        dispatch(updateRequestFoundation({ status: e.target.value }, id))
     }
-    else if (status === 'Rechazado') {
-        return {
-            background: '#ffadad8f',
-            color: 'red'
-        }
-    }
-    else if (status === 'Pendiente') {
-        return {
-            background: '#aaa9ad',
-            color: 'white'
-        }
-    }
-}
 
-
-const Request = ({requests_foundations}) => {
+    const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests_foundations.length - page * rowsPerPage));
     return (
-        <div className='containerRequest' >
-            <h1>Solicitudes:</h1>
-        <TableContainer component={Paper}
-            style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', }}
-        >
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell align="left">Fecha</TableCell>
-                        <TableCell align="left">Nombre de Fundación</TableCell>
-                        <TableCell align="left">Email</TableCell>
-                        <TableCell align="left">Teléfono</TableCell>
-                        <TableCell align="left">Estado</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-
-                    {requests_foundations.map((r) => (
-                        <TableRow
-                            key={r.name}
-                        >
-                            <TableCell component="th" scope="row">
-                                01/08/2022
-                            </TableCell>
-                            <TableCell align="left">{r.name}</TableCell>
-                            <TableCell align="left">{r.email}</TableCell>
-                            <TableCell align="left" className="ciudad">-</TableCell>
-                            {/* <TableCell align="left">{row.date}</TableCell> */}
-                            <TableCell align="left">
-                                <span className="transit" style={makeStyles('Pendiente')} >Pendiente </span>
-                            </TableCell>
+        <div className={styles.tableDonations} >
+            <h3 className={styles.donationTitle}>Solicitudes:</h3>
+            <TableContainer className={styles.cont} component={Paper}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }}
+            >
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="left">Fecha</TableCell>
+                            <TableCell align="left">Nombre de Fundación</TableCell>
+                            <TableCell align="left">Email</TableCell>
+                            <TableCell align="left">Teléfono</TableCell>
+                            <TableCell align="left">Estado</TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
-    </div>
+                    </TableHead>
+                    <TableBody>
+
+                        {requests_foundations.length > 0 ? requests_foundations.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((r) => (
+                            <TableRow
+                                className={styles.row}
+                                key={r.name}>
+                                <TableCell component="th" scope="row">
+                                    {r.post_date}
+                                </TableCell>
+                                <TableCell align="left">{r.name}</TableCell>
+                                <TableCell align="left">{r.email}</TableCell>
+                                <TableCell align="left">{r.telephone}</TableCell>
+
+                                <TableCell align="left">
+
+                                    <select className={styles.select}
+                                        onChange={(e) => { handleUpdate(e, r.id) }}>
+
+                                        <option
+                                            disabled
+                                            value={"Pendiente"}
+                                        > Pendiente
+                                        </option>
+
+                                        <option
+
+                                            value={"Aprobada"}
+                                        > Aprobada
+                                        </option>
+
+                                        <option
+
+                                            value={"Rechazada"}
+                                        > Rechazada
+                                        </option>
+
+                                        <option hidden selected>
+                                            {r.status === 'Pendiente' ? 'Pendiente' : r.status}
+                                        </option>
+
+                                    </select>
+                                </TableCell>
+                            </TableRow>
+                        )) :
+                            <TableCell component="th" scope="row"> Aún no hay Solicitudes </TableCell>}
+                        {emptyRows > 0 && (
+                            <TableRow style={{ height: 53 * emptyRows }}>
+                                <TableCell colSpan={6} />
+                            </TableRow>
+                        )}
+
+                    </TableBody>
+                </Table>
+                <TablePagination
+                    className={styles.pagination}
+                    component="div"
+                    count={requests_foundations.length}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    rowsPerPage={rowsPerPage}
+                    rowsPerPageOptions={[10]}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
+            </TableContainer>
+        </div>
     )
 }
 

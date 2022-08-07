@@ -10,13 +10,9 @@
      /* background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000"); */
     background-size: cover;
     background-repeat: no-repeat; 
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
     padding-left: 50px;
     padding-right: 50px;
-    /* 
-   // SUGERENCIA PARA EL BACKGROUND:
-    "https://img.freepik.com/foto-gratis/fondo-textura-acuarela-purpura-rosa_1083-169.jpg?1"
-    */
+
   }
   
   .rightCol {
@@ -257,20 +253,16 @@
 }
 .cont{
     display: flex;
-   /*  justify-content: center; */
-    /* align-items: center; */
+    flex-direction: column;
     width: max-content;
 }
 .error{
     color: red;
     font-size: 0.8rem;
-    /* margin-top: 1rem; */
-    margin-left: 10px;
 }
 .errorM{
   color: red;
   font-size: 0.8rem;
-  margin-top: 8.5rem;
   margin-left: 10px;
 }
 

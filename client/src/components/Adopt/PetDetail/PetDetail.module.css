@@ -27,24 +27,24 @@
 }
 
 .infoDesc p {
-  font-size: 18px;
-  line-height: 36px;
-  letter-spacing: 2px;
+  font-size: 1.3vw;
+  line-height: 2.2vw;;
+  letter-spacing: 0.1vw;
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 2vw;
 }
 
 .infoExtra {
   /* margin-left: 60px; */
-  border-top: 1px solid #fff;
-  padding: 20px 48px 20px 48px;
+  border-top: 0.1vw solid #fff;
+  padding: 1.3vw 2vw 1.3vw 2vw;
   display: flex;
   justify-content: center;
-  gap: 80px;
+  gap: 6vw;
 }
 
 .infoExtra p {
-  font-size: 22px;
+  font-size: 1.7vw;
 }
 
 .pTitle {
@@ -71,7 +71,7 @@
 }
 
 .btn {
-  margin-top: 30px;
+  margin-top: 2vw;
   text-align: center;
 }
 
@@ -81,7 +81,7 @@
   background-color:#9C27B0;
   color: #f5f5f5;
   border: none;
-  border-radius: 30px;
+  border-radius: 1vw;
   /* padding: 8px 24px; */
   font-size: 2vw;
   /* margin: 4px 2px; */
@@ -111,11 +111,11 @@
 .imgHigh {
   display: flex;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 4vw;
 }
 
 .imgHigh img {
-  width:  80vw;
+  width:  45vw;
   height: 35vw;
   border-radius: 6px;
   filter: drop-shadow(0px 0px 6px rgb(255,230,0));
@@ -130,9 +130,9 @@
 }
 
 .thumb {
-  width: 140px;
-  height: 120px;
-  border-radius: 6px;
+  width: 10.9vw;
+  height: 9vw;
+  border-radius: 0.5vw;
   filter: drop-shadow(0px 0px 3px rgb(255,255,255));
   transition: all 0.3s ease;
 }

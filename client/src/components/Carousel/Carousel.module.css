@@ -62,7 +62,7 @@
     height: 38vw;
     padding-top: 5vw;  
     padding-bottom: 5vw;  
-    background: linear-gradient(70deg, rgb(174, 140, 182) 0%, rgb(99, 59, 218) 97%);
+    /* background: linear-gradient(70deg, rgb(174, 140, 182) 0%, rgb(99, 59, 218) 97%); */
     
 }
 
@@ -98,8 +98,8 @@
 
 .container button {
     transition: 0.3s;
-    background-color:#9C27B0;
-    color: #f5f5f5;
+    background-color:white;
+    color: rgb(99, 59, 218);
     border: none;
     font-size: 1.2vw;
     cursor: pointer;
@@ -107,13 +107,13 @@
     width: 14vw;
     height: 3vw;
     text-align: center;
+    font-weight: bold;
+
 }
 
 .container button:hover {
     transition: 0.3s;
-    background-color:white;
-    color: #9C27B0;
-    font-weight: bold;
+    background-color:rgb(255, 226, 8)
 }
 
 
