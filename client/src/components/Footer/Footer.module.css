@@ -11,12 +11,13 @@
 .copyright {
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 0.6vw;
 }
 
 .containerLogo {
     color: #fff;
-    margin-right: -120px;
+    margin-right: -7vw;
+    margin-top: 1vw;
 }
 
 .mision {
@@ -24,8 +25,7 @@
 }
 
 .iconContainer {
-    margin-top: 15px;
-    margin-bottom: -15px;
+    margin-bottom: -2vw;
 }
 
 .iconContainer a {

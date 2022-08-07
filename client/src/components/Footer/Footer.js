@@ -31,7 +31,7 @@ export default function Footer() {
 
               <CDBBox className={styles.containerLogo}>
                 <a href="/" className="d-flex align-items-center p-0 text-dark text-decoration-none">
-                  <img className={styles.logo} alt="logo" src={logo} width="80px" />
+                  <img className={styles.logo} alt="logo" src={logo} />
                   <div className={styles.mision}>
                     <span>Salva mi huella</span>
                   </div>
