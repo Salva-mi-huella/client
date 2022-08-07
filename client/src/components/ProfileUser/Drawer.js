@@ -127,6 +127,10 @@ export default function PersistentDrawerLeft() {
 
   // console.log(points)
 
+  const handleLogout =() =>{
+    localStorage.clear();
+    logout({returnTo: `${window.location.origin}/home`}); 
+  }
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -224,7 +228,7 @@ export default function PersistentDrawerLeft() {
           <ListItemButton onClick={viewAdoptSolicitudes} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><ContentPasteIcon sx={{ color: 'white' }} /></ListItemIcon>Solicitudes de adopción</ListItemButton>
           <ListItemButton onClick={viewProducts} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><Inventory2Icon sx={{ color: 'white' }} /></ListItemIcon>Mis productos</ListItemButton>
           <ListItemButton sx={{ color: 'rgb(255, 230, 0)', marginBottom: '20px', fontWeight: 'bold', fontSize: '20px', fontFamily: 'Gill Sans' }}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{userDetail.points}</ListItemButton>
-          <ListItemButton onClick={() => logout({ returnTo: `${window.location.origin}/home` })} sx={{ color: 'white', marginTop: '16vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
+          <ListItemButton onClick={handleLogout} sx={{ color: 'white', marginTop: '16vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
         </List>
         <Divider />
       </Drawer>
@@ -251,7 +255,7 @@ export default function PersistentDrawerLeft() {
 
 
 
-      {request && <RequestTable userId={userDetail.id} foundations={foundations}></RequestTable>}
+      {request && <RequestTable userDetail={userDetail} userId={userDetail.id} foundations={foundations}></RequestTable>}
 
     </div>
   );

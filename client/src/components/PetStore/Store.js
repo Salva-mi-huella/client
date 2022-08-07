@@ -21,7 +21,8 @@ export default function Store() {
     const user = useSelector(state => state.user)
     const products = useSelector((state) => state.allProductsFiltered);
     const allProducts = useSelector((state) => state.allProducts);
-    
+    const cart = useSelector(state => state.cart);
+    const productsId = cart.map(product => product.id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,7 +67,7 @@ export default function Store() {
                   'Canje exitoso!',
                   `Tus productos fueron canjeados, te avisaremos para coordinar el envio. Tu nuevo saldo de huellitas es ${newBalance}`,
                   'success',
-                  dispatch(updateUser({points:newBalance}, user.email)),
+                  dispatch(updateUser({points:newBalance, products:productsId}, user.email)),
                   setTimeout(()=> window.location.reload(),5000) 
                   
               )
