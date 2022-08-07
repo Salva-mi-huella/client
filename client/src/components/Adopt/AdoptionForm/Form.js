@@ -15,22 +15,23 @@ const [submittedForm, , setSubmittedForm] = useState(false);
 const {isAuthenticated, user, loginWithRedirect} = useAuth0();
 
 
+
 const dispatch = useDispatch();
-
-useEffect(() => {
-  dispatch(getAllPets())
-  dispatch(getFoundations())
-  if (isAuthenticated) {
-    dispatch(getUserByEmail(user.email))
-  }
-}, [dispatch]);
-
 const petDetail = useSelector(state => state.petDetail)
 const pets = useSelector(state => state.allPets)
 const foundations = useSelector(state => state.foundations)
 const userDetail = useSelector(state => state.user)
 
+useEffect(() => {
+  dispatch(getAllPets())
+  dispatch(getFoundations())
+  if (isAuthenticated && user.email) {
+    dispatch(getUserByEmail(user?.email))
+  }
+}, [dispatch]);
 
+
+const [foundationSelected, setFoundationSelected] = useState(true)
 
 const handleOnClick = () => {
   setModal(true);
@@ -40,22 +41,24 @@ const handleOnCheck = () => {
   setCheck(false);
 }
 
+const handleOnChange = (e) => {
+  setFoundationSelected(false)
+}
+
 const ref = useRef(null)
 
-
-
-  return (
+return (
     <div className={styles.container}>
       <Formik
         innerRef={ref}
         initialValues={{
-          name: userDetail?.name ? userDetail.name : "",
+          name: userDetail?.name?.length >0 ? userDetail.name : "",
           lastname: "",
           email: userDetail?.email ? userDetail.email : "",
           phone: userDetail?.telephone_number ? userDetail.telephone_number : "",
           age: "",
-          pet: petDetail?.id ? petDetail.id : "",
-          foundation: petDetail.foundationId,
+          pet: petDetail?.id ? petDetail.id : foundations[0]?.pets[0]?.id,
+          foundation: petDetail?.foundationId ? petDetail.foundationId : 1,
           textarea:"",
           checkbox:"",
         }}
@@ -70,7 +73,7 @@ const ref = useRef(null)
           }else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
             errores.name = "El nombre solo puede contener letras y espacios";
           }
-
+          
           //VALIDACION APELLIDO
           if (!values.lastname) {
             errores.lastname = "Por favor ingrese un apellido";
@@ -79,11 +82,11 @@ const ref = useRef(null)
             else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.lastname)) {
               errores.lastname =
               "El apellido solo puede contener letras y espacios";
-          }
-
-          //VALIDACION CORREO
-          if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
-            errores.email =
+            }
+            
+            //VALIDACION CORREO
+            if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
+              errores.email =
             "Por favor escribe un correo válido ej:correo@correo.com";
           }
           
@@ -99,13 +102,13 @@ const ref = useRef(null)
             errores.age="Por favor ingresa tu edad"
           }else if(values.age < 18){
             errores.age="Recuerda que para adoptar debes ser mayor de 18 años"
-          }
+          } else if(values.age > 80) errores.age="Para adoptar debes ser menor de 80 años"
           
           //VALIDACION MENSAJE
           if(!values.textarea){
             errores.textarea="Por favor cuéntanos porque te gustaría adoptar"
           }
-
+          
           //VALIDACION CHECKBOX
           if(values.checkbox !== true){
             errores.checkbox="Debes aceptar el acuerdo de adopción para continuar"
@@ -119,20 +122,20 @@ const ref = useRef(null)
           const petSelected = pets.find(p => p.id == values.pet)?.name
           const foundationSelected = foundations.find(f => f.id == values.foundation)?.name
 
-
+          
           values.petSelected=petSelected
           values.foundationSelected=foundationSelected
-
+          
           
           
           // Swal.fire({
             //   position: 'center',
             //   icon: 'success',
             //   title: 'Enviado con éxito',
-          //   showConfirmButton: false,
-          //   timer: 2000
-          // })
-
+            //   showConfirmButton: false,
+            //   timer: 2000
+            // })
+            
           Swal.fire({
             title: `¿Estás seguro de querer enviar el formulario?`,
             text: !isAuthenticated && '¡Registrate antes para sumar huellitas en caso de que concrete la adopción!',
@@ -156,12 +159,12 @@ const ref = useRef(null)
           }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire({
-              position: 'center',
-              icon: 'success',
-              text: 'Ahora podrás visualizarla desde tu perfil',
-              title: 'Tu solicitud ha sido enviada con éxito',
-              showConfirmButton: false,
-              timer: 2000
+                position: 'center',
+                icon: 'success',
+                text: 'Ahora podrás visualizarla desde tu perfil',
+                title: 'Tu solicitud ha sido enviada con éxito',
+                showConfirmButton: false,
+                timer: 2000
               })
               dispatch(postRequestAdopt({
                 age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, 
@@ -172,9 +175,9 @@ const ref = useRef(null)
               .then((result) => {
                 console.log(result);
               }, (error) => {
-              console.log(error.text);
-            });
-
+                console.log(error.text);
+              });
+              
               resetForm();
             } else if (result.isDenied) {
               loginWithRedirect()
@@ -182,12 +185,12 @@ const ref = useRef(null)
           })
 
           // dispatch(postRequestAdopt({
-          //   age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, 
-          //   pet: values.pet, foundation: values.foundation, user: userDetail.id
-          // }))
-          
+            //   age: parseInt(values.age),  name: values.name, lastname: values.lastname, email:values.email, phone:values.phone, textarea: values.textarea, checkbox:values.checkbox, 
+            //   pet: values.pet, foundation: values.foundation, user: userDetail.id
+            // }))
+            
           }}
-      >
+          >
         {({errors}) => (
           <Form>
 
@@ -211,7 +214,7 @@ const ref = useRef(null)
                   type="text"
                   name="lastname"
                   id="lastname"
-                />
+                  />
                 <ErrorMessage name="lastname" component={()=> (<div className={styles.error}>{errors.lastname}</div>)}></ErrorMessage>
               </div>
             </div>
@@ -224,7 +227,7 @@ const ref = useRef(null)
                   type="email"
                   name="email"
                   id="email"
-                /> 
+                  /> 
                 <ErrorMessage name="email" component={()=> (<div className={styles.error}>{errors.email}</div>)}></ErrorMessage>
               </div>
 
@@ -248,22 +251,26 @@ const ref = useRef(null)
                   type="number"
                   name="age"
                   id="age"                  
-                />
+                  />
                 <ErrorMessage name="age" component={()=> (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
               </div>
 
               <div className={styles.inp}>
                 <label htmlFor="pet">Huella</label>
-                <Field defaultValue={petDetail.name} as="select" className={`form-control w-75 ${styles.inputsForm}`} name="pet" id="pet">
-                  {pets && pets.map((pet) => ref.current?.values?.foundation == pet.foundationId?(<option  value={pet.id}>{pet.name}</option>):null)}
+                <Field defaultValue={foundationSelected ? (petDetail.id ? petDetail.id : foundations[0]?.pets[0]?.id) : 'Elegí tu huella'} as="select" className={`form-control w-75 ${styles.inputsForm}`} name="pet" id="pet">
+                  {/* {pets && pets.map((pet) => ref.current?.values?.foundation == pet.foundationId?(<option  value={pet.id}>{pet.name}</option>):null)} */}
+                  <option>Elegí tu huella</option>
+                  {foundations && foundations.filter(f => f.id == ref.current?.values?.foundation).map((foundation) =>
+                   foundation.pets.map((pet) => <option value={pet.id}>{pet.name}</option>))}
                 </Field>
               </div>
 
               <div className={styles.inp}>
                 <label htmlFor="foundation">Fundación</label>
-                <Field as="select"  className={`form-control w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation">
-                {petDetail.foundation && petDetail.foundation.name && <option selected defaultValue={petDetail.foundation.id} value={petDetail.foundation.id}>{petDetail.foundation.name}</option>}
-                  {foundations && foundations.filter(f => f.id !== petDetail.foundationId).map((foundation)=> (<option value={foundation.id}>{foundation.name}</option>))}
+                <Field as="select" onClick={handleOnChange} className={`form-control w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation" defaultValue={petDetail.foundationId ? petDetail.foundationId : foundations[0]?.id}>
+                {/* {petDetail.foundation && petDetail.foundation.name && <option value={petDetail.foundation.id}>{petDetail.foundation.name}</option>} */}
+                  {/* {foundations && foundations.filter(f => f.id !== petDetail.foundationId).map((foundation)=> (<option value={foundation.id}>{foundation.name}</option>))} */}
+                  {foundations && foundations.map((foundation)=> (<option onClick={handleOnChange} value={foundation.id}>{foundation.name}</option>))}
                 </Field>                                  
               </div>
             </div>

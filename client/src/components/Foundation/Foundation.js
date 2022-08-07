@@ -11,6 +11,7 @@ import email from '../../assets/email-2.png';
 import web from '../../assets/web (2).png';
 import Form from './PostMessage/Form';
 import Aside from './Aside.js'
+import Footer from '../Footer/Footer.js'
 
 
 export default function Foundation () {
@@ -21,8 +22,8 @@ export default function Foundation () {
 
     useEffect(() => { 
         dispatch(getFoundationDetail(params.foundationId))
+        window.scrollTo(0, 0);
      }, [dispatch, params.foundationId])
-
 
 
     return (  
@@ -60,23 +61,14 @@ export default function Foundation () {
                     <h2>Nuestras huellas</h2>
                     <p>En este apartado va una breve descripción para captar atención. </p>
                 </div>
-                <Aside/>
+                {/* <Aside/> */}
                 <PetSlick foundation={foundation}/>
             </div>
 
-                    <div className={styles.containerContact}>
-                        <GoogleMaps foundation={foundation} lat={foundation.lat} lng={foundation.lng} />
-                        <div>
-
-                        <Form foundationId={foundation.id}></Form>
-                            
-                        </div>
-
-                    </div>
 
                     <div className={styles.data}>
                             <div >
-                                <h3>{foundation.name}</h3><img src={foundation.images[0]} alt='foundationImage'></img>
+                                <img src={foundation.images[0]} alt='foundationImage'></img><h3>{foundation.name}</h3>
                             </div>
 
                             <div >
@@ -105,7 +97,18 @@ export default function Foundation () {
                             </div>
 
                     </div>
-    
+                
+                    <div className={styles.containerContact}>
+                        <GoogleMaps foundation={foundation} lat={foundation.lat} lng={foundation.lng} />
+                        <div>
+
+                        <Form foundationId={foundation.id}></Form>
+                            
+                        </div>
+
+                    </div>
+
+                    <Footer/>
         </div>
     )
 }

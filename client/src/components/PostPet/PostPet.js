@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { Form, Formik, Field, ErrorMessage } from "formik";
-import styles from "./PostPet.module.css";
 import { useDispatch } from "react-redux";
+
+import { Form, Formik, Field, ErrorMessage } from "formik";
+import Swal from 'sweetalert2'
 
 import { postPets } from "../../redux/actions";
 
-export default function PostPet() {
+import styles from "./PostPet.module.css";
+
+export default function PostPet({ foundation }) {
+
+  console.log(foundation);
 
   const dispatch = useDispatch()
   var date = Date();
@@ -18,7 +23,7 @@ export default function PostPet() {
     // setImag(e.target.files[0])
     //[e.target.name]: e.target.files[0]
 
-    setImag({ ...imag, [e.target.name]: e.target.files[0] })
+    setImag([...imag, e.target.files[0]])
     console.log(imag)
   }
 
@@ -75,42 +80,61 @@ export default function PostPet() {
             errores.description = "Superaste el limite de caracteres: " + (values.description.length - 1)
           }
 
-          // if (!values.images) {
-          //   errores.images = "Por favor, selecciona al menos 3 imagenes (manten presionado ctrl mientras seleccionas)"
-          // }
+          if (imag.length < 3) {
+            errores.images = "Por favor selecciona 3 imagenes"
+          }
 
           return errores;
         }}
 
         onSubmit={async (values, { resetForm }) => {
 
-          const data = new FormData();
-          data.append(`file`, imag);
-          data.append("upload_preset", "koafybza");
-          const res = await fetch("https://api.cloudinary.com/v1_1/djasy7hxk/image/upload",
-            {
-              method: "POST",
-              body: data
+          Swal.fire({
+            title: 'Quieres postear esta mascota?',
+            showDenyButton: true,
+            confirmButtonText: 'Si, postear',
+            denyButtonText: `No, cancelar`,
+          }).then(
+            async (result) => {
+              if (result.isConfirmed) {
+                const data = new FormData();
+                let file = [];
+                for (let i = 0; i < imag.length; i++) {
+                  data.append("file", imag[i]);
+                  data.append("upload_preset", "koafybza");
+                  const res = await fetch("https://api.cloudinary.com/v1_1/djasy7hxk/image/upload",
+                    {
+                      method: "POST",
+                      body: data
+                    })
+                  let fileURL = await res.json()
+                  file.push(fileURL.secure_url)
+                }
+
+                // console.log({
+                //   images: file,
+                //   name: values.name,
+                //   age: values.age,
+                //   type: values.type,
+                //   gender: values.gender,
+                //   description: values.description
+                // })
+
+                dispatch(postPets({
+                  name: values.name,
+                  type: values.type,
+                  images: file,
+                  age: values.age,
+                  gender: values.gender,
+                  description: values.description,
+                  foundation: foundation.id
+                }))
+
+                Swal.fire('Posteado!', '', 'success')
+                resetForm();
+
+              }
             })
-          let file = await res.json()
-          console.log({
-            images: imag,
-            name: values.name,
-            age: values.age,
-            type: values.type,
-            gender: values.gender,
-            description: values.description
-          })
-
-          // dispatch(postPets({
-          //   images: [file.secure_url],
-          //   name: values.name,
-          //   age: values.age,
-          //   type: values.type,
-          //   gender: values.gender,
-          //   description: values.description
-          // }))
-
           resetForm();
         }}
       >
@@ -244,6 +268,6 @@ export default function PostPet() {
 
 
 
-    </div>
+    </div >
   );
 }

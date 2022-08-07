@@ -9,7 +9,8 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    margin-bottom: 5rem;
+    margin-bottom: 7vw;
+    margin-top: 3vw;
 }
 .imgContainer{
     display: flex;
@@ -18,36 +19,31 @@
     align-items: center;
 }
 .image{
-    width: 35rem;
-    height: 35rem;
-    max-width: 35rem;
-    max-height: 35rem;
+    width: 40vw;
+    height: 40vw;
     object-fit: cover;
-    border-radius: 1rem;
-    box-shadow: 6px 5px 23px 1px #1B1B19;
 }
-.image:hover{
-    transform: scale(1.05);
-}
+
 .button {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 18px;
-  padding: 0.8em 1.7em 0.8em 1.7em;
+  font-size: 1.4vw;
+  width: 12vw;
+  height: 4vw;
   color: white;
   background: #ad5389;
   background: linear-gradient(0deg, rgb(117, 12, 94) 0%, rgb(168, 11, 155) 100%);  border: none;
   border: none;
   box-shadow: 0 0.7em 1.5em -0.5em #b90fe498;
   letter-spacing: 0.05em;
-  border-radius: 20em;
+  border-radius: 0.7vw;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-top: 1rem;
   border: 2px solid black;
   opacity: 0.85;
 }
@@ -64,30 +60,53 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-image: url("../../assets/images/background-paws.jpg");
+    /* align-items: center; */
     color: black;
-   margin-left: 1rem;
     padding-bottom: 5rem;
-    border-radius: 2rem;
-    width: 50rem;
-    height: 35rem;
-    box-shadow: 6px 5px 23px 1px #1B1B19;
-
+    width: 40vw;
+    height: 40vw;
+    margin-right: 5vw;
 }
+
+.info span {
+    font-size: 1vw;
+    font-weight: bold;
+    color: white;
+}
+
 .price{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     color: black;
-    margin-top: -1rem;
-   
+    /* margin-top: -1rem; */
+}
 
+.price div {
+    display: flex;
 }
+
+.info div {
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.subInfo {
+    display: flex;
+    justify-content: space-between;
+    /* border: 3px solid red */
+}
+
 .points{
-    margin-top: 1rem;
-    font-size: 2rem;
+         margin-top: 2vw;
+        font-size: 3vw;
+        color: rgb(255, 230, 0);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 0.8vw;;
 }
+
 .type{
     display: flex;
     flex-direction: column;
@@ -101,16 +120,19 @@
     margin-top: 1rem;
 }
 .description{
-    font-size: 1.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    font-size: 1.5vw;
+    color: white;
 }
 .name{
-    font-size: 2.5rem;
-    align-items: center;
-    color: violet;
-
+    font-size: 3.2vw;
+    width: 40vw;
+    text-align: center;
+    color: rgb(255, 226, 8);
+    margin-bottom: 2vw;
+    margin-top: 3vw;
+    font-weight: bold;
 }
+
 .containerButton{
     display: flex;
     flex-direction: row;
@@ -119,9 +141,9 @@
     /* background-image: url("../../assets/images/background-paws.jpg");
     background-color: rgb(116, 9, 126); */
     color: azure;
-    margin-top: -1rem;
-    
+    margin-top: 3vw;
 }
+
 .moreLess{
     margin-right: 5rem;
     display: flex;
@@ -132,14 +154,13 @@
   align-items: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 16px;
-  padding: 0.5em 1em 0.5em 1em;
+  font-size: 1.5vw;
+  width: 4vw;
+  height: 4vw;;
   color: white;
-  background: #ad5389;
   background: linear-gradient(0deg, rgb(117, 12, 94) 0%, rgb(168, 11, 155) 100%);  border: none;
   box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
-  letter-spacing: 0.05em;
-  border-radius: 20em;
+  border-radius: 1vw;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
@@ -157,15 +178,14 @@
   box-shadow: 0 0.3em 1em -0.5em #14a73e98;
 }
 .numero{
-    font-size: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 1rem;
-    color: black;
+    font-size: 1.5vw;
+    margin: 1vw;
+    color: white;
 }
 .unidad{
-    font-size: 0.7rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    color: black;
+    font-size: 1vw;
+    margin-left: -0.5vw;
+    margin-top: -1vw;
+    color: white;
+    
 }

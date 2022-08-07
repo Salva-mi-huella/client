@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./AboutUs.module.css";
 import githubpng from "../../assets/pngegg.png";
 import fotolauti from "../../assets/fotoLauti.jpeg";
-import henry from "../../assets/henry.png";
+import henry from "../../assets/henry-logo2.png";
+import Footer from "../Footer/Footer";
 
 
 export default function AboutUs(){
@@ -16,7 +17,7 @@ export default function AboutUs(){
           enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
           imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.</p>
                 </div>
-                <div>
+                <div className={styles.henryImage}>
                     <img className={styles.henry} src={henry} alt="logo-henry"></img>
                 </div>
             </div>
@@ -131,6 +132,8 @@ export default function AboutUs(){
                 </div>
                 </div>
             </div>
+
+            <Footer/>
         </div>
     )
 }

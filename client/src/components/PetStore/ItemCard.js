@@ -4,7 +4,6 @@ import img from "../../assets/paw-print.png";
 import { addToCart } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import {Link} from "react-router-dom";
-
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -12,10 +11,30 @@ import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { useAuth0 } from '@auth0/auth0-react';
+import Swal from 'sweetalert2';
 
 
 export default function ItemCard(props) {
+    const {isAuthenticated, loginWithRedirect} = useAuth0();
     const dispatch = useDispatch();
+
+    function handleAddToCart(){
+        if(isAuthenticated){
+            dispatch(addToCart(props.id))
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Para agregar productos al carrito debes registrarte o iniciar sesión.',
+                showDenyButton: true,
+                denyButtonText: `Registrarse`,
+            }).then((result) => {
+            if (result.isDenied) {
+              loginWithRedirect()
+            }})
+        }
+    }
 
     return (
     // <div className={styles.container}>
@@ -58,7 +77,7 @@ export default function ItemCard(props) {
                         <h4>{props.points}</h4>
                         <img className={styles.paws} src={img} alt='points'></img>
                     </div>
-                    <IconButton onClick={()=>dispatch(addToCart(props.id))} aria-label="add to favorites">
+                    <IconButton onClick={handleAddToCart} aria-label="add to favorites">
                         <AddShoppingCartIcon sx={{color: 'yellow'}} />
                     </IconButton>
                 </div>

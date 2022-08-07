@@ -8,6 +8,7 @@ import styles from './ProductDetail.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import Swal from 'sweetalert2';
 import { updateUser , getUserByEmail } from '../../redux/actions/index';
+import Footer from '../Footer/Footer';
 
 
 export default function ProductDetail() {
@@ -37,6 +38,7 @@ export default function ProductDetail() {
             console.log(userPoints)
         } */
         dispatch(getProductDetail(id));
+        window.scrollTo(0, 0);
     }, [dispatch, id]);
 
     
@@ -47,10 +49,10 @@ export default function ProductDetail() {
             setNumero(numero + 1)
         }else{
             Swal.fire({
-                title: 'Error!',
-                text: 'No puedes comprar mas de 10 productos',
+                title: 'Oops..!',
+                text: 'No puedes canjear más de 10 productos.',
                 icon: 'error',
-                confirmButtonText: 'Entiendo'
+                confirmButtonText: 'OK'
               })
         }
     }
@@ -59,10 +61,10 @@ export default function ProductDetail() {
             setNumero(numero - 1)
         }else{
             Swal.fire({
-                title: 'Error!',
-                text: 'No puedes comprar menos de 1 producto',
+                title: 'Ooops..!',
+                text: 'No puedes canjear menos de 1 producto.',
                 icon: 'error',
-                confirmButtonText: 'Entiendo'
+                confirmButtonText: 'OK'
               })
         }
     }
@@ -71,12 +73,12 @@ export default function ProductDetail() {
             if(user.points >= product.points*numero){
                 Swal.fire({
                     title: 'Espera!',
-                    text: "Estas seguro/a de que quieres canjear este producto?",
+                    text: "Estás seguro/a de que quieres canjear este producto?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si quiero canjear!'
+                    confirmButtonText: 'Sí, quiero canjear!'
                 }).then((result) => {
                     if (result.isConfirmed) {
                     Swal.fire(
@@ -105,23 +107,33 @@ export default function ProductDetail() {
 
     return (
         product && product.name ?
+        <div>
         <div className={styles.container}>
             <div className={styles.imgContainer} >
-                <img className={styles.image} src={product.images}></img>
+                <img className={styles.image} src={product.images} alt='productImage'></img>
             </div>
             <div className={styles.info}>
                 <h1 className={styles.name}>{product.name}</h1>
                 <p className={styles.description}>{product.description}</p>
-                <div >
-                    <div className={styles.price}>
-                    <img className={styles.huellita} alt="foto-huellita" src={huellita}></img>
-                    <p className={styles.points}> {product.points*numero}</p>
-                    </div>
-                    
+
+                <div className={styles.subInfo}>
                     <div>
+                        <span>Tipo de huella: {product.type}</span>
+                        <br></br>
+                        <span>Categoría: {product.category}</span>
+                        <span></span>
+                    </div>
+
+                    <div className={styles.price}>
+                        <div>
+                            <p className={styles.points}> {product.points*numero}</p>
+                            <img className={styles.huellita} alt="foto-huellita" src={huellita}></img>
+                        </div>
                         <p className={styles.unidad}>Huellitas por unidad: {product.points}</p>
                     </div>
+                    
                 </div>
+
                 <div className={styles.containerButton}>
                     <div className={styles.moreLess}>
                         <button className={styles.button2} onClick={decrement}>-</button>
@@ -132,12 +144,10 @@ export default function ProductDetail() {
                         <button className={styles.button} onClick={canje}>CANJEAR</button>
                     </div>
                 </div>
-                <div className={styles.type}>
-                <p className={styles.pet}>Mascotas</p>
-                <p>{product.type}</p>
-                </div>
             </div>
         </div>
+                <Footer />
+            </div>
         : <div>Loading...</div>
     )
 }

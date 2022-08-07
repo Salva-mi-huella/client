@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts, updateUser } from "../../redux/actions";
+import { getAllProducts, updateUser, storeFilters } from "../../redux/actions";
 import ItemCard from "./ItemCard";
 import SearchBar from "./SearchBar";
 import styles from "./Store.module.css";
@@ -9,20 +9,22 @@ import ShoppingCart from "./ShoppingCart";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Swal from 'sweetalert2';
 import { useAuth0 } from '@auth0/auth0-react';
+import Footer from "../Footer/Footer";
 
 
 
 export default function Store() {
 
     const {isAuthenticated} = useAuth0();
-
     
     const dispatch = useDispatch();
     const user = useSelector(state => state.user)
-    const products = useSelector((state) => state.allProducts);
+    const products = useSelector((state) => state.allProductsFiltered);
+    const allProducts = useSelector((state) => state.allProducts);
     
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(getAllProducts());
   }, [dispatch]);
 
@@ -30,10 +32,18 @@ export default function Store() {
   function updatePoints(){  
         let actualPoints = user.points;
         let totalCompra = ShoppingCart.total;
+        let totalItems = ShoppingCart.data;
 
         let newBalance = actualPoints - totalCompra
         
-        if(newBalance > 0){
+        if(totalItems < 1){
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Parece que aun no has añadido nada a tu carrito!',
+          })
+        }
+        else if(newBalance > 0){
         
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -82,7 +92,48 @@ export default function Store() {
   
   }
 
-  //Paginado
+   //FILTROS
+   const [filterByAZ, setFilterByAZ] = useState("");
+   const [filterByPrice, setFilterByPrice] = useState("");
+   const [filterByType, setFilterByType] = useState("");
+   const [filterByCategory, setFilterByCategory] = useState("");
+
+   function handleFilterAZ(e){   
+     setFilterByAZ(e.target.value)
+     dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))
+     setPageNumber(0) 
+   }
+
+   function handleFilterByPrice(e){  
+     setFilterByPrice(e.target.value)
+     dispatch(storeFilters(filterByAZ,e.target.value,filterByType,filterByCategory))
+     setPageNumber(0) 
+   }
+
+   function handleFilterByType(e){       
+    setFilterByType(e.target.value)
+    dispatch(storeFilters(filterByAZ,filterByPrice,e.target.value,filterByCategory))
+    setPageNumber(0)  
+  }
+
+  function handleFilterByCategory(e){       
+    setFilterByCategory(e.target.value)
+    dispatch(storeFilters(filterByAZ,filterByPrice,filterByType,e.target.value))
+    setPageNumber(0)  
+  }
+
+  function handleAll(e){
+    setFilterByAZ("")
+    setFilterByPrice("")
+    setFilterByType("")
+    setFilterByCategory("")
+    dispatch(getAllProducts())
+    setPageNumber(0)  
+  }
+
+
+
+  //PAGINADO
   const [pageNumber, setPageNumber] = useState(0);
   const productsPerPage = 6;
   const pagesVisited = pageNumber * productsPerPage;
@@ -97,6 +148,8 @@ export default function Store() {
           images={product.images}
           name={product.name}
           points={new Intl.NumberFormat().format(product.points)}
+          type={product.type}
+          category={product.category}
         />
       );
     });
@@ -106,21 +159,69 @@ export default function Store() {
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
+
+  //Contadores
+  const countTodos = allProducts
+  const countPerros=allProducts.filter(p => p.type === "Perro")
+  const countGatos =allProducts.filter(p => p.type === "Gato")
+
+  const countAlimentos = allProducts.filter(p => p.category === "Alimento")
+  const countIndumentaria = allProducts.filter(p => p.category === "Indumentaria")
+  const countJuguetes = allProducts.filter(p => p.category === "Juguetes")
+  const countAccesorios = allProducts.filter(p => p.category === "Accesorios")
+  
   return (
+      <div>
     <div className={styles.main}>
       <div className={styles.sidebar}>
-        <div>
+        <div className={styles.searchbar}>
           <SearchBar />
+        </div>
+        <div className={styles.typefilters}>
+            <div>
+              <h2>TIPO DE HUELLA</h2>
+              <select onClick={handleFilterByType} name="type" size={3}>
+                <option value='Perro'>Perros ({countPerros.length})</option>
+                <option value='Gato'>Gatos ({countGatos.length})</option>
+              </select>            
+            </div> 
+        </div>
+            <div className={styles.categoryfilters}>
+              <h2>CATEGORÍA</h2>
+              <select onClick={handleFilterByCategory} name="category" size={5}>
+                <option value='Alimento'>Alimentos ({countAlimentos.length})</option>
+                <option value='Indumentaria'>Indumentaria ({countIndumentaria.length})</option>
+                <option value='Juguetes'>Juguetes ({countJuguetes.length})</option>
+                <option value='Accesorios'>Accesorios ({countAccesorios.length})</option>
+              </select>
+            <select onClick={handleAll} name="type" size={2}>
+                <option value='Unordered'>Todos ({countTodos.length})</option>
+            </select>
+
         </div>
       </div>
 
       <div className={styles.containeritems}>
         <h5>¡Encontrá los mejores productos para tu huella!</h5>
+            <div className={styles.orders}>
+              <label>Ordenar por:</label>
+                <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
+                    <option disabled value='Huellitas'>Huellitas</option>
+                    <option value='High'>Mayor puntaje</option>
+                    <option value='Low'> Menor puntaje</option>                    
+                </select>
+                <select defaultValue="Alfabeto" onChange={e => handleFilterAZ(e)}>
+                    <option disabled value='Alfabeto'>Alfabeto</option>
+                    <option value='Asc'>A-Z</option>
+                    <option value='Desc'>Z-A</option>                    
+                </select>
+
+            </div>
         <div className={styles.items}>{displayProducts}</div>
         <div className={styles.pagination}>
           <ReactPaginate
-            previousLabel={"Anterior"}
-            nextLabel={"Siguiente"}
+            previousLabel={"← Anterior"}
+            nextLabel={"Siguiente →"}
             pageCount={pageCount}
             onPageChange={changePage}
             containerClassName={styles.paginate}
@@ -129,6 +230,7 @@ export default function Store() {
             nextLinkClassName={styles.prevnext}
             disabledClassName={"paginationDisabled"}
             activeLinkClassName={styles.activebuttons}
+            forcePage={pageNumber}
           ></ReactPaginate>
         </div>
       </div>
@@ -160,6 +262,8 @@ export default function Store() {
        
         
       </div>
+    </div>
+      <Footer/>
     </div>
   );
 }

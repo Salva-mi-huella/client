@@ -1,11 +1,9 @@
 import React from 'react';
-import '../Sidebar/Sidebar.css'
-
 import { SidebarData } from '../Data/Data.js';
 import { MdLogout } from 'react-icons/md';
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-
+import styles from '../Sidebar/Sidebar.module.css';
 
 
 
@@ -19,17 +17,18 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
     }
 
     const {user, logout} = useAuth0();
+    const userName = user.name.split(" ")
     return (
-        <div className="Sidebar">
+        <div className={styles.sideBar}>
 
             {/* LOGO */}
-            <div className="logo">
-                <img src={user.picture} alt='Foundation logo' />
-                    Hola {user.name}
+            <div className={styles.logo}>
+            <img className={styles.img} src={user.picture}  />
+                <span>Hola, {userName[0]}</span>
             </div>
 
             {/* MENU */}
-            <div className="menu">
+            <div className={styles.menu}>
                 {SidebarData.map((item, index) => {
                     return (
                         <div className={selected === index ? 'menuItem active' : 'menuItem'}
@@ -37,12 +36,12 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                             onClick={() => changeOption(index)}
                         >
                             <item.icon />
-                            <span>{item.heading}</span>
+                            <span className={styles.icons}>{item.heading}</span>
                         </div>
                     )
                 })}
 
-                <div className="menuItem" onClick={()=>logout({returnTo:`${window.location.origin}/home`})}>
+                <div className={styles.menuItem} onClick={()=>logout({returnTo:`${window.location.origin}/home`})}>
                          <MdLogout />
                          <span> Cerrar Sesion </span>
                 </div>

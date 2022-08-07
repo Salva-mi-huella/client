@@ -7,6 +7,10 @@ import {
     MdHowToVote,
     MdPerson,
     MdPeople,
+    MdOutlineShoppingCart,
+    MdAdd,
+    MdAttachMoney,
+    MdGroupAdd
 } from 'react-icons/md';
 
 
@@ -26,13 +30,30 @@ export const SidebarData = [
         heading: "Usuarios"
     },
     {
+        icon: MdGroupAdd,
+        heading: "Agregar Fundaciones"
+    },
+    {
         icon: MdPeople,
         heading: "Fundaciones"
     },
+
     {
         icon: MdRule,
         heading: "Solicitudes"
     },
+    {
+        icon: MdAdd,
+        heading: "Agregar Productos"
+    },
+    {
+        icon: MdOutlineShoppingCart,
+        heading: "Productos"
+    },
+    {
+        icon: MdAttachMoney,
+        heading: "Donaciones"
+    }
 
 
 ];
