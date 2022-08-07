@@ -32,6 +32,7 @@ export const UPDATE_REQUEST_FOUNDATION = 'UPDATE_REQUEST_FOUNDATION';
 export const POST_FOUNDATION = 'POST_FOUNDATION';
 export const UPDATE_REQUEST_ADOPT = "UPDATE_REQUEST_ADOPT";
 export const UPDATE_PET_STATUS = "UPDATE_PET_STATUS";
+export const PRODUCTS_FILTERED = "PRODUCTS_FILTERED";
 
 
 export function getFoundationDetail(id) {
@@ -139,7 +140,13 @@ export function petsFiltered(pets, page) {
         perPage: page
     }
 }
-
+export function productsFiltered(products, page) {
+    return {
+        type: PRODUCTS_FILTERED,
+        filtered: products,
+        perPage: page
+    }
+}
 
 export function getCurrency() {
     return async function (dispatch) {

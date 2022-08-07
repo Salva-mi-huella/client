@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styles from "./ItemCard.module.css";
 import img from "../../assets/paw-print.png";
 import { addToCart } from "../../redux/actions";
