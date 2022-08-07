@@ -253,19 +253,16 @@
 }
 .cont{
     display: flex;
-
+    flex-direction: column;
     width: max-content;
 }
 .error{
     color: red;
     font-size: 0.8rem;
-    /* margin-top: 1rem; */
-    margin-left: 10px;
 }
 .errorM{
   color: red;
   font-size: 0.8rem;
-  margin-top: 8.5rem;
   margin-left: 10px;
 }
 

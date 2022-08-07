@@ -9,6 +9,7 @@ import ShoppingCart from "./ShoppingCart";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Swal from 'sweetalert2';
 import { useAuth0 } from '@auth0/auth0-react';
+import Footer from "../Footer/Footer";
 
 
 
@@ -170,20 +171,15 @@ export default function Store() {
   const countAccesorios = allProducts.filter(p => p.category === "Accesorios")
   
   return (
+      <div>
     <div className={styles.main}>
       <div className={styles.sidebar}>
         <div className={styles.searchbar}>
           <SearchBar />
         </div>
         <div className={styles.typefilters}>
-          <div>
-            <h2>Filtros</h2>
-            <select onClick={handleAll} name="type" size={2}>
-                <option value='Unordered'>Todos ({countTodos.length})</option>
-            </select>
-          </div>
             <div>
-              <h2>Animales</h2>
+              <h2>TIPO DE HUELLA</h2>
               <select onClick={handleFilterByType} name="type" size={3}>
                 <option value='Perro'>Perros ({countPerros.length})</option>
                 <option value='Gato'>Gatos ({countGatos.length})</option>
@@ -191,31 +187,35 @@ export default function Store() {
             </div> 
         </div>
             <div className={styles.categoryfilters}>
-              <h2>Categorias</h2>
+              <h2>CATEGORÍA</h2>
               <select onClick={handleFilterByCategory} name="category" size={5}>
                 <option value='Alimento'>Alimentos ({countAlimentos.length})</option>
                 <option value='Indumentaria'>Indumentaria ({countIndumentaria.length})</option>
                 <option value='Juguetes'>Juguetes ({countJuguetes.length})</option>
                 <option value='Accesorios'>Accesorios ({countAccesorios.length})</option>
               </select>
+            <select onClick={handleAll} name="type" size={2}>
+                <option value='Unordered'>Todos ({countTodos.length})</option>
+            </select>
 
         </div>
       </div>
 
       <div className={styles.containeritems}>
         <h5>¡Encontrá los mejores productos para tu huella!</h5>
-            <div className={styles.filters}>
-                <select onClick={e => handleFilterAZ(e)}>
-                    <option value='Unordered'>Orden Alfabetico</option>
-                    <option value='Asc'>Ordenar A-Z</option>
-                    <option value='Desc'>Ordenar Z-A</option>                    
+            <div className={styles.orders}>
+              <label>Ordenar por:</label>
+                <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
+                    <option disabled value='Huellitas'>Huellitas</option>
+                    <option value='High'>Mayor puntaje</option>
+                    <option value='Low'> Menor puntaje</option>                    
+                </select>
+                <select defaultValue="Alfabeto" onChange={e => handleFilterAZ(e)}>
+                    <option disabled value='Alfabeto'>Alfabeto</option>
+                    <option value='Asc'>A-Z</option>
+                    <option value='Desc'>Z-A</option>                    
                 </select>
 
-                <select onClick={e => handleFilterByPrice(e)}>
-                    <option value='Unordered'>Orden por Precio</option>
-                    <option value='High'>Ordenar por Mayor Precio</option>
-                    <option value='Low'>Ordenar por Menor Precio</option>                    
-                </select>
             </div>
         <div className={styles.items}>{displayProducts}</div>
         <div className={styles.pagination}>
@@ -262,6 +262,8 @@ export default function Store() {
        
         
       </div>
+    </div>
+      <Footer/>
     </div>
   );
 }

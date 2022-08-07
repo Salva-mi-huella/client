@@ -10,6 +10,7 @@ import paypal from '../../assets/paypal.png'
 import mercadoPago from '../../assets/mercadopago.png'
 import Paypal from './Paypal/Paypal';
 import Footer from '../Footer/Footer';
+import paw from '../../assets/yellow-paw.png'
 
 
 export default function Donate(){
@@ -63,11 +64,12 @@ export default function Donate(){
                     <Link to='/huellitas'><button>VER MÁS</button></Link>
                     </div>
                 </div>
-                <div className={style.subcontainerB}>
+                {isAuthenticated ?<div className={style.subcontainerB}>
                     <h3>¿Todavía no te registraste?</h3>
                     <p>¡Hacelo gratis y empezá a sumar huellitas!</p>
                     <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
-                </div>
+                </div> :
+                <img src={paw} alt='paws'></img>}
             </div>
 
             <h2 className={style.title}>Doná en tres simples pasos</h2>

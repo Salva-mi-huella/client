@@ -22,8 +22,8 @@ export default function Foundation () {
 
     useEffect(() => { 
         dispatch(getFoundationDetail(params.foundationId))
+        window.scrollTo(0, 0);
      }, [dispatch, params.foundationId])
-
 
 
     return (  

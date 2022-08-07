@@ -37,21 +37,23 @@ export default function Contact() {
 
         if(!input.name) error.name = '*'
 
-        if(input.name && input.name.length < 3 ) error.name = 'mínimo 3 caracteres'
+        if(input.name && input.name.length < 3 ) error.name = 'Mínimo 3 caracteres'
         
         if(!input.email) error.email = '*'
         
-        if(input.email && !regEmail.test(input.email)) error.email = 'email invalido'
+        if(input.email && !regEmail.test(input.email)) error.email = 'Email invalido'
         
         if(!input.message) error.message = '*'
         
-        if(input.message && input.message.length < 10) error.message = 'mínimo 10 caracteres'
+        if(input.message && input.message.length < 10) error.message = 'Mínimo 10 caracteres'
+
+        if(input.message && input.message.length > 1000) error.message = 'Máximo 1000 caracteres'
 
         if(!input.telephone) error.telephone = '*'
 
-        if(input.telephone && input.telephone.length > 15) error.telephone = 'teléfono invalido'
+        if(input.telephone && input.telephone.length > 12) error.telephone = 'Teléfono invalido'
 
-        if(input.telephone && !regPhone.test(input.telephone)) error.telephone = 'teléfono invalido'
+        if(input.telephone && !regPhone.test(input.telephone)) error.telephone = 'Teléfono invalido'
 
     
         return error;
@@ -135,7 +137,6 @@ export default function Contact() {
                 <div className={style.themeSwitchWrapper}></div>
 
                     <h1 className={style.h1}>Contacto</h1>
-                    {/* <p className={style.p}>¡Dejanos tu mensaje y nos pondremos en contacto con vos en la brevedad!</p> */}
 
                     <form className={style.form} id={style.contactForm}  onSubmit={sendEmail} >
                         

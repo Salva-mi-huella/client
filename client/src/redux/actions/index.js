@@ -502,6 +502,9 @@ export function postFoundation(data) {
                 payload: info.data
             })
         } catch (error) {
+        }
+    }
+}
 
 export function updateRequestAdopt(id, data) {
     return async function (dispatch) {

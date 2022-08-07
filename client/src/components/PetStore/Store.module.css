@@ -17,13 +17,10 @@
     flex-direction: column;
     width: 15vw;
     height: 100vh;
-    margin-left: 2.8vw;
-    margin-right: 3vw;
-    margin-top: 8vw;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    box-shadow: 19px 15px 10px 3px rgba(0, 0, 0, 0.25); 
-    background-color: #6e117f;
+    margin-left: 1vw;
+    margin-top: 8.3vw;
+    /* border: 1px solid rgba(0, 0, 0, 0.25); */
+    /* box-shadow: 19px 15px 10px 3px rgba(0, 0, 0, 0.25); */
     padding: 1vw;
 }
 
@@ -31,17 +28,17 @@
     display: flex;
     flex-direction: column;
     margin-top: 3vw;;
+    /* border: 3px solid red */
 }
 
 .containeritems h5{
     display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 2.2vw;
-    text-align: center;
+    color: rgb(255, 226, 8);
+    font-size: 2.3vw;
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-bottom: 5vw;
+    margin-left: 6vw;
 }
 
 .pagination{
@@ -155,10 +152,11 @@
     justify-content: center;
 }
 
-.filters{
+.orders{
     display: flex;
     justify-content: flex-end;
     margin-bottom: 1vw;    
+    margin-right: 2.3vw;
 }
 
 .searchbar{
@@ -167,16 +165,21 @@
     margin-bottom: 2vw;
 }
 
-.filters select{
+.orders label {
+    font-size: 1.3vw;
+}
+
+.orders select{
     text-align: center;
-    height: 2.5vw;
-    width: 15vw;
-    border-radius: 4px;
+    height: 2vw;
+    width: 10vw;
+    border-radius: 0.3vw;
+    border: none;
     cursor: pointer;
-    background-color: #6e117f;
+    background-color: transparent;
     color: white;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 1.3vw;
+    margin-left: 0.3vw;
 }
 
 .typefilters{
@@ -187,15 +190,19 @@
     width:150px;
 }
 
-.typefilters h2{
+.sidebar h2 {
+    font-size: 1.3vw;
+    width: 12vw;
     color: white;
+    margin-bottom: 1vw;
+    text-align: center;
 }
 
 .typefilters select{
     border: none;
     overflow: hidden;
     width: 10vw;
-    height: 10vw;
+    height: 8vw;
     background-color: transparent;
     cursor: pointer;
 }
@@ -206,7 +213,7 @@
 
 .typefilters option{
     color: white;
-    margin: 1vw;
+    margin-bottom: 1vw;
 }
 
 .categoryfilters{
@@ -214,12 +221,8 @@
     flex-direction: column;
     justify-content: space-between;
     text-align:left;
-    width:150px;
 }
 
-.categoryfilters h2{
-    color: white;
-}
 .categoryfilters select{
     border: none;
     overflow: hidden;
@@ -235,6 +238,6 @@
 
 .categoryfilters option{
     color: white;
-    margin: 1vw;
+    margin-bottom: 1vw;
 }
 

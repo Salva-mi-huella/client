@@ -115,15 +115,15 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
         <Box sx={{ maxWidth: 400 }}>
         <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((step, index) => (
-            <Step key={step.label}>
-                <StepLabel>
+            <Step key={step.label} >
+                <StepLabel >
                 <h5 className={style.label}>{step.label}</h5>
                 </StepLabel>
                 <StepContent>
                 <Typography color='common.white'>{step.description}</Typography>
                 {step.label === 'Elegí la fundación' && 
                 <div className={style.foundations}>
-                {foundations.map(f=>(
+                {foundations.filter(f=> f.status==='Activa').map(f=>(
                     <div key={f.id}>
                         <button 
                         // style={{ backgroundImage: `url(${f.images[0]})`, backgroundPosition: 'center', backgroundSize: 'cover' }}
@@ -174,11 +174,11 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
                 }
                 <Box sx={{ mb: 2 }}>
                     <div className={style.buttonStepper}>
-                    <Button 
+                    <Button className={style.buttonStep}
                         disabled={((donation.foundation === '' && index === 0) || (donation.method === '' && index === 1) || (donation.amount === '' && index === 2))}
                         variant="contained"
                         onClick={handleNext}
-                        sx={{ color: 'azure', backgroundColor: '#9C27B0'}}
+                        sx={{ color: 'rgb(99, 59, 218)', backgroundColor: 'white', fontWeight: 900 }}
                         // sx={{ mt: 1, mr: 1 }}
                     >
                         {index === steps.length - 1 ?

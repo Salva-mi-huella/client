@@ -13,22 +13,20 @@
 
 .banner button {
     transition: 0.3s;
-    background-color:#9C27B0;
-    color: #f5f5f5;
+    background-color:white;
+    color: rgb(99, 59, 218);
     border: none;
-    /* padding: 8px 24px; */
     font-size: 1.3vw;
     width: 12vw;
     height: 3.2vw;
-    margin: 4px 2px;
     cursor: pointer;
-    border-radius: 5px;
-    /* width: 150px; */
+    border-radius: 0.3vw;
+    font-weight: bold;
 }
 
 .banner button:hover {
     transition: 0.3s;
-    background-color:#7c168ee6;
+    background-color:rgb(255, 226, 8)
 }
 
 .banner div {
@@ -178,14 +176,11 @@ padding-bottom: 12vw;
     transition: 0.5s;
     width: 15vw;
     height: 15vw;
-    border-radius: 50%;
-    border: 7px solid #9C27B0;
     cursor: pointer;
 }
 .products:hover {
     transition: 0.5s;
-    transform: scale(1.03);
-    border: 7px solid rgb(255, 230, 0);
+    transform: scale(1.05);
 }
 
 .store div div {
@@ -226,8 +221,8 @@ padding-bottom: 12vw;
 
 .store button {
     transition: 0.3s;
-    background-color:#9C27B0;
-    color: #f5f5f5;
+    background-color:white;
+    color: rgb(99, 59, 218);
     border: none;
     border-radius: 70px;
     font-size: 1.3vw;
@@ -238,10 +233,8 @@ padding-bottom: 12vw;
 }
 
 .store button:hover {
-    transition: 0.3s;
-    /* background-color:#7c168ee6; */   
-    background-color: azure;
-    color: #9C27B0;
+    transition: 0.3s;  
+    background-color: rgb(255, 226, 8)
 }
 
 .section {

@@ -40,15 +40,7 @@ export default function News({news}) {
       <div className={styles.container}>
             <Card sx={{ maxWidth: 400, height: 450, backgroundColor: "rgba(99, 59, 218, 0.485)"}}>
                         <CardHeader
-                            avatar={
-                            news.foundation?.images?.map((image)=>{
-                                return(
-                                    <div>
-                                        <img className={styles.avatar} src={image} alt=""/>
-                                    </div>
-                                )
-                            })
-                            }
+                            avatar={<div><img className={styles.avatar} src={news.foundationsImage} alt=""/></div>}
                             title={<div className={styles.title}>{news.title}</div>}
                             subheader={<div className={styles.date}>{news.post_date}</div>}
                             sx={{ color: "white"}}

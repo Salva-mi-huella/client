@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 
 
 export default function ItemCard(props) {
-    const {isAuthenticated} = useAuth0();
+    const {isAuthenticated, loginWithRedirect} = useAuth0();
     const dispatch = useDispatch();
 
     function handleAddToCart(){
@@ -26,9 +26,13 @@ export default function ItemCard(props) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Para poder acceder al catalogo y canjear tus puntos debes registrarte!',
-                footer: '<a href="https://dev-aekjy-pn.us.auth0.com/login?state=hKFo2SBDRUVkZURVdFFMbHRTaTlhVTJZcXE0dDB6V20zV0xEQaFupWxvZ2luo3RpZNkgZmxxTVZ1NEZMUndwbHJFRDJ3QlpsUEVtVGItMUU5WjGjY2lk2SBTSWYybGZ4cnFUaHVjOU4zZzFJTEQ2elN6V05JSlprZA&client=SIf2lfxrqThuc9N3g1ILD6zSzWNIJZkd&protocol=oauth2&audience=http%3A%2F%2Flocalhost%3A4000&scope=openid%20profile%20email%20read%3Amessage&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&nonce=RUZldmFsUm5oYzdxTHJWLk9iNVVzVFY2bmk2YjZmU0U4bHVpMXVkZ0MtXw%3D%3D&code_challenge=gLWEv6YR2DNgVvdK1VAsAV8-mnAehDSMO5cByWzYgr8&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtcmVhY3QiLCJ2ZXJzaW9uIjoiMS4xMC4yIn0%3D">Registrame en Salva una Huella</a>'
-            })
+                text: 'Para agregar productos al carrito debes registrarte o iniciar sesión.',
+                showDenyButton: true,
+                denyButtonText: `Registrarse`,
+            }).then((result) => {
+            if (result.isDenied) {
+              loginWithRedirect()
+            }})
         }
     }
 

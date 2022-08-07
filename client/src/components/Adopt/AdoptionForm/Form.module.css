@@ -4,7 +4,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: auto;
-    padding-top: 2vw;;
+    margin-left: 1vw;
+    /* padding-top: 2vw;; */
     /* width: 60% */
 }
 
@@ -23,26 +24,23 @@
 .inp{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 6vw;
+    height: 10vw;
     width: 20vw;
     color: azure;
-
 }
 
 .groupinp{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content:space-around;
-    padding: 10px;
+    justify-content:space-around
 }
 
 .groupinp3{
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    padding: 25px;
+    margin-left: 1.1vw;
 }
 
 .boton{
@@ -51,7 +49,8 @@
 }
 
 .textarea{
-    padding: 25px;
+    margin-left: 1.1vw;
+    margin-bottom: 2vw;
 }
 
 .check{
@@ -81,7 +80,6 @@ label{
 .send {
     position: relative;
     display: inline-block;
-    padding: 10px 20px;
     color: white;
     font-size: 1.8vw;
     font-weight: 700;

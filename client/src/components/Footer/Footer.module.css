@@ -98,6 +98,6 @@
 
 .links button:hover {
     transition: 0.4s;
-    color: rgb(195, 29, 201);
+    color: rgb(255, 230, 0);
     transform: scale(1.1);
 }
