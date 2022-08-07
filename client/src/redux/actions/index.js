@@ -202,7 +202,7 @@ export function updateFoundation(data, id) {
 
 export function updateUser(data, email) {
     return async function (dispatch) {
-        console.log(data, email, "------")
+       
         try {
             const updatedUser = await axios.put(`/users/${email}`, data);
 
@@ -500,7 +500,6 @@ export function updateRequestFoundation(data, id) {
 
 //POST FOUNDATIONS
 export function postFoundation(data) {
-    console.log(data, "Soy yo")
     return async function (dispatch) {
         try {
             const info = await axios.post("/foundations", data)

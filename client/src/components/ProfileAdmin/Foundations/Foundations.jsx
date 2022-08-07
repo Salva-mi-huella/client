@@ -10,6 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
+import Swal from 'sweetalert2'
 import styles from '../Foundations/Foundations.module.css';
 
 
@@ -36,6 +37,25 @@ const Foundations = () => {
     };
     const handleUpdate = (e, id) => {
         dispatch(updateFoundation({ status: e.target.value }, id))
+        Swal.fire({
+            title: '¡Proceso de solicitud enviado!',
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            position: 'center',
+            width: '40rem',
+            height: '55rem',
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonText: 'OK',
+            confirmButtonColor: 'purple',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown',
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+          })
     }
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, foundations.length - page * rowsPerPage);
     return (

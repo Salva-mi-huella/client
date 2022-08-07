@@ -41,13 +41,11 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                     )
                 })}
 
-                <div className={styles.menuItem} onClick={()=>logout({returnTo:`${window.location.origin}/home`})}>
+            </div>
+            <div className={styles.menuItem} onClick={()=>logout({returnTo:`${window.location.origin}/home`})}>
                          <MdLogout />
                          <span> Cerrar Sesion </span>
                 </div>
-
-
-            </div>
         </div>
     )
 }

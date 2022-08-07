@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { AnimatePresence, motion, AnimateSharedLayout } from "framer-motion/dist/framer-motion";
+import { motion, AnimateSharedLayout } from "framer-motion/dist/framer-motion";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Chart from 'react-apexcharts';
