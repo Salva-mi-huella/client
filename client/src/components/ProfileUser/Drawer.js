@@ -246,9 +246,10 @@ export default function PersistentDrawerLeft() {
 
       </div>}
 
+
     {products && <ProductsTable userDetail={userDetail}></ProductsTable>}
 
-      
+
 
       {request && <RequestTable userId={userDetail.id} foundations={foundations}></RequestTable>}
 
