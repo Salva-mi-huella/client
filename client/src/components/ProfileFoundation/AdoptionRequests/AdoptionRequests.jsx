@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import emailjs from 'emailjs-com';
 
 import TablePagination from '@mui/material/TablePagination';
 import Table from '@mui/material/Table';
@@ -81,6 +82,12 @@ const AdoptionRequests = () => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
+        emailjs.send('service_h2hpe6c', 'template_aaiedce', r, 'VYEG6lTjXQeDRaF3J')
+        .then((result) => {
+          console.log(result);
+      }, (error) => {
+          console.log(error.text);
+      });
         Swal.fire({
           title:`Solicitud aprobada con éxito`,
           text: "¡Felicitaciones por salvar otra huella!",

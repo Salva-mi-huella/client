@@ -2,34 +2,16 @@ import React from 'react';
 // import AdoptionReview from '../AdoptionReview/AdoptionReview';
 import Updates from '../Updates/Updates';
 import styles from './RightSide.module.css';
+import {Link} from 'react-router-dom';
 
-const RightSide = () => {
+const RightSide = ({foundation}) => {
     return (
         <div className={styles.RightSide}>
+            <Link className={styles.link} to={`fundacion/${foundation.id}`}><button>Ver mi sección</button></Link>
             <div className={styles.updates}>
                 <h3 className={styles.RightSideTitle}> Recientes </h3>
                 <Updates />
             </div>
-
-            {/* <div className={styles.btnContainer}>
-                <button
-                    onClick={() => { }}
-                    className={styles.btnPrimary}>
-                    PUBLICAR HUELLA
-                </button>
-
-
-                <button
-                    onClick={() => { }}
-                    className={styles.btnPrimary}>
-                    PUBLICAR NOTICIA
-                </button>
-
-            </div> */}
-            {/* <div>
-                <h3> Adoption review </h3>
-                <AdoptionReview />
-            </div> */}
 
         </div >
     )

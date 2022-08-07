@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
 }
 
 .updates {
@@ -18,29 +18,27 @@
     font-weight: 300;
 }
 
-.btnContainer {
-    width: 100%;
-    height: 200px;
-    justify-content: space-around;
+.RightSide button {
     display: flex;
-    flex-direction: column;
+    margin-top: 2vw;
+    margin-left: 5vw;
+    border-radius: 1vw;
+    width: 13vw;
+    text-align: center;
+    height: 2.3vw;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    /* border: 1vw solid purple; */
+    color: rgb(99, 59, 218);
+    font-size: 1.3vw;
+    font-weight: bolder;
 }
 
-.btnPrimary {
-    text-align: center;
-    align-self: center;
-    justify-content: center;
-    position: relative;
-    left: -10px;
-    background: var(--glass);
-    color: #ee4ffc;
-    font-weight: 300;
-    font-size: 22px;
-    border-radius: 30px;
-    height: 45px;
-    width: 80%;
-    border: dotted 2px rgba(0, 0, 0, 0.301);
+.link {
+    text-decoration: none;
 }
+
 
 @media screen and (max-width: 1200px) {
     .RightSide {

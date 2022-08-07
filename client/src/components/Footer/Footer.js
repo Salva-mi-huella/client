@@ -33,11 +33,11 @@ export default function Footer() {
                 <a href="/" className="d-flex align-items-center p-0 text-dark text-decoration-none">
                   <img className={styles.logo} alt="logo" src={logo} width="80px" />
                   <div className={styles.mision}>
-                    <span className="ml-3 h4 font-weight-bold mt-3">Salva mi huella</span>
+                    <span>Salva mi huella</span>
                   </div>
                 </a>
 
-                <p className="my-3 text-wrap " style={{ width: '350px' }}>
+                <p>
                   Nuestra misión es cambiar el destino no solo de muchos animales, sino también el tuyo. Este sitio propone conectar a tu futuro mejor amigo con vos. Sumate!
                 </p>
 
