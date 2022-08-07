@@ -6,6 +6,15 @@ import { postNews } from "../../../redux/actions";
 
 import style from "./PostNews.module.css"
 
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import paw from '../../../assets/yellow-paw.png'
+
 export default function PostNews({ foundation }) {
 
     const dispatch = useDispatch()
@@ -35,6 +44,11 @@ export default function PostNews({ foundation }) {
 
         } else setInputs({ ...input, [e.target.name]: e.target.value })
 
+    }
+
+    const formatDate = () => {
+        const date = new Date();
+        return date.toISOString().slice(0, 10);
     }
 
     let hanldeCheck = (e) => {
@@ -104,7 +118,7 @@ export default function PostNews({ foundation }) {
                 <div>
                     {/* <label className={style.label} htmlFor="news">Noticia:</label> */}
                     <textarea
-                        placeholder="Describe la noticia. Maximo 500 caracteres..."
+                        placeholder="Describe la noticia. Máximo 500 caracteres..."
                         className={style.textarea}
                         maxLength="500"
                         required onChange={(e) => handleChange(e)}
@@ -131,9 +145,9 @@ export default function PostNews({ foundation }) {
             </form>
 
             <div className={style.resultContainer}>
-                {/* TODO: <NewsCard /> */}
 
-                {input.title
+
+                {/* {input.title
                     ? <h3 className={style.h1} >{input.title}</h3>
                     : <h3 className={style.h1} >Titulo</h3>}
                 <div className={style.newDescriptionContainer} >
@@ -145,7 +159,27 @@ export default function PostNews({ foundation }) {
                     {renderImg
                         ? <img src={renderImg} alt='your img' className={style.resultImage} />
                         : <p>Imagen</p>}
-                </div>
+                </div> */}
+
+                <Card sx={{ maxWidth: '30vw', maxHeight: '100vw', width: '30vw', height: '30vw', backgroundColor: "rgba(99, 59, 218, 0.485)"}}>
+                        <CardHeader
+                            avatar={<div><img className={style.avatar} src={foundation.images[0]} alt=""/></div>}
+                            title={<div className={style.title}>{input.title}</div>}
+                            subheader={<div className={style.date}>{formatDate()}</div>}
+                            sx={{ color: "white"}}
+                            />
+                            <CardMedia
+                                component="img"
+                                height="250"
+                                image={renderImg ? renderImg : paw}
+                                alt="newsImage"
+                            />
+                            <CardContent>
+                                <Typography sx={{width: '28vw'}}>
+                                {input.news}
+                                </Typography>
+                            </CardContent>
+                    </Card>
             </div>
 
         </div>

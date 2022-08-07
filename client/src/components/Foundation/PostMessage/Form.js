@@ -39,7 +39,8 @@ const dispatch = useDispatch();
           //VALIDACION MENSAJE
           if(!values.textarea){
             errores.textarea="Por favor escríbenos porque te gustaría adoptar"
-          }
+          } else if (values.textarea.length > 400) errores.textarea="Máximo 400 caracteres";
+
           
           return errores;
         }}

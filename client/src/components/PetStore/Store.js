@@ -219,8 +219,8 @@ export default function Store() {
         <div className={styles.items}>{displayProducts}</div>
         <div className={styles.pagination}>
           <ReactPaginate
-            previousLabel={"← Anterior"}
-            nextLabel={"Siguiente →"}
+            previousLabel={"←"}
+            nextLabel={"→"}
             pageCount={pageCount}
             onPageChange={changePage}
             containerClassName={styles.paginate}

@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { updatePetStatus } from "../../../redux/actions"
+import Swal from 'sweetalert2';
+
 
 
 import TablePagination from '@mui/material/TablePagination';
@@ -13,31 +16,11 @@ import Paper from '@mui/material/Paper';
 
 import styles from './InfoPets.module.css';
 
-const makeStyles = (status) => {
-    if (status) {
-        return {
-            background: 'rgb(145 254 159 / 47%)',
-            color: 'green',
-            width: '60px',
-            justifyContent: 'center',
-            textAlign: 'center',
-        }
-    }
-    else if (!status) {
-        return {
-            background: '#59bfff',
-            color: 'white',
-            width: '60px',
-            justifyContent: 'center',
-            textAlign: 'center',
-        }
-    }
-}
-
 const InfoPets = () => {
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const dispatch = useDispatch();
 
     const user = JSON.parse(localStorage.getItem('user'));
     let foundation = useSelector(state => state.foundations);
@@ -56,6 +39,14 @@ const InfoPets = () => {
         setPage(0);
     };
 
+    const handleUpdate = (e, id) => {
+        Swal.fire({title: 'Solicitud en proceso.',
+        text: 'El estado puede demorar unos minutos en actualizar.'})
+        if (e.target.value === 'Adoptado') {
+            dispatch(updatePetStatus(id, { adopted: false }))
+        } else dispatch(updatePetStatus(id, { adopted: true }));
+    }
+
     const emptyRows =
         rowsPerPage - Math.min(rowsPerPage, foundation?.pets.length - page * rowsPerPage);
 
@@ -72,10 +63,10 @@ const InfoPets = () => {
                         <TableRow>
                             <TableCell >Huellita </TableCell>
                             <TableCell align="left">Tipo</TableCell>
-                            <TableCell align="left">Genero</TableCell>
+                            <TableCell align="left">Género</TableCell>
                             <TableCell align="left">Edad</TableCell>
                             <TableCell align="left">Fecha de alta</TableCell>
-                            <TableCell align="left">Status</TableCell>
+                            <TableCell align="left">Estado</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -99,40 +90,11 @@ const InfoPets = () => {
                                     {/* ADOPTION STATUS */}
                                     <TableCell align="left">
 
-                                        <span className={styles.status} style={makeStyles(row.adopted)}> {row.adopted ? 'Adoptado' : 'En adopcion'}</span>
-
-                                        {/* 
-                                        <select
-                                            onChange={(e) => { console.log('Me adoptaron?', e.target.value) }}
-                                            // defaultValue={row.adopted ? 'Adoptado' : 'En adopcion'}
-                                            style={makeStyles(row.adopted)}>
-
-                                            <option
-                                                value={row.adopted}
-                                                className="status"
-                                                style={makeStyles(row.adopted)}
-                                            > Adoptado
-                                            </option>
-
-                                            <option
-                                                value={!row.adopted}
-                                                className="status"
-                                                style={makeStyles(row.adopted)}
-                                            > En adopcion
-                                            </option>
-
-                                            <option hidden selected>
-                                                {row.adopted ? 'Adoptado' : 'En adopcion'}
-                                            </option>
-
-                                        </select> */}
-
-                                        {/* <span className="status" style={makeStyles(row.adopted)} >
-                                        {row.status ? 'Adoptado' : 'En adopcion'}
-                                    </span> */}
-                                        {/* <button className='updateBtn' >
-                                        <MdEdit className='icon' />
-                                    </button> */}
+                                        {row.adopted === false ? <button value={row.adopted === false ? "En adopcion" : "Adoptado"} 
+                                        onClick={e => handleUpdate(e, row.id)}
+                                         className={styles.boton}>En adopcion</button> :
+                                        <button onClick={e => handleUpdate(e, row.id)} value={row.adopted === true ? "Adoptado" : "En adopcion"} 
+                                        className={styles.boton1}>Adoptado</button>}
 
                                     </TableCell>
 

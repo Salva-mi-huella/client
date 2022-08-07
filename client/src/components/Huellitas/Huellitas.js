@@ -12,7 +12,7 @@ import Footer from '../Footer/Footer'
 
 export default function Huellitas(){
 
-   const { loginWithRedirect } = useAuth0();
+   const { loginWithRedirect, isAuthenticated } = useAuth0();
 
    useEffect(() => {
         window.scrollTo(0, 0);
@@ -25,7 +25,7 @@ export default function Huellitas(){
                 <div>
                     <h1 className={style.sectionTitle}>Disfrutá de Huellitas</h1>
                     <p >Nuestro programa de beneficios donde más salvás, más ganás.</p>
-                    <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
+                    {!isAuthenticated && <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>}
                 </div>
             </div>
  

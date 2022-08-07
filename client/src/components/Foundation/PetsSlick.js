@@ -22,7 +22,7 @@ export default function PetSlick ({foundation}) {
       <div className={styles.pets}>
         {/* <Aside/> */}
         <Slider {...settings}>
-          {foundation.pets.map(p => (
+          {foundation.pets.filter(p=> p.adopted === false).map(p => (
         //     <div key={p.id}>
         //     <div className={style.card}>
         //         <div className={style.header}>
