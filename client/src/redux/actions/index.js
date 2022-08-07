@@ -8,35 +8,35 @@ export const GET_CURRENCY = 'GET_CURRENCY';
 export const FILTERS_CONFIG = 'FILTERS_CONFIG';
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS';
 export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
-export const PETS_FILTERED = 'PETS_FILTERED'
-export const POST_USER = 'POST_USER'
-export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION'
-export const GET_USERS = 'GET_USERS'
-export const UPDATE_USER = 'UPDATE_USER'
-export const GET_USER = 'GET_USER'
-export const POST_DONATION = 'POST_DONATION'
-export const POST_REQUEST_FOUNDATION = 'POST_REQUEST_FOUNDATION'
-export const GET_REQUESTS_FOUNDATIONS = 'GET_REQUESTS_FOUNDATIONS'
-export const GET_REQUESTS_ADOPT = 'GET_REQUESTS_ADOPT'
-export const ADD_TO_CART= 'ADD_TO_CART'
-export const DELETE_ONE_FROM_CART= 'DELETE_ONE_FROM_CART'
-export const DELETE_ALL_FROM_CART= 'DELETE_ALL_FROM_CART'
-export const CLEAR_CART= 'CLEAR_CART'
-export const STORE_FILTERS = 'STORE_FILTERS'
-export const GET_ALL_NEWS = 'GET_ALL_NEWS'
+export const PETS_FILTERED = 'PETS_FILTERED';
+export const POST_USER = 'POST_USER';
+export const UPDATE_FOUNDATION = 'UPDATE_FOUNDATION';
+export const GET_USERS = 'GET_USERS';
+export const UPDATE_USER = 'UPDATE_USER';
+export const GET_USER = 'GET_USER';
+export const POST_DONATION = 'POST_DONATION';
+export const POST_REQUEST_FOUNDATION = 'POST_REQUEST_FOUNDATION';
+export const GET_REQUESTS_FOUNDATIONS = 'GET_REQUESTS_FOUNDATIONS';
+export const GET_REQUESTS_ADOPT = 'GET_REQUESTS_ADOPT';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const DELETE_ONE_FROM_CART = 'DELETE_ONE_FROM_CART';
+export const DELETE_ALL_FROM_CART = 'DELETE_ALL_FROM_CART';
+export const CLEAR_CART = 'CLEAR_CART';
+export const STORE_FILTERS = 'STORE_FILTERS';
+export const GET_ALL_NEWS = 'GET_ALL_NEWS';
 export const GET_SEARCH_PRODUCTS = 'GET_SEARCH_PRODUCTS';
-export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
-export const GET_DONATIONS = 'GET_DONATIONS'
-export const POST_PRODUCT = 'POST_PRODUCT'
-export const UPDATE_REQUEST_FOUNDATION = 'UPDATE_REQUEST_FOUNDATION'
-export const POST_FOUNDATION = 'POST_FOUNDATION'
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const GET_DONATIONS = 'GET_DONATIONS';
+export const POST_PRODUCT = 'POST_PRODUCT';
+export const UPDATE_REQUEST_FOUNDATION = 'UPDATE_REQUEST_FOUNDATION';
+export const POST_FOUNDATION = 'POST_FOUNDATION';
 export const UPDATE_REQUEST_ADOPT = "UPDATE_REQUEST_ADOPT";
 export const UPDATE_PET_STATUS = "UPDATE_PET_STATUS";
 
 
-export function getFoundationDetail(id){
-    return function(dispatch) {
-        try{
+export function getFoundationDetail(id) {
+    return function (dispatch) {
+        try {
             return axios(`/foundations/${id}`)
                 .then(detail =>
                     dispatch({ type: GET_FOUNDATION_DETAIL, payload: detail.data }))
@@ -150,11 +150,11 @@ export function getCurrency() {
                 type: GET_CURRENCY,
                 payload: info.data
             })
-        
+
         } catch (error) {
-           dispatch({
+            dispatch({
                 type: GET_CURRENCY,
-                payload: [{error}, {casa: {venta: 300}}]
+                payload: [{ error }, { casa: { venta: 300 } }]
             })
 
         }
@@ -397,18 +397,18 @@ export function clearCart() {
 
 
 //SearchBar store
-export function getSearchProducts(name){
-    return async function (dispatch){
+export function getSearchProducts(name) {
+    return async function (dispatch) {
         try {
             const info = await axios(`/products?name=${name}`)
             return dispatch({
-                type:GET_ALL_PRODUCTS,
+                type: GET_ALL_PRODUCTS,
                 payload: info.data
             })
         } catch (error) {
             // return dispatch({     
-                // Agregar componente de pagina en construccion
-                // Por si algun dia se cae la DB
+            // Agregar componente de pagina en construccion
+            // Por si algun dia se cae la DB
             // })
         }
     }
@@ -416,10 +416,10 @@ export function getSearchProducts(name){
 
 //FILTERS STORE
 export const storeFilters = (fByAZ, fByPrice, fByType, fByCategory) => {
-    return function(dispatch) {
-        return dispatch({ 
-            type: STORE_FILTERS, 
-            payload:{fByAZ,fByPrice,fByType,fByCategory}
+    return function (dispatch) {
+        return dispatch({
+            type: STORE_FILTERS,
+            payload: { fByAZ, fByPrice, fByType, fByCategory }
         });
     };
 };
@@ -493,7 +493,7 @@ export function updateRequestFoundation(data, id) {
 
 //POST FOUNDATIONS
 export function postFoundation(data) {
-    console.log(data,"Soy yo")
+    console.log(data, "Soy yo")
     return async function (dispatch) {
         try {
             const info = await axios.post("/foundations", data)
@@ -502,6 +502,8 @@ export function postFoundation(data) {
                 payload: info.data
             })
         } catch (error) {
+
+            console.log(error)
         }
     }
 }
@@ -515,7 +517,7 @@ export function updateRequestAdopt(id, data) {
                 type: UPDATE_REQUEST_ADOPT,
                 payload: updatedRequest.data
             })
-        }   
+        }
         catch (error) {
             console.log(error);
         }
