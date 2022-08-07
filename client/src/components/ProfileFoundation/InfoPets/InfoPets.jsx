@@ -19,7 +19,7 @@ import styles from './InfoPets.module.css';
 const InfoPets = () => {
 
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [rowsPerPage, setRowsPerPage] = React.useState(8);
     const dispatch = useDispatch();
 
     const user = JSON.parse(localStorage.getItem('user'));
@@ -115,7 +115,7 @@ const InfoPets = () => {
                     page={page}
                     onPageChange={handleChangePage}
                     rowsPerPage={rowsPerPage}
-                    rowsPerPageOptions={[10]}
+                    rowsPerPageOptions={[8]}
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
 

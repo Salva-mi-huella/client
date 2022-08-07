@@ -1,8 +1,9 @@
 .profileFoundation {
     /* padding: 0.5rem 2.5rem; */
+    /* background-color: rgb(117, 255, 117); */
     color: var(--black);
-    height: 91.5vh;
-    padding: 1rem 0;
+    /* margin-top: ; */
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;

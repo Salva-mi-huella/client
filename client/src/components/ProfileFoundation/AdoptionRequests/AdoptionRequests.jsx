@@ -12,7 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import styles from './AdoptionRequests.module.css'
-import { updateRequestAdopt, updateUser } from '../../../redux/actions';
+import { updatePetStatus, updateRequestAdopt, updateUser } from '../../../redux/actions';
 import Swal from 'sweetalert2';
 
 
@@ -44,7 +44,7 @@ const AdoptionRequests = () => {
   const dispatch = useDispatch();
 
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(8);
 
 
   const user = JSON.parse(localStorage.getItem('user'));
@@ -70,59 +70,60 @@ const AdoptionRequests = () => {
   };
 
   const handleChangeSelect = (e, r) => {
-    if(e.target.value === 'Aprobada'){
-    Swal.fire({
-      title:`¿Estás seguro de que ${r.pet.name} ha sido adoptad@ por ${r.name} ${r.lastname} ?`,
-      text: "Esto impactaría en los puntos del usuario.",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Confirmar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        emailjs.send('service_h2hpe6c', 'template_aaiedce', r, 'VYEG6lTjXQeDRaF3J')
-        .then((result) => {
-          console.log(result);
-      }, (error) => {
-          console.log(error.text);
-      });
-        Swal.fire({
-          title:`Solicitud aprobada con éxito`,
-          text: "¡Felicitaciones por salvar otra huella!",
-          icon: 'success',
-        }
+    if (e.target.value === 'Aprobada') {
+      Swal.fire({
+        title: `¿Estás seguro de que ${r.pet.name} ha sido adoptad@ por ${r.name} ${r.lastname} ?`,
+        text: "Esto impactaría en los puntos del usuario.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          emailjs.send('service_h2hpe6c', 'template_aaiedce', r, 'VYEG6lTjXQeDRaF3J')
+            .then((result) => {
+              console.log(result);
+            }, (error) => {
+              console.log(error.text);
+            });
+          Swal.fire({
+            title: `Solicitud aprobada con éxito`,
+            text: "¡Felicitaciones por salvar otra huella!",
+            icon: 'success',
+          }
           )
-            dispatch(updateRequestAdopt(r.id, { status: 'Aprobada' }));
-            if (r.user) {
-              dispatch(updateUser({points: r.user.points+2000}, r.user.email));
-            }
-      }
-    })
-  }
-  else {
-    Swal.fire({
-      title:`¿Estás seguro de rechazar la solicitud ?`,
-      text: "Podrás cambiar su estado en el futuro de todas maneras.",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Confirmar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        dispatch(updateRequestAdopt(r.id, { status: 'Rechazada' }));
-        Swal.fire({
-          title:'Solicitud rechazada con éxito!',
-          icon: 'success',
+          dispatch(updateRequestAdopt(r.id, { status: 'Aprobada' }));
+          dispatch(updatePetStatus(r.petId, { adopted: true }))
+          if (r.user) {
+            dispatch(updateUser({ points: r.user.points + 2000 }, r.user.email));
+          }
         }
-        )
-      }
-    })
-  }
-    
+      })
+    }
+    else {
+      Swal.fire({
+        title: `¿Estás seguro de rechazar la solicitud ?`,
+        text: "Podrás cambiar su estado en el futuro de todas maneras.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(updateRequestAdopt(r.id, { status: 'Rechazada' }));
+          Swal.fire({
+            title: 'Solicitud rechazada con éxito!',
+            icon: 'success',
+          }
+          )
+        }
+      })
+    }
+
   }
 
   const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests?.length - page * rowsPerPage));
@@ -131,7 +132,7 @@ const AdoptionRequests = () => {
   return (
     <div className={styles.tableRequests}>
 
-     
+
       <h3 className={styles.requestTableTitle}> Tabla de solicitudes </h3>
 
       <TableContainer component={Paper}
@@ -205,7 +206,7 @@ const AdoptionRequests = () => {
 
                     </select>
 
-                    
+
 
 
 
@@ -228,7 +229,7 @@ const AdoptionRequests = () => {
           page={page}
           onPageChange={handleChangePage}
           rowsPerPage={rowsPerPage}
-          rowsPerPageOptions={[10]}
+          rowsPerPageOptions={[8]}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
 
