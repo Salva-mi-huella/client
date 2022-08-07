@@ -26,11 +26,9 @@ export default function PaginateStore(){
         }
     },[actualPage,dispatch,products])
 
-    const filters = useSelector(state=> state.products )
-    
     useEffect(()=>{
         setActualPage(1)
-    },[filters])
+    },[products])
 
 
     // Setup number of rendering pages
