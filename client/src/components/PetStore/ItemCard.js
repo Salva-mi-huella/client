@@ -22,6 +22,13 @@ export default function ItemCard(props) {
     function handleAddToCart(){
         if(isAuthenticated){
             dispatch(addToCart(props.id))
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Producto agregado al carrito',
+                showConfirmButton: false,
+                timer: 1500
+  })
         }else{
             Swal.fire({
                 icon: 'error',

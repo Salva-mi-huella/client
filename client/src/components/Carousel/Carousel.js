@@ -29,7 +29,7 @@ export default function ControlledCarousel({foundations}) {
             
             <div className={styles.containertext}>
                 <h1 className={styles.titles}>Adopciones</h1>
-                <p className={styles.paragraph}>¿Estás listo para encontrar a tu mejor amigo?<br/>Busca a tu compañero en nuestra red de refugios.</p>
+                <p className={styles.paragraph}>¿Todavía seguís buscando a tu mejor amigo?<br/> ¡No lo busques más! Encontralo en nuestra red de refugios.</p>
                     <Link className={styles.link} to='/adoptar'><button>QUIERO ADOPTAR</button></Link>
             </div>
 
@@ -69,7 +69,7 @@ export default function ControlledCarousel({foundations}) {
             </div>
             <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Donaciones</h1>
-                <p className={styles.paragraph}>Tu aporte de hoy puede salvar una huella.</p>
+                <p className={styles.paragraph}>Tu aporte de hoy puede ser mi comida de mañana.</p>
                 <Link className={styles.link} to='/donar'><button>QUIERO DONAR</button></Link>
             </div>
         </div>

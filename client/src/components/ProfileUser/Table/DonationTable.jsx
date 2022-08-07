@@ -6,8 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import styles from './DonationTable.css'
-
+import styles from './DonationTable.css';
+import foto from "../../../assets/animal-care.png";
+import {Link } from 'react-router-dom';
 /* const makeStyles = (status) => {
     if (status === 'Aprobado') {
         return {
@@ -30,7 +31,9 @@ import styles from './DonationTable.css'
 } */
 
 export default function DonationTable({userDetail, foundations}) {
-    /* const dispatch=useDispatch()
+    const donaciones = userDetail.donations;
+   
+  /* const dispatch=useDispatch()
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -53,7 +56,16 @@ export default function DonationTable({userDetail, foundations}) {
         <div className={styles.tableRequests}>
 
      
-      <h3 className={styles.requestTableTitle}> Tabla de donaciones </h3>
+      <h1 className={styles.requestTableTitle}> Mis donaciones </h1>
+      {donaciones.length === 0 ? 
+      <div>
+        <h3> No hay donaciones aun </h3> 
+        <img src={foto}></img>
+        <Link to="/donar">
+          <button>Donar</button>
+        </Link>
+      </div>
+      : 
 
       <TableContainer component={Paper}
         style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
@@ -144,8 +156,8 @@ export default function DonationTable({userDetail, foundations}) {
           rowsPerPageOptions={[10]}
           onRowsPerPageChange={handleChangeRowsPerPage}
         /> */}
-      </TableContainer>
+      </TableContainer>}
 
     </div>
-    );
+        );
 }

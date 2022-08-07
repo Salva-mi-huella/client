@@ -81,13 +81,13 @@ export default function BasicTable() {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead className={styles.TableHead}>
                         <TableRow>
-                            <TableCell>Huellita </TableCell>
-                            <TableCell align="left">Usuario</TableCell>
+                            <TableCell>Huella </TableCell>
+                            <TableCell align="left">Nombre</TableCell>
                             <TableCell align="left">Email</TableCell>
                             <TableCell align="left">Teléfono</TableCell>
                             <TableCell align="left">Ciudad</TableCell>
                             <TableCell align="left">Fecha</TableCell>
-                            <TableCell align="left">Status</TableCell>
+                            <TableCell align="left">Estado</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -102,13 +102,13 @@ export default function BasicTable() {
                                     <TableCell component="th" scope="row">
                                         {r.pet.name}
                                     </TableCell>
-                                    <TableCell align="left">{r.user.name}</TableCell>
-                                    <TableCell align="left">{r.user.email}</TableCell>
-                                    <TableCell align="left" className={styles.ciudad}>{r.user.telephone_number || 'Sin especificar'}</TableCell>
-                                    <TableCell align="left" className={styles.ciudad}>{r.user.city || 'Sin especificar'}</TableCell>
-                                    <TableCell align="left">01/08/2022</TableCell>
+                                    <TableCell align="left">{r.name} {r.lastname}</TableCell>
+                                    <TableCell align="left">{r.email}</TableCell>
+                                    <TableCell align="left" className={styles.ciudad}>{r.phone || 'Sin especificar'}</TableCell>
+                                    <TableCell align="left" className={styles.ciudad}>{r.user?.city || 'Sin especificar'}</TableCell>
+                                    <TableCell align="left">{r.post_date}</TableCell>
                                     <TableCell align="left">
-                                        <span className={styles.status} style={makeStyles('Pendiente')} >Pendiente</span>
+                                        <span className={styles.status} style={makeStyles('Pendiente')} >{r.status}</span>
                                     </TableCell>
                                 </TableRow>
                             ))}

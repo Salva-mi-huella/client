@@ -87,3 +87,50 @@
         width: 23rem;
     }
 }
+
+.boton {
+    background-color: #59bfff;
+    border-radius: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1vw;
+    height: 2vw;
+    width: 8vw;
+    text-align: center;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+  
+  }
+  
+  .boton:hover{
+    background-color: #f47373;
+  }
+  
+  .boton1 {
+    background-color: #09bd0c;
+    border-radius: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1vw;
+    height: 2vw;
+    width: 8vw;
+    text-align: center;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+  }
+  
+  .boton1:hover{
+    background-color: #8aeb98;
+  }

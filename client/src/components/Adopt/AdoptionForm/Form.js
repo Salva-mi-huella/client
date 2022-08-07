@@ -177,6 +177,13 @@ return (
               }, (error) => {
                 console.log(error.text);
               });
+
+               emailjs.send('service_h2hpe6c', 'template_bmnys4i', values, 'VYEG6lTjXQeDRaF3J')
+              .then((result) => {
+                console.log(result);
+              }, (error) => {
+                console.log(error.text);
+              });
               
               resetForm();
             } else if (result.isDenied) {

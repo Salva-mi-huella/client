@@ -9,7 +9,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import styles from'./RequestTable.css'
-
+import foto from "../../../assets/sad-pets.png";
+import {Link } from 'react-router-dom';
 /* function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
 } */
@@ -35,13 +36,15 @@ import styles from'./RequestTable.css'
     }
 } */
 
-export default function RequestTable({userId, foundations}) {
+export default function RequestTable({userId, foundations, userDetail}) {
 
     const dispatch=useDispatch()
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+    
+  const request = userDetail.request_adopts
 
     useEffect(() => { 
         dispatch(getRequestsAdopt())
@@ -51,9 +54,9 @@ export default function RequestTable({userId, foundations}) {
 
      requests = requests.filter(r => r.userId === userId)
 
-     console.log(requests, 'hola')
+    
 
-     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests?.length - page * rowsPerPage));
+    
 
 
 
@@ -61,8 +64,16 @@ export default function RequestTable({userId, foundations}) {
         <div className={styles.tableRequests}>
 
      
-      <h3 className={styles.requestTableTitle}> Tabla de solicitudes </h3>
-
+      <h1 className={styles.requestTableTitle}> Mis solicitudes </h1>
+{request.length === 0 ?
+<div>
+  <h3>No tienes ninguna solicitud aun</h3>
+  <img src={foto}></img>
+  <Link to="/adoptar">
+  <button>Adoptar</button>
+  </Link>
+</div> 
+:
       <TableContainer component={Paper}
         style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
       >
@@ -94,11 +105,11 @@ export default function RequestTable({userId, foundations}) {
                   <TableCell className={styles.tableCell} align="left">{r.status} </TableCell>
                 </TableRow>
               ))}
-            {emptyRows > 0 && (
+            {/* {emptyRows > 0 && (
               <TableRow style={{ height: 53 * emptyRows }}>
                 <TableCell colSpan={6} />
               </TableRow>
-            )}
+            )} */}
           </TableBody>
         </Table>
 
@@ -113,6 +124,7 @@ export default function RequestTable({userId, foundations}) {
           onRowsPerPageChange={handleChangeRowsPerPage}
         /> */}
       </TableContainer>
+}
 
     </div>
     );

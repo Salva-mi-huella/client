@@ -64,7 +64,7 @@ export default function Donate(){
                     <Link to='/huellitas'><button>VER MÁS</button></Link>
                     </div>
                 </div>
-                {isAuthenticated ?<div className={style.subcontainerB}>
+                {!isAuthenticated ?<div className={style.subcontainerB}>
                     <h3>¿Todavía no te registraste?</h3>
                     <p>¡Hacelo gratis y empezá a sumar huellitas!</p>
                     <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
