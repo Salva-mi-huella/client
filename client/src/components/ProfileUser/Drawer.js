@@ -28,9 +28,11 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import RequestTable from './Table/RequestTable';
 import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
+import ProductsTable from './Table/ProductsTable';
 import { getUserSession } from '../../utils/index.js';
 import { getAllPets, getUserByEmail } from '../../redux/actions';
 import Card from '../Adopt/Card'
+
 
 
 
@@ -244,12 +246,9 @@ export default function PersistentDrawerLeft() {
 
       </div>}
 
-      {products &&
-        <div className={styles.favs}>
-          <h1>Mis productos</h1>
-          <p>No hay productos.</p>
-        </div>
-      }
+    {products && <ProductsTable userDetail={userDetail}></ProductsTable>}
+
+      
 
       {request && <RequestTable userId={userDetail.id} foundations={foundations}></RequestTable>}
 
