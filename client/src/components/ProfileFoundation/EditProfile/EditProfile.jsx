@@ -32,117 +32,104 @@ export default function EditProfile({ datos, setDatos, foundation }) {
 
     try {
       if (!Object.keys(errors).length) dispatch(updateFoundation(data, foundation.id))
+      alert('Done');
     } catch (error) {
       console.log(error.message)
+      alert('Error updating');
     }
-    alert('Datos actualizados');
   }
 
   return (
 
-    <div className={styles.dataContainer}>
+    <div className={styles.formContainer}>
 
-      <div className={styles.data}>
-        <div className={styles.Info}>
+      <h1 className={styles.title}>Mis datos</h1>
 
-          <form className={styles.containerForm} onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 
-            {/* GRUPO HEADER */}
-            <div className={styles.titleContainer}>
-              <h1 className={styles.title}>Mis datos</h1>
-              <button className={styles.btnUploadImage}>
-                <img className={styles.uploadImage} src={foundation.images[0]} alt='' />
-              </button>
-            </div>
+        {/* GRUPO HEADER */}
+        <div className={styles.headerContainer}>
 
-
-            {/* GRUPO 1 */}
-            <div>
-
-              {/* NOMBRE */}
-              <label className={styles.items}>Nombre:</label>
-              <input className={styles.input} defaultValue={foundation.name} type="text" maxLength={15} name="name" {...register("name", { maxLength: 15, pattern: /^-?[a-zA-Z]*$/ })} />
-
-              {/* EMAIL */}
-              <label className={styles.items}>Email: {foundation.email}</label>
-
-              {/* ERRORES */}
-              <div>
-                {errors.name?.type === "maxLength" && <p className={styles.error}>El nombre debe tener 8 caracteres maximo</p>}
-                {errors.name?.type === "pattern" && <p className={styles.error}>El nombre debe tener solo letras</p>}
-              </div>
-            </div>
+          {/* onclick={handleUploadImage(onUploadImage)} */}
+          <button className={styles.btnUploadImage}  >
+            <img className={styles.uploadImage} src={foundation.images[0]} alt='' />
+          </button>
 
 
-            {/* GRUPO 2 */}
-            <div>
-
-              {/* CBU */}
-              <label className={styles.items}>CBU Nro:</label>
-              <input className={styles.input} defaultValue={foundation.CBU} type="number" maxLength={22} name="CBU"  {...register("CBU", { maxLength: 22, pattern: /^-?[0-9]*$/ })} />
-
-              {/* BANCO */}
-              <label className={styles.items}>Banco:</label>
-              <input className={styles.input} defaultValue={foundation.bank} type="text" name="bank" {...register("bank", { maxLength: 20 })} />
-
-              {/* ALIAS */}
-              <label className={styles.items}>Alias:</label>
-              <input className={styles.input} defaultValue={foundation.alias} type="text" name="alias" {...register("alias", { maxLength: 20 })} />
-
-              {/* ERRORES */}
-              <div>
-                {errors.CBU?.type === "maxLength" && <p className={styles.error}>El CBU debe tener 22 caracteres máximo</p>}
-                {errors.alias?.type === "maxLength" && <p className={styles.error}>El alias debe tener 10 caracteres máximo</p>}
-              </div>
-            </div>
-
-
-            {/* GRUPO 3 */}
-            <div>
-
-              {/* DIRECCION */}
-              <label className={styles.items}>Direccion:</label>
-              <input className={styles.input} defaultValue={foundation.address} type="text" maxLength={30} name="address" {...register("address", { maxLength: 30 })} />
-
-              {/* CIUDAD */}
-              <label className={styles.items}>Ciudad: </label>
-              <input className={styles.input} defaultValue={foundation.city} type="text" maxLength={20} name="city" {...register("city", { maxLength: 20, pattern: /^-?[a-zA-Z]*$/ })} />
-
-              {/* TELEFONO */}
-              <label className={styles.items}>Telefono:</label>
-              <input className={styles.input} defaultValue={foundation.telephone_number} type="text" name="telephone_number" maxLength={20} {...register("telephone_number", { maxLength: 20, pattern: /^-?[0-9]*$/ })} />
-
-
-              {/* ERRORES */}
-              <div>
-                {errors.address?.type === "maxLength" && <p className={styles.error}>La dirección debe tener 30 caracteres máximo</p>}
-              </div>
-              <div>
-                {errors.city?.type === "pattern" && <p className={styles.error}>La ciudad debe tener solo letras</p>}
-              </div>
-              <div>
-                {errors.telephone_number?.type === "maxLength" && <p className={styles.error}>El teléfono debe tener 20 caracteres máximo</p>}
-                {errors.telephone_number?.type === "pattern" && <p className={styles.error}>El teléfono debe tener solo números</p>}
-              </div>
-
-            </div>
-
-            {/* DESCRIPTION */}
-            <div className={styles.editDescription}>
-
-              <label className={styles.items}>Descripcion:</label>
-              <input type="textarea" className={styles.input} defaultValue={foundation.description} />
-            </div>
-
-
-            <input className={styles.btnSaveData} type="submit" value="Guardar datos" />
-          </form>
+          <div className={styles.description}>
+            {/* <label >Descripcion:</label> */}
+            <textarea type="textarea" className={styles.inputDescription} defaultValue={foundation.description} maxLength={800} name="description"
+              {...register("description", { maxLength: 800 })} />
+            {errors.description?.type === "maxLength" && <span className={styles.error}>LA description debe tener 700 caracteres maximo</span>}
+          </div>
 
         </div>
-      </div>
-      <div>
-      </div>
-    </div>
+
+
+        {/* GRUPO 1 */}
+        <div className={styles.grupos}>
+
+          {/* NOMBRE */}
+          <label className={styles.items}>Nombre:</label>
+          <input className={styles.input} defaultValue={foundation.name} type="text" maxLength={15} name="name" {...register("name", { maxLength: 15, pattern: /^-?[a-zA-Z]*$/ })} />
+          {errors.name?.type === "maxLength" && <span className={styles.error}>El nombre debe tener 8 caracteres maximo</span>}
+          {errors.name?.tyspane === "pattern" && <span className={styles.error}>El nombre debe tener solo letras</span>}
+
+          {/* EMAIL */}
+          <label className={styles.items}>Email: {foundation.email}</label>
+        </div>
+
+
+        {/* GRUPO 2 */}
+        <div className={styles.grupos}>
+
+
+          {/* CBU */}
+          <label className={styles.items}>CBU Nro:</label>
+          <input className={styles.input} defaultValue={foundation.CBU} type="number" maxLength={22} name="CBU"  {...register("CBU", { maxLength: 22, pattern: /^-?[0-9]*$/ })} />
+          {errors.CBU?.type === "maxLength" && <span className={styles.error}>El CBU debe tener 22 caracteres máximo</span>}
+
+          {/* BANCO */}
+          <label className={styles.items}>Banco:</label>
+          <input className={styles.input} defaultValue={foundation.bank} type="text" name="bank" {...register("bank", { maxLength: 20 })} />
+
+          {/* ALIAS */}
+          <label className={styles.items}>Alias:</label>
+          <input className={styles.input} defaultValue={foundation.alias} type="text" name="alias" {...register("alias", { maxLength: 20 })} />
+          {errors.alias?.type === "maxLength" && <span className={styles.error}>El alias debe tener 10 caracteres máximo</span>}
+
+        </div>
+
+
+        {/* GRUPO 3 */}
+        <div className={styles.grupos}>
+
+
+          {/* DIRECCION */}
+          <label className={styles.items}>Direccion:</label>
+          <input className={styles.input} defaultValue={foundation.address} type="text" maxLength={30} name="address" {...register("address", { maxLength: 30 })} />
+          {errors.address?.type === "maxLength" && <span className={styles.error}>La dirección debe tener 30 caracteres máximo</span>}
+
+          {/* CIUDAD */}
+          <label className={styles.items}>Ciudad: </label>
+          <input className={styles.input} defaultValue={foundation.city} type="text" maxLength={20} name="city" {...register("city", { maxLength: 20, pattern: /^-?[a-zA-Z]*$/ })} />
+          {errors.city?.type === "pattern" && <span className={styles.error}>La ciudad debe tener solo letras</span>}
+
+          {/* TELEFONO */}
+          <label className={styles.items}>Telefono:</label>
+          <input className={styles.input} defaultValue={foundation.telephone_number} type="text" name="telephone_number" maxLength={20} {...register("telephone_number", { maxLength: 20, pattern: /^-?[0-9]*$/ })} />
+          {errors.telephone_number?.type === "maxLength" && <span className={styles.error}>El teléfono debe tener 20 caracteres máximo</span>}
+          {errors.telephone_number?.type === "pattern" && <span className={styles.error}>El teléfono debe tener solo números</span>}
+
+        </div>
+
+        <div className={styles.btnContainer}>
+          <input className={styles.btnSaveData} type="submit" value="Guardar datos" />
+        </div>
+
+      </form >
+
+    </div >
 
   )
 }
