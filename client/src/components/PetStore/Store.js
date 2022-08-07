@@ -43,8 +43,7 @@ export default function Store() {
             text: 'Parece que aun no has añadido nada a tu carrito!',
           })
         }
-        else if(newBalance > 0){
-        
+        else if(newBalance > 0){        
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
               confirmButton: 'btn btn-success',
@@ -101,25 +100,25 @@ export default function Store() {
    function handleFilterAZ(e){   
      setFilterByAZ(e.target.value)
      dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))
-     setPageNumber(0) 
+     setCurrentPage(0) 
    }
 
    function handleFilterByPrice(e){  
      setFilterByPrice(e.target.value)
      dispatch(storeFilters(filterByAZ,e.target.value,filterByType,filterByCategory))
-     setPageNumber(0) 
+     setCurrentPage(0) 
    }
 
    function handleFilterByType(e){       
     setFilterByType(e.target.value)
     dispatch(storeFilters(filterByAZ,filterByPrice,e.target.value,filterByCategory))
-    setPageNumber(0)  
+    setCurrentPage(0)  
   }
 
   function handleFilterByCategory(e){       
     setFilterByCategory(e.target.value)
     dispatch(storeFilters(filterByAZ,filterByPrice,filterByType,e.target.value))
-    setPageNumber(0)  
+    setCurrentPage(0)  
   }
 
   function handleAll(e){
@@ -128,15 +127,15 @@ export default function Store() {
     setFilterByType("")
     setFilterByCategory("")
     dispatch(getAllProducts())
-    setPageNumber(0)  
+    setCurrentPage(0)  
   }
 
 
 
   //PAGINADO
-  const [pageNumber, setPageNumber] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const productsPerPage = 6;
-  const pagesVisited = pageNumber * productsPerPage;
+  const pagesVisited = currentPage * productsPerPage;
 
   const displayProducts = products
     .slice(pagesVisited, pagesVisited + productsPerPage)
@@ -157,13 +156,13 @@ export default function Store() {
   const pageCount = Math.ceil(products.length / productsPerPage);
 
   const changePage = ({ selected }) => {
-    setPageNumber(selected);
+    setCurrentPage(selected);
   };
 
   //Contadores
   const countTodos = allProducts
-  const countPerros=allProducts.filter(p => p.type === "Perro")
-  const countGatos =allProducts.filter(p => p.type === "Gato")
+  const countPerros=allProducts.filter(p => p.type === "Perro" || p.type === "Todos")
+  const countGatos =allProducts.filter(p => p.type === "Gato" || p.type === "Todos")
 
   const countAlimentos = allProducts.filter(p => p.category === "Alimento")
   const countIndumentaria = allProducts.filter(p => p.category === "Indumentaria")
@@ -230,7 +229,7 @@ export default function Store() {
             nextLinkClassName={styles.prevnext}
             disabledClassName={"paginationDisabled"}
             activeLinkClassName={styles.activebuttons}
-            forcePage={pageNumber}
+            forcePage={currentPage}
           ></ReactPaginate>
         </div>
       </div>
