@@ -32,7 +32,8 @@ import {
     UPDATE_REQUEST_FOUNDATION,
     POST_FOUNDATION,
     UPDATE_REQUEST_ADOPT,
-    UPDATE_PET_STATUS
+    UPDATE_PET_STATUS,
+    PRODUCTS_FILTERED
 
 } from "../actions"
 
@@ -48,6 +49,7 @@ const initialState = {
     allProductsFiltered:[],
     productDetail: {},
     petsFiltered: [],
+    productsFilterd:[],
     users:[],
     user: {},
     donations: [],
@@ -91,6 +93,11 @@ export default function rootReducer(state = initialState, action) {
         
         case PETS_FILTERED: return{...state, 
             petsFiltered:{
+                filtered: action.filtered,
+                pages: action.perPage
+            }}
+        case PRODUCTS_FILTERED: return{...state, 
+            productsFilterd:{
                 filtered: action.filtered,
                 pages: action.perPage
             }}

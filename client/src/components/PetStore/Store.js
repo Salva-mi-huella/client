@@ -4,12 +4,12 @@ import { getAllProducts, updateUser, storeFilters } from "../../redux/actions";
 import ItemCard from "./ItemCard";
 import SearchBar from "./SearchBar";
 import styles from "./Store.module.css";
-import ReactPaginate from "react-paginate";
 import ShoppingCart from "./ShoppingCart";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Swal from 'sweetalert2';
 import { useAuth0 } from '@auth0/auth0-react';
 import Footer from "../Footer/Footer";
+import PaginateStore from "./PaginateStore";
 
 
 
@@ -21,6 +21,7 @@ export default function Store() {
     const user = useSelector(state => state.user)
     const products = useSelector((state) => state.allProductsFiltered);
     const allProducts = useSelector((state) => state.allProducts);
+    const {pages} = useSelector((state) => state.productsFilterd);
     const cart = useSelector(state => state.cart);
     const productsId = cart.map(product => product.id);
 
@@ -101,25 +102,20 @@ export default function Store() {
    function handleFilterAZ(e){   
      setFilterByAZ(e.target.value)
      dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))
-     setCurrentPage(0) 
-   }
 
    function handleFilterByPrice(e){  
      setFilterByPrice(e.target.value)
      dispatch(storeFilters(filterByAZ,e.target.value,filterByType,filterByCategory))
-     setCurrentPage(0) 
    }
 
    function handleFilterByType(e){       
     setFilterByType(e.target.value)
     dispatch(storeFilters(filterByAZ,filterByPrice,e.target.value,filterByCategory))
-    setCurrentPage(0)  
   }
 
   function handleFilterByCategory(e){       
     setFilterByCategory(e.target.value)
     dispatch(storeFilters(filterByAZ,filterByPrice,filterByType,e.target.value))
-    setCurrentPage(0)  
   }
 
   function handleAll(e){
@@ -128,37 +124,30 @@ export default function Store() {
     setFilterByType("")
     setFilterByCategory("")
     dispatch(getAllProducts())
-    setCurrentPage(0)  
   }
 
 
 
   //PAGINADO
-  const [currentPage, setCurrentPage] = useState(0);
-  const productsPerPage = 6;
-  const pagesVisited = currentPage * productsPerPage;
 
-  const displayProducts = products
-    .slice(pagesVisited, pagesVisited + productsPerPage)
-    .map((product) => {
-      return (
-        <ItemCard
-          key={product.id}
-          id={product.id}
-          images={product.images}
-          name={product.name}
-          points={new Intl.NumberFormat().format(product.points)}
-          type={product.type}
-          category={product.category}
-        />
-      );
-    });
+  // const displayProducts = products
+  //   .slice(pagesVisited, pagesVisited + productsPerPage)
+  //   .map((product) => {
+  //     return (
+  //       <ItemCard
+  //         key={product.id}
+  //         id={product.id}
+  //         images={product.images}
+  //         name={product.name}
+  //         points={new Intl.NumberFormat().format(product.points)}
+  //         type={product.type}
+  //         category={product.category}
+  //       />
+  //     );
+  //   });
 
-  const pageCount = Math.ceil(products.length / productsPerPage);
+  // const pageCount = Math.ceil(products.length / productsPerPage);
 
-  const changePage = ({ selected }) => {
-    setCurrentPage(selected);
-  };
 
   //Contadores
   const countTodos = allProducts
@@ -217,22 +206,26 @@ export default function Store() {
                 </select>
 
             </div>
-        <div className={styles.items}>{displayProducts}</div>
-        <div className={styles.pagination}>
-          <ReactPaginate
-            previousLabel={"←"}
-            nextLabel={"→"}
-            pageCount={pageCount}
-            onPageChange={changePage}
-            containerClassName={styles.paginate}
-            pageClassName={styles.pagbuttons}
-            previousLinkClassName={styles.prevnext}
-            nextLinkClassName={styles.prevnext}
-            disabledClassName={"paginationDisabled"}
-            activeLinkClassName={styles.activebuttons}
-            forcePage={currentPage}
-          ></ReactPaginate>
+
+        <div className={styles.items}>
+        {
+          pages?
+              pages.map((product) =>(
+                <ItemCard
+                  key={product.id}
+                  id={product.id}
+                  images={product.images}
+                  name={product.name}
+                  points={new Intl.NumberFormat().format(product.points)}
+                  type={product.type}
+                  category={product.category}/>
+                   ))
+                   :
+                   <h2>Pensando..</h2>
+        }
+
         </div>
+        <PaginateStore/>
       </div>
 
       <div>
