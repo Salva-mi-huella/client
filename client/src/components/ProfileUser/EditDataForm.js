@@ -20,7 +20,7 @@ export default function EditDataForm({datos,setDatos}) {
 
      const userDetail = useSelector(state => state.user);
  
-  
+     
   const onSubmit = (data, e) => {
         // e.preventDefault()
         console.log(data)
@@ -51,8 +51,6 @@ export default function EditDataForm({datos,setDatos}) {
           console.log(error.message)
         }
       }
-  
-      
     return (
   <div className={styles.container}>
      <div className={styles.dataContainer}>
@@ -70,6 +68,8 @@ export default function EditDataForm({datos,setDatos}) {
                     <div>
                       <label className={styles.items}>Nombre:</label>
                       <input className={styles.input} defaultValue={userDetail.name}  type="text" maxLength={30} name="name" {...register("name", { maxLength: 30 , pattern: /^-?[a-zA-Z\s]*$/})} />
+                      <label className={styles.items}>Apellido:</label>
+                      <input className={styles.input} defaultValue={userDetail.lastname} type="text" maxLength={30} name="lastname"{...register("lastname", {maxLength: 30, pattern: /^-?[a-zA-Z\s]*$/})}/>
                       {/* {errors.name?.type === "required" && <p className={styles.error}>El nombre es obligatorio</p>} */}
                     <label className={styles.items}>Email: {user.email}</label>
                         <div>
@@ -99,7 +99,7 @@ export default function EditDataForm({datos,setDatos}) {
                    <div>
                       {/* {errors.address?.type === "required" && <p className={styles.error}>La dirección es obligatoria</p>} */}
                       <label className={styles.items}>Ciudad: </label>
-                      <input className={styles.input}  defaultValue={userDetail.city} type="text" maxLength={20} name="city" {...register("city", { maxLength:20 , pattern: /^-?[a-zA-Z]*$/})}/>
+                      <input className={styles.input}  defaultValue={userDetail.city} type="text" maxLength={20} name="city" {...register("city", { maxLength:20 , pattern: /^[A-Za-z0-9\s]+$/g})}/>
                       <label className={styles.items}>Dirección:</label>
                       <input className={styles.input} defaultValue={userDetail.address}  type="text" maxLength={30} name="address" {...register("address", { maxLength: 30 })}/>
                       {/* {errors.city?.type === "required" && <p className={styles.error}>La ciudad es obligatoria</p>} */}
@@ -121,8 +121,18 @@ export default function EditDataForm({datos,setDatos}) {
 
                    <div className={styles.transit}>
                       <label >¿Te gustaría ofrecerte como persona de tránsito?</label>
-                      <label htmlFor='Si'><input id='Si' {...register('transit')} value='Si' type='radio' name='transit'/>Sí</label>
-                      <label htmlFor='No'><input id='No' {...register('transit')} value='No' type='radio' name='transit'/>No</label>
+                      {userDetail && userDetail.transit === "No" ? 
+                      <div>
+                          <label htmlFor='Si'><input  id='Si' {...register('transit')} value='Si' type='checkbox' name='transit'/>Sí</label>
+                          <label htmlFor='No'><input  id='No' {...register('transit')} value='Noooo' type='checkbox' name='transit'/>No</label>
+                      </div> 
+                      : 
+                      <div>
+                        <label htmlFor='Si'><input  id='Si' {...register('transit')} value='Si' type='checkbox' name='transit'/>Sí</label>
+                        <label htmlFor='No'><input id='No' {...register('transit')} value='Nooo' type='checkbox' name='transit'/>No</label>
+                      </div> }
+                      {/* <label htmlFor='Si'><input id='Si' {...register('transit')} value='Si' type='checkbox' name='transit'/>Sí</label>
+                      <label htmlFor='No'><input id='No' {...register('transit')} value='No' type='checkbox' name='transit'/>No</label> */}
                    </div>
                  </form>
                 
