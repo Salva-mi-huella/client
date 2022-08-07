@@ -10,10 +10,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
-    gap: 2rem;
-    margin-top: 3rem;
+    /* justify-content: center; */
+    gap: 2vw;
+    margin-top: 2vw;
+    height: 50vw;
     padding-right: 5rem;
     margin-left: 3rem;
     border-right: 1px solid white;
@@ -29,28 +29,28 @@
 .postNewsTitle {
     /* margin: 1rem; */
     position: relative;
-    top: -.5rem;
 
-    font-size: 3rem;
+    font-size: 2.5vw;
     font-weight: 500;
-    color: #F1F15B;
+    color: white;
+    font-weight: bold;
 
 }
 
 .checkbox {
     /* margin: 1rem; */
-    margin-right: 2rem;
-    width: 1.3rem;
+    margin-right: 1.3vw;
+    width: 1.5vw;
 }
 
 .postNewsForm div {
     /* margin: 20px; */
     display: flex;
-    margin: 5px;
+    /* margin: 5px; */
 }
 
 .label {
-    font-size: 1.5rem;
+    font-size: 1.3vw;
     margin-right: 15px;
     font-family: 'Nunito', sans-serif;
     align-self: center;
@@ -59,27 +59,26 @@
 
 .labelCheck {
     font-size: 1.3rem;
-    /* background-color: gray; */
-
 }
 
 .inputText, .textarea {
     resize: none;
     background-color: rgba(99, 59, 218, 0.109);
-    border-radius: 5px;
+    border-radius: 0.4vw;
     border: none;
     border-bottom: 1px solid white;
     padding: 9px;
 }
 
 .textarea {
-    height: 300px;
-    width: 30vw;
+    height: 15vw;
+    width: 35vw;
     padding: 9px;
 }
 
 .btnPostNew {
-    margin-top: 30px;
+    margin-top: 2vw;
+    margin-right: 3vw;
     text-align: center;
 }
 
@@ -123,19 +122,14 @@
 /* Result of new */
 .resultContainer {
     /* background-color: red; */
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     width: 40vw;
     max-width: 40vw;
     max-height: 70vh;
-
     gap: 2rem;
-    margin: 3rem;
-    padding-right: 5rem;
-    padding-left: 5rem;
+    margin: 5vw 7vw 0 -1vw 
 }
 
 .newDescriptionContainer {
@@ -172,3 +166,29 @@
     top: 1rem;
 
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* padding: vh; */
+    margin-left: 3vw;
+  }
+  
+  .containerNews {
+    padding-top: 1vw;
+  }
+  
+  .avatar{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+  }
+  .title{
+    font-size: 1.5vw;
+    font-weight: bold;
+  }
+  .date{
+    font-size: 1vw;
+  }
+  

@@ -1,6 +1,7 @@
 import React from 'react';
 import { CDBFooter, CDBFooterLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
-import logo from '../../assets/logo.png'
+// import logo from '../../assets/logo.png'
+import logo from '../../assets/yellow-paw.png'
 import { Link } from 'react-router-dom';
 
 import styles from '../Footer/Footer.module.css';
@@ -30,7 +31,7 @@ export default function Footer() {
 
               <CDBBox className={styles.containerLogo}>
                 <a href="/" className="d-flex align-items-center p-0 text-dark text-decoration-none">
-                  <img alt="logo" src={logo} width="80px" />
+                  <img className={styles.logo} alt="logo" src={logo} width="80px" />
                   <div className={styles.mision}>
                     <span className="ml-3 h4 font-weight-bold mt-3">Salva mi huella</span>
                   </div>

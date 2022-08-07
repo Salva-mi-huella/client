@@ -45,10 +45,11 @@
 
 .calculate {
     transition: 0.3s;
-    background-color:#9C27B0;
-    color: #f5f5f5;
+    background-color:azure;
+    color: rgb(99, 59, 218);
     border: none;
-    border-radius: 10px;
+    font-weight: bold;
+    border-radius: 0.7vw;
     font-size: 1.3vw;
     cursor: pointer;
     width: 21vw;
@@ -58,17 +59,16 @@
 
 .calculate:hover {
     transition: 0.3s;  
-    background-color: azure;
-    color: #9C27B0;
+    background-color: rgb(255, 226, 8)
 }
 
 .arrow {
     transition: 0.3s;
-    background-color:#9C27B0;
-    color: #f5f5f5;
+    background-color:azure;
+    color: rgb(99, 59, 218);
     border: none;
-    border-radius: 10px;
-    margin: 4px 2px;
+    border-radius: 0.7vw;
+    margin: 0.2vw 0.1vw;
     cursor: pointer;
     width: 10.4vw;
     height: 3vw;
@@ -78,14 +78,13 @@
 .arrow:hover {
     transition: 0.3s;
     /* background-color:#7c168ee6; */   
-    background-color: azure;
-    color: #9C27B0;
+    background-color: rgb(255, 226, 8)
 }
 
 .x {
     transition: 0.3s;
     background-color: azure;
-    color: #9C27B0;
+    color: red;
     border: none;
     border-radius: 10px;
     margin: 4px 2px;

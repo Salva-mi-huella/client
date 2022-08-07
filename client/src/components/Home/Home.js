@@ -80,7 +80,7 @@ export default function Home() {
                         <div>
                             <h1>¿Por qué registrarse?</h1>
                             <p>Administración de cuenta gratuita, seguimiento de solicitudes de adopción, acceso a Huellitas, todo esto y mucho más. Es super simple y fácil, ¡sumate!</p>
-                            <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
+                            {!isAuthenticated && <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>}
                         </div>
                             <img src={register} alt='register'></img>
                     </div>

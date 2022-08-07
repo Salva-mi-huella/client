@@ -11,7 +11,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import styles from './AdoptionRequests.module.css'
-import { updatePetStatus, updateRequestFoundation } from '../../../redux/actions';
+import { updateRequestAdopt, updateUser } from '../../../redux/actions';
+import Swal from 'sweetalert2';
 
 
 
@@ -67,11 +68,54 @@ const AdoptionRequests = () => {
     setPage(0);
   };
 
-  const handleChangeSelect = (e, request) => {
-    dispatch(updateRequestFoundation(request.id, { status: e.target.value })); 
-    if (e.target.value === "Aprobada") {
-      dispatch(updatePetStatus(request.petId, { adopted: true }));
-    }
+  const handleChangeSelect = (e, r) => {
+    if(e.target.value === 'Aprobada'){
+    Swal.fire({
+      title:`¿Estás seguro de que ${r.pet.name} ha sido adoptad@ por ${r.name} ${r.lastname} ?`,
+      text: "Esto impactaría en los puntos del usuario.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title:`Solicitud aprobada con éxito`,
+          text: "¡Felicitaciones por salvar otra huella!",
+          icon: 'success',
+        }
+          )
+            dispatch(updateRequestAdopt(r.id, { status: 'Aprobada' }));
+            if (r.user) {
+              dispatch(updateUser({points: r.user.points+2000}, r.user.email));
+            }
+      }
+    })
+  }
+  else {
+    Swal.fire({
+      title:`¿Estás seguro de rechazar la solicitud ?`,
+      text: "Podrás cambiar su estado en el futuro de todas maneras.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(updateRequestAdopt(r.id, { status: 'Rechazada' }));
+        Swal.fire({
+          title:'Solicitud rechazada con éxito!',
+          icon: 'success',
+        }
+        )
+      }
+    })
+  }
+    
   }
 
   const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests?.length - page * rowsPerPage));
@@ -89,13 +133,13 @@ const AdoptionRequests = () => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead >
             <TableRow sx={styles.TableRow} >
-              <TableCell>Huellita </TableCell>
-              <TableCell align="left">Usuario</TableCell>
+              <TableCell>Huella </TableCell>
+              <TableCell align="left">Nombre</TableCell>
               <TableCell align="left">Email</TableCell>
               <TableCell align="left">Teléfono</TableCell>
               <TableCell align="left">Ciudad</TableCell>
               <TableCell align="left">Fecha</TableCell>
-              <TableCell align="left">Status</TableCell>
+              <TableCell align="left">Estado</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -111,11 +155,11 @@ const AdoptionRequests = () => {
                     {r.pet.name}
                   </TableCell>
 
-                  <TableCell className={styles.tableCell} align="left">{r.user.name}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">{r.user.email}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{r.name} {r.lastname}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{r.email}</TableCell>
                   <TableCell className={styles.ciudad} align="left" >{r.phone || 'Sin especificar'}</TableCell>
-                  <TableCell className={styles.ciudad} align="left" >{r.user.city || 'Sin especificar'}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">01/08/2022</TableCell>
+                  <TableCell className={styles.ciudad} align="left" >{r.user?.city || 'Sin especificar'}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{r.post_date}</TableCell>
                   <TableCell className={styles.tableCell} align="left">
 
                     {/* <span className={styles.status} style={makeStyles('Pendiente')} > Pendiente </span> */}
@@ -125,6 +169,7 @@ const AdoptionRequests = () => {
                       style={makeStyles(r.status)}
                       defaultValue={r.status}
                     >
+                      <option disabled value="Pendiente">Pendiente</option>
 
                       <option
                         value={"Rechazada"}
@@ -152,6 +197,8 @@ const AdoptionRequests = () => {
                       </option>
 
                     </select>
+
+                    
 
 
 

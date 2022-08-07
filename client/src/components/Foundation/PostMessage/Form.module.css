@@ -94,8 +94,8 @@ label{
 }
 
 .send:hover {
-    background: purple;
-    color: #fff;
+    background: white;
+    color: rgb(99, 59, 218);
     border-radius: 5px;
     opacity:0.8;
     cursor: pointer
