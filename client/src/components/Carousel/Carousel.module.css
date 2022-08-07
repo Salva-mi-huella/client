@@ -1,7 +1,14 @@
 .carousel{
     width: 100%;
-    margin-top: -25px;
-    padding-bottom: 100px;
+    margin-top: 7vw;
+    margin-bottom: 3vw;
+}
+
+.imgadoption {
+    /* border: 3px solid red; */
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
 }
 
 .imgadoption:hover{
@@ -40,10 +47,10 @@
 
 
 .titles{
-    font-size: 3.7vw;
+    font-size: 5vw;
     color: rgb(255, 230, 0);
     font-weight: bold;
-    margin-bottom: 3vw;
+    margin-bottom: 2vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -63,7 +70,6 @@
     padding-top: 5vw;  
     padding-bottom: 5vw;  
     /* background: linear-gradient(70deg, rgb(174, 140, 182) 0%, rgb(99, 59, 218) 97%); */
-    
 }
 
 .link {
@@ -75,11 +81,26 @@
     height: 6vw;
     margin-left: 3vw;
     border-radius: 3vw;
-    border: 2px solid purple;
+    border: 0.2vw solid rgb(25, 25, 106);
 }
+
 .imgdonation{
-    width: 600px;
-    height: 600px;
+    width: 30vw;
+    height: 30vw;
+    /* border: 3px solid red; */
+    border-radius: 50%;
+    background-color: rgb(255, 226, 8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgdonation img{
+    width: 23vw;
+    height: 23vw;
+    /* border: 3px solid red; */
+    /* border-radius: 35%; */
+
 }
 
 .containerimg{    
@@ -91,12 +112,8 @@
     height: 350px;
 }
 
-.imgadoption{
-    width: 230px;
-    height: 300px;
-}
 
-.container button {
+.carousel button {
     transition: 0.3s;
     background-color:white;
     color: rgb(99, 59, 218);
@@ -111,9 +128,20 @@
 
 }
 
-.container button:hover {
+.carousel button:hover {
     transition: 0.3s;
     background-color:rgb(255, 226, 8)
+}
+
+.containerDonate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 38vw;
+    padding-top: 5vw;  
+    padding-bottom: 5vw;  
 }
 
 

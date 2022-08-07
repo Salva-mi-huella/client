@@ -2,9 +2,9 @@ import React, {useState}  from 'react'
 import styles from './Carousel.module.css';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
-import img1 from '../../assets/images/gato2.png'
-import img2 from '../../assets/images/perro2.png'
-import img4 from '../../assets/images/donaciones.png'
+import img1 from '../../assets/dog-carrousel.png'
+import img2 from '../../assets/cat-carrousel3.jpg'
+import img4 from '../../assets/hand-paw.png'
 
 
 export default function ControlledCarousel({foundations}) {
@@ -17,7 +17,7 @@ export default function ControlledCarousel({foundations}) {
     return (
         <Carousel className={styles.carousel} activeIndex={index} onSelect={handleSelect}>
 
-        <Carousel.Item> 
+        {/* <Carousel.Item> 
         <div className={styles.container}>
             <div className={styles.containerimg}>               
                 <img  
@@ -56,21 +56,21 @@ export default function ControlledCarousel({foundations}) {
                     <Link className={styles.link} to='/contacto'><button>QUIERO SER PARTE</button></Link>
             </div>
         </div>
-        </Carousel.Item>
+        </Carousel.Item> */}
 
         <Carousel.Item>
-        <div className={styles.container}>
+        <div className={styles.containerDonate}>
+            <div className={styles.containertext2}>
+                <h1 className={styles.titles}>Donaciones</h1>
+                <p className={styles.paragraph}>Tu aporte de hoy puede ser mi comida de mañana.</p>
+                <Link className={styles.link} to='/donar'><button>QUIERO DONAR</button></Link>
+            </div>
             <div>
                 <img   
                 className={styles.imgdonation}             
                 src={img4}
                 alt="Foundations"
                 />
-            </div>
-            <div className={styles.containertext2}>
-                <h1 className={styles.titles}>Donaciones</h1>
-                <p className={styles.paragraph}>Tu aporte de hoy puede ser mi comida de mañana.</p>
-                <Link className={styles.link} to='/donar'><button>QUIERO DONAR</button></Link>
             </div>
         </div>
         </Carousel.Item>   
