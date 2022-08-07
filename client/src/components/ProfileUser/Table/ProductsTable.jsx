@@ -7,6 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import styles from './DonationTable.css'
+import foto from "../../../assets/animal-care.png";
+import {Link } from 'react-router-dom';
 
 /* const makeStyles = (status) => {
     if (status === 'Aprobado') {
@@ -30,7 +32,8 @@ import styles from './DonationTable.css'
 } */
 
 export default function ProductsTable({userDetail, foundations}) {
-    /* const dispatch=useDispatch()
+  const products = userDetail.products;  
+  /* const dispatch=useDispatch()
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -54,16 +57,25 @@ export default function ProductsTable({userDetail, foundations}) {
 
      
       <h3 className={styles.requestTableTitle}> Tabla de productos </h3>
-
+{products.length === 0 ?
+<div>
+<h1>No tienes productos registrados</h1>
+<img src={foto}></img>
+<Link to="/tienda">
+<button>Tienda</button>
+</Link>
+</div>
+:
       <TableContainer component={Paper}
         style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
       >
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead >
             <TableRow sx={styles.TableRow} >
-              <TableCell align='left'>Imagen </TableCell>
+              
               <TableCell align='left'>Nombre </TableCell>
               <TableCell align="left">Huellitas</TableCell>
+              <TableCell align="left">Categoria</TableCell>
               <TableCell align="left">Fecha</TableCell>
               
              {/*  <TableCell align="left">Status</TableCell> */}
@@ -79,10 +91,11 @@ export default function ProductsTable({userDetail, foundations}) {
                     <img className={styles.petImg} src={r.pet.images[0]} />
                     {r.pet.name}
                   </TableCell> */}
-                  <TableCell className={styles.tableCell} align="left">{p.image}</TableCell>
+                  
                   <TableCell className={styles.tableCell} align="left">{p.name}</TableCell>
                   <TableCell className={styles.tableCell} align="left">{p.points}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">{p.date}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{p.category}</TableCell>
+                  <TableCell className={styles.tableCell} align="left">{p.post_date}</TableCell>
                  {/*  <TableCell className={styles.tableCell} align="left">
                     
                    
@@ -143,7 +156,7 @@ export default function ProductsTable({userDetail, foundations}) {
           onRowsPerPageChange={handleChangeRowsPerPage}
         /> */}
       </TableContainer>
-
+}
     </div>
     );
 }
