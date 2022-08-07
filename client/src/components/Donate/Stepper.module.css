@@ -102,16 +102,23 @@
 }
 
 .donate button {
-    background-color: #0275d8;
-    color: #f5f5f5;
+    transition: 0.3s;
+    background-color: white;
+    color: rgb(99, 59, 218);
     border: none;
     text-align: center;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 1.3vw;
+    margin: 1vw 0.5vw;
     cursor: pointer;
-    border-radius: 5px;
-    width: 80px;
+    border-radius: 0.3vw;
+    width: 6vw;
+    font-weight: bold;
+}
+
+.donate button:hover {
+    transition: 0.3s;
+    background-color: rgb(255, 230, 0);
 }
 
 .donate span {
@@ -147,4 +154,8 @@
 .link:hover {
     text-decoration: none;
     color:#f5f5f5;
+}
+
+.buttonStep:hover {
+    background-color: rgb(255, 230, 0) !important;
 }

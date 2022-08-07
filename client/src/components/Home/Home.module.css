@@ -189,20 +189,21 @@
 
 .userInfo button {
     transition: 0.3s;
-    background-color:#9C27B0;
-    color: #f5f5f5;
+    background-color:white;
+    color: rgb(99, 59, 218);
     border: none;
     font-size: 1.2vw;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius:0.3vw;
     width: 10vw;
     height: 3vw;
     text-align: center;
+    font-weight: bold;
 }
 
 .userInfo button:hover {
     transition: 0.3s;
-    background-color:#7c168ee6;
+    background-color:rgb(255, 226, 8)
 }
 
 .link {

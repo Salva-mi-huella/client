@@ -502,6 +502,7 @@ export function postFoundation(data) {
                 payload: info.data
             })
         } catch (error) {
+
             console.log(error)
         }
     }

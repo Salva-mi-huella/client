@@ -12,7 +12,7 @@ export default function Aside(){
     const dispatch = useDispatch()
     function handleLikes (){
         const favs = JSON.parse(localStorage.getItem('fav'));
-        if(favs.length){
+        if(favs?.length){
             if(statusLike){
                 dispatch(petsFiltered(arrAllPets))
                 setStatusLike(false)

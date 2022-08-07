@@ -1,13 +1,20 @@
 .main{
     display: flex;
-    margin-top: 20px;
+    margin-top: 4.5vw;
 }
 
 .main input{
     opacity: 0.9;
-    border-radius: 8px;
-    margin-right: 2vw;
+    border-radius: 0.3vw;
+    /* margin-right: 5vw; */
     width: 13vw;
+    background-color: rgb(255, 226, 8);
+    opacity: 0.9;
+    color:rgb(99, 59, 218)
+}
+
+::placeholder {
+    color: rgb(99, 59, 218);
 }
 
 
