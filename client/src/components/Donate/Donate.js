@@ -9,6 +9,7 @@ import banner from '../../assets/paw_hand3.png'
 import paypal from '../../assets/paypal.png'
 import mercadoPago from '../../assets/mercadopago.png'
 import Paypal from './Paypal/Paypal';
+import Footer from '../Footer/Footer';
 
 
 export default function Donate(){
@@ -17,6 +18,7 @@ export default function Donate(){
 
     
     useEffect(()=>{
+        window.scrollTo(0, 0);
         dispatch(getFoundations());
         if (isAuthenticated) dispatch(getUserByEmail(user.email));
     },[dispatch])
@@ -94,6 +96,7 @@ export default function Donate(){
                 <p className={style.amount}>{donation.amount}</p>
             </div>
         </div>
+        <Footer/>
         </>
         : 
         <Paypal amount={donation.amount} foundation={foundation} user={userDetail}></Paypal>

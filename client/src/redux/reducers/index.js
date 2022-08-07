@@ -21,13 +21,19 @@ import {
     DELETE_ALL_FROM_CART,
     DELETE_ONE_FROM_CART,
     CLEAR_CART,
+    STORE_FILTERS,
     GET_ALL_NEWS,
     GET_REQUESTS_FOUNDATIONS,
     GET_REQUESTS_ADOPT,
+    GET_SEARCH_PRODUCTS,
     UPDATE_PRODUCT,
     GET_DONATIONS,
     POST_PRODUCT,
-    UPDATE_REQUEST_FOUNDATION
+    UPDATE_REQUEST_FOUNDATION,
+    POST_FOUNDATION
+    UPDATE_REQUEST_ADOPT,
+    UPDATE_PET_STATUS
+
 } from "../actions"
 
 
@@ -39,6 +45,7 @@ const initialState = {
     filtersConfig: [],
     currency: {},
     allProducts:[],
+    allProductsFiltered:[],
     productDetail: {},
     petsFiltered: [],
     users:[],
@@ -47,8 +54,7 @@ const initialState = {
     cart:[],
     news: [],
     requests_foundations: [],
-    requests_adopt: [],
-    donations: []
+    requests_adopt: []
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -63,7 +69,9 @@ export default function rootReducer(state = initialState, action) {
 
         case GET_ALL_PETS: return {...state, allPets: action.payload }
 
-        case GET_CURRENCY: return {...state, currency: action.payload }
+        case GET_CURRENCY: 
+        console.log(action.payload)
+        return {...state, currency: action.payload }
 
         case FILTERS_CONFIG: return{...state,
             filtersConfig:{ ...state.filtersConfig, [action.filter]: action.payload[action.filter]}}
@@ -77,7 +85,7 @@ export default function rootReducer(state = initialState, action) {
         case GET_USER: 
         return {...state, user: action.payload}
 
-        case GET_ALL_PRODUCTS: return{...state, allProducts: action.payload}
+        case GET_ALL_PRODUCTS: return{...state, allProductsFiltered:action.payload, allProducts: action.payload}
 
         case GET_PRODUCT_DETAIL: return{...state, productDetail: action.payload}
         
@@ -132,7 +140,76 @@ export default function rootReducer(state = initialState, action) {
 
         case CLEAR_CART: return {...state, cart:[]}
 
+        case STORE_FILTERS:
+            let filteredProducts = state.allProducts;
+
+            //Filtro alfabetico
+            if(action.payload.fByAZ){            
+                if(action.payload.fByAZ){
+                
+                if(action.payload.fByAZ === 'Desorden'){
+                    filteredProducts = state.allProducts
+                }
+                else if (action.payload.fByAZ === 'Asc'){
+                    filteredProducts = filteredProducts.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))        
+                }
+                else if (action.payload.fByAZ === 'Desc'){
+                    filteredProducts = filteredProducts.sort((a, b) => (b.name > a.name ? 1 : b.name < a.name ? -1 : 0))        
+                }
+            }         
+            }
+
+            //Filtro por precio
+            if(action.payload.fByPrice){
+                if(action.payload.fByPrice === 'Unordered'){
+                    filteredProducts = state.allProducts
+                }
+                if(action.payload.fByPrice === 'Low'){
+                    filteredProducts = filteredProducts.sort((a,b)=>(a.points > b.points ? 1 : a.points < b.points ? -1 : 0))
+                }
+                if(action.payload.fByPrice === 'High'){
+                    filteredProducts = filteredProducts.sort((a,b)=>(b.points > a.points ? 1 : b.points < a.points ? -1 : 0)) 
+                }
+            }
+
+            //Filtro por tipo
+            if(action.payload.fByType){
+                if(action.payload.fByType === 'Unordered'){
+                    filteredProducts= state.allProducts
+                }                
+                if(action.payload.fByType === 'Perro'){
+                    filteredProducts=filteredProducts.filter(p => p.type === "Perro" || p.type==="Todos")
+                }
+                if(action.payload.fByType === 'Gato'){
+                    filteredProducts=filteredProducts.filter(p => p.type === "Gato" || p.type==="Todos")
+                }
+            }
+
+            //Filtro por Categoria
+            if(action.payload.fByCategory){
+                if(action.payload.fByCategory === 'Unordered'){
+                    filteredProducts= state.allProducts
+                } 
+                if(action.payload.fByCategory === 'Accesorios'){
+                    filteredProducts=filteredProducts.filter(p => p.category === "Accesorios")
+                }
+                if(action.payload.fByCategory === 'Indumentaria'){
+                    filteredProducts=filteredProducts.filter(p => p.category === "Indumentaria")
+                }
+                if(action.payload.fByCategory === 'Alimento'){
+                    filteredProducts=filteredProducts.filter(p => p.category === "Alimento")
+                }
+                if(action.payload.fByCategory === 'Juguetes'){
+                    filteredProducts=filteredProducts.filter(p => p.category === "Juguetes")
+                }
+            }
+
+            return{...state, allProductsFiltered:filteredProducts}
+
         case GET_ALL_NEWS: return {...state, news: action.payload}
+
+
+        case GET_SEARCH_PRODUCTS: return { ...state, allProductsFiltered: action.payload }
 
         case UPDATE_PRODUCT: return {...state}
 
@@ -141,6 +218,13 @@ export default function rootReducer(state = initialState, action) {
         case POST_PRODUCT: return {...state}
 
         case UPDATE_REQUEST_FOUNDATION: return {...state}
+
+        case POST_FOUNDATION: return {...state}
+
+        case UPDATE_REQUEST_ADOPT: return {...state}
+        
+        case UPDATE_PET_STATUS: return {...state}
+
 
         default: return {...state}
 

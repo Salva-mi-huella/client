@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from './Huellitas.module.css'
 import banner from '../../assets/banner-huellitas-3.png'
 import { useAuth0 } from '@auth0/auth0-react';
@@ -6,6 +6,7 @@ import paw from '../../assets/paw-print.png'
 import { Link } from 'react-router-dom';
 import register from '../../assets/user-checked.png'
 import rescued from '../../assets/animal-care.png'
+import Footer from '../Footer/Footer'
 
 
 
@@ -13,6 +14,9 @@ export default function Huellitas(){
 
    const { loginWithRedirect } = useAuth0();
 
+   useEffect(() => {
+        window.scrollTo(0, 0);
+   }, [])
 
     return (
         <div className={style.container}>
@@ -94,6 +98,8 @@ export default function Huellitas(){
                 </div>
                 <Link to='/tienda'><button>VER CATÁLOGO COMPLETO</button></Link>
             </div>
+
+            <Footer/>
 
         </div>
     )

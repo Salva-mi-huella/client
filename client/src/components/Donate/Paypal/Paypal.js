@@ -40,6 +40,7 @@ export default function Paypal({amount, foundation, user}){
 
         window.paypal.Buttons({
             createOrder: (data, actions, err) => {
+                console.log(data)
                 return actions.order.create({
                     intent: 'CAPTURE',
                     purchase_units: [{

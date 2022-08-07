@@ -12,6 +12,7 @@ export default function ShoppingCart() {
     data.map(d => total+= (d.points*d.quantity))
 
     ShoppingCart.total = total;
+    ShoppingCart.data = data;
 
   return (
     <div className={styles.main}>

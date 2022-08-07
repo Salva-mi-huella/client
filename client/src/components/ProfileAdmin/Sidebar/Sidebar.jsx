@@ -17,14 +17,14 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
     }
 
     const {user, logout} = useAuth0();
-    console.log(user)
+    const userName = user.name.split(" ")
     return (
         <div className={styles.sideBar}>
 
             {/* LOGO */}
             <div className={styles.logo}>
-                <img className={styles.img} src={user.picture}  />
-                Hola {user.name}
+            <img className={styles.img} src={user.picture}  />
+                <span>Hola, {userName[0]}</span>
             </div>
 
             {/* MENU */}
@@ -36,7 +36,7 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                             onClick={() => changeOption(index)}
                         >
                             <item.icon />
-                            <span>{item.heading}</span>
+                            <span className={styles.icons}>{item.heading}</span>
                         </div>
                     )
                 })}

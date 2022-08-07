@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import style from './Adopt.module.css'
+import { useAuth0 } from '@auth0/auth0-react';
+import { useDispatch } from 'react-redux';
+import { updateUser } from '../../redux/actions';
 
 export default function Card({id, name,img,age}){
 
+
     const [fav, setFav] = useState(false)
-    
+    const { user } = useAuth0();
+    const dispatch = useDispatch()
+ 
+
     useEffect(()=>{
             let favs = JSON.parse(localStorage.getItem('fav'));
-            let bool = favs.includes(id)
+            let bool = favs?.includes(id)
             setFav(bool)
         },[fav,id])
     
@@ -18,6 +25,10 @@ export default function Card({id, name,img,age}){
             const favs = JSON.parse(localStorage.getItem('fav'));
             arrFavs = favs.filter(f => f !== id)
             localStorage.setItem("fav", JSON.stringify(arrFavs))
+            if(user){
+                let data = {favs:arrFavs}
+                dispatch(updateUser(data, user.email))
+            }
             setFav(false)
         }else{  
             const favs = JSON.parse(localStorage.getItem('fav'));
@@ -25,6 +36,10 @@ export default function Card({id, name,img,age}){
                 arrFavs = [...favs,id]
                 localStorage.setItem("fav", JSON.stringify(arrFavs))
             }else localStorage.setItem("fav", JSON.stringify([id]))
+            if(user){
+                let data = {favs:arrFavs}
+                dispatch(updateUser(data, user.email))
+            }
             setFav(true)
         } 
     }
