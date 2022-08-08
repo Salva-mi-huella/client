@@ -17,14 +17,14 @@ export default function Profile() {
 
     useEffect(() => {
         const getUserMetadata = async () => {
-          const domain = "dev-aekjy-pn.us.auth0.com";
+          const domain = "dev-80brrzzs.us.auth0.com";
       
           try {
-
-            const { name, email, nickname, picture } = user;
+            console.log(user);
+            const { given_name, family_name, email, nickname, picture } = user;
             if (isAuthenticated) {
                 if (user.hasOwnProperty("family_name")) {
-                    dispatch(postUser({ name, email, picture, nickname }));
+                    dispatch(postUser({ name: given_name, lastname: family_name, email, picture, nickname }));
                 }
                 else {
                     dispatch(postUser({
@@ -37,7 +37,7 @@ export default function Profile() {
             }
 
             const accessToken = await getAccessTokenSilently({
-              audience: `http://localhost:4000`,
+              audience: `http://salva-mi-huella.com`,
               scope: "read:message",
             });
       
