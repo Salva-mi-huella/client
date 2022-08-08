@@ -121,16 +121,16 @@ export default function EditDataForm({datos,setDatos}) {
 
                    <div className={styles.transit}>
                       <label >¿Te gustaría ofrecerte como persona de tránsito?</label>
-                      {userDetail && userDetail.transit === "No" ? 
+                      
                       <div>
                           <label htmlFor='Si'><input  id='Si' {...register('transit')} value='Si' type='checkbox' name='transit'/>Sí</label>
-                          <label htmlFor='No'><input  id='No' {...register('transit')} value='Noooo' type='checkbox' name='transit'/>No</label>
+                          <label htmlFor='No'><input  id='No' {...register('transit')} value='No' type='checkbox' name='transit'/>No</label>
                       </div> 
-                      : 
+                     {/*  : 
                       <div>
                         <label htmlFor='Si'><input  id='Si' {...register('transit')} value='Si' type='checkbox' name='transit'/>Sí</label>
                         <label htmlFor='No'><input id='No' {...register('transit')} value='Nooo' type='checkbox' name='transit'/>No</label>
-                      </div> }
+                      </div>  */}
                       {/* <label htmlFor='Si'><input id='Si' {...register('transit')} value='Si' type='checkbox' name='transit'/>Sí</label>
                       <label htmlFor='No'><input id='No' {...register('transit')} value='No' type='checkbox' name='transit'/>No</label> */}
                    </div>
