@@ -19,13 +19,13 @@ export default function EditProfile() {
   const [error, setError] = useState({})
 
   const [input, setInputs] = useState({
-    name: '',
-    lastname: '',
-    city: '',
-    dni: '',
-    address: '',
-    birthday: '',
-    telephone_number: '',
+    name: userDetail.name || "",
+    lastname: userDetail.lastname || "",
+    city: userDetail.city || "",
+    dni: userDetail.dni || "",
+    address: userDetail.address || "",
+    birthday: userDetail.birthday || "",
+    telephone_number: userDetail.telephone_number || "",
 
   })
 
@@ -42,6 +42,10 @@ export default function EditProfile() {
     if (input.lastname && !regExpName.test(input.lastname)) error.lastname = 'Solo Letras'
 
     if (input.telephone_number && !regPhone.test(input.telephone_number)) error.telephone_number = 'teléfono invalido'
+
+    if (input.city && input.city.length > 10) error.city = 'ciudad invalida'
+    
+    if (input.city&& !regExpName.test(input.city)) error.city = 'Solo Letras'
 
     return error;
   }
@@ -121,7 +125,7 @@ export default function EditProfile() {
         <div className={style.cont}>
           <label className={style.label} htmlFor="city">Ciudad</label>
           <input className={style.input} onChange={(e) => handleChange(e)} type="text" id="city" name="city" value={input.city} />
-          
+          {error.city && <p className={`${style.error}`}>{error.city}</p>}
         </div>
 
         {/* ADDRESS */}
@@ -134,7 +138,7 @@ export default function EditProfile() {
         {/* DNI*/}
         <div className={style.cont}>
           <label className={style.label} htmlFor="dni">DNI N°</label>
-          <input className={style.input} defaultValue={userDetail.dni}  onChange={(e) => handleChange(e)} type="text" id="dni" name="dni" value={input.dni} />
+          <input className={style.input} defaultValue={userDetail.dni}  onChange={(e) => handleChange(e)} type="number" id="dni" name="dni" value={input.dni} />
           
         </div>
 
