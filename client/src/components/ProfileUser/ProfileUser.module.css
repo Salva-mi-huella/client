@@ -1,21 +1,35 @@
+.loading {
+  /* background-color: #fff; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.myData{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+  position: relative;
+  top: 10rem;
+
 }
-.photo{
-    width: 100px;
-    height: 100px;
+
+
+
+.myData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
-.data{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+
+.photo {
+  width: 100px;
+  height: 100px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .paw {
@@ -23,7 +37,7 @@
   height: 40px;
 }
 
-.favs { 
+.favs {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -40,7 +54,8 @@
 
 .favsTitle {
   font-size: 4vw;
-  margin-left: 45vw;;
+  margin-left: 45vw;
+  ;
   margin-top: -4vw;
   font-weight: bold;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
