@@ -94,4 +94,16 @@
  
 }
 
-
+@media(max-width: 375px){
+    .link {
+        font-size: 3vw;
+    }
+    .logo {
+        width: 3vw;
+        height: 5vw;
+    }
+    .signUp button{
+        width: 9vw;
+        height: 1.5vw;
+    }
+}
