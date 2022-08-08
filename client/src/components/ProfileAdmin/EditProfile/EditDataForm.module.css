@@ -9,6 +9,9 @@
   grid-gap: 0.4rem;
   margin-bottom: 2.5rem;
   width: 50rem;
+  min-height: 6rem;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .contactContainer {
@@ -58,12 +61,14 @@
   color: #010712;
   font-weight: 500;
   background: #FCFDFD;
+  position: relative;
+  top: -1rem;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.334);
   padding: 0.5rem 0.5rem;
   outline: none;
   resize: none;
-  margin-bottom: 6px;
+
 }
 
 .post{
@@ -88,6 +93,8 @@
 .error{
 color: red;
 width: 20rem;
+padding-top: 0.2rem;
 font-size: 0.8rem;
-margin-left: 10px;
+margin: -1rem;
+margin-left: 0.3rem;
 }

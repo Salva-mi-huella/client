@@ -95,11 +95,11 @@ export default function EditProfile() {
         <h3 className={style.h3title}> Mis Datos </h3>
 
         <div className={style.div}>
-        {/* NOMBRE */}
+        {/* NOMBRE  Y APELLIDO*/}
           <label className={style.label} htmlFor="name">Nombre</label>
           <label className={style.label} htmlFor="lastname">Apellido</label>
+          
           <input className={style.input} defaultValue={userDetail.name}  onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />
-        {/* APELLIDO*/}
           <input className={style.input} defaultValue={userDetail.lastname}  onChange={(e) => handleChange(e)} type="text" id="lastname" name="lastname" value={input.lastname} />
           {error.lastname && <p className={`${style.error}`}>{error.lastname}</p>}
           {error.name && <p className={`${style.error}`}>{error.name}</p>}
