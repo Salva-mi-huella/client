@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './NavBar.module.css';
 // import logo from '../../assets/logo.png';
 import logo from '../../assets/yellow-paw.png';
-import paw from '../../assets/paw-print.png';
+import paw from '../../assets/yellow-paw.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from '../Profile/ProfileMenu';
 import {getFoundations, getUserByEmail} from '../../redux/actions';
