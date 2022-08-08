@@ -102,7 +102,6 @@ export default function Store() {
    function handleFilterAZ(e){   
      setFilterByAZ(e.target.value)
      dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))}
-
    function handleFilterByPrice(e){  
      setFilterByPrice(e.target.value)
      dispatch(storeFilters(filterByAZ,e.target.value,filterByType,filterByCategory))
