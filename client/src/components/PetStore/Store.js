@@ -101,7 +101,7 @@ export default function Store() {
 
    function handleFilterAZ(e){   
      setFilterByAZ(e.target.value)
-     dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))
+     dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))}
 
    function handleFilterByPrice(e){  
      setFilterByPrice(e.target.value)
@@ -161,101 +161,101 @@ export default function Store() {
   
   return (
       <div>
-    <div className={styles.main}>
-      <div className={styles.sidebar}>
-        <div className={styles.searchbar}>
-          <SearchBar />
-        </div>
-        <div className={styles.typefilters}>
-            <div>
-              <h2>TIPO DE HUELLA</h2>
-              <select onClick={handleFilterByType} name="type" size={3}>
-                <option value='Perro'>Perros ({countPerros.length})</option>
-                <option value='Gato'>Gatos ({countGatos.length})</option>
-              </select>            
-            </div> 
-        </div>
-            <div className={styles.categoryfilters}>
-              <h2>CATEGORÍA</h2>
-              <select onClick={handleFilterByCategory} name="category" size={5}>
-                <option value='Alimento'>Alimentos ({countAlimentos.length})</option>
-                <option value='Indumentaria'>Indumentaria ({countIndumentaria.length})</option>
-                <option value='Juguetes'>Juguetes ({countJuguetes.length})</option>
-                <option value='Accesorios'>Accesorios ({countAccesorios.length})</option>
+      <div className={styles.main}>
+        <div className={styles.sidebar}>
+          <div className={styles.searchbar}>
+            <SearchBar />
+          </div>
+          <div className={styles.typefilters}>
+              <div>
+                <h2>TIPO DE HUELLA</h2>
+                <select onClick={handleFilterByType} name="type" size={3}>
+                  <option value='Perro'>Perros ({countPerros.length})</option>
+                  <option value='Gato'>Gatos ({countGatos.length})</option>
+                </select>            
+              </div> 
+          </div>
+              <div className={styles.categoryfilters}>
+                <h2>CATEGORÍA</h2>
+                <select onClick={handleFilterByCategory} name="category" size={5}>
+                  <option value='Alimento'>Alimentos ({countAlimentos.length})</option>
+                  <option value='Indumentaria'>Indumentaria ({countIndumentaria.length})</option>
+                  <option value='Juguetes'>Juguetes ({countJuguetes.length})</option>
+                  <option value='Accesorios'>Accesorios ({countAccesorios.length})</option>
+                </select>
+              <select onClick={handleAll} name="type" size={2}>
+                  <option value='Unordered'>Todos ({countTodos.length})</option>
               </select>
-            <select onClick={handleAll} name="type" size={2}>
-                <option value='Unordered'>Todos ({countTodos.length})</option>
-            </select>
 
+          </div>
         </div>
-      </div>
 
-      <div className={styles.containeritems}>
-        <h5>¡Encontrá los mejores productos para tu huella!</h5>
-            <div className={styles.orders}>
-              <label>Ordenar por:</label>
-                <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
-                    <option disabled value='Huellitas'>Huellitas</option>
-                    <option value='High'>Mayor puntaje</option>
-                    <option value='Low'> Menor puntaje</option>                    
-                </select>
-                <select defaultValue="Alfabeto" onChange={e => handleFilterAZ(e)}>
-                    <option disabled value='Alfabeto'>Alfabeto</option>
-                    <option value='Asc'>A-Z</option>
-                    <option value='Desc'>Z-A</option>                    
-                </select>
+        <div className={styles.containeritems}>
+          <h5>¡Encontrá los mejores productos para tu huella!</h5>
+              <div className={styles.orders}>
+                <label>Ordenar por:</label>
+                  <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
+                      <option disabled value='Huellitas'>Huellitas</option>
+                      <option value='High'>Mayor puntaje</option>
+                      <option value='Low'> Menor puntaje</option>                    
+                  </select>
+                  <select defaultValue="Alfabeto" onChange={e => handleFilterAZ(e)}>
+                      <option disabled value='Alfabeto'>Alfabeto</option>
+                      <option value='Asc'>A-Z</option>
+                      <option value='Desc'>Z-A</option>                    
+                  </select>
 
-            </div>
+              </div>
 
-        <div className={styles.items}>
-        {
-          pages?
-              pages.map((product) =>(
-                <ItemCard
-                  key={product.id}
-                  id={product.id}
-                  images={product.images}
-                  name={product.name}
-                  points={new Intl.NumberFormat().format(product.points)}
-                  type={product.type}
-                  category={product.category}/>
-                   ))
-                   :
-                   <h2>Pensando..</h2>
-        }
+          <div className={styles.items}>
+          {
+            pages?
+                pages.map((product) =>(
+                  <ItemCard
+                    key={product.id}
+                    id={product.id}
+                    images={product.images}
+                    name={product.name}
+                    points={new Intl.NumberFormat().format(product.points)}
+                    type={product.type}
+                    category={product.category}/>
+                     ))
+                     :
+                     <h2>Pensando..</h2>
+          }
 
+          </div>
+          <PaginateStore/>
         </div>
-        <PaginateStore/>
-      </div>
 
-      <div>
-      
-      {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
-<ShoppingCartIcon sx={{color: 'yellow'}}/>
-</button>:null}
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog ">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className={styles.mainmodal}>
-        <ShoppingCart/>
-      </div>
-      <div class={styles.modalfooter}>
-        <button type="button" class="" data-bs-dismiss="modal">Seguir comprando</button>
-        <button type="button" class="" onClick={updatePoints}>Finalizar Compra</button>
-      </div>
-    </div>
-  </div>
-</div>
-       
+        <div>
         
+        {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <ShoppingCartIcon sx={{color: 'yellow'}}/>
+        </button>:null}
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className={styles.mainmodal}>
+                <ShoppingCart/>
+              </div>
+              <div class={styles.modalfooter}>
+                <button type="button" class="" data-bs-dismiss="modal">Seguir comprando</button>
+                <button type="button" class="" onClick={updatePoints}>Finalizar Compra</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        </div>
       </div>
-    </div>
       <Footer/>
     </div>
   );
