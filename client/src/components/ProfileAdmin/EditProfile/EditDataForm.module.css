@@ -1,7 +1,14 @@
 .postProductContainer{
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+}
+.div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.4rem;
+  margin-bottom: 3rem;
+  width: 50rem;
 }
 
 .contactContainer {
@@ -34,7 +41,7 @@
 
 
 .input, .textarea, .label {
-  width: 30vw;
+  width: 20vw;
   display: block;
 }
 
@@ -72,17 +79,9 @@
   margin-bottom: 0.2rem;
   font-weight: bold;
 }
-.select{
-  width: 10vw;
-  display: flex;
-  border: none;
-  border-radius: 30px;
-  padding: 3px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  
-}
+
 .post{
-  width: 30vw; 
+  width: 37vw; 
   overflow: hidden;
   display: flex;
   font-size: 1.5rem;
@@ -94,11 +93,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   color: white;
   margin-top: 3rem;
+  margin-left: 3rem;
 }
 .form{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  margin-bottom: 2rem;
-  padding: 1rem 5rem;
+  padding: 4rem 5rem;
 }
 .error{
 color: red;
