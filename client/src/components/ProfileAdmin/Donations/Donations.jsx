@@ -70,13 +70,13 @@ const Donations = () => {
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell> Usuario </TableCell>
-                            <TableCell align="left"> Fecha de Donacion</TableCell>
-                            <TableCell align="left"> Metodo Utilizado</TableCell>
-                            <TableCell align="left" > Cantidad </TableCell>
-                            <TableCell align="left"> Puntos Acumulados</TableCell>
-                            <TableCell align="left">Fundación</TableCell>
+                        <TableRow  sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}}> Usuario </TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Fecha de Donacion</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Metodo Utilizado</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left" > Cantidad </TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Puntos Acumulados</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fundación</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

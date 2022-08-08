@@ -46,13 +46,13 @@ const Products = () => {
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell align="left">Fecha</TableCell>
-                            <TableCell align="left">Nombre</TableCell>
-                            <TableCell align="left">Puntos</TableCell>
-                            <TableCell align="left">Tipo</TableCell>
-                            <TableCell align="left">Categoría</TableCell>
-                            <TableCell align="left">Stock</TableCell>
+                        <TableRow sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fecha</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Nombre</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Puntos</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Tipo</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Categoría</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Stock</TableCell>
 
                         </TableRow>
                     </TableHead>
