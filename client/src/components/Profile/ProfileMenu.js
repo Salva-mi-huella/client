@@ -29,6 +29,8 @@ export default function AccountMenu() {
     localStorage.clear();
     removeUserSession();
   }
+
+
   
   return (
     <React.Fragment>
@@ -42,7 +44,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 45, height: 45, marginRight: 2}}><img className={style.user} src={user.picture} alt='Profile Img'></img></Avatar>
+            <Avatar sx={{ width: 45, height: 45, marginRight: 2}}><img className={style.user} src={user?.picture} ></img></Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -55,8 +57,8 @@ export default function AccountMenu() {
         PaperProps={{
           elevation: 0,
           sx: {
-            backgroundColor: 'purple',
-            color: 'white',
+            backgroundColor: 'white',
+            color: 'rgb(99, 59, 218)',
             overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
             mt: 1.5,
@@ -71,7 +73,7 @@ export default function AccountMenu() {
               display: 'block',
               position: 'absolute',
               top: 0,
-              right: 14,
+              right: 35,
               width: 10,
               height: 10,
               bgcolor: 'background.paper',
@@ -83,18 +85,20 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <Link className={style.link} to='/perfil'>
-            <MenuItem sx={{ color:'white' }}>
-            <AccountCircle sx={{ marginRight: '10px'}}/> Mi Perfil
-            </MenuItem>
-        </Link>
-        <Divider />
-        <MenuItem>
-          <ListItemIcon onClick={handleLogout} sx={{ color:'white' }}>
-            <Logout sx={{ marginRight: '10px'}} fontSize="small" />
-              Cerrar sesión
-          </ListItemIcon>
-        </MenuItem>
+        <div className={style.menu}>
+          <Link className={style.link} to='/perfil'>
+              <MenuItem sx={{ color: 'rgb(99, 59, 218)', fontWeight: 'bold' }}>
+              <AccountCircle sx={{ marginRight: '10px', color: 'rgb(99, 59, 218)'}}/> Mi Perfil
+              </MenuItem>
+          </Link>
+          <Divider />
+          <MenuItem>
+            <ListItemIcon onClick={handleLogout} sx={{ color:'rgb(99, 59, 218)', fontWeight: 'bold' }}>
+              <Logout sx={{ marginRight: '10px',color: 'rgb(99, 59, 218)'  }} fontSize="small" />
+                Cerrar sesión
+            </ListItemIcon>
+          </MenuItem>
+        </div>
       </Menu>
     </React.Fragment>
   );

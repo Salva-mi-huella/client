@@ -6,8 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import styles from './DonationTable.css';
-import foto from "../../../assets/animal-care.png";
+import styles from './DonationTable.module.css';
+import adopt from "../../../assets/dog-adopt5.png";
 import {Link } from 'react-router-dom';
 /* const makeStyles = (status) => {
     if (status === 'Aprobado') {
@@ -56,20 +56,22 @@ export default function DonationTable({userDetail, foundations}) {
         <div className={styles.tableRequests}>
 
      
-      <h1 className={styles.requestTableTitle}> Mis donaciones </h1>
       {donaciones.length === 0 ? 
-      <div>
-        <h3> No hay donaciones aun </h3> 
-        <img src={foto}></img>
-        <Link to="/donar">
-          <button>Donar</button>
-        </Link>
-      </div>
+        <div className={styles.empty}>
+        <div>
+          <h3>No has hecho donaciones aún.</h3>
+          <Link to="/donar">
+          <button>Quiero donar</button>
+          </Link>
+        </div>
+        <img className={styles.adoptMe} src={adopt} alt='adoptMe'></img>
+      </div> 
       : 
-
+      
       <TableContainer component={Paper}
-        style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
+      style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
       >
+      <h1 className={styles.requestTableTitle}> Mis donaciones </h1>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead >
             <TableRow sx={styles.TableRow} >

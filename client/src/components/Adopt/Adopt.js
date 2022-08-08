@@ -30,8 +30,8 @@ export default function Adopt(){
         <>
             <div className={style.banner}>
                 <div>
-                <h1 className={style.sectionTitle}>Adoptá</h1>
-                <p >En este espacio va un eslogan para captar<br></br> la atención del usuario</p>
+                <h1 className={style.sectionTitle}>Adoptá <br></br> un amigo,</h1>
+                <p>¡No lo compres!</p>
                 </div>
                 <img src={banner} alt="Banner of animals"/>
             </div>

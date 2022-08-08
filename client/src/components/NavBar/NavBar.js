@@ -53,7 +53,8 @@ const userDetail = useSelector(state => state.user);
 
                 { isAuthenticated && user ? 
                     <div className={styles.profile}>
-                      {userDetail.points && !checkFoundation() && !userDetail.admin && <div><span>{userDetail.points}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
+                      {userDetail.points && !checkFoundation() && !userDetail.admin && <div><span>
+                        {new Intl.NumberFormat().format(userDetail.points)}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
                       <ProfileMenu></ProfileMenu>
                     </div>
                     : 

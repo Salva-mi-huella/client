@@ -1,14 +1,15 @@
 .container{
     display: flex;
     width: 100%;
-    margin-top: 3vw;
+    margin-top: 2vw;
+    margin-bottom: 5vw;
     /* justify-content: center; */
 }
 
 .formu{
     /* margin-bottom: 3vw; */
     width: 45%;
-    border-left: 2px solid #FCEC4F;
+    /* border-left: 2px solid #FCEC4F; */
     
 } 
 
@@ -19,7 +20,7 @@
     align-items: center;
     padding-left: 3vw;
     padding-right: 3vw;
-    background-color: rgba(148, 115, 246, 0.485);
+    /* background-color: rgba(148, 115, 246, 0.485); */
 }
 
 .notShow {
@@ -28,15 +29,18 @@
 
 .banner h1 {
     font-size: 5vw;;
-    width: 35vw;
+    width: 45vw;
     text-align: center;
-    margin-top: 3vw;
-    border: 3px solid red
+    color: rgb(255, 226, 8);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .banner img {
-    width: 20vw;
-    height: 15vw;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
 }
 
 .banner div {
@@ -52,7 +56,8 @@
 }
 
 .banner p {
-    font-size: 2vw !important;
+    font-size: 1.5vw !important;
+    color: white;
 }
 
 .terms {

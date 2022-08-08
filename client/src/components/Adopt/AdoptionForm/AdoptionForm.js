@@ -5,7 +5,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import Formulario from './Form'
 import TermsAndConditions from "./TermsAndConditions";
-import hand_paws from "../../../assets/cat-computer.png";
+import hand_paws from "../../../assets/cat-form.jpg";
 
 
 export default function AdoptionForm() {
@@ -18,14 +18,11 @@ export default function AdoptionForm() {
         <div className={styles.container}>
 
             <div className={styles.banner}>
-
-                    <h1>¡Estás a un paso de unirte con tu huella!</h1>
-                <div>
+                <h1>¡Estás a un paso de unirte con tu huella!</h1>
+                <img src={hand_paws} alt='bannerImage'></img>
                 <p>Completá con tus datos el siguiente formulario para que la fundación se ponga en contacto con vos.</p>
-                    <img src={hand_paws} alt='bannerImage'></img>
-                </div>
-                
             </div>
+
             <div className={modal ? styles.terms : styles.notShow}>
                 <TermsAndConditions setModal={setModal} setCheck={setCheck} />
             </div>

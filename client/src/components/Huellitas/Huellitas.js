@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import style from './Huellitas.module.css'
 import banner from '../../assets/banner-huellitas-3.png'
 import { useAuth0 } from '@auth0/auth0-react';
-import paw from '../../assets/paw-print.png'
+import paw from '../../assets/yellow-paw.png'
 import { Link } from 'react-router-dom';
 import register from '../../assets/user-checked.png'
 import rescued from '../../assets/animal-care.png'

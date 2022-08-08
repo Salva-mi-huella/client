@@ -20,6 +20,9 @@ export default function Foundation () {
     const params = useParams();
     const foundation = useSelector(state => state.foundationDetail)
 
+    const description = foundation?.description?.split('.')
+    description?.pop()
+
     useEffect(() => { 
         dispatch(getFoundationDetail(params.foundationId))
         window.scrollTo(0, 0);
@@ -39,7 +42,9 @@ export default function Foundation () {
                     <div className={styles.description}>
                         <div>
                             <h3>¿Quienes somos?</h3>
-                            <p>{foundation.description}</p>
+                            {description.length>0 && description.map(d =>
+                            <p>{`${d}.`}</p>
+                            )}
                         </div>
                     </div>
             </div>
@@ -53,7 +58,7 @@ export default function Foundation () {
                     <p>Nuestro trabajo sería imposible sin el aporte voluntario de innumerables personas que día a día nos apoyan en esta causa con sus donaciones. Creemos que la mejor manera que existe de cambiar la realidad de nuestras huellas, es trabajando en conjunto con vos. <br></br><br></br>¿Nos ayudás a ayudarlos?
                     </p>
 
-                  <Link to='/donar'><button className={styles.donar}>Quiero ayudar</button></Link>
+                  <Link to='/donar'><button>Quiero ayudar</button></Link>
             </div>
 
             <div className={styles.containerPets}>

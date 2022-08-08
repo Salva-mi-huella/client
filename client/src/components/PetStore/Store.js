@@ -102,6 +102,7 @@ export default function Store() {
    function handleFilterAZ(e){   
      setFilterByAZ(e.target.value)
      dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))
+   }
 
    function handleFilterByPrice(e){  
      setFilterByPrice(e.target.value)
@@ -231,8 +232,8 @@ export default function Store() {
       <div>
       
       {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
-<ShoppingCartIcon sx={{color: 'yellow'}}/>
-</button>:null}
+      <ShoppingCartIcon sx={{color: 'yellow'}}/>
+      </button>:null}
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

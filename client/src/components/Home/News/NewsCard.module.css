@@ -23,5 +23,12 @@
 .date{
   font-size: 1vw;
   margin-left: 1vw;
+  color: white
+}
+
+.image {
+  width: 25vw;
+  height: 15vw;
+  /* border-radius: 50%; */
 }
 

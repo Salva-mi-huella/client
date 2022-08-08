@@ -19,8 +19,8 @@ export default function EditProfile() {
   const [error, setError] = useState({})
 
   const [input, setInputs] = useState({
-    name: '',
-    lastname: '',
+    name: userDetail?.name ? userDetail.name : "",
+    lastname: userDetail?.lastname ? userDetail.lastname : "",
     city: '',
     dni: '',
     address: '',

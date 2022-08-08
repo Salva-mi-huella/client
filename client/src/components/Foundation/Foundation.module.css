@@ -36,6 +36,8 @@
     font-weight: bold;
     text-align: center;
     margin-right: 6vw;
+    margin-bottom: 2vw;
+    /* margin-top: 3vw; */
     font-size: 2.2vw;
     color: rgb(255, 230, 0);
 }
@@ -46,7 +48,7 @@
     height: 25vw;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
 }
 
@@ -54,9 +56,9 @@
     color: azure;
     font-weight: bold;
     text-align: center;
-    font-size: 1.4vw;
-    margin-top: 2vw;
-    margin-bottom: 3vw;
+    font-size: 1.35vw;
+    /* margin-top: 2vw; */
+    /* margin-bottom: 3vw; */
     margin-right: 6vw;
 }
 
@@ -71,7 +73,7 @@
     width: 25vw;
     height: 25vw;
     /* margin-left: 10vw; */
-    border-radius: 200px;
+    border-radius: 50%;
     border: 0.5vw groove rgb(15, 28, 106);
 }
 
@@ -129,12 +131,12 @@
 
 .containerDonate button {
     transition: 0.3s;
-    background-color:#9C27B0;
-    color: #f5f5f5;
+    background-color:white;
+    color: rgb(99, 59, 218);
     border: none;
-    border-radius: 70px;
-    /* margin-left: 12vw; */
+    border-radius: 0.7vw;
     font-size: 1.7vw;
+    font-weight: bold;
     cursor: pointer;
     width: 20vw;
     height: 3.5vw;
@@ -143,9 +145,9 @@
 
 .containerDonate button:hover {
     transition: 0.3s;
+    transform: scale(1.03); 
     /* background-color:#7c168ee6; */   
-    background-color: azure;
-    color: #9C27B0;
+    background-color: rgb(255, 226, 8)
 }
 
 .containerDonate div {
@@ -202,21 +204,19 @@
     align-items: center;
     justify-content: space-around;
     box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 10px;
-    background-color: rgba(99, 59, 218, 0.485);
+    background-color: rgba(255, 255, 255, 0.894);
+    color: rgb(99, 59, 218);
     /* padding-top: 2vw; */
     /* padding-bottom: 2vw; */
-    height: 4.5vw;
-    margin-bottom: 12vw;
+    height: 3.5vw;
+    margin-bottom: 10vw;
 }
 
 .data h3 {
-    color: white;
     font-weight: bold;
     font-size: 1.5vw;
     margin-right: 1vw;
     margin-top: 0.5vw;
-    /* margin-left: 2vw;
-    margin-right: 2vw; */
 }
 
 .data div {
@@ -235,10 +235,11 @@
     margin-bottom: 0.3vw;
     margin-right: 1.5vw;
     margin-top: 0.1vw;
+    border: 1px solid rgb(22, 22, 114)
 }
 
 .data p {
-    color: white;
+    /* color: white; */
     font-weight: bold;
     margin-top: 1.2vw;
     font-size: 1.2vw;
