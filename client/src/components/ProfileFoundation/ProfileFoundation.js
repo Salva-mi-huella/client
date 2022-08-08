@@ -13,6 +13,8 @@ import PostNews from './PostNews/PostNews';
 import PostPet from '../PostPet/PostPet.js';
 import Transito from './Transito/Transito.jsx';
 
+import NavBar from '../NavBar/NavBar.js';
+
 
 import styles from '../ProfileFoundation/ProfileFoundation.module.css';
 import { getFoundations, getRequestsAdopt } from '../../redux/actions/index.js';
@@ -38,83 +40,88 @@ export default function ProfileFoundation() {
     const [optionSelection, setOptionSelection] = useState(0)
 
     return (
-        <div className={styles.profileFoundation} >
 
-            <div className={styles.containerGlass} >
+        <>
+            <NavBar />
 
-                <Sidebar
-                    foundation={foundation}
-                    optionSelection={optionSelection}
-                    setOptionSelection={setOptionSelection}
-                />
+            <div className={styles.profileFoundation} >
 
-                {
-                    optionSelection === 0 && (
-                        <>
-                            <MainDash foundation={foundation} />
-                            <RightSide foundation={foundation} />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 1 && (
-                        <>
-                            <EditProfile foundation={foundation} />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 2 && (
-                        <>
-                            <InfoPets foundation={foundation} />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 3 && (
-                        <>
-                            <AdoptionRequests foundation={foundation} />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 4 && (
-                        <>
-                            <PostNews foundation={foundation} />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 5 && (
-                        <>
-                            <PostPet foundation={foundation} />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 6 && (
-                        <>
-                            <Donations foundation={foundation} />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 7 && (
-                        <>
-                            <Transito />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 8 && (
-                        <>
-                            <Inbox foundation={foundation} />
-                        </>
-                    )
-                }
-            </div>
+                <div className={styles.containerGlass} >
 
-        </div >
+                    <Sidebar
+                        foundation={foundation}
+                        optionSelection={optionSelection}
+                        setOptionSelection={setOptionSelection}
+                    />
+
+                    {
+                        optionSelection === 0 && (
+                            <>
+                                <MainDash foundation={foundation} />
+                                <RightSide foundation={foundation} />
+                            </>
+                        )
+                    }
+                    {
+                        optionSelection === 1 && (
+                            <>
+                                <EditProfile foundation={foundation} />
+                            </>
+                        )
+                    }
+                    {
+                        optionSelection === 2 && (
+                            <>
+                                <InfoPets foundation={foundation} />
+                            </>
+                        )
+                    }
+                    {
+                        optionSelection === 3 && (
+                            <>
+                                <AdoptionRequests foundation={foundation} />
+                            </>
+                        )
+                    }
+                    {
+                        optionSelection === 4 && (
+                            <>
+                                <PostNews foundation={foundation} />
+                            </>
+                        )
+                    }
+                    {
+                        optionSelection === 5 && (
+                            <>
+                                <PostPet foundation={foundation} />
+                            </>
+                        )
+                    }
+                    {
+                        optionSelection === 6 && (
+                            <>
+                                <Donations foundation={foundation} />
+                            </>
+                        )
+                    }
+                    {
+                        optionSelection === 7 && (
+                            <>
+                                <Transito />
+                            </>
+                        )
+                    }
+                    {
+                        optionSelection === 8 && (
+                            <>
+                                <Inbox foundation={foundation} />
+                            </>
+                        )
+                    }
+                </div>
+
+            </div >
+        </>
     )
 }
 
