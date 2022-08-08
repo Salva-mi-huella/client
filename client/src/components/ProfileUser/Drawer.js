@@ -31,7 +31,7 @@ import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
 import ProductsTable from './Table/ProductsTable';
 import { getUserSession } from '../../utils/index.js';
-import { getAllPets, getUserByEmail } from '../../redux/actions';
+import { getAllPets, getDonations, getUserByEmail } from '../../redux/actions';
 import Card from '../Adopt/Card'
 import adopt from "../../assets/dog-adopt5.png";
 
@@ -107,13 +107,16 @@ export default function PersistentDrawerLeft() {
   const { user, logout } = useAuth0();
   const dispatch = useDispatch();
 
+
   useEffect(() => {
 
+    dispatch(getDonations());
     dispatch(getUserByEmail(user.email))
   }, [dispatch])
 
   const userDetail = useSelector(state => state.user);
   const foundations = useSelector(state => state.foundations);
+  const allDonations = useSelector(state => state.donations);
   const pets = useSelector(state => state.allPets);
   const favsPets = pets?.filter(p => p.id === userDetail.favs?.find(f => f === p.id));
 
@@ -239,7 +242,7 @@ export default function PersistentDrawerLeft() {
       </Box>
       {myData && <EditDataForm />}
 
-      {donations && <DonationTable userDetail={userDetail} foundations={foundations}></DonationTable>}
+      {donations && <DonationTable allDonations={allDonations} userDetail={userDetail} foundations={foundations}></DonationTable>}
 
       {favs && <div className={styles.favs}>
         {favs.length > 0 && <h1 className={styles.favsTitle}>Mis Favoritos</h1>}

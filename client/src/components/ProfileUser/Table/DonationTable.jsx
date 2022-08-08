@@ -15,14 +15,20 @@ import adopt from "../../../assets/dog-adopt5.png";
 import { Link } from 'react-router-dom';
 
 
-export default function DonationTable({ userDetail, foundations }) {
+export default function DonationTable({ userDetail, foundations, allDonations }) {
 
+  let donaciones = userDetail.donations;
+  let user = userDetail.donations;
 
-  const donaciones = userDetail.donations;
+  console.log(allDonations, 'AllDonations');
+  console.log(userDetail, 'userDetail');
 
-  const fundaciones = foundations;
-  console.log(fundaciones, ' fundaciones')
-  console.log(donaciones, ' DonationTable')
+  if (user) {
+    allDonations = allDonations.filter(donation => donation.userId === userDetail.id);
+    console.log(allDonations, 'allDonations filtrado');
+  }
+
+  // console.log(foundations, 'Foundations');
 
 
   const [page, setPage] = React.useState(0);
@@ -37,7 +43,7 @@ export default function DonationTable({ userDetail, foundations }) {
     setPage(0);
   };
 
-  const emptyRows = (rowsPerPage - Math.min(rowsPerPage, donaciones?.length - page * rowsPerPage));
+  const emptyRows = (rowsPerPage - Math.min(rowsPerPage, allDonations?.length - page * rowsPerPage));
 
   return (
     <div className={styles.tableRequests}>
@@ -45,7 +51,7 @@ export default function DonationTable({ userDetail, foundations }) {
       <h1 className={styles.requestTableTitle}> Mis donaciones </h1>
 
 
-      {donaciones.length === 0 ?
+      {allDonations.length === 0 ?
         <div className={styles.empty}>
           <div>
             <h3>No has hecho donaciones aún.</h3>
@@ -72,7 +78,7 @@ export default function DonationTable({ userDetail, foundations }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {userDetail.donations?.length > 0 && userDetail.donations
+              {allDonations?.length > 0 && allDonations
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((d) => (
                   <TableRow
@@ -80,7 +86,8 @@ export default function DonationTable({ userDetail, foundations }) {
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
 
-                    <TableCell className={styles.tableCell} align="left">{foundations?.find(f => f.id === d.foundationId).name}</TableCell>
+                    {/* <TableCell className={styles.tableCell} align="left">{foundations?.find(f => f.id === d.foundationId).name}</TableCell> */}
+                    <TableCell className={styles.tableCell} align="left">{d.foundation.name}</TableCell>
                     <TableCell className={styles.tableCell} align="left">{`${d.amount} usd`}</TableCell>
                     <TableCell className={styles.tableCell} align="left">{d.points}</TableCell>
                     <TableCell className={styles.tableCell} align="left">{d.method.toUpperCase()}</TableCell>
