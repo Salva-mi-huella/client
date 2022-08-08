@@ -10,10 +10,9 @@ import banner from '../../assets/banner-home.jpg';
 import yellow_paw from '../../assets/yellow-paw.png';
 import yellow_waves from '../../assets/yellow-waves.png';
 import banner_footer from '../../assets/banner-footer.png';
-import paw from '../../assets/paw-print.png';
+import paw from '../../assets/yellow-paw.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import eslogan from '../../assets/eslogan2.png'
-import Adoptants from './Adoptants';
 import register from '../../assets/register.png';
 import gift from '../../assets/gift-box.png';
 import { setUserSession, getUserSession } from "../../utils";
@@ -65,7 +64,7 @@ export default function Home() {
                     <img className={styles.yellow_paw} src={yellow_paw} alt="eslogan" />
                     <h1>SALVÁ</h1>
                     <h2>MI HUELLA</h2>
-                    <p>En este espacio va a ir el eslogan principal del sitio.</p>
+                    <p>Tu mejor amigo te está esperando.<br></br>¿Qué esperas para salvarlo?</p>
                 </div>
                 <img className={styles.banner} src={banner} alt='eslogan'></img>
             </div>

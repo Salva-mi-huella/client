@@ -93,8 +93,9 @@
 }
 
 .bigPaw {
-    width: 30vw;
-    height: 30vw;
+    width: 20vw;
+    height: 20vw;
+    margin-left: 5vw;
 }
 
 .pictureA {

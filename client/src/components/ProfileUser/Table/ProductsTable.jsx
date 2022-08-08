@@ -6,9 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import styles from './DonationTable.css'
-import foto from "../../../assets/animal-care.png";
+import styles from './DonationTable.module.css'
 import {Link } from 'react-router-dom';
+import adopt from "../../../assets/dog-adopt5.png";
+
 
 /* const makeStyles = (status) => {
     if (status === 'Aprobado') {
@@ -56,19 +57,21 @@ export default function ProductsTable({userDetail, foundations}) {
         <div className={styles.tableRequests}>
 
      
-      <h3 className={styles.requestTableTitle}> Tabla de productos </h3>
-{products.length === 0 ?
-<div>
-<h1>No tienes productos registrados</h1>
-<img src={foto}></img>
-<Link to="/tienda">
-<button>Tienda</button>
-</Link>
-</div>
+      {products.length === 0 ?
+        <div className={styles.empty}>
+          <div>
+            <h3>No has canjeado productos aún.</h3>
+            <Link to="/tienda">
+            <button>Quiero canjear</button>
+            </Link>
+          </div>
+          <img className={styles.adoptMe} src={adopt} alt='adoptMe'></img>
+        </div> 
 :
       <TableContainer component={Paper}
-        style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
+      style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
       >
+      <h3 className={styles.requestTableTitle}> Tabla de productos </h3>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead >
             <TableRow sx={styles.TableRow} >

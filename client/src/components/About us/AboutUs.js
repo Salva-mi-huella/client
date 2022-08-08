@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./AboutUs.module.css";
 import githubpng from "../../assets/pngegg.png";
 import fotolauti from "../../assets/fotoLauti.jpeg";
@@ -7,6 +7,12 @@ import Footer from "../Footer/Footer";
 
 
 export default function AboutUs(){
+
+    useEffect(() => { 
+        window.scrollTo(0, 0);
+     }, [])
+
+
     return(
         <div>
             <div className={styles.history}>

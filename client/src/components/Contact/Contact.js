@@ -34,8 +34,11 @@ export default function Contact() {
         let error ={}
         const regEmail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/g
         const regPhone = /^-?[0-9]*$/
+        const regExpName = /^-?[a-zA-Z\s]*$/
 
         if(!input.name) error.name = '*'
+
+        if(input.name && !regExpName.test(input.name)) error.name = 'El nombre solo puede contener letras'
 
         if(input.name && input.name.length < 3 ) error.name = 'Mínimo 3 caracteres'
         
@@ -50,6 +53,8 @@ export default function Contact() {
         if(input.message && input.message.length > 1000) error.message = 'Máximo 1000 caracteres'
 
         if(!input.telephone) error.telephone = '*'
+
+        if(input.telephone.length < 8) error.telephone = 'Mínimo 8 caracteres'
 
         if(input.telephone && input.telephone.length > 12) error.telephone = 'Teléfono invalido'
 
