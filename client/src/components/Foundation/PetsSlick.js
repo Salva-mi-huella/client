@@ -13,7 +13,7 @@ export default function PetSlick ({foundation}) {
       centerMode: true,
       infinite: true,
       centerPadding: "30vw",
-      slidesToShow: 3,
+      slidesToShow: foundation.pets.length>3 ? 3 : 2,
       speed: 400,
       autoplay: true
     };

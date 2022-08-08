@@ -4,10 +4,17 @@
     flex-direction: column;
     justify-content: center;
     height: auto;
-    margin-left: 1vw;
-    margin-top: 4vw;
+    /* margin-left: 1vw; */
+    margin-top: 2vw;
     /* padding-top: 2vw;; */
     /* width: 60% */
+}
+
+.container p {
+    font-size: 1.5vw;
+    color: white;
+    margin-left: 1vw;
+    margin-bottom: 3vw;
 }
 
 .title{

@@ -11,8 +11,8 @@
 }
 
 .avatar{
-  width: 5vw;
-  height: 5vw;
+  width: 3.5vw;
+  height: 3.5vw;
   border-radius: 50%;
 }
 .title{
@@ -30,5 +30,11 @@
   width: 25vw;
   height: 15vw;
   /* border-radius: 50%; */
+}
+
+.description {
+  font-size: 1.2vw;
+  color: white;
+  margin-bottom: 1vw;
 }
 

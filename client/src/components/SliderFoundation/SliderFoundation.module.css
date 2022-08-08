@@ -20,7 +20,7 @@
 
 
     transition: 0.4s;
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor: pointer;
 
 }
@@ -31,21 +31,20 @@
 }
 
 .logoContainer {
-    width: 400px;
-    height: 150px;
-    margin: 30px 0 80px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1vw;
+
 }
 
 .logo {
-    border-radius: 200px;
-    width: 150px;
-    height: 150px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    border-radius: 50%;
+    width: 11vw;
+    height: 11vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     border: 3px groove rgb(18, 18, 119);
 }
 
