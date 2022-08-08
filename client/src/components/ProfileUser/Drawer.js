@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {Link} from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -17,7 +18,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { useAuth0 } from '@auth0/auth0-react';
 import styles from './ProfileUser.module.css';
-import paw from '../../assets/paw-print.png';
+import paw from '../../assets/yellow-paw.png';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsAccessibilityIcon from '@mui/icons-material/SettingsAccessibility';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
@@ -32,8 +33,7 @@ import ProductsTable from './Table/ProductsTable';
 import { getUserSession } from '../../utils/index.js';
 import { getAllPets, getUserByEmail } from '../../redux/actions';
 import Card from '../Adopt/Card'
-
-
+import adopt from "../../assets/dog-adopt5.png";
 
 
 
@@ -182,7 +182,7 @@ export default function PersistentDrawerLeft() {
   return (
     <div><Box sx={{ display: 'flex', color: 'black' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: 'purple' }}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: 'rgba(154, 121, 255, 0.488)' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -205,7 +205,7 @@ export default function PersistentDrawerLeft() {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            backgroundColor: 'purple'
+            backgroundColor: 'rgba(154, 121, 255, 0.488)'
           },
         }}
         variant="persistent"
@@ -227,7 +227,7 @@ export default function PersistentDrawerLeft() {
           <ListItemButton onClick={viewFavs} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><FavoriteIcon sx={{ color: 'white' }} /></ListItemIcon>Favoritos</ListItemButton>
           <ListItemButton onClick={viewAdoptSolicitudes} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><ContentPasteIcon sx={{ color: 'white' }} /></ListItemIcon>Solicitudes de adopción</ListItemButton>
           <ListItemButton onClick={viewProducts} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><Inventory2Icon sx={{ color: 'white' }} /></ListItemIcon>Mis productos</ListItemButton>
-          <ListItemButton sx={{ color: 'rgb(255, 230, 0)', marginBottom: '20px', fontWeight: 'bold', fontSize: '20px', fontFamily: 'Gill Sans' }}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{userDetail.points}</ListItemButton>
+          <ListItemButton sx={{ color: 'rgb(255, 230, 0)', marginBottom: '20px', fontWeight: 'bold', fontSize: '20px', fontFamily: 'Gill Sans' }}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{new Intl.NumberFormat().format(userDetail.points)}</ListItemButton>
           <ListItemButton onClick={handleLogout} sx={{ color: 'white', marginTop: '16vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
         </List>
         <Divider />
@@ -241,11 +241,20 @@ export default function PersistentDrawerLeft() {
       {donations && <DonationTable userDetail={userDetail} foundations={foundations}></DonationTable>}
 
       {favs && <div className={styles.favs}>
-      <h1 className={styles.favsTitle}>Favoritos</h1>
+      {favs.length>0  && <h1 className={styles.favsTitle}>Mis Favoritos</h1>}
       <div className={styles.favs}>
         {favsPets.length > 0 ? favsPets.map(f => 
         <Card id={f.id} name={f.name} img={f.images} age={f.age}/>
-        ) : <h1>No hay favoritos</h1>}
+        ) :         
+        <div className={styles.empty}>
+        <div>
+          <h3>No tienes favoritos aún.</h3>
+          <Link to="/adoptar">
+          <button>Ver huellas</button>
+          </Link>
+        </div>
+        <img className={styles.adoptMe} src={adopt} alt='adoptMe'></img>
+      </div> }
       </div>
 
       </div>}

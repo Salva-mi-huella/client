@@ -28,7 +28,7 @@ function App() {
         <Route exact path='/home'> <NavBar/> <Home/></Route>
         <Route exact path='/huella/:id'> <NavBar/> <PetDetail/></Route>
         <Route exact path='/nosotros'> <NavBar/> <AboutUs/> </Route>
-        <Route exact path='/perfil'> <NavBar/><Profile/></Route>
+        <Route exact path='/perfil'><Profile/></Route>
         <Route exact path='/fundacion/:foundationId'> <NavBar/> <Foundation/> </Route> {/* rompe */}
         <Route exact path='/adoptar'> <NavBar/> <Adopt/> </Route>
         <Route exact path='/donar'> <NavBar/> <Donate/></Route>

@@ -17,7 +17,7 @@ export default function ControlledCarousel({foundations}) {
     return (
         <Carousel className={styles.carousel} activeIndex={index} onSelect={handleSelect}>
 
-        {/* <Carousel.Item> 
+        <Carousel.Item> 
         <div className={styles.container}>
             <div className={styles.containerimg}>               
                 <img  
@@ -56,7 +56,7 @@ export default function ControlledCarousel({foundations}) {
                     <Link className={styles.link} to='/contacto'><button>QUIERO SER PARTE</button></Link>
             </div>
         </div>
-        </Carousel.Item> */}
+        </Carousel.Item>
 
         <Carousel.Item>
         <div className={styles.containerDonate}>

@@ -2,6 +2,7 @@
     width: 100%;
     margin-top: 7vw;
     margin-bottom: 3vw;
+    
 }
 
 .imgadoption {
@@ -85,19 +86,20 @@
 }
 
 .imgdonation{
-    width: 30vw;
-    height: 30vw;
+    width: 20vw;
+    height: 20vw;
     /* border: 3px solid red; */
     border-radius: 50%;
-    background-color: rgb(255, 226, 8);
+    margin-top: 2vw;
+    background-color: rgb(255, 204, 0);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .imgdonation img{
-    width: 23vw;
-    height: 23vw;
+    width: 15vw;
+    height: 15vw;
     /* border: 3px solid red; */
     /* border-radius: 35%; */
 

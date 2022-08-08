@@ -8,8 +8,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import styles from'./RequestTable.css'
-import foto from "../../../assets/sad-pets.png";
+import styles from'./RequestTable.module.css'
+import adopt from "../../../assets/dog-adopt5.png";
 import {Link } from 'react-router-dom';
 /* function createData(name, petId, userId, city, date, status) {
     return { name, petId, userId, city, date, status };
@@ -54,29 +54,26 @@ export default function RequestTable({userId, foundations, userDetail}) {
 
      requests = requests.filter(r => r.userId === userId)
 
-    
-
-    
-
-
-
     return (
         <div className={styles.tableRequests}>
 
      
-      <h1 className={styles.requestTableTitle}> Mis solicitudes </h1>
-{request.length === 0 ?
-<div>
-  <h3>No tienes ninguna solicitud aun</h3>
-  <img src={foto}></img>
-  <Link to="/adoptar">
-  <button>Adoptar</button>
-  </Link>
-</div> 
+      {/* <h1 className={styles.requestTableTitle}> Mis solicitudes </h1> */}
+      {request.length === 0 ?
+        <div className={styles.empty}>
+          <div>
+            <h3>No tienes ninguna solicitud aún.</h3>
+            <Link to="/adoptar">
+            <button>Quiero adoptar</button>
+            </Link>
+          </div>
+          <img className={styles.adoptMe} src={adopt} alt='adoptMe'></img>
+        </div> 
 :
       <TableContainer component={Paper}
-        style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
+      style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
       >
+      <h1 className={styles.requestTableTitle}> Mis solicitudes </h1>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead >
             <TableRow sx={styles.TableRow} >

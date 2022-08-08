@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './NavBar.module.css';
 // import logo from '../../assets/logo.png';
 import logo from '../../assets/yellow-paw.png';
-import paw from '../../assets/paw-print.png';
+import paw from '../../assets/yellow-paw.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from '../Profile/ProfileMenu';
 import {getFoundations, getUserByEmail} from '../../redux/actions';
@@ -53,7 +53,8 @@ const userDetail = useSelector(state => state.user);
 
                 { isAuthenticated && user ? 
                     <div className={styles.profile}>
-                      {userDetail.points && !checkFoundation() && !userDetail.admin && <div><span>{userDetail.points}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
+                      {userDetail.points && !checkFoundation() && !userDetail.admin && <div><span>
+                        {new Intl.NumberFormat().format(userDetail.points)}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
                       <ProfileMenu></ProfileMenu>
                     </div>
                     : 

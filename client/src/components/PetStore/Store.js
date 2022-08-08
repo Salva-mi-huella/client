@@ -99,6 +99,7 @@ export default function Store() {
   const [filterByType, setFilterByType] = useState("");
   const [filterByCategory, setFilterByCategory] = useState("");
 
+
   function handleFilterAZ(e) {
     setFilterByAZ(e.target.value)
     dispatch(storeFilters(e.target.value, filterByPrice, filterByType, filterByCategory))
@@ -229,7 +230,13 @@ export default function Store() {
           <PaginateStore />
         </div>
 
-        <div>
+
+      <div>
+      
+      {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <ShoppingCartIcon sx={{color: 'yellow'}}/>
+      </button>:null}
+
 
           {isAuthenticated ? <button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
             <ShoppingCartIcon sx={{ color: 'yellow' }} />

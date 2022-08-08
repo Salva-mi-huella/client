@@ -122,6 +122,17 @@ export default function ProductDetail() {
                         <div className={styles.price}>
                             <img className={styles.huellita} alt="foto-huellita" src={huellita}></img>
                             <p className={styles.points}> {product.points*numero}</p>
+                            <p className={styles.unidad}>Precio por unidad: {product.points}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className={styles.moreLess}>
+                            <button className={styles.button2} onClick={decrement}>-</button>
+                            <p className={styles.numero}>{numero}</p>
+                            <button className={styles.button2} onClick={increment}>+</button>
+                        </div>
+                        <div>
+                            <button className={styles.button} onClick={canje}>Canjear</button>
                         </div>
                     </div>
 
