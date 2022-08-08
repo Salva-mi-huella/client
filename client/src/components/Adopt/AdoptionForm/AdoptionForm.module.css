@@ -29,15 +29,17 @@
 
 .banner h1 {
     font-size: 5vw;;
-    width: 45vw;
+    margin-top: 1vw;
+    width: 40vw;
+    font-weight: bold;
     text-align: center;
     color: rgb(255, 226, 8);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .banner img {
-    width: 30vw;
-    height: 30vw;
+    width: 33vw;
+    height: 33vw;
     border-radius: 50%;
     margin-top: 3vw;
     margin-bottom: 3vw;

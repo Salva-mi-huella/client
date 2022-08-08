@@ -76,7 +76,7 @@ export default function AccountMenu() {
               right: 35,
               width: 10,
               height: 10,
-              bgcolor: 'background.paper',
+              bgcolor: 'rgb(255, 230, 0)',
               transform: 'translateY(-50%) rotate(45deg)',
               zIndex: 0,
             },
