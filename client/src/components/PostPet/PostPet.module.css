@@ -63,12 +63,7 @@
 
 }
 
-
-.zeroCheckboxContainer {}
-
 .edadContainer {
-  /* background-color: #fff; */
-  /* border-radius: 1rem; */
 
   margin-bottom: -.7rem;
 
@@ -133,38 +128,36 @@
 }
 
 .imageTitleContainer {
-
+  background-color: gray;
   display: flex;
   justify-content: space-around;
 }
 
 .imageContainer {
   display: flex;
-  /* margin: 1rem; */
-  /* background-color: green; */
+  justify-content: space-around;
+
 }
 
 
-.wrap {
-  /* background-color: #fff; */
-  /* margin-top: -1rem; */
-  /* margin-bottom: -1rem; */
 
+/* BOTON ENVIAR */
+.btnContainer {
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .bot {
-  min-width: 200px;
-  min-height: 40px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
+  width: 10rem;
+  min-width: 10rem;
+  min-height: 1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1.3px;
   font-weight: 700;
   color: #FCEC4F;
-  background: #FCEC4F;
   background: linear-gradient(90deg, #c450f6 0%, rgb(200, 119, 209) 100%);
   border: none;
   border-radius: 1000px;
@@ -233,11 +226,19 @@
   width: fit-content;
 }
 
-.cardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 50vh;
-  justify-content: center;
-}
 
+
+/* BREAKPOINTS */
 @media screen and (max-width: 1600px) {}
+
+@media screen and (max-width: 1328px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 960px) {}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 480px) {}
+
+@media screen and (max-width: 320px) {}

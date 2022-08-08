@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import { useAuth0 } from '@auth0/auth0-react';
 // import { getFoundations } from '../../../redux/actions';
@@ -14,6 +14,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import styles from '../Donations/Donations.module.css';
+import { getDonations } from '../../../redux/actions';
 
 
 
@@ -44,18 +45,23 @@ const Donations = () => {
 
     const user = JSON.parse(localStorage.getItem('user'));
     // const { user } = useAuth0();
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     let foundation = useSelector(state => state.foundations);
 
+    let donations = useSelector(state => state.donations);
+
     if (user) {
-        // console.log(user, 'user info');
+        // console.log(donations, 'donations sin filtro  ');
         foundation = foundation.find(f => f.email === user.email);
-        console.log(foundation, 'foundation info');
+        donations = donations.filter(donation => donation.foundationId === foundation.id)
+
+        console.log(donations, 'donations Filtrado ');
     }
 
-    // React.useEffect(() => {
-    //     dispatch(getFoundations());
-    // }, [dispatch])
+
+    React.useEffect(() => {
+        dispatch(getDonations());
+    }, [dispatch])
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -66,7 +72,7 @@ const Donations = () => {
         setPage(0);
     };
 
-    const emptyRows = (rowsPerPage - Math.min(rowsPerPage, foundation?.donations.length - page * rowsPerPage));
+    const emptyRows = (rowsPerPage - Math.min(rowsPerPage, donations?.length - page * rowsPerPage));
 
     return (
         <div className={styles.tableDonations}>
@@ -79,24 +85,24 @@ const Donations = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell> ID Usuario </TableCell>
+                            <TableCell> Nombre del Usuario </TableCell>
+                            <TableCell align="left"> Email </TableCell>
                             <TableCell align="left"> Fecha de Donacion</TableCell>
                             <TableCell align="left"> Metodo Utilizado</TableCell>
                             <TableCell align="left" > Cantidad </TableCell>
-                            <TableCell align="left"> Puntos Acumulados</TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>
-                        {foundation && foundation.donations.length > 0 ? foundation.donations
+                    <TableBody >
+                        {donations && donations?.length > 0 ? donations
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row, index) => (
-                                <TableRow key={row.userId} sx={{ '&:last-child td, &:last-child th': { border: 1 } }} >
-                                    <TableCell component="th" scope="row"> {!row.userId ? 'Anonimo' : `${row.userId}`} </TableCell>
+                                <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 1 } }} >
+                                    <TableCell component="th" scope="row"> {!row.user?.name ? 'Anonimo' : `${row.user?.name}`} </TableCell>
+                                    <TableCell align="left">{!row.user?.email ? 'Anonimo' : `${row.user?.email}`} </TableCell>
                                     <TableCell align="left">{row.date}</TableCell>
                                     <TableCell align="left">{row.method}</TableCell>
                                     <TableCell style={makeStyles(row.method)}
-                                        align="left">{row.method === 'paypal' ? `$ ${row.amount} USD ` : `$ ${row.amount} ARS `}</TableCell>
-                                    <TableCell align="left">{new Intl.NumberFormat().format(row.points)}</TableCell>
+                                        align="left">{row.method === 'paypal' ? `$ ${new Intl.NumberFormat().format(row.amount)} USD ` : `$ ${new Intl.NumberFormat().format(row.amount)} ARS `}</TableCell>
                                 </TableRow>
                             )) :
                             <TableCell component="th" scope="row"> Aun no hay donaciones </TableCell>}
@@ -111,7 +117,7 @@ const Donations = () => {
                 <TablePagination
                     className={styles.pagination}
                     component="div"
-                    count={foundation?.donations.length}
+                    count={donations?.length}
                     page={page}
                     onPageChange={handleChangePage}
                     rowsPerPage={rowsPerPage}
