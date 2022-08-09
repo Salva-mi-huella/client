@@ -78,20 +78,20 @@ const Users = () => {
     return (
         <div className={styles.tableDonations}>
             <h3 className={styles.donationTitle}>Usuarios:</h3>
-            <TableContainer /* sx={{backgroundColor:'transparent'}} */ className={styles.cont} component={Paper}
+            <TableContainer sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}} className={styles.cont} component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead >
-                        <TableRow>
-                            <TableCell>Usuario</TableCell>
-                            <TableCell align="left">Nombre</TableCell>
-                            <TableCell align="left">Email</TableCell>
-                            <TableCell align="left">Ciudad</TableCell>
-                            <TableCell align="left">DNI</TableCell>
-                            <TableCell align="left">Teléfono</TableCell>
-                            <TableCell align="left">Tránsito</TableCell>
-                            <TableCell align="left">Asignar Admin</TableCell>
+                        <TableRow sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}} >
+                            <TableCell sx={{color:'purple', fontWeight:'700'}}>Usuario</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Nombre</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Email</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Ciudad</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">DNI</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Teléfono</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Tránsito</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Asignar Admin</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

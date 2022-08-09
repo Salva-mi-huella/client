@@ -13,7 +13,7 @@ import AddProducts from './AddProducts/AddProducts.jsx';
 import AddFoundations from './AddFoundations/AddFoundations.jsx';
 import { getRequestsFoundations } from '../../redux/actions/index.js';
 import { useDispatch, useSelector } from 'react-redux';
-
+import NavBar from '../NavBar/NavBar.js';
 
 
 
@@ -31,6 +31,9 @@ export default function ProfileAdmin() {
     const [optionSelection, setOptionSelection] = useState(0)
 
     return (
+        <>
+            <NavBar />
+            
         <div className={styles.profileFoundation} >
 
             <div className={styles.containerGlass} >
@@ -105,6 +108,7 @@ export default function ProfileAdmin() {
             </div>
 
         </div >
+        </>
     )
 }
 

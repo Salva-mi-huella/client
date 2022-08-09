@@ -99,8 +99,9 @@
 }
 
 .paw {
-    width: 3.3vw;
-    height: 3.3vw;
+    width: 2vw;
+    height: 2vw;
+    margin-bottom: 0.5vw;
 }
 
 .profile span {

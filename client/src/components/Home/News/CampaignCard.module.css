@@ -1,21 +1,28 @@
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    /* border: 3px solid red; */
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10vw;
     padding-top: 5vw;
-    padding-bottom: 5vw;
-    width: 80%;
+    /* border: 3px solid red; */
+    /* width: 80%; */
     margin-left: 10vw;
+    height: 45vw;;
   }
 
-  .container div {
+  .subContainer {
     margin-left: 3vw;
+    width: 55vw;
+    margin-right: 6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
   }
   .campaignImage {
-    width: 45vw;
+    width: 40vw;
     height: 25vw;
-    object-fit: cover;
   }
 
   .foundationImage {
@@ -28,12 +35,15 @@
   .titleSection {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    width: 50vw;
   }
 
   .titleSection h1 {
    text-align: center;
+   color:rgb(255, 226, 8);
+   font-weight: bold;
   }
   
  .container span {
@@ -46,16 +56,21 @@
     color: white;
     font-weight: bold;
     font-size: 1.4vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
  }
 
  .container button {
-    background-color: purple;
-    color: white;
+    background-color: white;
+    color: rgb(99, 59, 218);
     border: none;
     border-radius: 5px;
     padding: 10px;
-    font-size: 1.2vw;
+    font-size: 1.3vw;
     font-weight: bold;
     cursor: pointer;
+ }
 
+ .container button:hover {
+    background-color: rgb(255, 226, 8);
  }

@@ -65,13 +65,13 @@ const Foundations = () => {
             <TableContainer className={styles.cont} style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }} component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell>N°</TableCell>
-                            <TableCell align="left">Fundación</TableCell>
-                            <TableCell align="left">Teléfono</TableCell>
-                            <TableCell align="left">Ciudad</TableCell>
-                            <TableCell align="left">Localidad</TableCell>
-                            <TableCell align="left">Email</TableCell>
+                        <TableRow sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}}>N°</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fundación</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Teléfono</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Ciudad</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Localidad</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Email</TableCell>
 
                         </TableRow>
                     </TableHead>

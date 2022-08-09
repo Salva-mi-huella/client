@@ -49,6 +49,7 @@ const ref = useRef(null)
 
 return (
     <div className={styles.container}>
+       <p>Completá con tus datos el siguiente formulario para continuar con el proceso de adopción.</p>
       <Formik
         innerRef={ref}
         initialValues={{

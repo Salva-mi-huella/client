@@ -62,12 +62,12 @@ const Request = ({ requests_foundations }) => {
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell align="left">Fecha</TableCell>
-                            <TableCell align="left">Nombre de Fundación</TableCell>
-                            <TableCell align="left">Email</TableCell>
-                            <TableCell align="left">Teléfono</TableCell>
-                            <TableCell align="left">Estado</TableCell>
+                        <TableRow  sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fecha</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Nombre de Fundación</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Email</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Teléfono</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Estado</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

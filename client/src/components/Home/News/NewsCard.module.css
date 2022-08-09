@@ -11,8 +11,8 @@
 }
 
 .avatar{
-  width: 5vw;
-  height: 5vw;
+  width: 3.5vw;
+  height: 3.5vw;
   border-radius: 50%;
 }
 .title{
@@ -23,5 +23,18 @@
 .date{
   font-size: 1vw;
   margin-left: 1vw;
+  color: white
+}
+
+.image {
+  width: 25vw;
+  height: 15vw;
+  /* border-radius: 50%; */
+}
+
+.description {
+  font-size: 1.2vw;
+  color: white;
+  margin-bottom: 1vw;
 }
 

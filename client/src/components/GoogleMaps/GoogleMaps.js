@@ -60,7 +60,7 @@ export default function GoogleMaps({foundation, lat, lng}) {
               <GoogleMap
                 center={center}
                 zoom={15}
-                mapContainerStyle={{ width: '600px', height: '400px' }}
+                mapContainerStyle={{ width: '41.7vw', height: '25vw' }}
                 options={{
                   zoomControl: false,
                   streetViewControl: false,
