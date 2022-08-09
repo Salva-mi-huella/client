@@ -130,27 +130,26 @@ export default function AddProducts() {
                 <h3 className={style.h3title}> Postee un nuevo producto</h3>
                 {/* NOMBRE */}
                 <div className={style.div}>
-                    <label className={style.label} htmlFor="name">Nombre del producto</label>
-                    <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />
+                    <input className={style.input} placeholder="Nombre del producto..." required onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />
                     {error.name && <p className={`${style.error}`}>{error.name}</p>}
                 </div>
                 {/* POINTS */}
-                <div className={style.cont}>
-                    <label className={style.label} htmlFor="points">Puntos</label>
-                    <input className={style.input} required onChange={(e) => handleChange(e)} type="number" id="points" name="points" value={input.points} />
+                <div className={style.div}>
+                    <input className={style.input} placeholder="Puntos..." required onChange={(e) => handleChange(e)} type="number" id="points" name="points" value={input.points} />
                     {error.points && <p className={`${style.error}`}>{error.points}</p>}
                 </div>
 
                 {/* DESCRIPTION*/}
-                <div className={style.cont}>
-                    <label className={style.label} htmlFor="description">Descripción:</label>
+                <div className={style.div}>
+
                     <textarea
+                        placeholder="Descripción..."
                         className={style.textarea}
-                        rows="7"
+                        rows="5"
                         required onChange={(e) => handleChange(e)}
                         id="description" name="description" value={input.description} >
                     </textarea>
-                    {error.description && <p className={`${style.error}`}>{error.description}</p>}
+                    {error.description && <p className={`${style.error1}`}>{error.description}</p>}
                 </div>
 
                 {/* TYPE */}
@@ -158,7 +157,7 @@ export default function AddProducts() {
                 <div>
                 <div className={style.typeCat}>
                     Tipo:
-                    {error.type && <p className={`${style.error}`}>{error.type}</p>}
+                    {error.type && <p className={`${style.error2}`}>{error.type}</p>}
                 </div>
                     <select className={style.select} defaultValue="Todos" onChange={e => handleSelectType(e)}>
                         <option className={style.option}  disabled>Tipo</option>
@@ -173,7 +172,7 @@ export default function AddProducts() {
                 <div>
                     <div className={style.typeCat}>
                         Categoría:
-                        {error.category && <p className={`${style.error}`}>{error.category}</p>}
+                        {error.category && <p className={`${style.error2}`}>{error.category}</p>}
                     </div>
                     <select className={style.select} defaultValue="Sin Categoría" onChange={e => handleSelectCategory(e)}>
                         <option className={style.option} disabled>Categoría</option>
@@ -189,7 +188,7 @@ export default function AddProducts() {
 
                 {/* FOTOS DEL PRODUCTO */}
                 <div className={style.cont}>
-                    <label className={style.label} htmlFor="images"> Fotos: </label>
+                   
                     <input className={style.pictures} onChange={(e) => handleChange(e)} type="file" id="images" name="images" />
                 </div>
 

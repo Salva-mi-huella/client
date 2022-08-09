@@ -31,7 +31,7 @@
   
   
   .label, .description {
-    color: #2d2d2f;
+    color: #ffffff;
     text-transform: uppercase;
     font-size: 0.9rem;
     margin-bottom: 0.2rem;
@@ -51,7 +51,7 @@
     display: block;
   }
   .textarea{
-    width: 40vw;
+    width: 41vw;
   }
   .input, .textarea {
     font-family: 'Helvetica Neue', sans-serif;
@@ -79,7 +79,9 @@
 
 
 .post{
-    width: 40vw;
+    width: 30vw;
+    margin-left: 6rem;
+    margin-top: 2rem;
     display: flex;
     font-size: 1.5rem;
     justify-content: center;
@@ -92,8 +94,8 @@
 }
 .form{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* margin-bottom: 1rem; */
-    padding: 1rem 5rem;
+    margin-bottom: 1rem;
+    padding: 2rem 5rem;
     height: 80vh;
 
 }
@@ -108,16 +110,26 @@
 
 @media screen and (max-width:1440px) {
   .div{
-   padding: 0rem 2rem;
+   padding: 0rem 3rem;
    padding-left: 2rem;
+   min-height: 4rem;
+   width: 50vw;
+   height: 2rem;
+  /*  background-color:aqua ; */
   }
   .form {
-     height: 74vh;
-     width: 60vw;
+     height: 79vh;
+     width: 58vw;
+    padding: 0.7rem 5rem;
+
   }
   .input{
     height: 2.2rem;
     top: 0.01rem;
+    outline: none;
+    resize: none;
+    top:-0.5rem;
+    margin-bottom: 0rem;
   }
   .label .description{
     font-size: 0.9rem;
@@ -126,7 +138,8 @@
   padding: 0rem 2rem;
 }
   .textarea{
-    width: 46vw;
+    margin-bottom: 0.2rem;
+    width: 43vw;
   }
   .post{
     width: 40vw;
@@ -134,6 +147,10 @@
     margin-top: 1rem;
   }
   .h3title{
-    margin-top: 1rem;
+    margin-top: 0.3rem;
+    font-size: 2rem;
+  }
+  .pictures{
+    margin-bottom: 1rem;
   }
 }

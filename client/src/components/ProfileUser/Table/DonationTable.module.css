@@ -118,7 +118,7 @@
 
 @media screen and (max-width: 1200px) {
     .tableRequests {
-        width: 170%;
+        /* width: 170%; */
         margin-top: 2rem;
     }
 }

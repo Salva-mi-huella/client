@@ -96,3 +96,9 @@
 .containerInfo button {
     font-size: 1vw;
 }
+
+@media(max-width: 375px){
+    .links button{
+        margin: 0%;
+    }
+}
