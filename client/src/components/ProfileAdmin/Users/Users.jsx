@@ -78,8 +78,8 @@ const Users = () => {
     return (
         <div className={styles.tableDonations}>
             <h3 className={styles.donationTitle}>Usuarios:</h3>
-            <TableContainer sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}} className={styles.cont} component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }}
+            <TableContainer sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }} className={styles.cont} component={Paper}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '40vw' }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead >

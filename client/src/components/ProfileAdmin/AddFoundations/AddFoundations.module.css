@@ -8,6 +8,7 @@
     display: flex;
     width: 100vw;
     height: 100vh;
+    background-color: red;
   }
   
 .h3title{
@@ -96,8 +97,11 @@
 }
 .form{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     padding: 1rem 5rem;
+    background-color: red;
+    height: 50vw;
+    width: 80vw;
 }
 .error{
   color: red;
