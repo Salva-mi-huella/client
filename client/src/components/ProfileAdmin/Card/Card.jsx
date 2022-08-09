@@ -5,8 +5,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Chart from 'react-apexcharts';
 import { MdDisabledByDefault } from 'react-icons/md';
-
-import '../Card/Card.css'
+import styles from '../Card/Card.module.css'
 
 
 const Card = (props) => {
@@ -27,7 +26,7 @@ function CompactCard({ param, setExpanded }) {
     const Png = param.png;
     return (
         <motion.div
-            className="CompactCard"
+            className={styles.CompactCard}
             style={{
                 background: param.color.backGround,
                 boxShadow: param.color.boxShadow,
@@ -35,14 +34,14 @@ function CompactCard({ param, setExpanded }) {
             layoutId="expandableCard"
             onClick={setExpanded}
         >
-            <div className="radialBar">
+            <div className={styles.radialBar}>
                 <CircularProgressbar
                     value={param.barValue}
                     text={`${param.barValue}%`}
                 />
                 <span> {param.title} </span>
             </div>
-            <div className="detail">
+            <div className={styles.detail}>
                 <Png />
                 <span> {param.value} </span>
                 <span> Ultimo mes </span>
@@ -109,7 +108,7 @@ function ExpandedCard({ param, setExpanded }) {
 
     return (
         <motion.div
-            className="ExpandedCard"
+            className={styles.ExpandedCard}
             style={{
                 background: param.color.backGround,
                 boxShadow: param.color.boxShadow,
@@ -120,7 +119,7 @@ function ExpandedCard({ param, setExpanded }) {
                 <MdDisabledByDefault onClick={setExpanded} className='close' />
             </div>
             <span>{param.title}</span>
-            <div className="chartContainer">
+            <div className={styles.chartContainer}>
                 <Chart options={data.options} series={param.series} type="area" />
             </div>
             <span> Ultimo mes </span>
