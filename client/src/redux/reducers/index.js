@@ -151,25 +151,6 @@ export default function rootReducer(state = initialState, action) {
         case STORE_FILTERS:
             let filteredProducts = state.allProducts;
 
-            //Filtro alfabetico
-            if(action.payload.fByAZ){            
-                if(action.payload.fByAZ){
-                
-                if(action.payload.fByAZ === 'Desorden'){
-                    filteredProducts = state.allProducts
-
-                }
-                else if (action.payload.fByAZ === 'Asc'){
-                    filteredProducts = filteredProducts.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))        
-                    state.productsConfig= {AZ:true}
-                }
-                else if (action.payload.fByAZ === 'Desc'){
-                    filteredProducts = filteredProducts.sort((a, b) => (b.name > a.name ? 1 : b.name < a.name ? -1 : 0))        
-                    state.productsConfig= {AZ:false}
-                }
-            }         
-            }
-
             //Filtro por precio
             if(action.payload.fByPrice){
                 if(action.payload.fByPrice === 'Unordered'){

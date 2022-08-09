@@ -422,11 +422,11 @@ export function getSearchProducts(name) {
 }
 
 //FILTERS STORE
-export const storeFilters = (fByAZ, fByPrice, fByType, fByCategory) => {
+export const storeFilters = (fByPrice, fByType, fByCategory) => {
     return function (dispatch) {
         return dispatch({
             type: STORE_FILTERS,
-            payload: { fByAZ, fByPrice, fByType, fByCategory }
+            payload: {  fByPrice, fByType, fByCategory }
         });
     };
 };

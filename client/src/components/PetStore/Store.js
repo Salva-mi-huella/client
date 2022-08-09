@@ -93,49 +93,28 @@ export default function Store() {
 
   }
 
-  //FILTROS
-  const [filterByAZ, setFilterByAZ] = useState("");
-  const [filterByPrice, setFilterByPrice] = useState("");
-  const [filterByType, setFilterByType] = useState("");
-  const [filterByCategory, setFilterByCategory] = useState("");
-
-
-  function handleFilterAZ(e) {
-    setFilterByAZ(e.target.value)
-    dispatch(storeFilters(e.target.value, filterByPrice, filterByType, filterByCategory))
-  }
-  
-  function handleFilterByPrice(e) {
-    setFilterByPrice(e.target.value)
-    dispatch(storeFilters(filterByAZ, e.target.value, filterByType, filterByCategory))
-  }
-
    //FILTROS
    const [filterByAZ, setFilterByAZ] = useState("");
    const [filterByPrice, setFilterByPrice] = useState("");
    const [filterByType, setFilterByType] = useState("");
    const [filterByCategory, setFilterByCategory] = useState("");
 
-   function handleFilterAZ(e){   
-     setFilterByAZ(e.target.value)
-     dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))}
    function handleFilterByPrice(e){  
      setFilterByPrice(e.target.value)
-     dispatch(storeFilters(filterByAZ,e.target.value,filterByType,filterByCategory))
+     dispatch(storeFilters(e.target.value,filterByType,filterByCategory))
    }
 
    function handleFilterByType(e){       
     setFilterByType(e.target.value)
-    dispatch(storeFilters(filterByAZ, filterByPrice, e.target.value, filterByCategory))
+    dispatch(storeFilters( filterByPrice, e.target.value, filterByCategory))
   }
 
   function handleFilterByCategory(e) {
     setFilterByCategory(e.target.value)
-    dispatch(storeFilters(filterByAZ, filterByPrice, filterByType, e.target.value))
+    dispatch(storeFilters( filterByPrice, filterByType, e.target.value))
   }
 
   function handleAll(e) {
-    setFilterByAZ("")
     setFilterByPrice("")
     setFilterByType("")
     setFilterByCategory("")
@@ -176,7 +155,6 @@ export default function Store() {
   const countAccesorios = allProducts.filter(p => p.category === "Accesorios")
 
   return (
-      <div>
     <div>
       <div className={styles.main}>
         <div className={styles.sidebar}>
@@ -215,14 +193,7 @@ export default function Store() {
                       <option value='High'>Mayor puntaje</option>
                       <option value='Low'> Menor puntaje</option>                    
                   </select>
-                  <select defaultValue="Alfabeto" onChange={e => handleFilterAZ(e)}>
-                      <option disabled value='Alfabeto'>Alfabeto</option>
-                      <option value='Asc'>A-Z</option>
-                      <option value='Desc'>Z-A</option>                    
-                  </select>
-
               </div>
-
           <div className={styles.items}>
           {
             pages?
