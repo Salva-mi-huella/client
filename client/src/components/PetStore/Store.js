@@ -237,15 +237,10 @@ export default function Store() {
                   <button type="button" class="" data-bs-dismiss="modal">Seguir comprando</button>
                   <button type="button" class="" onClick={updatePoints}>Finalizar Compra</button>
                 </div>
-
-
-       
               </div>
             </div>
           </div>
-        </div>
-      
-        </div>
+        </div>      
       </div>
       <Footer/>
     </div>
