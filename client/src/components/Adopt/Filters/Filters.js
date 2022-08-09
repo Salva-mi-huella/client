@@ -54,7 +54,7 @@ export default function Filters(){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'No tenemos animales con esas caracteristicas',
+                text: 'No hay huellas con esas características',
               })
         }
         filteringPets = filteringPets.filter(pet => !pet.adopted)

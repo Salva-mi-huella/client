@@ -175,7 +175,7 @@ export default function PostNews({ foundation }) {
                                 alt="newsImage"
                             />
                             <CardContent>
-                                <Typography sx={{width: '28vw'}}>
+                                <Typography sx={{width: '28vw', textOverflow: "ellipsis", overflow: "auto", wordBreak: "break-all"}}>
                                 {input.news}
                                 </Typography>
                             </CardContent>

@@ -63,20 +63,20 @@ const Donations = () => {
     return (
         <div className={styles.tableDonations}>
 
-            <h3 className={styles.donationTitle}> Historial de Donaciones </h3>
+          {/*   <h3 className={styles.donationTitle}> Historial de Donaciones </h3> */}
 
-            <TableContainer className={styles.cont} component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }}
+            <TableContainer  component={Paper}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029',maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell> Usuario </TableCell>
-                            <TableCell align="left"> Fecha de Donacion</TableCell>
-                            <TableCell align="left"> Metodo Utilizado</TableCell>
-                            <TableCell align="left" > Cantidad </TableCell>
-                            <TableCell align="left"> Puntos Acumulados</TableCell>
-                            <TableCell align="left">Fundación</TableCell>
+                        <TableRow  sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}}> Usuario </TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Fecha de Donacion</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Metodo Utilizado</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left" > Cantidad </TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Puntos Acumulados</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fundación</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

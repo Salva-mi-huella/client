@@ -133,49 +133,52 @@ export default function AddFoundations() {
 
             <form onSubmit={e => handleSubmit(e)} className={style.form}>
                 <h3 className={style.h3title}> Alta de Fundación </h3>
-                {/* NOMBRE */}
+                {/* NOMBRE / EMAIL */}
                 <div className={style.div}>
                     <label className={style.label} htmlFor="name">Nombre de la fundación</label>
-                    <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />
-                    {error.name && <p className={`${style.error}`}>{error.name}</p>}
-                </div>
-                {/* EMAIL */}
-                <div className={style.cont}>
                     <label className={style.label} htmlFor="email">Email</label>
-                    <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="email" name="email" value={input.email} />
-                    {error.email && <p className={`${style.error}`}>{error.email}</p>}
+                     <div>
+                        <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />
+                        {error.name && <p className={`${style.error}`}>{error.name}</p>}
+                     </div>
+                     <div>
+                        <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="email" name="email" value={input.email} />
+                        {error.email && <p className={`${style.error}`}>{error.email}</p>}
+                     </div>
                 </div>
 
-                {/* TELEPHONE_NUMBER */}
-                <div className={style.cont}>
+
+                {/* TELEPHONE_NUMBER STATE */}
+                <div className={style.div}>
                     <label className={style.label} htmlFor="telephone_number">Teléfono</label>
-                    <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="telephone_number" name="telephone_number" value={input.telephone_number} />
-                    {error.telephone_number && <p className={`${style.error}`}>{error.telephone_number}</p>}
-                </div>
-
-                {/* STATE */}
-                <div className={style.cont}>
                     <label className={style.label} htmlFor="state">Provincia</label>
-                    <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="state" name="state" value={input.state} />
-                    {error.state && <p className={`${style.error}`}>{error.state}</p>}
+                     <div>
+                        <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="telephone_number" name="telephone_number" value={input.telephone_number} />
+                        {error.telephone_number && <p className={`${style.error}`}>{error.telephone_number}</p>}
+                     </div>
+                    <div>
+                        <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="state" name="state" value={input.state} />
+                        {error.state && <p className={`${style.error}`}>{error.state}</p>}
+                    </div>
                 </div>
 
-                {/* CITY */}
-                <div className={style.cont}>
+
+                {/* CITY  / ADDRESS*/}
+                <div className={style.div}>
                     <label className={style.label} htmlFor="city">Ciudad</label>
-                    <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="city" name="city" value={input.city} />
-                    {error.city && <p className={`${style.error}`}>{error.city}</p>}
-                </div>
-
-                {/* ADDRESS */}
-                <div className={style.cont}>
                     <label className={style.label} htmlFor="addres">Dirección</label>
-                    <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="address" name="address" value={input.address} />
-                    {error.address && <p className={`${style.error}`}>{error.address}</p>}
+                     <div>
+                        <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="city" name="city" value={input.city} />
+                        {error.city && <p className={`${style.error}`}>{error.city}</p>}
+                     </div>
+                     <div>
+                        <input className={style.input} required onChange={(e) => handleChange(e)} type="text" id="address" name="address" value={input.address} />
+                        {error.address && <p className={`${style.error}`}>{error.address}</p>}
+                    </div>
                 </div>
 
                 {/* DESCRIPTION*/}
-                <div className={style.cont}>
+                <div className={style.div2}>
                     <label className={style.label} htmlFor="description">Descripción:</label>
                     <textarea
                         className={style.textarea}
@@ -187,7 +190,7 @@ export default function AddFoundations() {
                 </div>
 
                 {/* FOTOS DEL PRODUCTO */}
-                <div className={style.cont}>
+                <div className={style.div2}>
                     <label className={style.label} htmlFor="images"> Fotos: </label>
                     <input className={style.pictures} onChange={(e) => handleChange(e)} type="file" id="images" name="images" />
                 </div>

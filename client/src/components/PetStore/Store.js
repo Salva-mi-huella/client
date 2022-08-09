@@ -15,15 +15,15 @@ import PaginateStore from "./PaginateStore";
 
 export default function Store() {
 
-    const {isAuthenticated} = useAuth0();
-    
-    const dispatch = useDispatch();
-    const user = useSelector(state => state.user)
-    const products = useSelector((state) => state.allProductsFiltered);
-    const allProducts = useSelector((state) => state.allProducts);
-    const {pages} = useSelector((state) => state.productsFilterd);
-    const cart = useSelector(state => state.cart);
-    const productsId = cart.map(product => product.id);
+  const { isAuthenticated } = useAuth0();
+
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user)
+  const products = useSelector((state) => state.allProductsFiltered);
+  const allProducts = useSelector((state) => state.allProducts);
+  const { pages } = useSelector((state) => state.productsFilterd);
+  const cart = useSelector(state => state.cart);
+  const productsId = cart.map(product => product.id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,66 +31,83 @@ export default function Store() {
   }, [dispatch]);
 
 
-  function updatePoints(){  
-        let actualPoints = user.points;
-        let totalCompra = ShoppingCart.total;
-        let totalItems = ShoppingCart.data;
+  function updatePoints() {
+    let actualPoints = user.points;
+    let totalCompra = ShoppingCart.total;
+    let totalItems = ShoppingCart.data;
 
-        let newBalance = actualPoints - totalCompra
-        
-        if(totalItems < 1){
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Parece que aun no has añadido nada a tu carrito!',
-          })
+    let newBalance = actualPoints - totalCompra
+
+    if (totalItems < 1) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Parece que aun no has añadido nada a tu carrito!',
+      })
+    }
+    else if (newBalance > 0) {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Seguro quieres canjear estos productos?',
+        text: "Despues de esto no hay marcha atras!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Canjear productos!',
+        cancelButtonText: 'Cancelar canje!',
+        reverseButtons: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Canje exitoso!',
+            `Tus productos fueron canjeados, te avisaremos para coordinar el envio. Tu nuevo saldo de huellitas es ${newBalance}`,
+            'success',
+            dispatch(updateUser({ points: newBalance, products: productsId }, user.email)),
+            setTimeout(() => window.location.reload(), 5000)
+
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado',
+            'Canje cancelado :)',
+            'error'
+          )
         }
-        else if(newBalance > 0){        
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-              confirmButton: 'btn btn-success',
-              cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false
-          })
-          
-          swalWithBootstrapButtons.fire({
-            title: 'Seguro quieres canjear estos productos?',
-            text: "Despues de esto no hay marcha atras!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Canjear productos!',
-            cancelButtonText: 'Cancelar canje!',
-            reverseButtons: true,
-          }).then((result) => {
-            if (result.isConfirmed) {
-              swalWithBootstrapButtons.fire(
-                  'Canje exitoso!',
-                  `Tus productos fueron canjeados, te avisaremos para coordinar el envio. Tu nuevo saldo de huellitas es ${newBalance}`,
-                  'success',
-                  dispatch(updateUser({points:newBalance, products:productsId}, user.email)),
-                  setTimeout(()=> window.location.reload(),5000) 
-                  
-              )
-            } else if (
-              /* Read more about handling dismissals below */
-              result.dismiss === Swal.DismissReason.cancel
-            ) {
-              swalWithBootstrapButtons.fire(
-                'Cancelado',
-                'Canje cancelado :)',
-                'error'
-              )
-            }
-          })
-        }else{
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Parece que no tienes huellitas suficientes para este canje! :(',
-              })
-        }
+      })
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Parece que no tienes huellitas suficientes para este canje! :(',
+      })
+    }
+
+  }
+
+  //FILTROS
+  const [filterByAZ, setFilterByAZ] = useState("");
+  const [filterByPrice, setFilterByPrice] = useState("");
+  const [filterByType, setFilterByType] = useState("");
+  const [filterByCategory, setFilterByCategory] = useState("");
+
+
+  function handleFilterAZ(e) {
+    setFilterByAZ(e.target.value)
+    dispatch(storeFilters(e.target.value, filterByPrice, filterByType, filterByCategory))
+  }
   
+  function handleFilterByPrice(e) {
+    setFilterByPrice(e.target.value)
+    dispatch(storeFilters(filterByAZ, e.target.value, filterByType, filterByCategory))
   }
 
    //FILTROS
@@ -109,15 +126,15 @@ export default function Store() {
 
    function handleFilterByType(e){       
     setFilterByType(e.target.value)
-    dispatch(storeFilters(filterByAZ,filterByPrice,e.target.value,filterByCategory))
+    dispatch(storeFilters(filterByAZ, filterByPrice, e.target.value, filterByCategory))
   }
 
-  function handleFilterByCategory(e){       
+  function handleFilterByCategory(e) {
     setFilterByCategory(e.target.value)
-    dispatch(storeFilters(filterByAZ,filterByPrice,filterByType,e.target.value))
+    dispatch(storeFilters(filterByAZ, filterByPrice, filterByType, e.target.value))
   }
 
-  function handleAll(e){
+  function handleAll(e) {
     setFilterByAZ("")
     setFilterByPrice("")
     setFilterByType("")
@@ -150,16 +167,17 @@ export default function Store() {
 
   //Contadores
   const countTodos = allProducts
-  const countPerros=allProducts.filter(p => p.type === "Perro" || p.type === "Todos")
-  const countGatos =allProducts.filter(p => p.type === "Gato" || p.type === "Todos")
+  const countPerros = allProducts.filter(p => p.type === "Perro" || p.type === "Todos")
+  const countGatos = allProducts.filter(p => p.type === "Gato" || p.type === "Todos")
 
   const countAlimentos = allProducts.filter(p => p.category === "Alimento")
   const countIndumentaria = allProducts.filter(p => p.category === "Indumentaria")
   const countJuguetes = allProducts.filter(p => p.category === "Juguetes")
   const countAccesorios = allProducts.filter(p => p.category === "Accesorios")
-  
+
   return (
       <div>
+    <div>
       <div className={styles.main}>
         <div className={styles.sidebar}>
           <div className={styles.searchbar}>
@@ -185,7 +203,6 @@ export default function Store() {
               <select onClick={handleAll} name="type" size={2}>
                   <option value='Unordered'>Todos ({countTodos.length})</option>
               </select>
-
           </div>
         </div>
 
@@ -251,8 +268,7 @@ export default function Store() {
             </div>
           </div>
         </div>
-        
-
+      
         </div>
       </div>
       <Footer/>

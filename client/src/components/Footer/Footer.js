@@ -97,9 +97,7 @@ export default function Footer() {
                       </div>
                       :
                       <div className={styles.links}>
-                        <button onClick={() => loginWithRedirect()} >INICIAR SESION </button>
-                        {/* <span> | </span> */}<br />
-                        <button onClick={() => loginWithRedirect()} >REGISTRARSE</button>
+                        <button onClick={() => loginWithRedirect()} >INGRESAR </button>
                       </div>}
                   </div>
 

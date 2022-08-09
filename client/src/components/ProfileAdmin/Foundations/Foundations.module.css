@@ -60,7 +60,7 @@
     text-align: center;
     align-content: flex-end;
     padding: 35px;
-    margin-top: 1rem;
+    margin-top: -1rem;
 }
 .boton {
   background-color: #f43737;

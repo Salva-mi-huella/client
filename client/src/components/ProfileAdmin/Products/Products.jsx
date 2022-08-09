@@ -40,19 +40,19 @@ const Products = () => {
     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, products.length - page * rowsPerPage));
     return (
         <div className={styles.tableDonations}>
-            <h3 className={styles.donationTitle}>Productos:</h3>
+           {/*  <h3 className={styles.donationTitle}>Productos:</h3> */}
             <TableContainer className={styles.cont} component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029',maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell align="left">Fecha</TableCell>
-                            <TableCell align="left">Nombre</TableCell>
-                            <TableCell align="left">Puntos</TableCell>
-                            <TableCell align="left">Tipo</TableCell>
-                            <TableCell align="left">Categoría</TableCell>
-                            <TableCell align="left">Stock</TableCell>
+                        <TableRow sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fecha</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Nombre</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Puntos</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Tipo</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Categoría</TableCell>
+                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Stock</TableCell>
 
                         </TableRow>
                     </TableHead>

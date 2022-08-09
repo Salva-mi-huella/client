@@ -1,13 +1,17 @@
 .banner img{
-    margin-top: 2.4vw;
-    margin-left: 1vw;
+    margin-top: 4vw;
+    position: absolute;
+    /* margin-left: 1vw; */
+    width: 65vw;
+    height: 45vw;
+    margin-left: -8vw;
 }
 
 .banner {
-    margin-top: 5vw;
+    margin-top: 1vw;
     display:flex;
     width: 100%;
-    height: 33vw;
+    height: 49.3vw;
     box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 10px;
 }
 
@@ -34,13 +38,13 @@
     flex-direction: column;   
     align-items: center;
     justify-content: center;
-    margin-right: 6vw;
+    margin-left: 41vw;
 }
 
 .sectionTitle{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(255, 230, 0);
-    font-size: 4vw;
+    font-size: 4.5vw;
     font-weight: bolder;
     text-align: center;
 }
@@ -48,7 +52,7 @@
 .banner p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
-    font-size: 2vw;
+    font-size: 2.4vw;
     text-align: center;
     font-weight: bolder;
     padding-top: 1.4vw;
@@ -93,8 +97,9 @@
 }
 
 .bigPaw {
-    width: 30vw;
-    height: 30vw;
+    width: 20vw;
+    height: 20vw;
+    margin-left: 5vw;
 }
 
 .pictureA {
@@ -206,7 +211,7 @@ padding-bottom: 12vw;
 }
 
 .paw {
- width: 15%
+ width: 10%
 }
 
 .store h1 {

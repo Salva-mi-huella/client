@@ -111,15 +111,6 @@ export default function PostPet({ foundation }) {
                   file.push(fileURL.secure_url)
                 }
 
-                // console.log({
-                //   images: file,
-                //   name: values.name,
-                //   age: values.age,
-                //   type: values.type,
-                //   gender: values.gender,
-                //   description: values.description
-                // })
-
                 dispatch(postPets({
                   name: values.name,
                   type: values.type,
@@ -135,7 +126,6 @@ export default function PostPet({ foundation }) {
 
               }
             })
-          resetForm();
         }}
       >
         {({ errors }) => (
@@ -168,7 +158,7 @@ export default function PostPet({ foundation }) {
 
                   <div className={styles.edadContainer}>
                     <label className={styles.checkboxLabels} htmlFor="age">Edad</label>
-                    <Field className="form-control w-25 h-25 opacity-50" type="number" name="age" id="age" />
+                    <Field className="form-control w-50 h-25 opacity-50" type="text" name="age" id="age" placeholder='5 meses' />
                   </div>
 
                   <div className={styles.errorBox}>
@@ -238,27 +228,35 @@ export default function PostPet({ foundation }) {
                 <ErrorMessage name="description" component={() => (<div className={styles.error}>{errors.description}</div>)}></ErrorMessage>
               </div>
 
-              <div className={styles.imageTitleContainer}>
-                <label>Imagen 1</label>
-                <label>Imagen 2</label>
-                <label>Imagen 3</label>
+
+              <div>
+
+                <div className={styles.imageTitleContainer}>
+                  {/* <label>Imagen 1</label> */}
+                  {/* <label>Imagen 2</label> */}
+                  {/* <label>Imagen 3</label> */}
+                  <label className={styles.error}>
+                    <ErrorMessage name="images" component={() => (<div className={styles.error}>{errors.images}</div>)}></ErrorMessage>
+                  </label>
+                </div>
+
+
+                <div className={styles.imageContainer}>
+
+                  <input name="image1" type="File" id="file" className="form-control opacity-75"
+                    onChange={(e) => uploadImage(e)} />
+
+                  <input name="image2" type="File" id="file" className="form-control opacity-75"
+                    onChange={(e) => uploadImage(e)} />
+
+                  <input name="image3" type="File" id="file" className="form-control opacity-75"
+                    onChange={(e) => uploadImage(e)} />
+                </div>
+
               </div>
 
-              <div className={styles.imageContainer}>
 
-                <input name="image1" type="File" id="file" className="form-control opacity-75 w-50"
-                  onChange={(e) => uploadImage(e)} />
-
-                <input name="image2" type="File" id="file" className="form-control opacity-75 w-50"
-                  onChange={(e) => uploadImage(e)} />
-
-                <input name="image3" type="File" id="file" className="form-control opacity-75 w-50"
-                  onChange={(e) => uploadImage(e)} />
-
-                <ErrorMessage name="images" component={() => (<div className={styles.error}>{errors.images}</div>)}></ErrorMessage>
-              </div>
-
-              <div className={styles.wrap}>
+              <div className={styles.btnContainer}>
                 <button className={styles.bot}>Enviar</button>
               </div>
             </div>

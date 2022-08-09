@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Card from './Card.js'
-import banner from '../../assets/adopt-banner.png'
-import steps from '../../assets/adoptSteps.png'
+import banner from '../../assets/test1.png'
+import steps from '../../assets/adopt-banner.png'
 import { useSelector } from 'react-redux';
 import style from './Adopt.module.css'
 import Paginate from './Filters/Paginate.js';
@@ -30,8 +30,8 @@ export default function Adopt(){
         <>
             <div className={style.banner}>
                 <div>
-                <h1 className={style.sectionTitle}>Adoptá</h1>
-                <p >En este espacio va un eslogan para captar<br></br> la atención del usuario</p>
+                <h1 className={style.sectionTitle}>Adoptá un amigo,</h1>
+                <p>¡No lo compres!</p>
                 </div>
                 <img src={banner} alt="Banner of animals"/>
             </div>

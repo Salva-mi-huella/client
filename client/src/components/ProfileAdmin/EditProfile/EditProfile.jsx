@@ -61,7 +61,7 @@ export default function EditProfile() {
 
   function handleSubmit(e) {
     e.preventDefault()
-
+    if(!Object.keys(error).length){
     for (let prop in input) {
       if (input[prop] === '') delete input[prop]
     }
@@ -84,7 +84,7 @@ export default function EditProfile() {
 
         }
       })
-  
+    }
   }
 
 
@@ -94,61 +94,68 @@ export default function EditProfile() {
       <form onSubmit={handleSubmit} className={style.form}>
         <h3 className={style.h3title}> Mis Datos </h3>
 
-        {/* NOMBRE */}
         <div className={style.div}>
+         {/* NOMBRE  Y APELLIDO*/}
           <label className={style.label} htmlFor="name">Nombre</label>
+          <label className={style.label} htmlFor="lastname">Apellido</label>
+          
+          <div>
           <input className={style.input} defaultValue={userDetail.name}  onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />
           {error.name && <p className={`${style.error}`}>{error.name}</p>}
-        </div>
-
-        {/* APELLIDO*/}
-        <div className={style.div}>
-          <label className={style.label} htmlFor="lastname">Apellido</label>
+          </div>
+          
+          <div>
           <input className={style.input} defaultValue={userDetail.lastname}  onChange={(e) => handleChange(e)} type="text" id="lastname" name="lastname" value={input.lastname} />
           {error.lastname && <p className={`${style.error}`}>{error.lastname}</p>}
-        </div>
-
-        {/* EMAIL */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="email">Email</label>
-          <input className={style.input} disabled defaultValue={user.email}/>
-        </div>
-
-        {/* TELEPHONE_NUMBER */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="telephone_number">Teléfono</label>
-          <input className={style.input} defaultValue={userDetail.telephone_number} onChange={(e) => handleChange(e)} type="text" id="telephone_number" name="telephone_number" value={input.telephone_number} />
-          {error.telephone_number && <p className={`${style.error}`}>{error.telephone_number}</p>}
-        </div>
-
-        {/* CITY */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="city">Ciudad</label>
-          <input className={style.input} onChange={(e) => handleChange(e)} type="text" id="city" name="city" value={input.city} />
-          {error.city && <p className={`${style.error}`}>{error.city}</p>}
-        </div>
-
-        {/* ADDRESS */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="addres">Dirección</label>
-          <input className={style.input} onChange={(e) => handleChange(e)} type="text" id="address" name="address" value={input.address} />
+          </div>
+          
           
         </div>
+
+
+        {/* EMAIL / TELEPHONE */}
+        <div className={style.div}>
+          <label className={style.label} htmlFor="email">Email</label>
+          <label className={style.label} htmlFor="telephone_number">Teléfono</label>
+
+          <div>
+            <input className={style.input} disabled defaultValue={user.email}/>
+          </div>
+
+          <div>
+            <input className={style.input} defaultValue={userDetail.telephone_number} onChange={(e) => handleChange(e)} type="text" id="telephone_number" name="telephone_number" value={input.telephone_number} />
+            {error.telephone_number && <p className={`${style.error}`}>{error.telephone_number}</p>}
+          </div>
+        </div>
+
+
+        {/* CITY / ADDRESS*/}
+        <div className={style.div}>
+          <label className={style.label} htmlFor="city">Ciudad</label>
+          <label className={style.label} htmlFor="addres">Dirección</label>
+
+          <div>
+            <input className={style.input} onChange={(e) => handleChange(e)} type="text" id="city" name="city" value={input.city} />
+            {error.city && <p className={`${style.error}`}>{error.city}</p>}
+          </div>
+
+          <div>
+            <input className={style.input} onChange={(e) => handleChange(e)} type="text" id="address" name="address" value={input.address} />
+          </div>
+        </div>
+
 
         {/* DNI*/}
-        <div className={style.cont}>
+        <div className={style.div}>
           <label className={style.label} htmlFor="dni">DNI N°</label>
+          <label className={style.label} htmlFor="dni">Fecha de Nacimiento</label>
           <input className={style.input} defaultValue={userDetail.dni}  onChange={(e) => handleChange(e)} type="number" id="dni" name="dni" value={input.dni} />
           
-        </div>
-
         {/* FECHA DE NACIMIENTO */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="dni">Fecha de Nacimiento</label>
           <input className={style.input} defaultValue={userDetail.birthday}  onChange={(e) => handleChange(e)} type="date" id="birthday" name="birthday" value={input.birthday} />
         </div>
 
-      
+
         <button className={style.post} type="submit">Guardar Datos</button>
       </form>
 

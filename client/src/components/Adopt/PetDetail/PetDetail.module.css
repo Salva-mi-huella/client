@@ -18,6 +18,7 @@
   font-weight: bold;
   color: rgb(255, 230, 0);
   margin-top: 1.3vw;
+  text-align: center;
 }
 
 .infoDesc {
@@ -32,6 +33,8 @@
   letter-spacing: 0.1vw;
   color: #fff;
   margin-bottom: 2vw;
+  text-align: center;
+
 }
 
 .infoExtra {
@@ -45,6 +48,7 @@
 
 .infoExtra p {
   font-size: 1.7vw;
+  
 }
 
 .pTitle {
@@ -112,7 +116,7 @@
   width:  45vw;
   height: 35vw;
   border-radius: 6px;
-  filter: drop-shadow(0px 0px 6px rgb(255,230,0));
+  /* filter: drop-shadow(0px 0px 6px rgb(255,230,0)); */
   /* box-shadow: 0px 2px 8px 0px #000; */
 
 }

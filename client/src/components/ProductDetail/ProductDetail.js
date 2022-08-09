@@ -3,7 +3,7 @@ import { useDispatch , useSelector} from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getProductDetail } from '../../redux/actions/index';
-import huellita from "../../assets/paw-print.png"
+import huellita from "../../assets/yellow-paw.png"
 import styles from './ProductDetail.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import Swal from 'sweetalert2';
@@ -121,7 +121,18 @@ export default function ProductDetail() {
                     <div >
                         <div className={styles.price}>
                             <img className={styles.huellita} alt="foto-huellita" src={huellita}></img>
-                            <p className={styles.points}> {product.points*numero}</p>
+                            <p className={styles.points}>{new Intl.NumberFormat().format(product.points*numero)}</p>
+                            <p className={styles.unidad}>{`Precio por unidad: ${new Intl.NumberFormat().format(product.points)}`}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className={styles.moreLess}>
+                            <button className={styles.button2} onClick={decrement}>-</button>
+                            <p className={styles.numero}>{numero}</p>
+                            <button className={styles.button2} onClick={increment}>+</button>
+                        </div>
+                        <div>
+                            <button className={styles.button} onClick={canje}>Canjear</button>
                         </div>
                     </div>
 
