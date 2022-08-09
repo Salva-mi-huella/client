@@ -25,7 +25,7 @@
 
 
 .label, .description {
-  color: #2d2d2f;
+  color: azure;
   text-transform: uppercase;
   font-size: 1rem;
   margin-bottom: 0.2rem;
@@ -57,6 +57,8 @@
   outline: none;
   resize: none;
   margin-bottom: 6px;
+  position: relative;
+  margin-right: 10rem;
 }
 .pictures{
   margin-bottom: 2rem;
@@ -90,10 +92,15 @@
   border: none;
   border-radius: 10px;
   padding: 3px;
-  background-color: rgba(214, 71, 253, 0.678);
+  background-color: rgba(149, 19, 185, 0.678);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   color: white;
   margin-top: 3rem;
+}
+.post:hover{
+  background-color: azure;
+  color: rgba(149, 19, 185, 0.678);
+
 }
 .form{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -103,6 +110,23 @@
 .error{
 color: red;
 font-size: 0.8rem;
-margin-left: 10px;
+margin-left: 32rem;
+position: relative;
+top: -2rem;
+margin-bottom: -1.2rem;
+}
+.transit{
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+.mail{
+  display: flex;
+  font-size: 1.2rem;
+  color: black;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  max-width: 30rem;
+
 }
 
