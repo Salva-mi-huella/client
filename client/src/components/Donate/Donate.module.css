@@ -143,10 +143,6 @@
     margin-left: 4.5vw;
 }
 
-.payment {
-    width: 300px;
-    margin: 40px
-}
 
 .renders {
     display: flex;
@@ -170,8 +166,8 @@
 }
 
 .paypal {
-    width: 150px;
-    margin: 30px
+    width: 15vw;
+    /* margin: 30px */
 }
 
 .amount {

@@ -29,10 +29,9 @@
 .postNewsTitle {
     /* margin: 1rem; */
     position: relative;
-
     font-size: 2.5vw;
     font-weight: 500;
-    color: white;
+    /* color: white; */
     font-weight: bold;
 
 }

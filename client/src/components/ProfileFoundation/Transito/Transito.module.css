@@ -28,9 +28,8 @@
 
 .tableDonations {
   width: 100%;
-  margin-left: 2rem;
-  /* min-height: 80vh; */
-  /* max-height: 100%; */
+  margin-left: 10vw;
+  margin-top: 2vw;
   overflow-y: hidden;
 }
 

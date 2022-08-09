@@ -10,8 +10,7 @@ import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import paypal from '../../assets/paypal.png'
-import mercadoPago from '../../assets/mercadopago.png'
+import paypal from '../../assets/paypal1.png'
 import Swal from 'sweetalert2';
 
 
@@ -136,7 +135,6 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
                 {step.label === 'Elegí el método de pago' && 
                 <div className={style.payment} >
                      <button onClick={(e) => handleOnClick(e)}><img className={style.paypal} src={paypal} alt='paypal' name='method'></img></button>
-                     <button onClick={(e) => handleOnClick(e)}><img className={style.mp} src={mercadoPago} alt='mercadoPago' name='method'></img></button>
                 </div>}
                 {step.label === '¿Cuanto te gustaría donar?' && 
                   (donation.method === 'paypal' ?

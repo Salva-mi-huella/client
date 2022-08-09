@@ -38,7 +38,8 @@ const Foundations = () => {
     const handleUpdate = (e, id) => {
         dispatch(updateFoundation({ status: e.target.value }, id))
         Swal.fire({
-            title: '¡Proceso de solicitud enviado!',
+            title: 'Solicitud en proceso.',
+            text: 'El estado puede demorar unos minutos en actualizar.',
             imageWidth: 100,
             imageHeight: 100,
             imageAlt: 'Custom image',
@@ -98,7 +99,7 @@ const Foundations = () => {
                     </TableBody>
                 </Table>
 
-                <TablePagination
+                <TablePagination sx={{marginTop: '1vw'}}
                     className={styles.pagination}
                     component="div"
                     count={foundations.length}

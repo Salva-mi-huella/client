@@ -84,10 +84,10 @@ export default function AddProducts() {
         e.preventDefault()
         input.points = parseInt(input.points)
         Swal.fire({
-            title: 'Quieres postear este producto?',
+            title: '¿Estás seguro de querer agregar este producto?',
             showDenyButton: true,
-            confirmButtonText: 'Si, postear',
-            denyButtonText: `No, cancelar`,
+            confirmButtonText: 'Confirmar',
+            denyButtonText: `Cancelar`,
         }).then(
             async (result) => {
                 if (result.isConfirmed) {
@@ -127,7 +127,7 @@ export default function AddProducts() {
         <div className={style.postProductContainer}>
 
             <form onSubmit={e => handleSubmit(e)} className={style.form}>
-                <h3 className={style.h3title}> Postee un nuevo producto</h3>
+                <h3 className={style.h3title}> Agregar producto</h3>
                 {/* NOMBRE */}
                 <div className={style.div}>
                     <input className={style.input} placeholder="Nombre del producto..." required onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />

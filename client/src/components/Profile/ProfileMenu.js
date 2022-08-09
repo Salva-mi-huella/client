@@ -57,7 +57,7 @@ export default function AccountMenu() {
         PaperProps={{
           elevation: 0,
           sx: {
-            backgroundColor: 'rgb(255, 230, 0)',
+            backgroundColor: 'white',
             color: 'rgb(99, 59, 218)',
             overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
@@ -76,7 +76,7 @@ export default function AccountMenu() {
               right: 35,
               width: 10,
               height: 10,
-              bgcolor: 'rgb(255, 230, 0)',
+              bgcolor: 'white',
               transform: 'translateY(-50%) rotate(45deg)',
               zIndex: 0,
             },

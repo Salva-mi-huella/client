@@ -153,7 +153,7 @@ const AdoptionRequests = () => {
               .map((r) => (
                 <TableRow className={styles.row} key={r.name} sx={{ '&:last-child td, &:last-child th': { border: 1 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row" sx={{width: '10vw', display: 'flex'}}>
                     <img className={styles.petImg} alt='pet icon' src={r.pet?.images[0]} />
                     {r.pet?.name}
                   </TableCell>
