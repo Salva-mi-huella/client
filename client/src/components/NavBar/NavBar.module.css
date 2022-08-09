@@ -93,3 +93,62 @@
     margin-right: 10px;
  
 }
+
+
+
+@media only screen and (max-width: 790px) {
+    .nav{
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        width: 100vw;
+        padding-top: calc(8.5vh /4);
+        display: flex;
+        flex-direction: column;  
+        background-color: rgb(54, 22, 149);      
+    }
+    .logo{
+        width: 80px;
+        height: 80px;
+        margin: 0;
+    }
+    .hamburger{
+        display: block;
+        cursor: pointer;
+        padding-left: 10px;
+        transition: 1s;
+    }
+    .hamburger:hover{
+        color: rgb(255, 230, 0);
+    }
+    
+    .containerNav{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+    }
+    
+    .navCenter{
+        display: none;
+        position: absolute;
+        width: 100%;
+        margin-top: 53px;
+        z-index: 10px;
+        padding-left: 15px;
+        background-color: rgb(54, 22, 149);     
+     }
+
+    .block{
+        display: block;
+        backdrop-filter: blur(5px);
+    }
+    .signUp{
+        margin: 0;
+        z-index: 10;
+        margin-right: 10px;
+        
+    }
+
+}
+
