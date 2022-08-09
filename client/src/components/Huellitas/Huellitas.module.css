@@ -255,3 +255,25 @@ padding-bottom: 12vw;
     justify-content: center;
     /* border: 2px solid red */
 }
+
+@media(max-width: 1280px){
+    .banner img {
+        width: 30.1vw;
+        height: 30.44vw;
+    }
+}
+
+@media(max-width: 768px){
+    .banner img {
+        width: 50.5vw;
+        height: 30.33vw;
+    }
+}
+
+@media(max-width: 375px){
+    .banner img {
+        width: 29.5vw;
+        height: 30.5vw;
+    }
+}
+
