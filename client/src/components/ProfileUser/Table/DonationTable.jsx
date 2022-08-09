@@ -15,9 +15,8 @@ import adopt from "../../../assets/dog-adopt5.png";
 import { Link } from 'react-router-dom';
 
 
-export default function DonationTable({ userDetail, foundations, allDonations }) {
+export default function DonationTable({ userDetail, allDonations }) {
 
-  let donaciones = userDetail.donations;
   let user = userDetail.donations;
 
   console.log(allDonations, 'AllDonations');
@@ -27,8 +26,6 @@ export default function DonationTable({ userDetail, foundations, allDonations })
     allDonations = allDonations.filter(donation => donation.userId === userDetail.id);
     console.log(allDonations, 'allDonations filtrado');
   }
-
-  // console.log(foundations, 'Foundations');
 
 
   const [page, setPage] = React.useState(0);
@@ -64,7 +61,7 @@ export default function DonationTable({ userDetail, foundations, allDonations })
         :
 
         <TableContainer component={Paper}
-          style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%', width: '60%' }}
+          style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%', width: '80%', border: '1px solid black' }}
         >
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead >
@@ -85,8 +82,6 @@ export default function DonationTable({ userDetail, foundations, allDonations })
                     key={d.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-
-                    {/* <TableCell className={styles.tableCell} align="left">{foundations?.find(f => f.id === d.foundationId).name}</TableCell> */}
                     <TableCell className={styles.tableCell} align="left">{d.foundation.name}</TableCell>
                     <TableCell className={styles.tableCell} align="left">{`${d.amount} usd`}</TableCell>
                     <TableCell className={styles.tableCell} align="left">{d.points}</TableCell>
@@ -106,7 +101,7 @@ export default function DonationTable({ userDetail, foundations, allDonations })
           <TablePagination
             className={styles.pagination}
             component="div"
-            count={donaciones?.length}
+            count={allDonations?.length}
             page={page}
             onPageChange={handleChangePage}
             rowsPerPage={rowsPerPage}

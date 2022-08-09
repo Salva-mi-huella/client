@@ -1,5 +1,14 @@
 .pageContainer {
-    margin-left: 15%;
+  margin-left: 15%;
+}
+
+.requestTableTitle {
+  width: 100%;
+  margin: 1rem 2rem;
+  margin-left: 2rem;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #F1F15B;
 }
 
 .loading {

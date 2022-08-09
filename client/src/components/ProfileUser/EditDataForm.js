@@ -161,7 +161,7 @@ export default function EditProfile() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getUserByEmail(user.email))
+    dispatch(getUserByEmail(user?.email))
   }, [])
 
   const userDetail = useSelector(state => state.user);

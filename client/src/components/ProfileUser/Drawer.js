@@ -17,7 +17,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { useAuth0 } from '@auth0/auth0-react';
-import styles from './ProfileUser.module.css';
 import paw from '../../assets/yellow-paw.png';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsAccessibilityIcon from '@mui/icons-material/SettingsAccessibility';
@@ -31,10 +30,11 @@ import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
 import ProductsTable from './Table/ProductsTable';
 import { getUserSession } from '../../utils/index.js';
-import { getAllPets, getDonations, getUserByEmail } from '../../redux/actions';
+import { getAllPets, getDonations, getRequestsAdopt, getUserByEmail } from '../../redux/actions';
 import Card from '../Adopt/Card'
 import adopt from "../../assets/dog-adopt5.png";
 
+import styles from './ProfileUser.module.css';
 
 
 const drawerWidth = 240;
@@ -111,12 +111,14 @@ export default function PersistentDrawerLeft() {
   useEffect(() => {
 
     dispatch(getDonations());
-    dispatch(getUserByEmail(user.email))
+    dispatch(getUserByEmail(user?.email))
+    dispatch(getRequestsAdopt())
   }, [dispatch])
 
   const userDetail = useSelector(state => state.user);
   const foundations = useSelector(state => state.foundations);
   const allDonations = useSelector(state => state.donations);
+  const allRequests = useSelector(state => state.requests_adopt);
   const pets = useSelector(state => state.allPets);
   const favsPets = pets?.filter(p => p.id === userDetail.favs?.find(f => f === p.id));
 
@@ -245,6 +247,7 @@ export default function PersistentDrawerLeft() {
       {donations && <DonationTable allDonations={allDonations} userDetail={userDetail} foundations={foundations}></DonationTable>}
 
       {favs && <div className={styles.favs}>
+        <h1 className={styles.requestTableTitle}> Mis favoritos </h1>
         {favs.length > 0 && <h1 className={styles.favsTitle}>Mis Favoritos</h1>}
         <div className={styles.favs}>
           {favsPets.length > 0 ? favsPets.map(f =>
@@ -268,7 +271,7 @@ export default function PersistentDrawerLeft() {
 
 
 
-      {request && <RequestTable userDetail={userDetail} userId={userDetail.id} foundations={foundations}></RequestTable>}
+      {request && <RequestTable allRequests={allRequests} userDetail={userDetail} userId={userDetail.id} foundations={foundations}></RequestTable>}
 
     </div>
   );
