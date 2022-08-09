@@ -6,14 +6,14 @@ import Table from '../Table/Table';
 
 import styles from '../MainDash/MainDash.module.css';
 
-const MainDash = () => {
+const MainDash = ({ requests }) => {
     return (
         <div className={styles.MainDash}>
 
             <h1 className={styles.h1Dash} > Movimientos del Mes </h1>
-            
+
             <Cards />
-            <Table />
+            <Table requests={requests} />
 
         </div>
     )

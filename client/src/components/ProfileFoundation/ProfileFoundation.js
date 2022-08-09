@@ -30,6 +30,8 @@ export default function ProfileFoundation() {
 
     const user = JSON.parse(localStorage.getItem('user'));
     let foundation = useSelector(state => state.foundations);
+    let requests = useSelector(state => state.requests_adopt);
+
     if (user) {
         foundation = foundation.find(f => f.email === user.email);
     }
@@ -57,7 +59,7 @@ export default function ProfileFoundation() {
                     {
                         optionSelection === 0 && (
                             <>
-                                <MainDash foundation={foundation} />
+                                <MainDash foundation={foundation} requests={requests} />
                                 <RightSide foundation={foundation} />
                             </>
                         )

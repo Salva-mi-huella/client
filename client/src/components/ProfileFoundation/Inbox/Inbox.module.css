@@ -45,6 +45,9 @@
 
 .ciudad {
     color: #00b5ff !important;
+    text-overflow: ellipsis;
+    overflow: auto;
+    word-break: break-all;
 }
 
 .tableCell {

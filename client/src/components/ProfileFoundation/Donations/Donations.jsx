@@ -76,27 +76,28 @@ const Donations = () => {
 
     return (
         <div className={styles.tableDonations}>
-
-            <h3 className={styles.donationTitle}> Historial de Donaciones </h3>
-
-            <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
-            >
+            <TableContainer className={styles.cont} component={Paper}
+                style={{
+                    boxShadow: '0px, 13px, 20px, 0px #80808029',
+                    height: '90%',
+                    marginTop: '2%',
+                    border: '1px solid gray'
+                }}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                        <TableRow>
-                            <TableCell> Nombre del Usuario </TableCell>
-                            <TableCell align="left"> Email </TableCell>
-                            <TableCell align="left"> Fecha de Donacion</TableCell>
-                            <TableCell align="left"> Metodo Utilizado</TableCell>
-                            <TableCell align="left" > Cantidad </TableCell>
+                        <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }}> Nombre del Usuario </TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Email </TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Fecha de Donacion</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Metodo Utilizado</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left" > Cantidad </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody >
                         {donations && donations?.length > 0 ? donations
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row, index) => (
-                                <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 1 } }} >
+                                <TableRow className={styles.row} key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 1 } }}>
                                     <TableCell component="th" scope="row"> {!row.user?.name ? 'Anonimo' : `${row.user?.name}`} </TableCell>
                                     <TableCell align="left">{!row.user?.email ? 'Anonimo' : `${row.user?.email}`} </TableCell>
                                     <TableCell align="left">{row.date}</TableCell>
@@ -107,7 +108,7 @@ const Donations = () => {
                             )) :
                             <TableCell component="th" scope="row"> Aun no hay donaciones </TableCell>}
                         {emptyRows > 0 && (
-                            <TableRow style={{ height: 53 * emptyRows }}>
+                            <TableRow style={{ height: 62.5 * emptyRows }}>
                                 <TableCell colSpan={6} />
                             </TableRow>
                         )}
@@ -115,6 +116,7 @@ const Donations = () => {
                 </Table>
 
                 <TablePagination
+                    sx={{ justifyContent: 'center', alignSelf: 'center', flex: 'center', marginTop: '20px', textAlign: 'center', }}
                     className={styles.pagination}
                     component="div"
                     count={donations?.length}
@@ -124,8 +126,8 @@ const Donations = () => {
                     rowsPerPageOptions={[10]}
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
-
             </TableContainer>
+
 
         </div>
     )

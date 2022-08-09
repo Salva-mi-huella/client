@@ -34,7 +34,7 @@ const makeStyles = (status) => {
     }
 }
 
-export default function BasicTable() {
+export default function BasicTable({ requests }) {
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(4);
@@ -43,7 +43,7 @@ export default function BasicTable() {
 
     const user = JSON.parse(localStorage.getItem('user'));
     let foundation = useSelector(state => state.foundations);
-    let requests = useSelector(state => state.requests_adopt);
+
 
 
     if (user) {
@@ -51,11 +51,11 @@ export default function BasicTable() {
         // console.log(foundation, 'Foundation');
     }
 
-    useEffect(() => {
-        dispatch(getRequestsAdopt())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getRequestsAdopt())
+    // }, [dispatch])
 
-    requests = requests.filter(r => r.foundationId === foundation.id)
+    // requests = requests.filter(r => r.foundationId === foundation.id)
     // console.log(requests, 'requests_adopt');
 
     const handleChangePage = (event, newPage) => {
@@ -100,7 +100,7 @@ export default function BasicTable() {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        {r.pet.name}
+                                        {r.pet?.name}
                                     </TableCell>
                                     <TableCell align="left">{r.name} {r.lastname}</TableCell>
                                     <TableCell align="left">{r.email}</TableCell>

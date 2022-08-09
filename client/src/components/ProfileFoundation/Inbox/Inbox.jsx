@@ -63,22 +63,19 @@ const Inbox = () => {
 
     return (
         <div className={styles.inboxTable} >
-            <h3 className={styles.inboxTitle}> Bandeja de entrada </h3>
-
-
             <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%', marginTop: '2%' }}
             >
-                <Table sx={{ maxWidth: 800. }} aria-label="simple table">
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead >
-                        <TableRow sx={styles.TableRow} >
-                            <TableCell align="left">Usuario</TableCell>
-                            <TableCell align="left">Email</TableCell>
-                            <TableCell align="left">Mensaje</TableCell>
+                        <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)', maxWidth: 800 }} >
+                            <TableCell sx={{ color: 'purple', fontWeight: '700' }} align="left">Usuario</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700' }} align="left">Email</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700' }} align="left">Mensaje</TableCell>
                         </TableRow>
                     </TableHead>
                     {/* BODY */}
-                    <TableBody>
+                    <TableBody sx={{}} >
                         {foundation && foundation.messages
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((r) => (
@@ -106,23 +103,23 @@ const Inbox = () => {
                     </TableBody>
                 </Table>
 
-                <TablePagination
-                    className={styles.pagination}
-                    component="div"
-                    count={foundation?.messages.length}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    rowsPerPage={rowsPerPage}
-                    rowsPerPageOptions={[10]}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-
-
             </TableContainer>
 
+            <TablePagination
+                sx={{ justifyContent: 'center', alignSelf: 'center', flex: 'center' }}
+                className={styles.pagination}
+                component="div"
+                count={foundation?.messages.length}
+                page={page}
+                onPageChange={handleChangePage}
+                rowsPerPage={rowsPerPage}
+                rowsPerPageOptions={[10]}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
 
 
-        </div>
+
+        </div >
     )
 }
 

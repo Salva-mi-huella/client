@@ -59,11 +59,11 @@ const Transito = () => {
     };
 
     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, users.length - page * rowsPerPage));
+
     return (
         <div className={styles.tableDonations}>
-            <h3 className={styles.donationTitle}>Usuarios:</h3>
-            <TableContainer /* sx={{backgroundColor:'transparent'}} */ className={styles.cont} component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }}
+            <TableContainer component={Paper}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%', marginTop: '2%' }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead >
@@ -101,18 +101,20 @@ const Transito = () => {
                         )}
                     </TableBody>
                 </Table>
-                <TablePagination
-                    className={styles.pagination}
-                    component="div"
-                    count={users.length}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    rowsPerPage={rowsPerPage}
-                    rowsPerPageOptions={[10]}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-
             </TableContainer>
+
+            <TablePagination
+                sx={{ justifyContent: 'center', alignSelf: 'center', flex: 'center' }}
+                className={styles.pagination}
+                component="div"
+                count={users.length}
+                page={page}
+                onPageChange={handleChangePage}
+                rowsPerPage={rowsPerPage}
+                rowsPerPageOptions={[10]}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+
         </div>
     )
 }
