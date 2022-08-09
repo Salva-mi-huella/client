@@ -99,8 +99,8 @@
     text-align: center;
     position: -webkit-sticky;
     position: sticky;
-    backdrop-filter: blur(5px);
-    top: 0;
+    /* backdrop-filter: blur(5px); */
+    top: 10px;
     justify-content: center;
     align-items: center;
 
@@ -378,7 +378,7 @@ ul .pages{
     position: sticky;
     backdrop-filter: blur(5px);
     right: 0;
-    top: 70px;
+    top: 120px;
     margin-bottom: 20px;
 }
 .itemAside:hover  {
