@@ -78,7 +78,7 @@ const Users = () => {
     return (
         <div className={styles.tableDonations}>
             <TableContainer sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}} className={styles.cont} component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', maxHeight: '71vh', maxWidth: '66.9vw',marginTop:"7vh"}}
+                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', maxHeight: '71vh',maxWidth: '100%',marginTop:"7vh"}}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead >
