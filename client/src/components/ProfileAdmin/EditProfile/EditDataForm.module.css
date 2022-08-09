@@ -100,9 +100,17 @@ margin-left: 0.3rem;
 
 @media screen and (max-width: 1440px) {
  .form{
-    height: 70vh;
-    width: 60vw;
+    height: 80vh;
+    width: 55vw;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-    padding: 4rem 5rem;
+    padding: 1rem 5rem;
+    margin-top:1rem;
   }
+.label{
+  margin-bottom: 1rem;
+}
+.div{
+  width: 45vw;
+  min-height: 5rem;
+}
 }
