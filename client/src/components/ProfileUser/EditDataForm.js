@@ -244,6 +244,11 @@ export default function EditProfile() {
 
       <form onSubmit={handleSubmit} className={style.form}>
         <h3 className={style.h3title}> Mis Datos </h3>
+        {/* EMAIL */}
+        <div className={style.cont}>
+          <label className={style.label} htmlFor="email">Email:</label>
+          <p className={style.mail}>{userDetail.email}</p>
+        </div>
 
         {/* NOMBRE */}
         <div className={style.div}>
@@ -259,11 +264,6 @@ export default function EditProfile() {
           {error.lastname && <p className={`${style.error}`}>{error.lastname}</p>}
         </div>
 
-        {/* EMAIL */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="email">Email:</label>
-          <p>{userDetail.email}</p>
-        </div>
 
         {/* TELEPHONE_NUMBER */}
         <div className={style.cont}>
@@ -299,9 +299,9 @@ export default function EditProfile() {
           <input className={style.input} defaultValue={userDetail.birthday}  onChange={(e) => handleChange(e)} type="date" id="birthday" name="birthday" value={input.birthday} />
         </div>
         
-        <div>
+        <div >
           <label>¿Te gustaria ofrecerte como persona de tránsito?</label>
-    {userDetail.transit === "Si" ? <div><label htmlFor='Si'><input defaultChecked onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/>Sí</label><label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/>No</label></div> : <div><label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/>Sí</label><label htmlFor='No'><input defaultChecked onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/>No</label></div>}
+    {userDetail.transit === "Si" ? <div className={style.transit}><label htmlFor='Si'><input defaultChecked onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/>Sí</label><label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/>No</label></div> : <div className={style.transit}><label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/>Sí</label><label htmlFor='No'><input defaultChecked onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/>No</label></div>}
           {/* <label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/>Sí</label>
           <label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/>No</label> */}
         </div>
