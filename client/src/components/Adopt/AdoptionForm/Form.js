@@ -217,12 +217,12 @@ return (
               </div>
 
               <div className={styles.inp}>
-                <label htmlFor="lastname">Apellido</label>
                 <Field
                   className={`form-control ${styles.inputsForm}`}
                   type="text"
                   name="lastname"
                   id="lastname"
+                  placeholder="Apellido"              
                   />
                 <ErrorMessage name="lastname" component={()=> (<div className={styles.error}>{errors.lastname}</div>)}></ErrorMessage>
               </div>
@@ -230,36 +230,39 @@ return (
 
             <div className={styles.groupinp}>
               <div className={styles.inp}>
-                <label htmlFor="email">Email</label>
                 <Field sx={{color: 'white'}}
                   className={`form-control ${styles.inputsForm}`}
                   type="email"
                   name="email"
                   id="email"
+                  placeholder="Email"              
+
                   /> 
                 <ErrorMessage name="email" component={()=> (<div className={styles.error}>{errors.email}</div>)}></ErrorMessage>
               </div>
 
               <div className={styles.inp}>
-                <label htmlFor="telefono">Teléfono</label>
                 <Field
-                  className={`form-control w-75 ${styles.inputsForm}`}
+                  className={`form-control ${styles.inputsForm}`}
                   type="tel"
                   name="phone"
                   id="phone"
+                  placeholder="Teléfono"              
+
                 /> 
                 <ErrorMessage name="phone" component={()=> (<div className={styles.error}>{errors.phone}</div>)}></ErrorMessage>
               </div>
             </div>
 
             <div className={styles.groupinp3}>
-              <div className={styles.inp}>
-                <label htmlFor="age">Edad</label>
+              <div className={styles.age}>
                 <Field
                   className={`form-control w-50 ${styles.inputsForm}`}
                   type="number"
                   name="age"
-                  id="age"                  
+                  id="age"    
+                  placeholder="Edad"              
+
                   />
                 <ErrorMessage name="age" component={()=> (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
               </div>

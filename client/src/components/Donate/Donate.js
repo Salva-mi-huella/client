@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import style from './Donate.module.css'
 import { getFoundations, getUserByEmail } from '../../redux/actions/index.js';
 import Stepper from './Stepper';
-import banner from '../../assets/paw_hand3.png'
+import banner from '../../assets/paw-hand1.png'
 import paypal from '../../assets/paypal.png'
 import mercadoPago from '../../assets/mercadopago.png'
 import Paypal from './Paypal/Paypal';

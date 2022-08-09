@@ -32,8 +32,9 @@
 .inp{
     display: flex;
     flex-direction: column;
-    height: 10vw;
+    height: 7vw;
     width: 20vw;
+    margin-bottom: 1vw;
     color: azure;
 }
 
@@ -91,11 +92,12 @@ label{
     color: white;
     font-size: 1.8vw;
     font-weight: 700;
+    width: 44vw;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 1.7vw;
+    margin-top: 2vw;
     letter-spacing: 2px;
     border-radius: 5px;    
     background-color: transparent;
@@ -103,8 +105,8 @@ label{
 }
 
 .send:hover {
-    background: #FCEC4F;
-    color: #fff;
+    background: white;
+    color: rgb(99, 59, 218);
     border-radius: 5px;
     /* box-shadow: 0 0 5px #FCEC4F,
                 0 0 25px #FCEC4F,
@@ -135,6 +137,10 @@ label{
     background-color: #CBB1E1 !important;
     border: none !important;
     font-weight: bold;
+}
+
+.age {
+    margin-top: 2vw
 }
 
 

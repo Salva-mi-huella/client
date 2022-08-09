@@ -188,7 +188,7 @@ export default function PersistentDrawerLeft() {
     <div className={styles.pageContainer}>
       <Box sx={{ display: 'flex', color: 'black' }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open} sx={{ backgroundColor: 'rgba(154, 121, 255, 0.488)' }}>
+        <AppBar position="fixed" open={open} sx={{ backgroundColor: 'rgb(99, 59, 218)' }}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -211,7 +211,7 @@ export default function PersistentDrawerLeft() {
             '& .MuiDrawer-paper': {
               width: drawerWidth,
               boxSizing: 'border-box',
-              backgroundColor: 'rgba(154, 121, 255, 0.488)'
+              backgroundColor: 'rgb(99, 59, 218)'
             },
           }}
           variant="persistent"
@@ -234,7 +234,7 @@ export default function PersistentDrawerLeft() {
             <ListItemButton onClick={viewAdoptSolicitudes} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><ContentPasteIcon sx={{ color: 'white' }} /></ListItemIcon>Solicitudes de adopción</ListItemButton>
             <ListItemButton onClick={viewProducts} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><Inventory2Icon sx={{ color: 'white' }} /></ListItemIcon>Mis productos</ListItemButton>
             <ListItemButton sx={{ color: 'rgb(255, 230, 0)', marginBottom: '20px', fontWeight: 'bold', fontSize: '20px', fontFamily: 'Gill Sans' }}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{new Intl.NumberFormat().format(userDetail.points)}</ListItemButton>
-            <ListItemButton onClick={handleLogout} sx={{ color: 'white', marginTop: '16vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
+            <ListItemButton onClick={handleLogout} sx={{ color: 'white', marginTop: '10vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
           </List>
           <Divider />
         </Drawer>
@@ -247,9 +247,9 @@ export default function PersistentDrawerLeft() {
       {donations && <DonationTable allDonations={allDonations} userDetail={userDetail} foundations={foundations}></DonationTable>}
 
       {favs && <div className={styles.favs}>
-        <h1 className={styles.requestTableTitle}> Mis favoritos </h1>
+        {/* <h1 className={styles.requestTableTitle}> Mis favoritos </h1> */}
         {favs.length > 0 && <h1 className={styles.favsTitle}>Mis Favoritos</h1>}
-        <div className={styles.favs}>
+        <div className={styles.favsAdded}>
           {favsPets.length > 0 ? favsPets.map(f =>
             <Card id={f.id} name={f.name} img={f.images} age={f.age} />
           ) :

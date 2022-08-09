@@ -17,7 +17,7 @@ export default function ProfileUser() {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <PersistentDrawerLeft />
         </div>
     )

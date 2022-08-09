@@ -1,35 +1,42 @@
-.banner img{
+.container {
+    background: linear-gradient(180deg, rgba(99,59,218,1) 38%, rgba(146,116,233,1) 50%, rgba(204,194,236,1) 57%, rgba(251,251,251,1) 81%, rgba(99,59,218,1) 92%);
+}
+
+.dogBanner{
     width: 43vw;
     height: 38vw;
     margin-left: 53vw;
-    /* padding-bottom: 5vw; */
+    margin-top: -22vw;
+
 }
+
 
 .banner {
     margin-top: 6vw;
     box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
     padding-top: 6vw;
+    height: 43vw;
+    /* border: 3px solid red */
     /* padding-bottom: 2.5vw; */
 }
 
 .sectionTitle{
-    position: absolute;
+    /* position: absolute; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(255, 230, 0);
-    font-size: 5vw;
+    letter-spacing: -0.2vw;
+    font-size: 6vw;
     /* margin-top: 120px; */
     margin-left: 2vw;
-    margin-top: 2vw;
+    margin-top: 6vw;
     font-weight: bolder;
 }
 
 .banner p {
-    position: absolute;
+    /* position: absolute; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
     font-size: 4vw;
-    letter-spacing: 0.2vw;
-    margin-top: 10vw;
     margin-left: 2vw;
     font-weight: bolder;
 }
@@ -55,8 +62,8 @@
     margin-left: 30%;
 }
 #steps{
-    width: 38vw;
-    height: 33vw;
+    width: 25vw;
+    height: 30vw;
     margin-top: -5vw;
     margin-right: 3vw;
 }
@@ -96,6 +103,11 @@
     top: 0;
     justify-content: center;
     align-items: center;
+
+
+    padding-bottom: 2vw;
+    padding-top: 3vw;
+    /* background-color: white; */
 }
 
 
@@ -103,6 +115,7 @@
 .containerAnimals{
     display: grid;
     grid-template-columns: 95% auto;
+    /* background-color: white; */
 }
 
 .cardContainer{
@@ -111,7 +124,11 @@
     min-height: 50vh;
     justify-content: center;
     padding: 10px 3% 3% 10px;
+
+    gap: 1.5vw;
+    margin-left: 6vw;
 }
+
 .card{
     text-align: center;
     width: 270px;
@@ -121,7 +138,8 @@
     flex-direction: column;
     margin: 0px 7px 88px 7px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: rgba(154, 121, 255, 0.488);
+    /* background-color: rgba(154, 121, 255, 0.488); */
+    background-color: rgb(99, 59, 218);
     transition: 0.5s;
 
 }
@@ -208,7 +226,8 @@
     width: 90vw;
     margin-bottom: 30px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: rgba(154, 121, 255, 0.488);
+    /* background-color: rgba(154, 121, 255, 0.488); */
+    background-color: rgb(99, 59, 218);
     border-radius: 50px;
     display: flex;
     flex-direction: row;
@@ -305,9 +324,10 @@ ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:10px;
+    gap: 1vw;
     cursor: pointer;
     text-align: center;
+    margin-bottom: 7vw;
 }
 ul .pages{
     color: white;
@@ -316,7 +336,8 @@ ul .pages{
     border-radius: 100%;
     /* height: 30px; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    border: 1.4px solid rgba(154, 121, 255, 0.488);
+    /* border: 1.4px solid rgba(154, 121, 255, 0.488); */
+    background-color: rgb(99, 59, 218);
     transition: 0.3s;
 }
 .pages:hover{
@@ -326,7 +347,8 @@ ul .pages{
     /* background-color: red; */
     border: none;
     font-size: 30px;
-    color: rgba(155, 121, 255, 0.992);
+    /* color: rgba(155, 121, 255, 0.992); */
+    color: rgb(99, 59, 218, 0.992);
 }
 .activePage{
     background-color: rgba(154, 121, 255, 0.488);
@@ -342,7 +364,8 @@ ul .pages{
 .itemAside{
     font-size: 1.5rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: rgba(154, 121, 255, 0.488);
+    /* background-color: rgba(154, 121, 255, 0.488); */
+    background-color: rgb(99, 59, 218);
     color: rgb(255, 145, 145);
     box-shadow: rgba(0, 0, 0, 0.236) 0px 5px 15px;
     width: 3.5rem;
@@ -366,3 +389,96 @@ ul .pages{
     font-weight: bolder;
 }
 
+
+/* ----- STEPS  -----*/
+
+.userInfo img {
+    width: 25vw;
+    height: 40vw;;
+}
+
+.subInfoA {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 3vw;
+}
+
+.subInfoA img {
+    margin-left: 10vw;;
+}
+
+.subInfoC {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10vw;
+    margin-top: 4vw;
+    margin-left: 2vw;;
+}
+
+
+.subInfoA div{
+    margin-left: 7vw;
+    width: 41vw;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.subInfoB {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-left: 50vw; */
+}
+
+.subInfoB div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12vw !important;
+}
+
+.subInfoC img {
+    margin-left: 10vw;;
+}
+
+.gift {
+    width: 20vw !important;
+    height: 20vw !important;
+    margin-bottom: 1vw;
+    margin-left: 10vw !important;
+}
+
+.userInfo h1 {
+    font-size: 4vw !important;
+    letter-spacing: -0.2vw;
+    font-weight: bolder;
+    font-weight: 1200;
+    margin-bottom: 2vw;
+    color: rgb(255, 230, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.userInfo p {  
+    font-size: 1.7vw !important;
+    margin-bottom: 2vw;
+    color: white;
+    /* text-align: center; */
+    flex-wrap: wrap;
+    font-weight: 500;
+    /* background-color: green; */
+}
+
+.subInfoB p {  
+        margin-right: 8vw !important;
+}
+
+.userInfo {
+    margin-top: 10vw;
+}

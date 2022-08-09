@@ -4,8 +4,8 @@ import banner from '../../assets/banner-huellitas-3.png'
 import { useAuth0 } from '@auth0/auth0-react';
 import paw from '../../assets/yellow-paw.png'
 import { Link } from 'react-router-dom';
-import register from '../../assets/user-checked.png'
-import rescued from '../../assets/adopted.png'
+import register from '../../assets/register-plus.png'
+import rescued from '../../assets/adopted1.png'
 import Footer from '../Footer/Footer'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
@@ -49,7 +49,7 @@ export default function Huellitas(){
             <div className={style.section}>
                 <div className={style.subTitles}>
                     <div      data-aos="fade-right"
-                        data-aos-duration="1000">
+                        data-aos-duration="1000" className={style.subTitleA}>
                         <img className={style.pictureA}src={register} alt=''></img>
                         <h3>Por registrarte</h3>
                         <div className={style.points}>
@@ -73,21 +73,27 @@ export default function Huellitas(){
                 <h1>Conocé nuestro catálogo de productos</h1>
                 <div>
                     <div>
-                        <Link to='/tienda/22' > <img className={style.products}src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659552637/Huellas_folder/2023bbdf2b9fe10ebc9c7fbbbb7e94ab_rgfyg8-removebg-preview_ti3lvk.png" alt='product_a'></img></Link>
+                        <Link to='/tienda/22' ><div className={style.imgContainer}>
+                             <img className={style.products}src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659552637/Huellas_folder/2023bbdf2b9fe10ebc9c7fbbbb7e94ab_rgfyg8-removebg-preview_ti3lvk.png" alt='product_a'></img>
+                        </div></Link>
                         <div>
                             <span>4070</span>
                             <img className={style.paw} src={paw} alt='paw'></img>
                         </div>
                     </div>
                     <div>
-                        <Link to='/tienda/14' ><img className={style.products} src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659544674/Huellas_folder/colchon-liso21-3018197b3f1c52563d15890266038627-640-0_ahetau-removebg-preview_pelypx.png" alt='product_c'></img></Link>
+                    <Link to='/tienda/14' ><div className={style.imgContainer}>
+                             <img className={style.products} src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659544674/Huellas_folder/colchon-liso21-3018197b3f1c52563d15890266038627-640-0_ahetau-removebg-preview_pelypx.png" alt='product_c'></img>
+                        </div></Link>
                         <div>
                             <span>10775</span>
                             <img className={style.paw} src={paw} alt='paw'></img>
                         </div>
                     </div>
                     <div>
-                        <Link to='/tienda/21'><img className={style.products} src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659552548/Huellas_folder/156157-1_g2rczl-removebg-preview_wlmg7t.png" alt='product_b'></img></Link>
+                    <Link to='/tienda/21'><div className={style.imgContainer}>
+                            <img className={style.products} src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659552548/Huellas_folder/156157-1_g2rczl-removebg-preview_wlmg7t.png" alt='product_b'></img>
+                        </div></Link>
                         <div>
                             <span>18610</span>
                             <img className={style.paw} src={paw} alt='paw'></img>

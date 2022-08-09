@@ -24,7 +24,7 @@ export default function AdoptionForm() {
             </div>
 
             <div className={styles.banner}>
-                {/* <h1>¡Estás a un paso de unirte con tu huella!</h1> */}
+                <h1>¡Unite<br></br> con tu huella!</h1>
                 <img src={hand_paws} alt='bannerImage'></img>
             </div>
 
