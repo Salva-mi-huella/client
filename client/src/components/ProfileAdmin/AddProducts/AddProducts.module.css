@@ -7,8 +7,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 8vh;
-    margin: 1.5rem 0;
+    height: 8.2vh;
+    width: 30vw;
+    margin-left: 5rem;
+    margin-bottom: 3rem;
 }
 .contactContainer {
     display: flex;
@@ -18,7 +20,7 @@
   
 .h3title{
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
@@ -30,58 +32,44 @@
   }
   
   
-  .label, .description {
-    color: #2d2d2f;
-    text-transform: uppercase;
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-    font-weight: bold;
-  }
-  
-/*   .form {
-    width: 31.25rem;
-    position: relative;
-    margin-top: 1rem;
-    padding: 1rem 0;
-  } */
-  
-  .input, .textarea, .label {
-    width: 40vw;
-    display: block;
-  }
-  
+
+.div{
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+}
+.input{
+   margin-bottom: 1.5rem;
+}
   .input, .textarea {
     font-family: 'Helvetica Neue', sans-serif;
-  }
-  
-  .input::placeholder, .textarea::placeholder {
-    color: #0107129c;
-  }
-
-  
-  .input, .textarea {
+    width: 30vw;
+    display: block;
+    margin-left: 4rem;
+    padding: 10px;
     color: #010712;
     font-weight: 500;
     background: #FCFDFD;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.334);
-    padding: 0.5rem 0;
-    outline: none;
     resize: none;
-    margin-bottom: 6px;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    outline: none;
+   
+  }
+  .textarea {
+  height: 7rem;
   }
 .pictures{
     margin-bottom: 2rem;
+    margin-left: 4rem;
 }
 .typeCat{
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
     font-family: 'Jost', sans-serif;
     color: #2d2d2f;
     text-transform: uppercase;
     font-size: 0.9rem;
-    margin-bottom: 0.2rem;
     font-weight: bold;
 }
 .select{
@@ -90,11 +78,12 @@
     border: none;
     border-radius: 30px;
     padding: 3px;
+    margin-right: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     
 }
 .post{
-    width: 40vw;
+    width: 30vw;
     display: flex;
     font-size: 1.5rem;
     justify-content: center;
@@ -105,14 +94,63 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: white;
     margin-top: 1.5rem;
+    margin-left: 4rem;
 }
 .form{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 1rem;
     padding: 1rem 5rem;
+    width: 44vw;
+    height: 70vh;
 }
 .error{
   color: red;
+  width: 9rem;
   font-size: 0.8rem;
-  margin-left: 10px;
+  margin-left: 1rem;
+  margin-top: 1.8rem;
+}
+
+.error1{
+  color: red;
+  width: 6rem;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  margin-top: 5rem;
+}
+.error2{
+  color: red;
+  width: 0.6rem;
+  font-size: 0.8rem;
+  margin-left: 2px;
+}
+@media screen and (max-width: 1440px) {
+.form{
+  width: 55vw;
+  height: 78vh;
+}
+.postProductContainer{
+  margin-top: 2rem;
+}
+.containerSelect{
+  margin-top: 2rem;
+  margin-left: 6.5rem;
+  margin-bottom: 3rem;
+}
+.select{
+  margin-left: 1rem;
+  margin-top: 0.2rem;
+}
+.post{
+  width: 40vw;
+  margin-left: 3rem;
+}
+.div{
+  margin-left: 3rem;
+  width: 50vw;
+}
+.pictures{
+  margin-left: 7rem;
+}
+
 }
