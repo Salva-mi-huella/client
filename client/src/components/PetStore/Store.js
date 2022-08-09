@@ -215,26 +215,31 @@ export default function Store() {
           <PaginateStore/>
         </div>
 
-        <div>
-        
-        {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <ShoppingCartIcon sx={{color: 'yellow'}}/>
-        </button>:null}
+
+      <div>
+      
+      {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <ShoppingCartIcon sx={{color: 'yellow'}}/>
+      </button>:null}        
 
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog ">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className={styles.mainmodal}>
-                <ShoppingCart/>
-              </div>
-              <div class={styles.modalfooter}>
-                <button type="button" class="" data-bs-dismiss="modal">Seguir comprando</button>
-                <button type="button" class="" onClick={updatePoints}>Finalizar Compra</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className={styles.mainmodal}>
+                  <ShoppingCart />
+                </div>
+                <div class={styles.modalfooter}>
+                  <button type="button" class="" data-bs-dismiss="modal">Seguir comprando</button>
+                  <button type="button" class="" onClick={updatePoints}>Finalizar Compra</button>
+                </div>
+
+
+       
               </div>
             </div>
           </div>
