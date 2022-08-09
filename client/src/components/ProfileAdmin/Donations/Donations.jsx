@@ -65,18 +65,18 @@ const Donations = () => {
 
           {/*   <h3 className={styles.donationTitle}> Historial de Donaciones </h3> */}
 
-            <TableContainer  component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029',maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }}
+            <TableContainer  sx={{border: "1px solid #e5e5e5" }}  component={Paper}
+                style={{  background:"transparent",maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow  sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}}> Usuario </TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Fecha de Donacion</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Metodo Utilizado</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left" > Cantidad </TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left"> Puntos Acumulados</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fundación</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}}> Usuario </TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left"> Fecha de Donacion</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left"> Metodo Utilizado</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left" > Cantidad </TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left"> Puntos Acumulados</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Fundación</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -84,17 +84,17 @@ const Donations = () => {
                             .map((row) => (
                                 <TableRow className={styles.row} key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 1 } }} >
 
-                                    <TableCell component="th" scope="row"> {!row.user ? 'Anonimo' : `${row.user.nickname}`} </TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} component="th" scope="row"> {!row.user ? 'Anonimo' : `${row.user.nickname}`} </TableCell>
 
-                                    <TableCell align="left">{row.date}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{row.date}</TableCell>
 
-                                    <TableCell align="left">{row.method}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{row.method}</TableCell>
 
-                                    <TableCell style={makeStyles(row.method)} align="left">{row.method === 'paypal' ? `$ ${row.amount} USD ` : `$ ${row.amount} ARS `}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} style={makeStyles(row.method)} align="left">{row.method === 'paypal' ? `$ ${row.amount} USD ` : `$ ${row.amount} ARS `}</TableCell>
 
-                                    <TableCell align="left">{new Intl.NumberFormat().format(row.points)}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{new Intl.NumberFormat().format(row.points)}</TableCell>
 
-                                    <TableCell align="left">{row.foundation.name}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{row.foundation.name}</TableCell>
 
                                 </TableRow>
                             )) :

@@ -41,18 +41,18 @@ const Products = () => {
     return (
         <div className={styles.tableDonations}>
            {/*  <h3 className={styles.donationTitle}>Productos:</h3> */}
-            <TableContainer className={styles.cont} component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029',maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }}
+            <TableContainer sx={{border: "1px solid #e5e5e5" }} className={styles.cont} component={Paper}
+                style={{ background:"transparent",maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fecha</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Nombre</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Puntos</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Tipo</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Categoría</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Stock</TableCell>
+                            <TableCell  sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Fecha</TableCell>
+                            <TableCell  sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Nombre</TableCell>
+                            <TableCell  sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Puntos</TableCell>
+                            <TableCell  sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Tipo</TableCell>
+                            <TableCell  sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Categoría</TableCell>
+                            <TableCell  sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Stock</TableCell>
 
                         </TableRow>
                     </TableHead>
@@ -65,11 +65,11 @@ const Products = () => {
                                     <TableCell component="th" scope="row">
                                         {product.post_date}
                                     </TableCell>
-                                    <TableCell align="left">{product.name}</TableCell>
-                                    <TableCell className={styles.points} align="left">{product.points}</TableCell>
-                                    <TableCell align="left">{product.type}</TableCell>
-                                    <TableCell align="left">{product.category}</TableCell>
-                                    <TableCell align="left">
+                                    <TableCell  sx={{color:'black', fontWeight:'500'}} align="left">{product.name}</TableCell>
+                                    <TableCell  sx={{color:'black', fontWeight:'500'}}className={styles.points} align="left">{product.points}</TableCell>
+                                    <TableCell  sx={{color:'black', fontWeight:'500'}}align="left">{product.type}</TableCell>
+                                    <TableCell  sx={{color:'black', fontWeight:'500'}}align="left">{product.category}</TableCell>
+                                    <TableCell  sx={{color:'black', fontWeight:'500'}}align="left">
                                         <select className={styles.select}
                                             onChange={(e) => { handleChange(e, product.id) }}>
                                             <option

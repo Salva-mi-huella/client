@@ -62,29 +62,29 @@ const Foundations = () => {
         <div className={styles.tableDonations}>
             {/* <h3 className={styles.donationTitle}>Fundaciones:</h3> */}
 
-            <TableContainer className={styles.cont} style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }} component={Paper}>
+            <TableContainer sx={{border: "1px solid #e5e5e5" }} className={styles.cont} style={{ background:"transparent", maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }} component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}}>N°</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fundación</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Teléfono</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Ciudad</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Localidad</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Email</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}}>N°</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Fundación</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Teléfono</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Ciudad</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Localidad</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Email</TableCell>
 
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {foundations.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((f) => (
                             <TableRow className={styles.row} key={f.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                <TableCell component="th" scope="row">{f.id}</TableCell>
-                                <TableCell align="left">{f.name}</TableCell>
-                                <TableCell align="left">{f.telephone_number}</TableCell>
-                                <TableCell align="left">{f.state}</TableCell>
-                                <TableCell align="left" className="ciudad">{f.city}</TableCell>
-                                <TableCell align="left">{f.email}</TableCell>
-                                <TableCell align="left">
+                                <TableCell sx={{color:'black', fontWeight:'500'}} component="th" scope="row">{f.id}</TableCell>
+                                <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{f.name}</TableCell>
+                                <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{f.telephone_number}</TableCell>
+                                <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{f.state}</TableCell>
+                                <TableCell sx={{color:'black', fontWeight:'500'}} align="left" className="ciudad">{f.city}</TableCell>
+                                <TableCell sx={{color:'black', fontWeight:'500'}}  align="left">{f.email}</TableCell>
+                                <TableCell sx={{color:'black', fontWeight:'500'}} align="left">
                                     {f.status === "Activa" ? <button value={f.status === "Activa" ? "Inactiva" : "Activa"} onClick={e => handleUpdate(e, f.id)} className={styles.boton} key={f.id}>Dar de baja</button> :
                                         <button value={f.status === "Activa" ? "Inactiva" : "Activa"} onClick={e => handleUpdate(e, f.id)} className={styles.boton1} key={f.id}>Dar de alta</button>}
                                 </TableCell>

@@ -17,7 +17,7 @@
   align-items: flex-start;
 }
 .h3title{
-    color: white;
+    color: rgb(99 59 218);
     font-size: 2.5rem;
     display: flex;
     justify-content: center;
@@ -65,9 +65,9 @@
   .input, .textarea {
     color: #010712;
     font-weight: 500;
-    background: #FCFDFD;
+    background-color: #b7b7b744;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.334);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.334); */
     padding: 0.5rem 0.5rem;
     outline: none;
     resize: none;
@@ -88,12 +88,13 @@
     border: none;
     border-radius: 10px;
     padding: 3px;
-    background-color: rgba(214, 71, 253, 0.678);
+    background-color: rgb(99 59 218);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: white;
 }
 .form{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  /*   background-color: rgba(154, 121, 255, 0.488); */
     margin-bottom: 1rem;
     padding: 2rem 5rem;
     height: 80vh;
