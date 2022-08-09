@@ -70,6 +70,7 @@ const userDetail = useSelector(state => state.user);
                     <div className={styles.signUp}>
                       <button onClick={handleLogin} >Ingresar</button> 
                     </div>
+                  }
                   </div>
                  </div>
             </nav>
