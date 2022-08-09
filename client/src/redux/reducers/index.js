@@ -50,6 +50,7 @@ const initialState = {
     productDetail: {},
     petsFiltered: [],
     productsFilterd:[],
+    productsConfig: '',
     users:[],
     user: {},
     donations: [],
@@ -156,12 +157,15 @@ export default function rootReducer(state = initialState, action) {
                 
                 if(action.payload.fByAZ === 'Desorden'){
                     filteredProducts = state.allProducts
+
                 }
                 else if (action.payload.fByAZ === 'Asc'){
                     filteredProducts = filteredProducts.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))        
+                    state.productsConfig= {AZ:true}
                 }
                 else if (action.payload.fByAZ === 'Desc'){
                     filteredProducts = filteredProducts.sort((a, b) => (b.name > a.name ? 1 : b.name < a.name ? -1 : 0))        
+                    state.productsConfig= {AZ:false}
                 }
             }         
             }
@@ -173,9 +177,11 @@ export default function rootReducer(state = initialState, action) {
                 }
                 if(action.payload.fByPrice === 'Low'){
                     filteredProducts = filteredProducts.sort((a,b)=>(a.points > b.points ? 1 : a.points < b.points ? -1 : 0))
+                    state.productsConfig= {...state.productsConfig, price:true}
                 }
                 if(action.payload.fByPrice === 'High'){
                     filteredProducts = filteredProducts.sort((a,b)=>(b.points > a.points ? 1 : b.points < a.points ? -1 : 0)) 
+                    state.productsConfig= {...state.productsConfig,price:false}
                 }
             }
 
