@@ -45,25 +45,12 @@ max-width: 100vw;
   border-radius: 0.7rem !important;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1440px) {
   .tableDonations {
-      width: 170%;
-      margin-top: 2rem;
+      width: 140%;
   }
 }
 
-@media screen and (max-width: 575px) {
-  .tableDonations {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 10rem;
-  }
-  .row1{
-    font-size: 0.5rem;
-    font-size-adjust: 0.5rem;
-  }
-}
 .pagination {
     display: flex;
     justify-content: center;

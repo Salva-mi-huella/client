@@ -1,7 +1,6 @@
 .profileFoundation {
     /* padding: 0.5rem 2.5rem; */
     color: var(--black);
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,24 +8,17 @@
 
 .containerGlass {
     display: grid;
-    height: 97%;
-    width: 97%;
+    width: 95vw;
+    height: 90vh;
     background: var(--glass);
     border-radius: 2rem;
-    gap: 16px;
+    margin-right: 1rem;
     grid-template-columns: 16rem auto /* 20rem */;
     overflow: hidden;
 }
 
-@media screen and (max-width: 1200px) {
-    .AppGlass {
-        grid-template-columns: 10% 50% auto;
-        overflow-y: scroll;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .AppGlass {
-        grid-template-columns: 1fr;
+@media screen and (max-width: 1440px) {
+    .containerGlass {
+       height: 87vh;
     }
 }

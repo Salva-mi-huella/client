@@ -7,18 +7,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.4rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   width: 50rem;
   min-height: 6rem;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-.contactContainer {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-}
+
 
 .h3title{
   color: white;
@@ -87,8 +83,11 @@
   margin-left: 3rem;
 }
 .form{
+  height: 72vh;
+  width: 50vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  padding: 4rem 5rem;
+  padding: 1rem 5rem;
+  margin-bottom: 2rem;
 }
 .error{
 color: red;
@@ -97,4 +96,13 @@ padding-top: 0.2rem;
 font-size: 0.8rem;
 margin: -1rem;
 margin-left: 0.3rem;
+}
+
+@media screen and (max-width: 1440px) {
+ .form{
+    height: 70vh;
+    width: 60vw;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    padding: 4rem 5rem;
+  }
 }
