@@ -61,17 +61,17 @@ export const SidebarData = [
 //  MainDash Data
 export const CardsData = [
     {
-        title: "Solicitud de Fundaciones",
+        title: "Solicitudes",
         color: {
             backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
             boxShadow: "0px 10px 20px 0px #e0c6f5",
         },
-        barValue: 70,
-        value: 38,
+        barValue: 80,
+        value: 10,
         png: MdHome,
         series: [
             {
-                name: "Solicitud de Fundaciones",
+                name: "Solicitudes",
                 data: [3, 4, 2, 5, 4, 10, 10]
             },
         ],
@@ -82,8 +82,8 @@ export const CardsData = [
             backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)",
             boxShadow: "0px 10px 20px 0px #FDC0C7",
         },
-        barValue: 60,
-        value: "37,800",
+        barValue: 100,
+        value: "30",
         png: MdHowToVote,
         series: [
             {

@@ -7,7 +7,7 @@
 }
 
 .formu{
-    /* margin-bottom: 3vw; */
+    margin-left: 5vw;
     width: 45%;
     /* border-left: 2px solid #FCEC4F; */
     
@@ -30,6 +30,7 @@
 .banner h1 {
     font-size: 5vw;;
     margin-top: 1vw;
+    letter-spacing: -0.3vw;
     width: 40vw;
     font-weight: bold;
     text-align: center;
@@ -38,8 +39,8 @@
 }
 
 .banner img {
-    width: 33vw;
-    height: 33vw;
+    width: 28vw;
+    height: 28vw;
     border-radius: 50%;
     margin-top: 3vw;
     margin-bottom: 3vw;

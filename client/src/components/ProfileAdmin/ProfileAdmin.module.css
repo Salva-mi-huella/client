@@ -1,32 +1,29 @@
 .profileFoundation {
     /* padding: 0.5rem 2.5rem; */
     color: var(--black);
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 3vw;
+    margin-bottom: 5vw;
 }
 
 .containerGlass {
     display: grid;
-    height: 97%;
-    width: 97%;
-    background: var(--glass);
+    width: 95vw;
+    height: 90vh;
+   /*  background: var(--glass); */
+   background-color: white;
+
     border-radius: 2rem;
-    gap: 16px;
+    margin-right: 1rem;
     grid-template-columns: 16rem auto /* 20rem */;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     overflow: hidden;
 }
 
-@media screen and (max-width: 1200px) {
-    .AppGlass {
-        grid-template-columns: 10% 50% auto;
-        overflow-y: scroll;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .AppGlass {
-        grid-template-columns: 1fr;
+@media screen and (max-width: 1440px) {
+    .containerGlass {
+       height: 87vh;
     }
 }

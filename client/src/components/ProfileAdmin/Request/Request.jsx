@@ -56,18 +56,18 @@ const Request = ({ requests_foundations }) => {
     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, requests_foundations.length - page * rowsPerPage));
     return (
         <div className={styles.tableDonations} >
-            <h3 className={styles.donationTitle}>Solicitudes:</h3>
-            <TableContainer className={styles.cont} component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }}
+           {/*  <h3 className={styles.donationTitle}>Solicitudes:</h3> */}
+            <TableContainer sx={{border: "1px solid #e5e5e5"}} className={styles.cont} component={Paper}
+                style={{background:"transparent" , maxHeight: '71vh', maxWidth: '70vw',marginTop:"7vh" }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow  sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}}>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Fecha</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Nombre de Fundación</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Email</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Teléfono</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Estado</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Fecha</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Nombre de Fundación</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Email</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Teléfono</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700',fontSize:'1rem'}} align="left">Estado</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

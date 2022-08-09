@@ -24,7 +24,7 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
             {/* LOGO */}
             <div className={styles.logo}>
             <img className={styles.img} src={user.picture}  />
-                <span>Hola, {userName[0]}</span>
+                {/* <span>Hola, {userName[0]}</span> */}
             </div>
 
             {/* MENU */}

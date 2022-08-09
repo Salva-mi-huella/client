@@ -1,18 +1,24 @@
 .postProductContainer{
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    align-items: center;
+    margin-top: 1rem;
 }
 
-.contactContainer {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-  }
   
+.div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  width: 50rem;
+  min-height: 6rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .h3title{
-    color: white;
-    font-size: 2.7rem;
+    color: rgb(99 59 218);
+    font-size: 2.5rem;
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
@@ -25,19 +31,28 @@
   
   
   .label, .description {
-    color: #2d2d2f;
+    color: #ffffff;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 0.2rem;
     font-weight: bold;
   }
-  
+  .input{
+    height: 2.5rem;
+    position: relative;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    resize: none;
+  }
 
-  .input, .textarea, .label {
-    width: 40vw;
+  .input, .label {
+    width: 20vw;
     display: block;
   }
-  
+  .textarea{
+    width: 41vw;
+  }
   .input, .textarea {
     font-family: 'Helvetica Neue', sans-serif;
   }
@@ -50,10 +65,10 @@
   .input, .textarea {
     color: #010712;
     font-weight: 500;
-    background: #FCFDFD;
+    background-color: #b7b7b744;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.334);
-    padding: 0.5rem 0;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.334); */
+    padding: 0.5rem 0.5rem;
     outline: none;
     resize: none;
     margin-bottom: 6px;
@@ -61,43 +76,29 @@
 .pictures{
     margin-bottom: 2rem;
 }
-.typeCat{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-family: 'Jost', sans-serif;
-    color: #2d2d2f;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
-    font-weight: bold;
-}
-.select{
-    width: 10vw;
-    display: flex;
-    border: none;
-    border-radius: 30px;
-    padding: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    
-}
+
+
 .post{
-    width: 40vw;
+    width: 30vw;
+    margin-left: 6rem;
+    margin-top: 2rem;
     display: flex;
     font-size: 1.5rem;
     justify-content: center;
     border: none;
     border-radius: 10px;
     padding: 3px;
-    background-color: rgba(214, 71, 253, 0.678);
+    background-color: rgb(99 59 218);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: white;
-    margin-top: 1.5rem;
 }
 .form{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  /*   background-color: rgba(154, 121, 255, 0.488); */
     margin-bottom: 1rem;
-    padding: 1rem 5rem;
+    padding: 2rem 5rem;
+    height: 80vh;
+
 }
 .error{
   color: red;
@@ -106,4 +107,51 @@
 }
 .textarea{
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width:1440px) {
+  .div{
+   padding: 0rem 3rem;
+   padding-left: 2rem;
+   min-height: 4rem;
+   width: 50vw;
+   height: 2rem;
+  /*  background-color:aqua ; */
+  }
+  .form {
+     height: 79vh;
+     width: 58vw;
+    padding: 0.7rem 5rem;
+
+  }
+  .input{
+    height: 2.2rem;
+    top: 0.01rem;
+    outline: none;
+    resize: none;
+    top:-0.5rem;
+    margin-bottom: 0rem;
+  }
+  .label .description{
+    font-size: 0.9rem;
+  }
+.div2{
+  padding: 0rem 2rem;
+}
+  .textarea{
+    margin-bottom: 0.2rem;
+    width: 43vw;
+  }
+  .post{
+    width: 40vw;
+    margin-left: 4rem;
+    margin-top: 1rem;
+  }
+  .h3title{
+    margin-top: 0.3rem;
+    font-size: 2rem;
+  }
+  .pictures{
+    margin-bottom: 1rem;
+  }
 }

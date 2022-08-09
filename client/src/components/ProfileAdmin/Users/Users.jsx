@@ -77,21 +77,22 @@ const Users = () => {
     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, users.length - page * rowsPerPage));
     return (
         <div className={styles.tableDonations}>
-            <h3 className={styles.donationTitle}>Usuarios:</h3>
-            <TableContainer sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}} className={styles.cont} component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%' }}
+        
+            <TableContainer sx={{border: "1px solid #e5e5e5" }} className={styles.cont} component={Paper}
+                style={{ background:"transparent", maxHeight: '71vh',maxWidth: '100%',marginTop:"7vh"}}
+
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead >
-                        <TableRow sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)'}} >
-                            <TableCell sx={{color:'purple', fontWeight:'700'}}>Usuario</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Nombre</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Email</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Ciudad</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">DNI</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Teléfono</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Tránsito</TableCell>
-                            <TableCell sx={{color:'purple', fontWeight:'700'}} align="left">Asignar Admin</TableCell>
+                        <TableRow /* sx={{borderTop: "1px solid #e5e5e5"}} */ >
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}}>Usuario</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Nombre</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Email</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Ciudad</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">DNI</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Teléfono</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Tránsito</TableCell>
+                            <TableCell sx={{color:'black', fontWeight:'700', fontSize:'1rem'}} align="left">Asignar Admin</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -103,12 +104,12 @@ const Users = () => {
                                     <TableCell component="th" scope="row">
                                         {user.admin === true ? <div>{user.nickname} <img width='15px' height='15px' src={verify} alt="" /></div> : user.nickname}
                                     </TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.name}</TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.email}</TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.city}</TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.dni}</TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.telephone_number}</TableCell>
-                                    <TableCell className={styles.row1} align="left">
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.row1} align="left">{user.name}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.row1} align="left">{user.email}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.row1} align="left">{user.city}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.row1} align="left">{user.dni}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.row1} align="left">{user.telephone_number}</TableCell>
+                                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.row1} align="left">
                                         {user.admin === false ? <span className={styles.status} style={makeStyles(user.transit)} ><i className={styles.transit} width="5px" heigth="5px" class="fa-solid fa-circle"></i> </span> : <div className={styles.noAplica1}>---</div>}
                                     </TableCell>
                                     <TableCell align="left">

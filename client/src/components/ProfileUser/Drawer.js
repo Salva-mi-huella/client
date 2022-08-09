@@ -17,7 +17,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { useAuth0 } from '@auth0/auth0-react';
-import styles from './ProfileUser.module.css';
 import paw from '../../assets/yellow-paw.png';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsAccessibilityIcon from '@mui/icons-material/SettingsAccessibility';
@@ -31,10 +30,11 @@ import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
 import ProductsTable from './Table/ProductsTable';
 import { getUserSession } from '../../utils/index.js';
-import { getAllPets, getDonations, getUserByEmail } from '../../redux/actions';
+import { getAllPets, getDonations, getRequestsAdopt, getUserByEmail } from '../../redux/actions';
 import Card from '../Adopt/Card'
 import adopt from "../../assets/dog-adopt5.png";
 
+import styles from './ProfileUser.module.css';
 
 
 const drawerWidth = 240;
@@ -111,12 +111,14 @@ export default function PersistentDrawerLeft() {
   useEffect(() => {
 
     dispatch(getDonations());
-    dispatch(getUserByEmail(user.email))
+    dispatch(getUserByEmail(user?.email))
+    dispatch(getRequestsAdopt())
   }, [dispatch])
 
   const userDetail = useSelector(state => state.user);
   const foundations = useSelector(state => state.foundations);
   const allDonations = useSelector(state => state.donations);
+  const allRequests = useSelector(state => state.requests_adopt);
   const pets = useSelector(state => state.allPets);
   const favsPets = pets?.filter(p => p.id === userDetail.favs?.find(f => f === p.id));
 
@@ -186,7 +188,7 @@ export default function PersistentDrawerLeft() {
     <div className={styles.pageContainer}>
       <Box sx={{ display: 'flex', color: 'black' }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open} sx={{ backgroundColor: 'rgba(154, 121, 255, 0.488)' }}>
+        <AppBar position="fixed" open={open} sx={{ backgroundColor: 'rgb(99, 59, 218)' }}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -209,7 +211,7 @@ export default function PersistentDrawerLeft() {
             '& .MuiDrawer-paper': {
               width: drawerWidth,
               boxSizing: 'border-box',
-              backgroundColor: 'rgba(154, 121, 255, 0.488)'
+              backgroundColor: 'rgb(99, 59, 218)'
             },
           }}
           variant="persistent"
@@ -232,7 +234,7 @@ export default function PersistentDrawerLeft() {
             <ListItemButton onClick={viewAdoptSolicitudes} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><ContentPasteIcon sx={{ color: 'white' }} /></ListItemIcon>Solicitudes de adopción</ListItemButton>
             <ListItemButton onClick={viewProducts} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><Inventory2Icon sx={{ color: 'white' }} /></ListItemIcon>Mis productos</ListItemButton>
             <ListItemButton sx={{ color: 'rgb(255, 230, 0)', marginBottom: '20px', fontWeight: 'bold', fontSize: '20px', fontFamily: 'Gill Sans' }}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{new Intl.NumberFormat().format(userDetail.points)}</ListItemButton>
-            <ListItemButton onClick={handleLogout} sx={{ color: 'white', marginTop: '16vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
+            <ListItemButton onClick={handleLogout} sx={{ color: 'white', marginTop: '10vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
           </List>
           <Divider />
         </Drawer>
@@ -245,8 +247,9 @@ export default function PersistentDrawerLeft() {
       {donations && <DonationTable allDonations={allDonations} userDetail={userDetail} foundations={foundations}></DonationTable>}
 
       {favs && <div className={styles.favs}>
+        {/* <h1 className={styles.requestTableTitle}> Mis favoritos </h1> */}
         {favs.length > 0 && <h1 className={styles.favsTitle}>Mis Favoritos</h1>}
-        <div className={styles.favs}>
+        <div className={styles.favsAdded}>
           {favsPets.length > 0 ? favsPets.map(f =>
             <Card id={f.id} name={f.name} img={f.images} age={f.age} />
           ) :
@@ -268,7 +271,7 @@ export default function PersistentDrawerLeft() {
 
 
 
-      {request && <RequestTable userDetail={userDetail} userId={userDetail.id} foundations={foundations}></RequestTable>}
+      {request && <RequestTable allRequests={allRequests} userDetail={userDetail} userId={userDetail.id} foundations={foundations}></RequestTable>}
 
     </div>
   );

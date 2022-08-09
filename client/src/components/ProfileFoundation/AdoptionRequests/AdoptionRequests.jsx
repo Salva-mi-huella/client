@@ -20,20 +20,20 @@ import Swal from 'sweetalert2';
 const makeStyles = (status) => {
   if (status === 'Aprobada') {
     return {
-      background: 'rgb(145 254 159 / 47%)',
-      color: 'green'
+      background: 'rgb(145 254 159 / 57%)',
+      color: 'black',
     }
   }
   else if (status === 'Rechazada') {
     return {
       background: '#ffadad8f',
-      color: 'red'
+      color: 'black'
     }
   }
   else if (status === 'Pendiente') {
     return {
       background: '#F1F15B',
-      color: 'white'
+      color: 'black'
     }
   }
 }
@@ -44,7 +44,7 @@ const AdoptionRequests = () => {
   const dispatch = useDispatch();
 
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(8);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
 
   const user = JSON.parse(localStorage.getItem('user'));
@@ -132,35 +132,30 @@ const AdoptionRequests = () => {
   return (
     <div className={styles.tableRequests}>
 
-
-      <h3 className={styles.requestTableTitle}> Tabla de solicitudes </h3>
-
-      <TableContainer component={Paper}
-        style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
+      <TableContainer className={styles.cont} component={Paper}
+        style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%', marginTop: '2%', border: '1px solid gray' }}
       >
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead >
-            <TableRow sx={styles.TableRow} >
-              <TableCell>Huella </TableCell>
-              <TableCell align="left">Nombre</TableCell>
-              <TableCell align="left">Email</TableCell>
-              <TableCell align="left">Teléfono</TableCell>
-              <TableCell align="left">Ciudad</TableCell>
-              <TableCell align="left">Fecha</TableCell>
-              <TableCell align="left">Estado</TableCell>
+            <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
+              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} >Huella </TableCell>
+              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Nombre</TableCell>
+              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Email</TableCell>
+              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Teléfono</TableCell>
+              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Ciudad</TableCell>
+              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Fecha</TableCell>
+              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Estado</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {requests && requests
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((r) => (
-                <TableRow
-                  key={r.id}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                <TableRow className={styles.row} key={r.name} sx={{ '&:last-child td, &:last-child th': { border: 1 } }}
                 >
                   <TableCell component="th" scope="row">
-                    <img className={styles.petImg} alt='pet icon' src={r.pet.images[0]} />
-                    {r.pet.name}
+                    <img className={styles.petImg} alt='pet icon' src={r.pet?.images[0]} />
+                    {r.pet?.name}
                   </TableCell>
 
                   <TableCell className={styles.tableCell} align="left">{r.name} {r.lastname}</TableCell>
@@ -176,14 +171,15 @@ const AdoptionRequests = () => {
                       onChange={(e) => { handleChangeSelect(e, r) }}
                       style={makeStyles(r.status)}
                       defaultValue={r.status}
+                      className={styles.statusSelect}
                     >
-                      <option disabled value="Pendiente">Pendiente</option>
+                      {/* <option disabled value="Pendiente">Pendiente</option> */}
 
                       <option
                         value={"Rechazada"}
                         className="status"
                         // style={makeStyles(r.adopted)}
-                        style={makeStyles("Rechazado")}
+                        style={makeStyles("Rechazada")}
                       > Rechazada
                       </option>
 
@@ -207,15 +203,11 @@ const AdoptionRequests = () => {
                     </select>
 
 
-
-
-
-
                   </TableCell>
                 </TableRow>
               ))}
             {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
+              <TableRow style={{ height: 62.5 * emptyRows }}>
                 <TableCell colSpan={6} />
               </TableRow>
             )}
@@ -223,16 +215,16 @@ const AdoptionRequests = () => {
         </Table>
 
         <TablePagination
+          sx={{ justifyContent: 'center', alignSelf: 'center', flex: 'center', marginTop: '19px', textAlign: 'center', }}
           className={styles.pagination}
           component="div"
           count={foundation.request_adopts.length}
           page={page}
           onPageChange={handleChangePage}
           rowsPerPage={rowsPerPage}
-          rowsPerPageOptions={[8]}
+          rowsPerPageOptions={[10]}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
-
 
       </TableContainer>
 

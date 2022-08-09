@@ -93,35 +93,28 @@ export default function Store() {
 
   }
 
-  //FILTROS
-  const [filterByAZ, setFilterByAZ] = useState("");
-  const [filterByPrice, setFilterByPrice] = useState("");
-  const [filterByType, setFilterByType] = useState("");
-  const [filterByCategory, setFilterByCategory] = useState("");
+   //FILTROS
+   const [filterByAZ, setFilterByAZ] = useState("");
+   const [filterByPrice, setFilterByPrice] = useState("");
+   const [filterByType, setFilterByType] = useState("");
+   const [filterByCategory, setFilterByCategory] = useState("");
 
+   function handleFilterByPrice(e){  
+     setFilterByPrice(e.target.value)
+     dispatch(storeFilters(e.target.value,filterByType,filterByCategory))
+   }
 
-  function handleFilterAZ(e) {
-    setFilterByAZ(e.target.value)
-    dispatch(storeFilters(e.target.value, filterByPrice, filterByType, filterByCategory))
-  }
-  
-  function handleFilterByPrice(e) {
-    setFilterByPrice(e.target.value)
-    dispatch(storeFilters(filterByAZ, e.target.value, filterByType, filterByCategory))
-  }
-
-  function handleFilterByType(e) {
+   function handleFilterByType(e){       
     setFilterByType(e.target.value)
-    dispatch(storeFilters(filterByAZ, filterByPrice, e.target.value, filterByCategory))
+    dispatch(storeFilters( filterByPrice, e.target.value, filterByCategory))
   }
 
   function handleFilterByCategory(e) {
     setFilterByCategory(e.target.value)
-    dispatch(storeFilters(filterByAZ, filterByPrice, filterByType, e.target.value))
+    dispatch(storeFilters( filterByPrice, filterByType, e.target.value))
   }
 
   function handleAll(e) {
-    setFilterByAZ("")
     setFilterByPrice("")
     setFilterByType("")
     setFilterByCategory("")
@@ -169,50 +162,42 @@ export default function Store() {
             <SearchBar />
           </div>
           <div className={styles.typefilters}>
-            <div>
-              <h2>TIPO DE HUELLA</h2>
-              <select onClick={handleFilterByType} name="type" size={3}>
-                <option value='Perro'>Perros ({countPerros.length})</option>
-                <option value='Gato'>Gatos ({countGatos.length})</option>
-              </select>
-            </div>
+              <div>
+                <h2>TIPO DE HUELLA</h2>
+                <select onClick={handleFilterByType} name="type" size={3}>
+                  <option value='Perro'>Perros ({countPerros.length})</option>
+                  <option value='Gato'>Gatos ({countGatos.length})</option>
+                </select>            
+              </div> 
           </div>
-          <div className={styles.categoryfilters}>
-            <h2>CATEGORÍA</h2>
-            <select onClick={handleFilterByCategory} name="category" size={5}>
-              <option value='Alimento'>Alimentos ({countAlimentos.length})</option>
-              <option value='Indumentaria'>Indumentaria ({countIndumentaria.length})</option>
-              <option value='Juguetes'>Juguetes ({countJuguetes.length})</option>
-              <option value='Accesorios'>Accesorios ({countAccesorios.length})</option>
-            </select>
-            <select onClick={handleAll} name="type" size={2}>
-              <option value='Unordered'>Todos ({countTodos.length})</option>
-            </select>
-
+              <div className={styles.categoryfilters}>
+                <h2>CATEGORÍA</h2>
+                <select onClick={handleFilterByCategory} name="category" size={5}>
+                  <option value='Alimento'>Alimentos ({countAlimentos.length})</option>
+                  <option value='Indumentaria'>Indumentaria ({countIndumentaria.length})</option>
+                  <option value='Juguetes'>Juguetes ({countJuguetes.length})</option>
+                  <option value='Accesorios'>Accesorios ({countAccesorios.length})</option>
+                </select>
+              <select onClick={handleAll} name="type" size={2}>
+                  <option value='Unordered'>Todos ({countTodos.length})</option>
+              </select>
           </div>
         </div>
 
         <div className={styles.containeritems}>
           <h5>¡Encontrá los mejores productos para tu huella!</h5>
-          <div className={styles.orders}>
-            <label>Ordenar por:</label>
-            <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
-              <option disabled value='Huellitas'>Huellitas</option>
-              <option value='High'>Mayor puntaje</option>
-              <option value='Low'> Menor puntaje</option>
-            </select>
-            <select defaultValue="Alfabeto" onChange={e => handleFilterAZ(e)}>
-              <option disabled value='Alfabeto'>Alfabeto</option>
-              <option value='Asc'>A-Z</option>
-              <option value='Desc'>Z-A</option>
-            </select>
-
-          </div>
-
+              <div className={styles.orders}>
+                <label>Ordenar por:</label>
+                  <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
+                      <option disabled value='Huellitas'>Huellitas</option>
+                      <option value='High'>Mayor puntaje</option>
+                      <option value='Low'> Menor puntaje</option>                    
+                  </select>
+              </div>
           <div className={styles.items}>
-            {
-              pages ?
-                pages.map((product) => (
+          {
+            pages?
+                pages.map((product) =>(
                   <ItemCard
                     key={product.id}
                     id={product.id}
@@ -220,14 +205,14 @@ export default function Store() {
                     name={product.name}
                     points={new Intl.NumberFormat().format(product.points)}
                     type={product.type}
-                    category={product.category} />
-                ))
-                :
-                <h2>Pensando..</h2>
-            }
+                    category={product.category}/>
+                     ))
+                     :
+                     <h2>Pensando..</h2>
+          }
 
           </div>
-          <PaginateStore />
+          <PaginateStore/>
         </div>
 
 
@@ -252,14 +237,17 @@ export default function Store() {
                   <button type="button" class="" data-bs-dismiss="modal">Seguir comprando</button>
                   <button type="button" class="" onClick={updatePoints}>Finalizar Compra</button>
                 </div>
+
+
+       
               </div>
             </div>
           </div>
-
-
+        </div>
+      
         </div>
       </div>
-      <Footer />
+      <Footer/>
     </div>
   );
 }

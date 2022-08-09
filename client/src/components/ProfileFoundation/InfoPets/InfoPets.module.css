@@ -1,3 +1,11 @@
+.cont {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.row {
+    border-bottom: 1px solid #e5e5e5;
+}
+
 .petTitle {
     margin: 1rem 0rem;
     font-size: 3rem;
@@ -36,12 +44,6 @@
     height: 2rem;
 }
 
-.tableCell {
-    margin: -10px 20px -10px 10px;
-    /* width: 2.5rem; */
-    height: 3.65rem;
-}
-
 .status {
     padding: 8px;
     border-radius: 9px;
@@ -60,20 +62,10 @@
     padding: 35px;
 }
 
-/* .pagination> :first-child {
-    background-color: greenyellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    align-content: center;
-    position: relative;
-} */
-
 
 @media screen and (max-width: 1200px) {
     .tablePets {
-        width: 170%;
+        /* width: 170%; */
         margin-top: 2rem;
     }
 }
@@ -99,20 +91,20 @@
     cursor: pointer;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1vw;
-    height: 2vw;
+    /* height: 1.9vw; */
     width: 8vw;
     text-align: center;
     transition: color 100ms;
     vertical-align: baseline;
     user-select: none;
-  
-  }
-  
-  .boton:hover{
+
+}
+
+.boton:hover {
     background-color: #f47373;
-  }
-  
-  .boton1 {
+}
+
+.boton1 {
     background-color: #09bd0c;
     border-radius: 0.5vw;
     display: flex;
@@ -123,14 +115,14 @@
     cursor: pointer;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1vw;
-    height: 2vw;
+    /* height: 1.9vw; */
     width: 8vw;
     text-align: center;
     transition: color 100ms;
     vertical-align: baseline;
     user-select: none;
-  }
-  
-  .boton1:hover{
+}
+
+.boton1:hover {
     background-color: #8aeb98;
-  }
+}
