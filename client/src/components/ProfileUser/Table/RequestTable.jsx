@@ -44,7 +44,7 @@ export default function RequestTable({ userId, foundations, userDetail, allReque
   return (
     <div className={styles.tableRequests}>
 
-      <h1 className={styles.requestTableTitle}> Mis solicitudes </h1>
+    {request?.length > 0 && <h1 className={styles.requestTableTitle}> Mis solicitudes </h1>}
 
       {request?.length === 0 ?
         <div className={styles.empty}>

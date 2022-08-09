@@ -1,13 +1,14 @@
 .containerDetail {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   min-height: 88vh; 
   display: flex;
-  margin-bottom: 5vw;
+  padding-bottom: 5vw;
+  background-color: white;
 }
 
 .containerInfo {
-  width: 60%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   margin-left: 4vw;
@@ -17,6 +18,8 @@
   font-size: 6vw;
   font-weight: bold;
   color: rgb(255, 230, 0);
+  color: rgb(78, 14, 104);
+  letter-spacing: -0.3vw;
   margin-top: 1.3vw;
   text-align: center;
 }
@@ -32,6 +35,7 @@
   line-height: 2.2vw;;
   letter-spacing: 0.1vw;
   color: #fff;
+  color: rgb(78, 14, 104);
   margin-bottom: 2vw;
   text-align: center;
 
@@ -40,6 +44,7 @@
 .infoExtra {
   /* margin-left: 60px; */
   border-top: 0.1vw solid #fff;
+  border-top: 0.1vw solid rgb(78, 14, 104);
   padding: 1.3vw 2vw 1.3vw 2vw;
   display: flex;
   justify-content: center;
@@ -53,10 +58,12 @@
 
 .pTitle {
   color: rgb(255, 230, 0);
+  color: rgb(78, 14, 104);
 }
 
 .pInfo {
   color: #fff;
+  color: rgb(78, 14, 104);
   font-weight: 300;
 }
 
@@ -65,7 +72,8 @@
   width: 3.5vw;
   height: 3.5vw;
   border-radius: 50%;
-  margin-left: 2vw
+  margin-left: 2vw;
+  border: 1px solid rgb(78, 14, 104)
 }
 
 .infoExtra img:hover {
@@ -82,8 +90,10 @@
 .btn button {
   transition: 0.3s;
   font-weight: bold;
-  background-color:white;
-  color: rgb(99, 59, 218);
+  /* background-color:white;
+  color: rgb(99, 59, 218); */
+  background-color:rgb(78, 14, 104);
+  color: white;
   border: none;
   border-radius: 2vw;
   /* padding: 8px 24px; */
@@ -98,7 +108,10 @@
 .btn button:hover {
   transition: 0.3s;
   transform: scale(1.03);
-  background-color:rgb(255, 226, 8);
+  /* background-color:rgb(255, 226, 8); */
+  background-color:white;
+  color: rgb(78, 14, 104);
+  border: 3px solid rgb(78, 14, 104);
 }
 
 .containerImg{

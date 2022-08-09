@@ -8,6 +8,7 @@ import { getFoundations, postUser, getUserByEmail, getAllPets } from '../../redu
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner-home.jpg';
 import yellow_paw from '../../assets/yellow-paw.png';
+
 import paw from '../../assets/yellow-paw.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import eslogan from '../../assets/eslogan2.png'

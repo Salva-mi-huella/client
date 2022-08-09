@@ -45,7 +45,7 @@ export default function DonationTable({ userDetail, allDonations }) {
   return (
     <div className={styles.tableRequests}>
 
-      <h1 className={styles.requestTableTitle}> Mis donaciones </h1>
+      {allDonations.length > 0 && <h1 className={styles.requestTableTitle}> Mis donaciones </h1>}
 
 
       {allDonations.length === 0 ?

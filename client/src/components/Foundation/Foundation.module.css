@@ -168,6 +168,12 @@
     margin-top: 15vw;
     margin-bottom: 15vw;
     margin-left: 9vw;
+    /* background-color: azure; */
+}
+
+.contPets {
+    background-color: azure;
+    width: 100%
 }
 
 .subPets {

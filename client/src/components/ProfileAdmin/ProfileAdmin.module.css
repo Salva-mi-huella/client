@@ -11,7 +11,7 @@
 .containerGlass {
     display: grid;
     width: 95vw;
-    height: 90vh;
+    height: 95vh;
 
     background: var(--glass);
     border-radius: 2rem;
