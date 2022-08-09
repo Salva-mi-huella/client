@@ -35,7 +35,7 @@ export default function BasicTable({requests_foundations}) {
     return (
         <div className={styles.Table}>
             <h3 className={styles.title}> Tabla de solicitudes </h3>
-            <TableContainer sx={{maxWidth:10000, overflow: "hidden"}} className={styles.cont} component={Paper}
+            <TableContainer sx={{maxWidth:'60vw', overflow: "hidden"}} className={styles.cont} component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', }}
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
