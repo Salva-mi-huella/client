@@ -1,3 +1,16 @@
+.pageContainer {
+  margin-left: 15%;
+}
+
+.requestTableTitle {
+  width: 100%;
+  margin: 1rem 2rem;
+  margin-left: 2rem;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #F1F15B;
+}
+
 .loading {
   /* background-color: #fff; */
   display: flex;
@@ -8,7 +21,6 @@
   top: 10rem;
 
 }
-
 
 
 .myData {
@@ -89,18 +101,19 @@
 .empty div {
   /* border: 3px solid red; */
   width: 80%;
-  margin-top: 8vw;;
+  margin-top: 8vw;
+  ;
 }
 
 
 .empty button {
   transition: 0.3s;
-  background-color:white;
+  background-color: white;
   color: rgb(99, 59, 218);
   border: none;
   font-size: 1.4vw;
   cursor: pointer;
-  border-radius:2vw;
+  border-radius: 2vw;
   width: 15vw;
   height: 3vw;
   text-align: center;
@@ -113,5 +126,5 @@
 
 .empty button:hover {
   transition: 0.3s;
-  background-color:rgb(255, 226, 8)
+  background-color: rgb(255, 226, 8)
 }

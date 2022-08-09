@@ -1,19 +1,24 @@
 .postProductContainer{
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    align-items: center;
+    margin-top: 1rem;
 }
 
-.contactContainer {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    background-color: red;
-  }
   
+.div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  width: 50rem;
+  min-height: 6rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .h3title{
     color: white;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
@@ -28,17 +33,26 @@
   .label, .description {
     color: #2d2d2f;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 0.2rem;
     font-weight: bold;
   }
-  
+  .input{
+    height: 2.5rem;
+    position: relative;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    resize: none;
+  }
 
-  .input, .textarea, .label {
-    width: 40vw;
+  .input, .label {
+    width: 20vw;
     display: block;
   }
-  
+  .textarea{
+    width: 40vw;
+  }
   .input, .textarea {
     font-family: 'Helvetica Neue', sans-serif;
   }
@@ -54,7 +68,7 @@
     background: #FCFDFD;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.334);
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.5rem;
     outline: none;
     resize: none;
     margin-bottom: 6px;
@@ -62,26 +76,8 @@
 .pictures{
     margin-bottom: 2rem;
 }
-.typeCat{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-family: 'Jost', sans-serif;
-    color: #2d2d2f;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
-    font-weight: bold;
-}
-.select{
-    width: 10vw;
-    display: flex;
-    border: none;
-    border-radius: 30px;
-    padding: 3px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    
-}
+
+
 .post{
     width: 40vw;
     display: flex;
@@ -93,15 +89,13 @@
     background-color: rgba(214, 71, 253, 0.678);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: white;
-    margin-top: 1.5rem;
 }
 .form{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     /* margin-bottom: 1rem; */
     padding: 1rem 5rem;
-    background-color: red;
-    height: 50vw;
-    width: 80vw;
+    height: 80vh;
+
 }
 .error{
   color: red;
@@ -110,4 +104,36 @@
 }
 .textarea{
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width:1440px) {
+  .div{
+   padding: 0rem 2rem;
+   padding-left: 2rem;
+  }
+  .form {
+     height: 74vh;
+     width: 60vw;
+  }
+  .input{
+    height: 2.2rem;
+    top: 0.01rem;
+  }
+  .label .description{
+    font-size: 0.9rem;
+  }
+.div2{
+  padding: 0rem 2rem;
+}
+  .textarea{
+    width: 46vw;
+  }
+  .post{
+    width: 40vw;
+    margin-left: 4rem;
+    margin-top: 1rem;
+  }
+  .h3title{
+    margin-top: 1rem;
+  }
 }

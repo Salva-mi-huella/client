@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -17,7 +17,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { useAuth0 } from '@auth0/auth0-react';
-import styles from './ProfileUser.module.css';
 import paw from '../../assets/yellow-paw.png';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsAccessibilityIcon from '@mui/icons-material/SettingsAccessibility';
@@ -31,10 +30,11 @@ import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
 import ProductsTable from './Table/ProductsTable';
 import { getUserSession } from '../../utils/index.js';
-import { getAllPets, getUserByEmail } from '../../redux/actions';
+import { getAllPets, getDonations, getRequestsAdopt, getUserByEmail } from '../../redux/actions';
 import Card from '../Adopt/Card'
 import adopt from "../../assets/dog-adopt5.png";
 
+import styles from './ProfileUser.module.css';
 
 
 const drawerWidth = 240;
@@ -107,15 +107,20 @@ export default function PersistentDrawerLeft() {
   const { user, logout } = useAuth0();
   const dispatch = useDispatch();
 
+
   useEffect(() => {
 
-    dispatch(getUserByEmail(user.email))
+    dispatch(getDonations());
+    dispatch(getUserByEmail(user?.email))
+    dispatch(getRequestsAdopt())
   }, [dispatch])
 
- const userDetail = useSelector(state => state.user);
- const foundations = useSelector(state => state.foundations);
- const pets = useSelector(state => state.allPets);
- const favsPets = pets?.filter(p => p.id === userDetail.favs?.find(f => f === p.id));
+  const userDetail = useSelector(state => state.user);
+  const foundations = useSelector(state => state.foundations);
+  const allDonations = useSelector(state => state.donations);
+  const allRequests = useSelector(state => state.requests_adopt);
+  const pets = useSelector(state => state.allPets);
+  const favsPets = pets?.filter(p => p.id === userDetail.favs?.find(f => f === p.id));
 
   //  const points = function() {
   //   let points = 0;
@@ -127,9 +132,9 @@ export default function PersistentDrawerLeft() {
 
   // console.log(points)
 
-  const handleLogout =() =>{
+  const handleLogout = () => {
     localStorage.clear();
-    logout({returnTo: `${window.location.origin}/home`}); 
+    logout({ returnTo: `${window.location.origin}/home` });
   }
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -180,91 +185,93 @@ export default function PersistentDrawerLeft() {
   }
 
   return (
-    <div><Box sx={{ display: 'flex', color: 'black' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ backgroundColor: 'rgba(154, 121, 255, 0.488)' }}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }), }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mi Perfil
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
+    <div className={styles.pageContainer}>
+      <Box sx={{ display: 'flex', color: 'black' }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open} sx={{ backgroundColor: 'rgba(154, 121, 255, 0.488)' }}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{ mr: 2, ...(open && { display: 'none' }), }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Mi Perfil
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          sx={{
             width: drawerWidth,
-            boxSizing: 'border-box',
-            backgroundColor: 'rgba(154, 121, 255, 0.488)'
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose} sx={{ color: 'white' }}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List
-          style={{ color: 'azure', display: 'flex', flexDirection: 'column ', justifyContent: 'center', alignItems: 'flex-start', marginLeft: '20px' }}>
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+              backgroundColor: 'rgba(154, 121, 255, 0.488)'
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose} sx={{ color: 'white' }}>
+              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List
+            style={{ color: 'azure', display: 'flex', flexDirection: 'column ', justifyContent: 'center', alignItems: 'flex-start', marginLeft: '20px' }}>
 
-          <ListItemButton onClick={goHome} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><HomeIcon sx={{ color: 'white' }} /></ListItemIcon>Home</ListItemButton>
-          <ListItemButton onClick={viewData} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><SettingsAccessibilityIcon sx={{ color: 'white' }} /></ListItemIcon>Mis datos</ListItemButton>
-          <ListItemButton onClick={viewDonations} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><VolunteerActivismIcon sx={{ color: 'white' }} /></ListItemIcon>Mis donaciones</ListItemButton>
-          <ListItemButton onClick={viewFavs} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><FavoriteIcon sx={{ color: 'white' }} /></ListItemIcon>Favoritos</ListItemButton>
-          <ListItemButton onClick={viewAdoptSolicitudes} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><ContentPasteIcon sx={{ color: 'white' }} /></ListItemIcon>Solicitudes de adopción</ListItemButton>
-          <ListItemButton onClick={viewProducts} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><Inventory2Icon sx={{ color: 'white' }} /></ListItemIcon>Mis productos</ListItemButton>
-          <ListItemButton sx={{ color: 'rgb(255, 230, 0)', marginBottom: '20px', fontWeight: 'bold', fontSize: '20px', fontFamily: 'Gill Sans' }}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{new Intl.NumberFormat().format(userDetail.points)}</ListItemButton>
-          <ListItemButton onClick={handleLogout} sx={{ color: 'white', marginTop: '16vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
-        </List>
-        <Divider />
-      </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-      </Main>
-    </Box>
+            <ListItemButton onClick={goHome} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><HomeIcon sx={{ color: 'white' }} /></ListItemIcon>Home</ListItemButton>
+            <ListItemButton onClick={viewData} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><SettingsAccessibilityIcon sx={{ color: 'white' }} /></ListItemIcon>Mis datos</ListItemButton>
+            <ListItemButton onClick={viewDonations} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><VolunteerActivismIcon sx={{ color: 'white' }} /></ListItemIcon>Mis donaciones</ListItemButton>
+            <ListItemButton onClick={viewFavs} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><FavoriteIcon sx={{ color: 'white' }} /></ListItemIcon>Favoritos</ListItemButton>
+            <ListItemButton onClick={viewAdoptSolicitudes} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><ContentPasteIcon sx={{ color: 'white' }} /></ListItemIcon>Solicitudes de adopción</ListItemButton>
+            <ListItemButton onClick={viewProducts} sx={{ color: 'white', marginBottom: '20px' }}><ListItemIcon><Inventory2Icon sx={{ color: 'white' }} /></ListItemIcon>Mis productos</ListItemButton>
+            <ListItemButton sx={{ color: 'rgb(255, 230, 0)', marginBottom: '20px', fontWeight: 'bold', fontSize: '20px', fontFamily: 'Gill Sans' }}><ListItemIcon><img className={styles.paw} src={paw} alt='paw'></img></ListItemIcon>{new Intl.NumberFormat().format(userDetail.points)}</ListItemButton>
+            <ListItemButton onClick={handleLogout} sx={{ color: 'white', marginTop: '16vh' }}><ListItemIcon><LogoutIcon sx={{ color: 'white' }} /></ListItemIcon>Cerrar Sesión</ListItemButton>
+          </List>
+          <Divider />
+        </Drawer>
+        <Main open={open}>
+          <DrawerHeader />
+        </Main>
+      </Box>
       {myData && <EditDataForm />}
 
-      {donations && <DonationTable userDetail={userDetail} foundations={foundations}></DonationTable>}
+      {donations && <DonationTable allDonations={allDonations} userDetail={userDetail} foundations={foundations}></DonationTable>}
 
       {favs && <div className={styles.favs}>
-      {favs.length>0  && <h1 className={styles.favsTitle}>Mis Favoritos</h1>}
-      <div className={styles.favs}>
-        {favsPets.length > 0 ? favsPets.map(f => 
-        <Card id={f.id} name={f.name} img={f.images} age={f.age}/>
-        ) :         
-        <div className={styles.empty}>
-        <div>
-          <h3>No tienes favoritos aún.</h3>
-          <Link to="/adoptar">
-          <button>Ver huellas</button>
-          </Link>
+        <h1 className={styles.requestTableTitle}> Mis favoritos </h1>
+        {favs.length > 0 && <h1 className={styles.favsTitle}>Mis Favoritos</h1>}
+        <div className={styles.favs}>
+          {favsPets.length > 0 ? favsPets.map(f =>
+            <Card id={f.id} name={f.name} img={f.images} age={f.age} />
+          ) :
+            <div className={styles.empty}>
+              <div>
+                <h3>No tienes favoritos aún.</h3>
+                <Link to="/adoptar">
+                  <button>Ver huellas</button>
+                </Link>
+              </div>
+              <img className={styles.adoptMe} src={adopt} alt='adoptMe'></img>
+            </div>}
         </div>
-        <img className={styles.adoptMe} src={adopt} alt='adoptMe'></img>
-      </div> }
-      </div>
 
       </div>}
 
 
-    {products && <ProductsTable userDetail={userDetail}></ProductsTable>}
+      {products && <ProductsTable userDetail={userDetail}></ProductsTable>}
 
 
 
-      {request && <RequestTable userDetail={userDetail} userId={userDetail.id} foundations={foundations}></RequestTable>}
+      {request && <RequestTable allRequests={allRequests} userDetail={userDetail} userId={userDetail.id} foundations={foundations}></RequestTable>}
 
     </div>
   );
