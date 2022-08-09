@@ -10,6 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import Swal from 'sweetalert2'
+
 import styles from '../Inbox/Inbox.module.css'
 
 
@@ -63,38 +65,58 @@ const Inbox = () => {
 
     return (
         <div className={styles.inboxTable} >
-            <h3 className={styles.inboxTitle}> Bandeja de entrada </h3>
-
-
-            <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%' }}
-            >
-                <Table sx={{ maxWidth: 800. }} aria-label="simple table">
+            <TableContainer className={styles.cont} component={Paper}
+                style={{
+                    // boxShadow: '0px, 13px, 20px, 0px #80808029',
+                    height: '90%',
+                    marginTop: '2%',
+                    // border: '1px solid gray',
+                    backgroundColor: '#633BDA',
+                    color: 'white',
+                }}>
+                <Table sx={{ minWidth: 650}} aria-label="simple table">
                     <TableHead >
-                        <TableRow sx={styles.TableRow} >
-                            <TableCell align="left">Usuario</TableCell>
-                            <TableCell align="left">Email</TableCell>
-                            <TableCell align="left">Mensaje</TableCell>
+                        <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Usuario</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Email</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Mensaje</TableCell>
                         </TableRow>
                     </TableHead>
                     {/* BODY */}
-                    <TableBody>
+                    <TableBody >
                         {foundation && foundation.messages
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((r) => (
                                 <TableRow key={r.id}
+                                    className={styles.row}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-
                                     {/* USER IMAGE ? */}
                                     {/* <TableCell component="th" scope="row">
                                         <img className={styles.petImg} src={r.pet.images[0]} />
                                         {r.pet.name}
                                     </TableCell> */}
 
-                                    <TableCell className={styles.tableCell} align="left">{r.name}</TableCell>
-                                    <TableCell className={styles.tableCell} align="left">{r.email}</TableCell>
-                                    <TableCell className={styles.ciudad} align="left" >{r.message || 'Sin especificar'}</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.tableCell} align="left">{r.name}</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.tableCell} align="left">{r.email}</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.ciudad} align="left" >
+                                        {r.message ? <button className={styles.boton} onClick={() => {
+                                            Swal.fire({
+                                                title: r.message,
+                                                showClass: {
+                                                    popup: 'animate__animated animate__fadeInDown'
+                                                },
+                                                hideClass: {
+                                                    popup: 'animate__animated animate__fadeOutUp'
+                                                }
+                                            })
+                                        }}> Leer Mensaje </button>
+                                            :
+                                            'Error'
+                                        }
+                                    </TableCell>
                                     {/* <TableCell className={styles.tableCell} align="left">DATE?</TableCell> */}
+
+
 
                                 </TableRow>
                             ))}
@@ -107,6 +129,7 @@ const Inbox = () => {
                 </Table>
 
                 <TablePagination
+                    sx={{ justifyContent: 'center', alignSelf: 'center', flex: 'center', marginTop: '20px', textAlign: 'center', }}
                     className={styles.pagination}
                     component="div"
                     count={foundation?.messages.length}
@@ -117,12 +140,9 @@ const Inbox = () => {
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
 
-
             </TableContainer>
 
-
-
-        </div>
+        </div >
     )
 }
 

@@ -10,7 +10,7 @@ export default function PaginateStore(){
     const dispatch = useDispatch()
     
     const products = useSelector((state) => state.allProductsFiltered);
-    const allProducts = useSelector((state) => state.allProducts);
+    const {price} = useSelector((state) => state.productsConfig);
 
     // const {filtered} = useSelector(state => state.petsFiltered)
     let [actualPage, setActualPage] = useState(1)
@@ -24,11 +24,11 @@ export default function PaginateStore(){
             setActive(actualPage)
             dispatch(productsFiltered(products,renderPage))
         }
-    },[actualPage,dispatch,products])
+    },[actualPage,products,price])
 
     useEffect(()=>{
         setActualPage(1)
-    },[products])
+    },[products,price])
 
 
     // Setup number of rendering pages

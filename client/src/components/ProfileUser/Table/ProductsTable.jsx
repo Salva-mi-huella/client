@@ -37,7 +37,7 @@ export default function ProductsTable({ userDetail, foundations }) {
   return (
     <div className={styles.tableRequests}>
 
-      <h3 className={styles.requestTableTitle}> Tabla de productos </h3>
+    {products?.length > 0 &&<h3 className={styles.requestTableTitle}> Tabla de productos </h3>}
 
       {products?.length === 0 ?
         <div className={styles.empty}>

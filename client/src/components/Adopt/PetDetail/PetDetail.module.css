@@ -1,13 +1,13 @@
 .containerDetail {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   min-height: 88vh; 
   display: flex;
-  margin-bottom: 5vw;
+  padding-bottom: 5vw;
 }
 
 .containerInfo {
-  width: 60%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   margin-left: 4vw;
@@ -17,7 +17,9 @@
   font-size: 6vw;
   font-weight: bold;
   color: rgb(255, 230, 0);
+  letter-spacing: -0.3vw;
   margin-top: 1.3vw;
+  text-align: center;
 }
 
 .infoDesc {
@@ -32,6 +34,8 @@
   letter-spacing: 0.1vw;
   color: #fff;
   margin-bottom: 2vw;
+  text-align: center;
+
 }
 
 .infoExtra {
@@ -45,6 +49,7 @@
 
 .infoExtra p {
   font-size: 1.7vw;
+  
 }
 
 .pTitle {
@@ -61,7 +66,8 @@
   width: 3.5vw;
   height: 3.5vw;
   border-radius: 50%;
-  margin-left: 2vw
+  margin-left: 2vw;
+  border: 1px solid rgb(78, 14, 104)
 }
 
 .infoExtra img:hover {
@@ -112,7 +118,7 @@
   width:  45vw;
   height: 35vw;
   border-radius: 6px;
-  filter: drop-shadow(0px 0px 6px rgb(255,230,0));
+  /* filter: drop-shadow(0px 0px 6px rgb(255,230,0)); */
   /* box-shadow: 0px 2px 8px 0px #000; */
 
 }

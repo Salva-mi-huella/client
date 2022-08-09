@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ItemCard.module.css";
-import img from "../../assets/paw-print.png";
+import img from "../../assets/yellow-paw.png";
 import { addToCart } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import {Link} from "react-router-dom";
@@ -63,7 +63,7 @@ export default function ItemCard(props) {
     //     </div>
     // </div>
 
-            <Card sx={{ width: 310, height: 340, backgroundColor: 'purple', marginBottom: 5}} >
+            <Card sx={{ width: '21vw', height: '23vw', backgroundColor: 'transparent', marginBottom: 5}} >
             <Link to={`/tienda/${props.id}`}>
                 <CardMedia
                 component="img"
@@ -74,7 +74,7 @@ export default function ItemCard(props) {
                 />
             </Link>
             <CardContent sx={{backgroundColor: 'transparent'}}>
-            <Typography sx={{color: 'white'}} variant="body2" color="text.secondary">
+            <Typography sx={{color: 'rgb(78, 14, 104)'}} variant="body2" color="text.secondary">
                <h4>{props.name}</h4>
             </Typography>
             </CardContent>
@@ -85,7 +85,7 @@ export default function ItemCard(props) {
                         <img className={styles.paws} src={img} alt='points'></img>
                     </div>
                     <IconButton onClick={handleAddToCart} aria-label="add to favorites">
-                        <AddShoppingCartIcon sx={{color: 'yellow'}} />
+                        <AddShoppingCartIcon sx={{color: 'rgb(255, 230, 0)'}} />
                     </IconButton>
                 </div>
             </CardActions>

@@ -8,8 +8,10 @@
 .imgadoption {
     /* border: 3px solid red; */
     border-radius: 50%;
-    width: 20vw;
-    height: 20vw;
+    width: 25vw;
+    height: 25vw;
+    margin-left: 10vw;
+    margin-right: 3vw
 }
 
 .imgadoption:hover{
@@ -25,7 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content:center;
-    align-items: center;   
+    margin-left: 3vw;
     width: 52vw;
 }
 
@@ -33,31 +35,25 @@
     display: flex;
     flex-direction: column;
     justify-content:center;
-    align-items: center;   
-    margin-right: 100px;
+    /* align-items: center;    */
+    margin-right: 5vw;
 }
 
-.foundations {
-    display: flex;
-    width: 35vw;
-    align-items: center;
-    justify-content: center;
-    margin-left: 3vw;
-    flex-wrap: wrap;
-}
+
 
 
 .titles{
-    font-size: 5vw;
+    font-size: 6vw;
     color: rgb(255, 230, 0);
     font-weight: bold;
+    letter-spacing: -0.3vw;
     margin-bottom: 2vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .paragraph{
-    font-size: 1.8vw;
-    text-align: center;
+    font-size: 2vw;
+    width: 40vw;
     color: azure;
     margin-bottom: 4vw;
 }
@@ -77,33 +73,24 @@
     text-decoration: none;
 }
 
-.foundations img {
-    width: 6vw;
-    height: 6vw;
+.shelter img {
+    width: 30vw;
+    height: 30vw;
     margin-left: 3vw;
-    border-radius: 3vw;
-    border: 0.2vw solid rgb(25, 25, 106);
+    margin-top: 1vw;
 }
 
 .imgdonation{
-    width: 20vw;
-    height: 20vw;
+    width: 25vw;
+    height: 25vw;
     /* border: 3px solid red; */
     border-radius: 50%;
     margin-top: 2vw;
-    background-color: rgb(255, 204, 0);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.imgdonation img{
-    width: 15vw;
-    height: 15vw;
-    /* border: 3px solid red; */
-    /* border-radius: 35%; */
-
-}
 
 .containerimg{    
     display: flex;

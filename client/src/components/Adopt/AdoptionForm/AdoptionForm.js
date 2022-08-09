@@ -19,17 +19,17 @@ export default function AdoptionForm() {
     <>           
         <div className={styles.container}>
 
+            <div className={styles.formu}>
+                <Formulario setModal={setModal} setCheck={setCheck} check={check}/>
+            </div>
+
             <div className={styles.banner}>
-                <h1>¡Estás a un paso de unirte con tu huella!</h1>
+                <h1>¡Unite<br></br> con tu huella!</h1>
                 <img src={hand_paws} alt='bannerImage'></img>
             </div>
 
             <div className={modal ? styles.terms : styles.notShow}>
                 <TermsAndConditions setModal={setModal} setCheck={setCheck} />
-            </div>
-
-            <div className={styles.formu}>
-                <Formulario setModal={setModal} setCheck={setCheck} check={check}/>
             </div>
 
         </div>

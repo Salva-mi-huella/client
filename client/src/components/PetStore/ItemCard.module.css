@@ -40,8 +40,10 @@
 }
 
 .paws{
-    width: 4vw;
-    height: 4vw;
+    width: 2.7vw;
+    height: 2.7vw;
+    margin-top: 0.3vw;
+
     /* margin-bottom: 3vw; */
 }
 
@@ -63,7 +65,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 25vw;
+    width: 100%;
+    background-color: rgb(78, 14, 104);;
+    margin-top: -2vw;
 }
 
 .detail h4{
@@ -73,6 +77,8 @@
     font-weight: bold;
     text-align: center;
     margin-top: 0.8vw;;
+    margin-left: 1vw;
+    margin-right: 1vw
 }
 .detail div {
     display: flex;

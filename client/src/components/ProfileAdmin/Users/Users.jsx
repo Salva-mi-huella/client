@@ -77,8 +77,10 @@ const Users = () => {
     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, users.length - page * rowsPerPage));
     return (
         <div className={styles.tableDonations}>
+        
             <TableContainer sx={{border: "1px solid #e5e5e5" }} className={styles.cont} component={Paper}
                 style={{ background:"transparent", maxHeight: '71vh',maxWidth: '100%',marginTop:"7vh"}}
+
             >
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead >

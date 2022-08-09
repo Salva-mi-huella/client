@@ -58,7 +58,7 @@ export default function PetDetail(){
                         </div>
                         <div className={styles.containerInfo}>
                             <div className={styles.infoTitle}>
-                                <h2>Hola, <br></br>soy {pet.name}</h2>     
+                                <h2>Hola, soy <br></br>{pet.name}</h2>     
                                 {/* <h2>soy {pet.name} !</h2> */}
                             </div>
                             <div className={styles.infoDesc}>

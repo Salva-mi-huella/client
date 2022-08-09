@@ -4,9 +4,9 @@
     flex-direction: column;
 
     position: relative;
-    top: 7rem;
+    /* top: 7rem; */
 
-    max-height: 62vh;
+    max-height: 63vh;
     width: 90%;
     /* margin: 1rem; */
     padding: 1rem;

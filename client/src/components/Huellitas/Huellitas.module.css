@@ -1,13 +1,17 @@
 .banner img{
-    margin-top: 2.4vw;
-    margin-left: 1vw;
+    margin-top: 4vw;
+    position: absolute;
+    /* margin-left: 1vw; */
+    width: 65vw;
+    height: 45vw;
+    margin-left: -8vw;
 }
 
 .banner {
-    margin-top: 5vw;
+    margin-top: 1vw;
     display:flex;
     width: 100%;
-    height: 33vw;
+    height: 49.3vw;
     box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 10px;
 }
 
@@ -34,13 +38,14 @@
     flex-direction: column;   
     align-items: center;
     justify-content: center;
-    margin-right: 6vw;
+    margin-left: 41vw;
 }
 
 .sectionTitle{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(255, 230, 0);
-    font-size: 4vw;
+    letter-spacing: -0.3vw;
+    font-size: 4.5vw;
     font-weight: bolder;
     text-align: center;
 }
@@ -48,7 +53,7 @@
 .banner p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
-    font-size: 2vw;
+    font-size: 2.4vw;
     text-align: center;
     font-weight: bolder;
     padding-top: 1.4vw;
@@ -64,7 +69,7 @@
 
 
 .subContainer h1 {
-    font-size: 2.3vw;
+    font-size: 2.5vw;
     color: azure;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
@@ -99,33 +104,21 @@
 }
 
 .pictureA {
-    width: 10vw;
-    height: 10vw;
-    margin-bottom: 1vw;
-    border-radius: 50%;
-    box-shadow: 5px 11px 5px -3px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 5px 11px 5px -3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 11px 5px -3px rgba(0,0,0,0.75);
+    width: 25vw;
+    height: 25vw;
+    margin-bottom:-3vw ;
 }
 
 .pictureB {
-    width: 12vw;
-    height: 11vw;
+    width: 25vw;
+    height: 25vw;
     margin-bottom: 0.2vw;
-    border-radius: 50%;
-    box-shadow: 5px 11px 5px -3px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 5px 11px 5px -3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 11px 5px -3px rgba(0,0,0,0.75);
+    margin-right: 10vw;
 }
 
-.pictureC {
-    width: 20vw;
-    height: 15vw;
-    padding-bottom: 2vw;
-}
 
 .title{
-    font-size: 2.3vw;
+    font-size: 3vw;
     margin-top: 6vw;
     color: azure;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -141,6 +134,7 @@ justify-content: space-between;
 align-items: center;
 padding-top: 4vw;
 padding-bottom: 12vw;
+width: 80%;
 }
 
 .subTitles div {
@@ -151,12 +145,16 @@ padding-bottom: 12vw;
 }
 
 .subTitles h3 {
-    font-size: 2.3vw;
+    font-size: 2.5vw;
     color: azure;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     display: flex;
     align-items: center;
+}
+
+.subTitleA {
+    margin-top: 2vw;
 }
 
 
@@ -177,6 +175,7 @@ padding-bottom: 12vw;
     transition: 0.5s;
     width: 15vw;
     height: 15vw;
+    margin-bottom: 1vw;
     cursor: pointer;
 }
 .products:hover {
@@ -199,7 +198,9 @@ padding-bottom: 12vw;
 }
 
 .container span {
-    font-size: 2vw;
+    font-size: 2.5vw;
+    margin-right: 1vw;
+    margin-top: 1vw;
     color: rgb(255, 230, 0);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
@@ -207,17 +208,17 @@ padding-bottom: 12vw;
 }
 
 .paw {
- width: 15%
+ width: 10%
 }
 
 .store h1 {
-    font-size: 2.4vw;
+    font-size: 3vw;
     color: azure;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     text-align: center;
     padding-top: 2vw;
-    padding-bottom: 3vw;
+    padding-bottom: 5vw;
 }
 
 .store button {
@@ -226,10 +227,11 @@ padding-bottom: 12vw;
     color: rgb(99, 59, 218);
     border: none;
     border-radius: 70px;
-    font-size: 1.3vw;
+    font-size: 1.7vw;
     cursor: pointer;
     width: 40vw;
     height: 3.5vw;
+    margin-top: 2vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -251,3 +253,32 @@ padding-bottom: 12vw;
     justify-content: center;
     /* border: 2px solid red */
 }
+
+.imgContainer {
+    background-color: white;
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+}
+
+@media(max-width: 1280px){
+    .banner img {
+        width: 30.1vw;
+        height: 30.44vw;
+    }
+}
+
+@media(max-width: 768px){
+    .banner img {
+        width: 50.5vw;
+        height: 30.33vw;
+    }
+}
+
+@media(max-width: 375px){
+    .banner img {
+        width: 29.5vw;
+        height: 30.5vw;
+    }
+}
+

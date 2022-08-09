@@ -4,6 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 3vw;
+    margin-bottom: 5vw;
 }
 
 .containerGlass {
@@ -12,6 +14,7 @@
     height: 90vh;
    /*  background: var(--glass); */
    background-color: white;
+
     border-radius: 2rem;
     margin-right: 1rem;
     grid-template-columns: 16rem auto /* 20rem */;
