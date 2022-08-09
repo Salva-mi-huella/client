@@ -235,12 +235,7 @@ export default function Store() {
       
       {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
       <ShoppingCartIcon sx={{color: 'yellow'}}/>
-      </button>:null}
-
-
-          {isAuthenticated ? <button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <ShoppingCartIcon sx={{ color: 'yellow' }} />
-          </button> : null}
+      </button>:null}        
 
 
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
