@@ -77,6 +77,7 @@ const Users = () => {
     const emptyRows = (rowsPerPage - Math.min(rowsPerPage, users.length - page * rowsPerPage));
     return (
         <div className={styles.tableDonations}>
+
             <TableContainer sx={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}} className={styles.cont} component={Paper}
                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', maxHeight: '71vh',maxWidth: '100%',marginTop:"7vh"}}
             >
