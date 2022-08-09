@@ -5,8 +5,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 import paw from '../../assets/yellow-paw.png'
 import { Link } from 'react-router-dom';
 import register from '../../assets/user-checked.png'
-import rescued from '../../assets/animal-care.png'
+import rescued from '../../assets/adopted.png'
 import Footer from '../Footer/Footer'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 
 
@@ -29,9 +32,10 @@ export default function Huellitas(){
                 </div>
             </div>
  
-                <div className={style.subContainer}>
+                <div className={style.subContainer} >
 
-                    <div className={style.subInfoA}>
+                    <div className={style.subInfoA} data-aos="fade-bottom"
+                        data-aos-duration="1500">
                             <h1>Por cada donación que hagas a nuestras fundaciones,<br></br>empezás a sumar huellitas para canjear por productos en nuestra tienda.</h1>
 
                             <div>
@@ -44,7 +48,8 @@ export default function Huellitas(){
             <h1 className={style.title}>¿De qué otra manera podés empezar a sumar?</h1>
             <div className={style.section}>
                 <div className={style.subTitles}>
-                    <div>
+                    <div      data-aos="fade-right"
+                        data-aos-duration="1000">
                         <img className={style.pictureA}src={register} alt=''></img>
                         <h3>Por registrarte</h3>
                         <div className={style.points}>
@@ -52,7 +57,8 @@ export default function Huellitas(){
                             <img className={style.paw} src={paw} alt='paw'></img>
                         </div>
                     </div>
-                    <div>
+                    <div data-aos="fade-left"
+                        data-aos-duration="1300">
                         <img className={style.pictureB}src={rescued} alt=''></img>
                         <h3>Por cada huella que salves</h3>
                         <div className={style.points}>
@@ -60,14 +66,6 @@ export default function Huellitas(){
                             <img className={style.paw} src={paw} alt='paw'></img>
                         </div>
                     </div>
-                    {/* <div>
-                        <img className={style.pictureC} src={refer} alt=''></img>
-                        <h3>Por cada amigo que invites</h3>
-                        <div className={style.points}>
-                            <span>700</span>
-                            <img className={style.paw} src={paw} alt='paw'></img>
-                        </div>
-                    </div> */}
                 </div>
             </div>
 

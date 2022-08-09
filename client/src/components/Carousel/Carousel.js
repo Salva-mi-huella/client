@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
 import img1 from '../../assets/dog-carrousel.png'
 import img2 from '../../assets/cat-carrousel3.jpg'
-import img4 from '../../assets/hand-paw.png'
+import shelter from '../../assets/icon-shelter1.png'
 
 
 export default function ControlledCarousel({foundations}) {
@@ -29,30 +29,21 @@ export default function ControlledCarousel({foundations}) {
             
             <div className={styles.containertext}>
                 <h1 className={styles.titles}>Adopciones</h1>
-                <p className={styles.paragraph}>¿Todavía seguís buscando a tu mejor amigo?<br/> ¡No lo busques más! Encontralo en nuestra red de refugios.</p>
+                <p className={styles.paragraph}>¿Todavía seguís buscando a tu compañero?<br/> ¡No lo busques más! Encontralo en nuestra red de refugios.</p>
                     <Link className={styles.link} to='/adoptar'><button>QUIERO ADOPTAR</button></Link>
             </div>
-
-            <div  className={styles.containerimg}>               
-                <img
-                    className={styles.imgadoption}                    
-                    src={img2}
-                    alt="Second img - Slide one"
-                />                  
-            </div>            
+       
         </div>
         </Carousel.Item>
 
         <Carousel.Item>
         <div className={styles.container}>
-            <div className={styles.foundations}>
-            {foundations.length>0 && foundations.map(f => (
-                <img src={f.images[0]} alt='foundation'></img>
-            ))}
+            <div className={styles.shelter}>
+                <img src={shelter} alt='foundation'></img>
             </div>
             <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Fundaciones</h1>
-                <p className={styles.paragraph}>¿Te gustaría ser parte de nuestra familia? <br/>Contactate con nosotros <br></br> y empezá ya el proceso de inscripción.</p>
+                <p className={styles.paragraph}>¿Te gustaría ser parte de nuestra familia? <br/>Contactate con nosotros y empezá ya <br></br>  el proceso de inscripción.</p>
                     <Link className={styles.link} to='/contacto'><button>QUIERO SER PARTE</button></Link>
             </div>
         </div>
@@ -62,13 +53,13 @@ export default function ControlledCarousel({foundations}) {
         <div className={styles.containerDonate}>
             <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Donaciones</h1>
-                <p className={styles.paragraph}>Tu aporte de hoy puede ser mi comida de mañana.</p>
+                <p className={styles.paragraph}>Tu aporte de hoy puede ser <br></br>mi comida de mañana.</p>
                 <Link className={styles.link} to='/donar'><button>QUIERO DONAR</button></Link>
             </div>
             <div>
                 <img   
                 className={styles.imgdonation}             
-                src={img4}
+                src={img2}
                 alt="Foundations"
                 />
             </div>

@@ -204,13 +204,14 @@ return (
 
             <div className={styles.groupinp}>
               <div className={styles.inp}>
-                <label htmlFor="name">Nombre</label>
+                <label htmlFor="name"></label>
                 <Field 
                   // className="form-control opacity-25"
                   className={`form-control ${styles.inputsForm}` }
                   type="text"
                   name="name"
-                  id="name"                 
+                  id="name"   
+                  placeholder="Nombre"              
                 /> 
                 <ErrorMessage name="name" component={()=> (<div className={styles.error}>{errors.name}</div>)}></ErrorMessage>
               </div>

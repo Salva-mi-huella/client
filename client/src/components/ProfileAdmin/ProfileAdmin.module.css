@@ -4,12 +4,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 3vw;
+    margin-bottom: 5vw;
 }
 
 .containerGlass {
     display: grid;
     width: 95vw;
     height: 90vh;
+
     background: var(--glass);
     border-radius: 2rem;
     margin-right: 1rem;

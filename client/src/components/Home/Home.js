@@ -8,13 +8,11 @@ import { getFoundations, postUser, getUserByEmail, getAllPets } from '../../redu
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner-home.jpg';
 import yellow_paw from '../../assets/yellow-paw.png';
-import yellow_waves from '../../assets/yellow-waves.png';
-import banner_footer from '../../assets/banner-footer.png';
 import paw from '../../assets/yellow-paw.png';
 import { useAuth0 } from '@auth0/auth0-react';
 import eslogan from '../../assets/eslogan2.png'
-import register from '../../assets/register.png';
-import gift from '../../assets/gift-box.png';
+import register from '../../assets/register1.png';
+import gift from '../../assets/gift-2png.png';
 import { setUserSession, getUserSession } from "../../utils";
 import News from './News/News';
 import AOS from 'aos';
@@ -78,13 +76,13 @@ export default function Home() {
                         data-aos-duration="1000">
                         <div>
                             <h1>¿Por qué registrarse?</h1>
-                            <p>Administración de cuenta gratuita, seguimiento de solicitudes de adopción, acceso a Huellitas, todo esto y mucho más. Es super simple y fácil, ¡sumate!</p>
+                            <p>Administración de cuenta gratuita, seguimiento de <br></br>solicitudes de adopción, acceso a Huellitas, todo esto <br></br> y mucho más. Es super simple y fácil, ¡sumate!</p>
                             {!isAuthenticated && <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>}
                         </div>
                             <img src={register} alt='register'></img>
                     </div>
 
-                    <div className={styles.subInfoA} 
+                    <div className={styles.subInfoC} 
                         data-aos="fade-left"
                         data-aos-duration="1300">
                             <img  className={styles.gift} src={gift} alt='gift'></img>
@@ -100,11 +98,8 @@ export default function Home() {
 
                 </div>
 
-                <img className={styles.waves} src={yellow_waves} alt='waves'></img>
-
             <div>
                 <SliderFoundation />
-                <img className={styles.catFooter} src={banner_footer} alt='catFooter'></img>
             </div>
 
 
