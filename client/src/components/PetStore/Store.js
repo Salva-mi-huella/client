@@ -99,26 +99,22 @@ export default function Store() {
    const [filterByType, setFilterByType] = useState("");
    const [filterByCategory, setFilterByCategory] = useState("");
 
-   function handleFilterAZ(e){   
-     setFilterByAZ(e.target.value)
-     dispatch(storeFilters(e.target.value,filterByPrice,filterByType,filterByCategory))}
    function handleFilterByPrice(e){  
      setFilterByPrice(e.target.value)
-     dispatch(storeFilters(filterByAZ,e.target.value,filterByType,filterByCategory))
+     dispatch(storeFilters(e.target.value,filterByType,filterByCategory))
    }
 
    function handleFilterByType(e){       
     setFilterByType(e.target.value)
-    dispatch(storeFilters(filterByAZ, filterByPrice, e.target.value, filterByCategory))
+    dispatch(storeFilters( filterByPrice, e.target.value, filterByCategory))
   }
 
   function handleFilterByCategory(e) {
     setFilterByCategory(e.target.value)
-    dispatch(storeFilters(filterByAZ, filterByPrice, filterByType, e.target.value))
+    dispatch(storeFilters( filterByPrice, filterByType, e.target.value))
   }
 
   function handleAll(e) {
-    setFilterByAZ("")
     setFilterByPrice("")
     setFilterByType("")
     setFilterByCategory("")
