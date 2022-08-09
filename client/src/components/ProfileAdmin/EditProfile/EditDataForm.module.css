@@ -17,7 +17,7 @@
 
 
 .h3title{
-  color: white;
+  color: rgb(99 59 218);
   font-size: 2.7rem;
   display: flex;
   justify-content: center;
@@ -56,11 +56,11 @@
 .input {
   color: #010712;
   font-weight: 500;
-  background: #FCFDFD;
+  background-color: #b7b7b744;
   position: relative;
   top: -1rem;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.334);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.334); */
   padding: 0.5rem 0.5rem;
   outline: none;
   resize: none;
@@ -68,7 +68,7 @@
 }
 
 .post{
-  width: 37vw; 
+  width: 30vw; 
   overflow: hidden;
   display: flex;
   font-size: 1.5rem;
@@ -76,11 +76,11 @@
   border: none;
   border-radius: 10px;
   padding: 3px;
-  background-color: rgba(214, 71, 253, 0.678);
+  background-color: rgb(99 59 218);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   color: white;
   margin-top: 3rem;
-  margin-left: 3rem;
+  margin-left: 6rem;
 }
 .form{
   height: 72vh;
@@ -112,5 +112,9 @@ margin-left: 0.3rem;
 .div{
   width: 45vw;
   min-height: 5rem;
+}
+.post{
+  width: 37vw; 
+  margin-left: 3rem;
 }
 }

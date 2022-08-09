@@ -19,7 +19,7 @@
   }
   
 .h3title{
-    color: white;
+  color: rgb(99 59 218);
     font-size: 2rem;
     display: flex;
     justify-content: center;
@@ -49,7 +49,7 @@
     padding: 10px;
     color: #010712;
     font-weight: 500;
-    background: #FCFDFD;
+    background-color: #b7b7b744;
     resize: none;
     border: none;
     padding: 0.5rem 0.5rem;
@@ -90,7 +90,7 @@
     border: none;
     border-radius: 10px;
     padding: 3px;
-    background-color: rgba(214, 71, 253, 0.678);
+    background-color: rgb(99 59 218);;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: white;
     margin-top: 1.5rem;
