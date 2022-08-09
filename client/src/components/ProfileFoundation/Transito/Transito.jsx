@@ -1,18 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers, updateUser } from "../../../redux/actions"
 import { useEffect } from 'react';
 
+import { getUsers } from "../../../redux/actions"
+
+import TablePagination from '@mui/material/TablePagination';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
-import verify from '../../../assets/verificado.png'
 
+import verify from '../../../assets/verificado.png'
 import styles from '../Transito/Transito.module.css';
 
 const Transito = () => {
@@ -20,30 +21,13 @@ const Transito = () => {
     const users = useSelector(state => state.users)
     const transit = users?.filter(user => user.transit === "Si")
 
-    console.log(users, 'users');
-    console.log(transit, 'transit');
+    // console.log(users, 'users');
+    // console.log(transit, 'transit');
 
     useEffect(() => {
         dispatch(getUsers())
     }, [dispatch])
 
-    function makeStyles(transit) {
-        if (transit === "Si") {
-            return {
-                color: 'green'
-            }
-        }
-        else if (transit === "No") {
-            return {
-                color: 'red'
-            }
-        }
-
-    }
-
-    const handleAdmin = (e, email) => {
-        dispatch(updateUser({ admin: e.target.value }, email))
-    }
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -58,62 +42,70 @@ const Transito = () => {
         setPage(0);
     };
 
-    const emptyRows = (rowsPerPage - Math.min(rowsPerPage, users.length - page * rowsPerPage));
+    const emptyRows = (rowsPerPage - Math.min(rowsPerPage, users?.length - page * rowsPerPage));
 
     return (
         <div className={styles.tableDonations}>
-            <TableContainer component={Paper}
-                style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%', marginTop: '2%' }}
-            >
+            <TableContainer className={styles.cont} component={Paper}
+                style={{
+                    boxShadow: '0px, 13px, 20px, 0px #80808029',
+                    height: '90%',
+                    marginTop: '2%',
+                    border: '1px solid gray'
+                }}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead >
-                        <TableRow>
-                            <TableCell>Usuario</TableCell>
-                            <TableCell align="left">Nombre</TableCell>
-                            <TableCell align="left">Email</TableCell>
-                            <TableCell align="left">City</TableCell>
-                            <TableCell align="left">DNI</TableCell>
-                            <TableCell align="left">Teléfono</TableCell>
+                    <TableHead>
+                        <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }}> Usuario</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Nombre</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Email</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">City</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">DNI</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Teléfono</TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>
+                    <TableBody >
                         {transit.length > 0 ? transit
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((user) => (
-                                <TableRow
-                                    className={styles.row}
-                                    key={user.id}>
+                                <TableRow className={styles.row} key={user.name} sx={{ '&:last-child td, &:last-child th': { border: 1 } }}>
+
                                     <TableCell component="th" scope="row">
-                                        {user.admin === true ? <div>{user.nickname} <img width='15px' height='15px' src={verify} alt="" /></div> : user.nickname}
+                                        {
+                                            user.admin === true
+                                                ? <div>{user.nickname} <img width='15px' height='15px' src={verify} alt="" /></div>
+                                                : user.nickname
+                                        }
                                     </TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.name}</TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.email}</TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.city}</TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.dni}</TableCell>
-                                    <TableCell className={styles.row1} align="left">{user.telephone_number}</TableCell>
+
+                                    <TableCell align="left">{user.name}</TableCell>
+                                    <TableCell align="left">{user.email}</TableCell>
+                                    <TableCell align="left">{user.city}</TableCell>
+                                    <TableCell align="left">{user.dni}</TableCell>
+                                    <TableCell align="left"><div className={styles.phoneContainer}>{user.telephone_number}</div></TableCell>
                                 </TableRow>
                             )) :
                             <TableCell component="th" scope="row"> Aún no hay Usuarios de transito </TableCell>}
                         {emptyRows > 0 && (
-                            <TableRow style={{ height: 53 * emptyRows }}>
+                            <TableRow style={{ height: 93 * emptyRows }}>
                                 <TableCell colSpan={6} />
                             </TableRow>
                         )}
                     </TableBody>
                 </Table>
-            </TableContainer>
 
-            <TablePagination
-                sx={{ justifyContent: 'center', alignSelf: 'center', flex: 'center' }}
-                className={styles.pagination}
-                component="div"
-                count={users.length}
-                page={page}
-                onPageChange={handleChangePage}
-                rowsPerPage={rowsPerPage}
-                rowsPerPageOptions={[10]}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
+                <TablePagination
+                    sx={{ justifyContent: 'center', alignSelf: 'center', flex: 'center', marginTop: '23px', textAlign: 'center' }}
+                    className={styles.pagination}
+                    component="div"
+                    count={users?.length}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    rowsPerPage={rowsPerPage}
+                    rowsPerPageOptions={[10]}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
+            </TableContainer>
 
         </div>
     )

@@ -93,7 +93,7 @@ const Donations = () => {
                             <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left" > Cantidad </TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody >
+                    <TableBody>
                         {donations && donations?.length > 0 ? donations
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row, index) => (
@@ -101,7 +101,7 @@ const Donations = () => {
                                     <TableCell component="th" scope="row"> {!row.user?.name ? 'Anonimo' : `${row.user?.name}`} </TableCell>
                                     <TableCell align="left">{!row.user?.email ? 'Anonimo' : `${row.user?.email}`} </TableCell>
                                     <TableCell align="left">{row.date}</TableCell>
-                                    <TableCell align="left">{row.method}</TableCell>
+                                    <TableCell align="left"><div className={styles.methodContainer} >{row.method}</div></TableCell>
                                     <TableCell style={makeStyles(row.method)}
                                         align="left">{row.method === 'paypal' ? `$ ${new Intl.NumberFormat().format(row.amount)} USD ` : `$ ${new Intl.NumberFormat().format(row.amount)} ARS `}</TableCell>
                                 </TableRow>
