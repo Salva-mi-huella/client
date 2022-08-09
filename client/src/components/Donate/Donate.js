@@ -6,7 +6,7 @@ import style from './Donate.module.css'
 import { getFoundations, getUserByEmail } from '../../redux/actions/index.js';
 import Stepper from './Stepper';
 import banner from '../../assets/paw-hand1.png'
-import paypal from '../../assets/paypal.png'
+import paypal from '../../assets/paypal1.png'
 import mercadoPago from '../../assets/mercadopago.png'
 import Paypal from './Paypal/Paypal';
 import Footer from '../Footer/Footer';

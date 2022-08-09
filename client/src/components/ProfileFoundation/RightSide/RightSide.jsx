@@ -1,5 +1,4 @@
 import React from 'react';
-// import AdoptionReview from '../AdoptionReview/AdoptionReview';
 import Updates from '../Updates/Updates';
 import styles from './RightSide.module.css';
 import { Link } from 'react-router-dom';
@@ -13,8 +12,7 @@ const RightSide = ({ foundation }) => {
             </Link>
 
             <div className={styles.updates}>
-                {/* <h3 className={styles.RightSideTitle}> Recientes </h3> */}
-                <Updates />
+                <Updates foundation={foundation} />
             </div>
 
         </div >

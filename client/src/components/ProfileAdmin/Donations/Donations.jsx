@@ -107,7 +107,7 @@ const Donations = () => {
                     </TableBody>
                 </Table>
 
-                <TablePagination
+                <TablePagination sx={{marginTop: '1vw'}}
                     className={styles.pagination}
                     component="div"
                     count={donations.length}

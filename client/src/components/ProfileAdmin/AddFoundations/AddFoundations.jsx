@@ -17,7 +17,7 @@ export default function AddFoundations() {
         address:'',
         telephone_number:'',
         description:'',
-        images:''
+        images:'',
         
     })
 
@@ -29,17 +29,21 @@ export default function AddFoundations() {
 
         if(!input.name) error.name = '*'
 
-        if(input.name && input.name.length < 3 ) error.name = 'mínimo 3 caracteres'
+        if(input.name && input.name.length < 3 ) error.name = 'Mínimo 3 caracteres'
 
         if(input.name && !regExpName.test(input.name) ) error.name = 'Solo Letras'
+
+        if(input.state && !regExpName.test(input.state) ) error.state = 'Solo Letras'
+
+        if(input.city && !regExpName.test(input.city) ) error.city = 'Solo Letras'
         
         if(!input.email) error.email = '*'
 
-        if(input.email && !regEmail.test(input.email)) error.email = 'email invalido'
+        if(input.email && !regEmail.test(input.email)) error.email = 'Email inválido'
         
         if(!input.description) error.description = '*'
         
-        if(input.message && input.message.length < 10) error.message = 'mínimo 10 caracteres'
+        if(input.message && input.message.length < 10) error.message = 'Mínimo 10 caracteres'
 
         if(!input.state) error.state = '*'
 
@@ -47,7 +51,11 @@ export default function AddFoundations() {
 
         if(!input.telephone_number) error.telephone_number = '*'
 
-        if(input.telephone_number && !regPhone.test(input.telephone_number)) error.telephone_number = 'teléfono invalido'
+        if(input.telephone_number && input.telephone_number.length > 15) error.telephone_number = 'Máximo 15 caracteres'
+
+        if(input.telephone_number && input.telephone_number.length < 10) error.telephone_number = 'Mínimo 10 caracteres'
+
+        if(input.telephone_number && !regPhone.test(input.telephone_number)) error.telephone_number = 'Teléfono invalido'
        
         if(!input.address) error.address = '*'
     
@@ -87,8 +95,8 @@ export default function AddFoundations() {
         Swal.fire({
             title: '¿Quieres dar de alta a esta fundación?',
             showDenyButton: true,
-            confirmButtonText: 'Si, dar de alta',
-            denyButtonText: `No, cancelar`,
+            confirmButtonText: 'Confirmar',
+            denyButtonText: `Cancelar`,
         }).then(
             async (result) => {
                 if (result.isConfirmed) {

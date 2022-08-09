@@ -23,7 +23,8 @@
 
 .tablePets {
     width: 100%;
-    margin-left: 2rem;
+    margin-left: 10vw;
+    margin-top: 2vw;
     min-height: 85vh;
     max-height: 100%;
     overflow-y: hidden;

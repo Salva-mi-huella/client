@@ -5,6 +5,7 @@
     position: relative;
     padding-top: 4rem;
     transition: all 300ms ease;
+    background-color: rgba(221, 214, 214, 0.52);
 }
 
 /* logo */
@@ -16,26 +17,19 @@
     display: flex;
     flex-direction: column;
     font-weight: bold;
-    font-size: 28px;
-
     align-items: center;
     justify-content: center;
     gap: .7rem;
-
     width: 100%;
-    height: 0px;
+    margin-top: -3vw;
     position: relative;
-    top: -80px;
 }
 
-.profileFoundationLogo>span>span {
-    color: var(--pink);
-}
 
 .profileFoundationLogo>img {
     border-radius: 5rem;
-    width: 7rem;
-    height: 7rem;
+    width: 5vw;
+    height: 5vw;
 }
 
 
@@ -45,7 +39,6 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-
     width: 100%;
 }
 
@@ -53,11 +46,10 @@
     display: flex;
     align-items: center;
     position: relative;
-    
     gap: -1rem;
     margin-left: 1rem;
+    margin-bottom: -0.8vw;
     height: 2.5rem;
-    
     font-size: 16px;
     border-radius: 0.7rem;
     
@@ -65,8 +57,8 @@
 }
 
 .itemText{
-    margin-left: -.3rem;
-    font-size: .9rem;
+    margin-left: 1vw;
+    font-size: 1.1vw;
     font-weight: 500;
     transition: all 500ms ease;
 }

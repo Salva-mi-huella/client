@@ -1,5 +1,6 @@
 .cont {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* margin-left: 5vw; */
 }
 
 .row {
@@ -23,7 +24,6 @@
 }
 
 .requestTableTitle {
-    margin: 1rem 0rem;
     font-size: 3rem;
     font-weight: 500;
     color: #F1F15B;
@@ -40,7 +40,8 @@
 
 .tableRequests {
     width: 100%;
-    margin-left: 2rem;
+    margin-top: 2vw;
+    margin-left: 10vw;
     min-height: 85vh;
     overflow-y: hidden;
 }
