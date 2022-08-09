@@ -1,3 +1,16 @@
+.cont {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.row {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.methodContainer {
+    height: 2rem;
+    margin: -2.5px 10px 0px 10px;
+}
+
 .donationTitle {
     margin: 1rem 0rem;
     font-size: 3rem;
@@ -40,7 +53,7 @@
 
 @media screen and (max-width: 1200px) {
     .tableDonations {
-        width: 170%;
+        /* width: 170%; */
         margin-top: 2rem;
     }
 }
