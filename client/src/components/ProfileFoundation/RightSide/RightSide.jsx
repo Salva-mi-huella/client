@@ -7,9 +7,13 @@ import { Link } from 'react-router-dom';
 const RightSide = ({ foundation }) => {
     return (
         <div className={styles.RightSide}>
-            <Link className={styles.link} to={`fundacion/${foundation?.id}`}><button>Ver mi sección</button></Link>
+
+            <Link className={styles.link} to={`fundacion/${foundation?.id}`}>
+                <button className={styles.btnLink} >Ver mi sección</button>
+            </Link>
+
             <div className={styles.updates}>
-                <h3 className={styles.RightSideTitle}> Recientes </h3>
+                {/* <h3 className={styles.RightSideTitle}> Recientes </h3> */}
                 <Updates />
             </div>
 

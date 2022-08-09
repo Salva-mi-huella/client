@@ -67,12 +67,14 @@ const Inbox = () => {
         <div className={styles.inboxTable} >
             <TableContainer className={styles.cont} component={Paper}
                 style={{
-                    boxShadow: '0px, 13px, 20px, 0px #80808029',
+                    // boxShadow: '0px, 13px, 20px, 0px #80808029',
                     height: '90%',
                     marginTop: '2%',
-                    border: '1px solid gray'
+                    // border: '1px solid gray',
+                    backgroundColor: '#633BDA',
+                    color: 'white',
                 }}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table sx={{ minWidth: 650}} aria-label="simple table">
                     <TableHead >
                         <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
                             <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Usuario</TableCell>
@@ -81,7 +83,7 @@ const Inbox = () => {
                         </TableRow>
                     </TableHead>
                     {/* BODY */}
-                    <TableBody>
+                    <TableBody >
                         {foundation && foundation.messages
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((r) => (
@@ -94,9 +96,9 @@ const Inbox = () => {
                                         {r.pet.name}
                                     </TableCell> */}
 
-                                    <TableCell className={styles.tableCell} align="left">{r.name}</TableCell>
-                                    <TableCell className={styles.tableCell} align="left">{r.email}</TableCell>
-                                    <TableCell className={styles.ciudad} align="left" >
+                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.tableCell} align="left">{r.name}</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.tableCell} align="left">{r.email}</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.ciudad} align="left" >
                                         {r.message ? <button className={styles.boton} onClick={() => {
                                             Swal.fire({
                                                 title: r.message,

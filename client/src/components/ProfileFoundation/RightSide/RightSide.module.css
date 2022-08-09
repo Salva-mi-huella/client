@@ -1,4 +1,5 @@
 .RightSide {
+    /* background-color: #ee4ffc; */
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,9 +7,11 @@
 }
 
 .updates {
-    /* background-color: #ee4ffc; */
+    /* background-color: green; */
+    height: 71%;
     position: relative;
-    top: .5rem;
+    top: 6rem;
+    /* top: .5rem; */
 }
 
 .RightSideTitle {
@@ -16,9 +19,10 @@
     top: 7rem;
     font-size: 2rem;
     font-weight: 300;
+    font-weight: 300;
 }
 
-.RightSide button {
+/* .RightSide button {
     display: flex;
     margin-top: 2vw;
     margin-left: 5vw;
@@ -29,14 +33,38 @@
     align-items: center;
     justify-content: center;
     background-color: white;
-    /* border: 1vw solid purple; */
+    border: 1vw solid purple;
     color: rgb(99, 59, 218);
     font-size: 1.3vw;
     font-weight: bolder;
-}
+} */
 
 .link {
     text-decoration: none;
+}
+
+.btnLink {
+    background-color: white;
+
+    position: relative;
+    top: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 2vw;
+    /* margin-bottom: -2vw; */
+    /* margin-left: 5vw; */
+    height: 2.3vw;
+    width: 13vw;
+
+    color: rgb(99, 59, 218);
+    font-size: 1.3vw;
+    font-weight: bolder;
+    border-radius: 1vw;
+    /* border: 1vw solid purple; */
 }
 
 
