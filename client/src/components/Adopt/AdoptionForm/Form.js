@@ -54,7 +54,7 @@ return (
         innerRef={ref}
         initialValues={{
           name: userDetail?.name?.length >0 ? userDetail.name : "",
-          lastname: "",
+          lastname: userDetail?.lastname?.length >0 ? userDetail.lastname : "",
           email: userDetail?.email ? userDetail.email : "",
           phone: userDetail?.telephone_number ? userDetail.telephone_number : "",
           age: "",
@@ -207,7 +207,7 @@ return (
                 <label htmlFor="name"></label>
                 <Field 
                   // className="form-control opacity-25"
-                  className={`form-control ${styles.inputsForm}` }
+                  className={`${styles.inputsForm}` }
                   type="text"
                   name="name"
                   id="name"   
@@ -218,7 +218,7 @@ return (
 
               <div className={styles.inp}>
                 <Field
-                  className={`form-control ${styles.inputsForm}`}
+                  className={`${styles.inputsForm}`}
                   type="text"
                   name="lastname"
                   id="lastname"
@@ -231,19 +231,19 @@ return (
             <div className={styles.groupinp}>
               <div className={styles.inp}>
                 <Field sx={{color: 'white'}}
-                  className={`form-control ${styles.inputsForm}`}
+                  className={`  ${styles.inputsForm}`}
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Email"              
 
                   /> 
-                <ErrorMessage name="email" component={()=> (<div className={styles.error}>{errors.email}</div>)}></ErrorMessage>
+                  <ErrorMessage name="email" component={()=> (<div className={styles.error}>{errors.email}</div>)}></ErrorMessage>
               </div>
 
               <div className={styles.inp}>
                 <Field
-                  className={`form-control ${styles.inputsForm}`}
+                  className={`  ${styles.inputsForm}`}
                   type="tel"
                   name="phone"
                   id="phone"
@@ -257,7 +257,7 @@ return (
             <div className={styles.groupinp3}>
               <div className={styles.age}>
                 <Field
-                  className={`form-control w-50 ${styles.inputsForm}`}
+                  className={`  w-50 ${styles.inputsForm}`}
                   type="number"
                   name="age"
                   id="age"    
@@ -267,9 +267,9 @@ return (
                 <ErrorMessage name="age" component={()=> (<div className={styles.error}>{errors.age}</div>)}></ErrorMessage>
               </div>
 
-              <div className={styles.inp}>
-                <label htmlFor="pet">Huella</label>
-                <Field defaultValue={foundationSelected ? (petDetail.id ? petDetail.id : foundations[0]?.pets[0]?.id) : 'Elegí tu huella'} as="select" className={`form-control w-75 ${styles.inputsForm}`} name="pet" id="pet">
+              <div className={styles.pet}>
+                <label htmlFor="pet"></label>
+                <Field defaultValue={foundationSelected ? (petDetail.id ? petDetail.id : foundations[0]?.pets[0]?.id) : 'Elegí tu huella'} as="select" className={`w-75 ${styles.inputsForm}`} name="pet" id="pet">
                   {/* {pets && pets.map((pet) => ref.current?.values?.foundation == pet.foundationId?(<option  value={pet.id}>{pet.name}</option>):null)} */}
                   <option>Elegí tu huella</option>
                   {foundations && foundations.filter(f => f.id == ref.current?.values?.foundation).map((foundation) =>
@@ -277,9 +277,9 @@ return (
                 </Field>
               </div>
 
-              <div className={styles.inp}>
-                <label htmlFor="foundation">Fundación</label>
-                <Field as="select" onClick={handleOnChange} className={`form-control w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation" defaultValue={petDetail.foundationId ? petDetail.foundationId : foundations[0]?.id}>
+              <div className={styles.foundation}>
+                <label htmlFor="foundation"></label>
+                <Field as="select" onClick={handleOnChange} className={` w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation" defaultValue={petDetail.foundationId ? petDetail.foundationId : foundations[0]?.id}>
                 {/* {petDetail.foundation && petDetail.foundation.name && <option value={petDetail.foundation.id}>{petDetail.foundation.name}</option>} */}
                   {/* {foundations && foundations.filter(f => f.id !== petDetail.foundationId).map((foundation)=> (<option value={foundation.id}>{foundation.name}</option>))} */}
                   {foundations && foundations.map((foundation)=> (<option onClick={handleOnChange} value={foundation.id}>{foundation.name}</option>))}
@@ -291,7 +291,7 @@ return (
               <label htmlFor="Textarea" className="form-label">
                 ¿ Porque quieres adoptar ?
               </label>
-              <Field as="textarea" className={`form-control ${styles.inputsForm}`} id="textarea" name="textarea" rows="4" placeholder="Mensaje...">
+              <Field as="textarea" className={`${styles.inputsForm}`} id="textarea" name="textarea" rows="4" placeholder="Mensaje...">
               </Field>
               <ErrorMessage name="textarea" component={()=> (<div className={styles.error}>{errors.textarea}</div>)}></ErrorMessage>
             </div>

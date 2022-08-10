@@ -18,6 +18,7 @@
 .loading {
   /* background-color: #fff; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -69,7 +70,21 @@
   font-weight: bold;
   color: azure;
 } */
-
+.favsAdded{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2vw;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  padding-bottom: 5rem;
+  font-weight: bold;
+  color: azure;
+}
+.favs{
+  margin-left: -5rem;
+}
 .favsTitle {
   font-size: 4vw;
   /* margin-left: 45vw;
@@ -102,6 +117,8 @@
   color: white;
   color: rgb(99, 59, 218);
   font-size: 2.6vw;
+  font-weight: bold;;
+  letter-spacing: -0.1vw;;
 }
 
 .empty div {

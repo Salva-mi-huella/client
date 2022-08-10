@@ -18,8 +18,8 @@ export default function PaginateStore(){
     
     useEffect(()=>{
         if(products){
-            let firstIndex = (actualPage * 6) - 6
-            let lastIndex = (actualPage * 6)
+            let firstIndex = (actualPage * 12) - 12
+            let lastIndex = (actualPage * 12)
             let renderPage = products.slice(firstIndex, lastIndex)
             setActive(actualPage)
             dispatch(productsFiltered(products,renderPage))
@@ -34,7 +34,7 @@ export default function PaginateStore(){
     // Setup number of rendering pages
     let pagesUI = []
     if(products){
-        let totalPages = Math.ceil(products.length / 6 )
+        let totalPages = Math.ceil(products.length / 12 )
         for (let i = 1; i <= totalPages; i++) {
             pagesUI.push(i)
           }
@@ -67,7 +67,6 @@ export default function PaginateStore(){
                     <li onClick={() => handleArrow("right")} className={style.arrow}>
                         <i className="fa-solid fa-circle-right"></i>
                     </li>
-
                 }
             </ul>
             }

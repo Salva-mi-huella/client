@@ -33,9 +33,10 @@
 .inp{
     display: flex;
     flex-direction: column;
-    height: 7vw;
+    min-height:7vh ;
     width: 20vw;
-    margin-bottom: 1vw;
+    /* border: 2px solid red; */
+    margin-bottom: 10px;
     color: azure;
 }
 
@@ -49,6 +50,8 @@
 .groupinp3{
     display: flex;
     flex-direction: row;
+
+    align-items: flex-end;
     justify-content:space-between;
     margin-left: 1.1vw;
 }
@@ -59,6 +62,10 @@
 }
 
 .textarea{
+
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
     margin-left: 1.1vw;
     margin-bottom: 2vw;
 }
@@ -93,7 +100,8 @@ label{
     color: white;
     font-size: 1.8vw;
     font-weight: 700;
-    width: 44vw;
+    /* width: 22vw; */
+    padding: 10px;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
@@ -113,7 +121,7 @@ label{
                 0 0 25px #FCEC4F,
                 0 0 50px #FCEC4F,
                 0 0 100px#FCEC4F; */
-    opacity:0.8;
+    /* opacity:0.8; */
 }
 
 .error{
@@ -121,10 +129,12 @@ label{
     background-color: rgba(255, 0, 0, 0.568);
     font-size: 1vw;
     font-weight: 500;
-    border-radius: 3vw;
-    padding: 0.4vw;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    /* padding: 0.4vw; */
     text-align: center;
-    margin-top: 1vw;
+    /* margin-top: 1vw; */
 
 }
 .success{
@@ -134,14 +144,40 @@ label{
 }
 
 .inputsForm {
-    color: white !important;
-    background-color: #CBB1E1 !important;
-    border: none !important;
+    color: white ;
+    /* background: rgb(41,24,91); */
+    /* background: rgb(41,24,91); */
+    border: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius:0 ;
+    background-color: transparent;
+    background:rgba(41,24,91,0.3954175420168067);
+     border: none;
+     border-bottom: 0.7px solid rgb(255, 255, 255);
+    /* border-bottom: 1px solid purple; */
     font-weight: bold;
+    transition: 0.4s;
 }
 
-.age {
-    margin-top: 2vw
+.inputsForm::placeholder{
+    color: rgba(255, 255, 255, 0.63);
+}
+.inputsForm:hover {
+    color: white;
+    border-radius: 10px;
+    background: rgba(41,24,91,0.779171043417367);
+}
+.inputsForm:focus{
+    outline: none;
+
 }
 
+.pet{
+    width: 300px;
+}
+.foundation{
+    width: 400px;
+}
 

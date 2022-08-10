@@ -5,31 +5,45 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import styles from './NewsCard.module.css';
 
-export default function News({news}) {
+export default function News({ news }) {
 
-  return (
-      <div className={styles.container}>
-            <Card sx={{ width: '25vw', height: '32vw', backgroundColor: "rgba(154, 121, 255, 0.488)"}}>
-                        <CardHeader
-                            avatar={<div><img className={styles.avatar} src={news.foundationsImage} alt=""/></div>}
-                            title={<div className={styles.title}>{news.title}</div>}
-                            subheader={<div className={styles.date}>{news.post_date}</div>}
-                            sx={{ color: "white"}}
-                            />
-                            <CardMedia>
-                                <img className={styles.image} src={news.images} alt='newImage'></img>
+    return (
+        <div className={styles.container}>
 
-                            </CardMedia>
-                                {/* component="img"
+            <Card sx={{ width: '25vw', height: '32vw', backgroundColor: "#190063" }}>
+
+                <CardHeader
+                    title={
+                        <div className={styles.titleContainer}>
+                            <span>{news.title}</span>
+                        </div>}
+                    avatar={
+                        <div className={styles.imgContainer}>
+                            <img className={styles.avatar} src={news.foundationsImage} alt="" />
+                            <div className={styles.dateContainer}>
+                                <span>{news.post_date}</span>
+                            </div>
+                        </div>
+                    }
+
+                    // subheader={<div className={styles.date}>{news.post_date}</div>}
+                    sx={{ color: "white" }}
+                />
+
+                <CardMedia>
+                    <img className={styles.image} src={news.images} alt='newImage'></img>
+                </CardMedia>
+
+                {/* component="img"
                                 height="250"
                                 image={news.images}
                                 alt="newsImage"
                             /> */}
-                            <CardContent>
-                                  <p className={styles.description}>{news.description}</p>
-                            </CardContent>
-                    </Card>
-            </div>
+                <CardContent>
+                    <p className={styles.description}>{news.description}</p>
+                </CardContent>
+            </Card>
+        </div>
     );
 }
 

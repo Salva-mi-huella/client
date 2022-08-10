@@ -59,7 +59,7 @@ export default function ProfileFoundation() {
                     {
                         optionSelection === 0 && (
                             <>
-                                <MainDash foundation={foundation} requests={requests} />
+                                <MainDash foundation={foundation && foundation} requests={requests} />
                                 <RightSide foundation={foundation} />
                             </>
                         )

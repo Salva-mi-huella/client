@@ -60,17 +60,17 @@ export default function DonationTable({ userDetail, allDonations }) {
         </div>
         :
 
-        <TableContainer component={Paper}
-          style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%', width: '80%', border: '1px solid black' }}
+        <TableContainer component={Paper}  sx={{border: "1px solid #e5e5e5" }}
+        style={{  background:"transparent",maxHeight: '60vh', maxWidth: '70vw' }}
         >
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead >
-              <TableRow sx={styles.TableRow} >
-                <TableCell align='left'>Fundacion </TableCell>
-                <TableCell align='left'>Importe </TableCell>
-                <TableCell align="left">Huellitas</TableCell>
-                <TableCell align="left">Metodo</TableCell>
-                <TableCell align="left">Fecha</TableCell>
+              <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }} >
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align='left'>Fundacion </TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align='left'>Importe </TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align="left">Huellitas</TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align="left">Metodo</TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align="left">Fecha</TableCell>
 
               </TableRow>
             </TableHead>
@@ -82,11 +82,11 @@ export default function DonationTable({ userDetail, allDonations }) {
                     key={d.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-                    <TableCell className={styles.tableCell} align="left">{d.foundation.name}</TableCell>
-                    <TableCell className={styles.tableCell} align="left">{`${d.amount} usd`}</TableCell>
-                    <TableCell className={styles.tableCell} align="left">{d.points}</TableCell>
-                    <TableCell className={styles.tableCell} align="left">{d.method.toUpperCase()}</TableCell>
-                    <TableCell className={styles.tableCell} align="left">{d.date}</TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.tableCell} align="left">{d.foundation.name}</TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.tableCell} align="left">{`${d.amount} usd`}</TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.tableCell} align="left">{d.points}</TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.tableCell} align="left">{d.method.toUpperCase()}</TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}} className={styles.tableCell} align="left">{d.date}</TableCell>
 
                   </TableRow>
                 ))}

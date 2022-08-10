@@ -56,12 +56,12 @@ const Transito = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }}> Usuario</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Nombre</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Email</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">City</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">DNI</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Teléfono</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}> Usuario</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Nombre</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Email</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">City</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">DNI</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Teléfono</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody >
@@ -85,7 +85,7 @@ const Transito = () => {
                                     <TableCell align="left"><div className={styles.phoneContainer}>{user.telephone_number}</div></TableCell>
                                 </TableRow>
                             )) :
-                            <TableCell component="th" scope="row"> Aún no hay Usuarios de transito </TableCell>}
+                            <TableCell component="th" scope="row"> Aún no hay usuarios ofrecidos como tránsito. </TableCell>}
                         {emptyRows > 0 && (
                             <TableRow style={{ height: 93 * emptyRows }}>
                                 <TableCell colSpan={6} />

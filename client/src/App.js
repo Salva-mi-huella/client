@@ -15,8 +15,6 @@ import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
 import Paypal from './components/Donate/Paypal/Paypal';
 import Huellitas from './components/Huellitas/Huellitas';
-import ProductDetail from './components/ProductDetail/ProductDetail';
-// import Payment from './components/Donate/Payment';
 import PostPet from './components/PostPet/PostPet';
 
 
@@ -35,7 +33,6 @@ function App() {
         <Route exact path='/pago-paypal'>  <NavBar/> <Paypal/></Route>
         <Route exact path='/formulario-adopcion'> <NavBar/> <AdoptionForm/> </Route>
         <Route exact path='/tienda'> <NavBar/> <PetStore/></Route>
-        <Route exact path='/tienda/:id'> <NavBar/> <ProductDetail/></Route>
         <Route exact path='/huellitas'> <NavBar/> <Huellitas/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
         <Route exact path='/a'> <NavBar/> <PostPet/> </Route>

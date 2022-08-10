@@ -25,10 +25,38 @@
 
 .card {
     position: relative;
-    width: 250px;
-    height: 175px;
+    width: 320px;
+    height: 255px;
 }
-
+.detail{
+    position: absolute;
+    z-index: 1000;
+    top: -10px;
+    right: 14px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    /* gap:5px; */
+    
+}
+.detail span{
+    padding: 0;
+    margin: 0;
+    height: 60px;
+}
+.detail h5{
+    font-weight: bold;
+    color: rgb(99, 59, 218);
+    padding: 0;
+    margin: 0;
+}
+.pawsIcon{
+    color: rgb(99, 59, 218);
+    font-size: 3rem;
+    width: 40px;
+}
 
 
 .card .front {
@@ -39,8 +67,9 @@
     backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
-    transition: 0.4s;
-
+    transition: 0.8s;
+    background-image: linear-gradient(to top, #a3abe8 0%, #8891d7 1%, #e6dee9 100%);
+    
     transform: perspective(600px) rotateY(0deg);
     box-shadow: 0 5px 10px #000;
 }
@@ -67,25 +96,27 @@
     height: 45px;
     line-height: 45px;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 1.3rem;
+    background-color: rgba(99, 59, 218, 0.538);
     text-align: center;
 }
 
 
 .card .back {
     position: inherit;
-    top: -185px;
+    top: -255px;
 
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
-    transition: 0.4s;
+    transition: 0.8s;
 
     text-decoration: none;
     transform: perspective(600px) rotateY(180deg);
-    background: rgb(3, 35, 54);
+    background-image: linear-gradient(to top, #a3abe8 0%, #8891d7 1%, #e6dee9 100%);
+    
     padding: 15px;
     color: #f3f3f3;
     display: flex;
@@ -96,23 +127,49 @@
 
 }
 
-.card .back .link {
-    border-top: solid 1px #f3f3f3;
-    margin-top: 2%;
-    height: 25px;
-    line-height: 40px;
+.containerBtn { 
+    width:100% ;
+    border-top: 1px solid white;
+    padding-top: 5px;
 }
-
-.card .back .link a {
-    color: #f3f3f3;
+.button{
+    border: 1px solid rgb(99, 59, 218);
+    color: rgb(99, 59, 218);
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 120px;
+    height: 30px;
+    margin-left: 78px;
+    margin-right: 78px;
+    transition: 1s;
 }
-
+.button:hover{
+    color: white;
+    background-color: rgb(99, 59, 218);
+}
 .card .back h4 {
-    font-size: 18px;
+    font-size: 22px;
     margin-top: 5px;
     letter-spacing: 0px;
-    color: #fff;
+    color: rgb(99, 59, 218);
     text-decoration: none;
+}
+.card .back p{
+    font-size: 16px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+.pawsIconBack{
+    font-size: 18px;
+    color: rgb(99, 59, 218);
+    text-align: center;
+}
+.pawsIconBack i{
+    /* padding: 5px; */
+    margin-right: 10px;
 }
 
 .card .back h5 {
@@ -129,6 +186,7 @@
     transform: perspective(600px) rotateY(180deg);
 }
 
+
 .card:hover .back {
-    transform: perspective(600px) rotateY(360deg) scale(1.1);
+    transform: perspective(600px) rotateY(360deg) scale(1);
 }

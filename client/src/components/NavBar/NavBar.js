@@ -32,6 +32,8 @@ export default function NavBar({userInfo}) {
     else setActive(true)
   }
 
+  const userLocal = getUserSession();
+
  useEffect(()=>{
     dispatch(getFoundations());
     const isFoundation = checkFoundation();
@@ -60,13 +62,18 @@ const userDetail = useSelector(state => state.user);
                       <Link className={styles.link} to='/tienda'><p>Tienda</p></Link>
                   </div>
                   <div>
-                  { isAuthenticated && user ? 
+                  { isAuthenticated || userLocal ? 
                     <div className={styles.profile}>
-                      {userDetail.points && !checkFoundation() && !userDetail.admin && <div><span>
-                        {new Intl.NumberFormat().format(userDetail.points)}</span><img className={styles.paw} src={paw} alt='paw'></img></div>}
+                      {(userDetail.points && !checkFoundation() && !userDetail.admin) && 
+                        <div>
+                          <span>
+                            {new Intl.NumberFormat().format(userDetail.points)}
+                          </span>
+                          <img className={styles.paw} src={paw} alt='paw'></img>
+                        </div>}
                       <ProfileMenu></ProfileMenu>
                     </div>
-                    : 
+                    :
                     <div className={styles.signUp}>
                       <button onClick={handleLogin} >Ingresar</button> 
                     </div>

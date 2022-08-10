@@ -41,12 +41,12 @@ function CompactCard({ param, setExpanded }) {
                     value={param.barValue}
                     text={`${param.barValue}%`}
                 />
-                <span> {param.title} </span>
+                <span className='spanTitle'> {param.title} </span>
             </div>
             <div className="detail">
                 <Png />
                 <span> {param.value} </span>
-                <span> Ultimo mes </span>
+                {param.title === 'Donaciones' && <span> Ultimo mes </span>}
             </div>
         </motion.div>
     );
@@ -93,18 +93,18 @@ function ExpandedCard({ param, setExpanded }) {
             grid: {
                 show: true,
             },
-            xaxis: {
-                type: "datetime",
-                categories: [
-                    "2018-09-19T00:00:00.000Z",
-                    "2018-09-19T01:30:00.000Z",
-                    "2018-09-19T02:30:00.000Z",
-                    "2018-09-19T03:30:00.000Z",
-                    "2018-09-19T04:30:00.000Z",
-                    "2018-09-19T05:30:00.000Z",
-                    "2018-09-19T06:30:00.000Z",
-                ],
-            },
+            // xaxis: {
+            //     type: "datetime",
+            //     categories: [
+            //         "2018-09-19T00:00:00.000Z",
+            //         "2018-09-19T01:30:00.000Z",
+            //         "2018-09-19T02:30:00.000Z",
+            //         "2018-09-19T03:30:00.000Z",
+            //         "2018-09-19T04:30:00.000Z",
+            //         "2018-09-19T05:30:00.000Z",
+            //         "2018-09-19T06:30:00.000Z",
+            //     ],
+            // },
         },
     };
 
@@ -124,7 +124,7 @@ function ExpandedCard({ param, setExpanded }) {
             <div className="chartContainer">
                 <Chart options={data.options} series={param.series} type="area" />
             </div>
-            <span> Ultimo mes </span>
+            {param.title === 'Donaciones' && <span> Último mes </span>}
         </motion.div>
     );
 }
