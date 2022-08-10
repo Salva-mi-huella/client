@@ -135,6 +135,30 @@ export default function Store() {
     <div>
       <div className={styles.main}>
         <div className={styles.sidebar}>
+        <div className={styles.containerCart}>
+        {isAuthenticated?<button type="button" className={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <ShoppingCartIcon sx={{ fontSize:'50px'}}/>
+        </button>:null}        
+
+
+          <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog ">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className={styles.mainmodal}>
+                  <ShoppingCart />
+                </div>
+                <div className={styles.modalfooter}>
+                  <button type="button" className="" data-bs-dismiss="modal">Seguir comprando</button>
+                  <button type="button" className="" onClick={updatePoints}>Finalizar Compra</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
           <div className={styles.searchbar}>
             <SearchBar />
           </div>
@@ -193,31 +217,7 @@ export default function Store() {
         </div>
 
 
-      <div>
-      
-      {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
-      <ShoppingCartIcon sx={{color: 'yellow'}}/>
-      </button>:null}        
-
-
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog ">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className={styles.mainmodal}>
-                  <ShoppingCart />
-                </div>
-                <div class={styles.modalfooter}>
-                  <button type="button" class="" data-bs-dismiss="modal">Seguir comprando</button>
-                  <button type="button" class="" onClick={updatePoints}>Finalizar Compra</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>      
+    
       </div>
       <Footer/>
     </div>

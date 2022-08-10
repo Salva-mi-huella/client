@@ -9,22 +9,17 @@ export default function ShoppingCart() {
     const data = useSelector(state => state.cart)
     const [lS, setLocalStorage] = useState(false)
     const [lsData, setLsData] = useState({
-        info: JSON.parse(localStorage.getItem("cart"))
+        info: JSON.parse(localStorage.getItem("cart")) 
     })
 
-    // "cart " = 1234 12345 
-    // 
     useEffect(()=>{
-        if(data.length){
-            localStorage.setItem("cart", JSON.stringify(data))
-            if(lS) setLocalStorage(false)
-            else setLocalStorage(true)
-        }
-        if(data.length === 1 ){
-            console.log("as")
-        }
+        // El reducer se vacia al reiniciar la pagina, por ende la linea 18,
+        // guarda solo el primero que se agrega al carito post reiniciar la pagina
+        if(data.length)localStorage.setItem("cart", JSON.stringify(data))
+        else localStorage.setItem("cart", JSON.stringify([]))
 
-        
+        if(lS) setLocalStorage(false)
+        else setLocalStorage(true)
     },[data])
     
     useEffect(()=>{
@@ -33,9 +28,12 @@ export default function ShoppingCart() {
 
     // useEffect(()=>{
     //     return ()=>{
-    //         setLsData({info: JSON.parse(localStorage.getItem("cart"))})
+            
+    //         let dbCart = JSON.parse(localStorage.getItem("cart"))
+    //         // dispatch(addToCart(dbCart[0].id))
+    //         // dbCart.map{ addToCart(el.id)}
     //     }
-    // },[lS])
+    // },[dispatch])
 
     
     let total = 0;

@@ -2,8 +2,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-
-    background-color: azure;
+    background-color:transparent
 }
 
 .items{
@@ -12,13 +11,15 @@
     flex-wrap: wrap;
     align-items: center;
     text-decoration: none;
+    width: 90%;
 }
 .sidebar{
+
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     width: 15vw;
-    height: 100vh;
+    height: 100%;
     margin-left: 1vw;
     margin-top: 8.3vw;
     /* border: 1px solid rgba(0, 0, 0, 0.25); */
@@ -29,19 +30,18 @@
 .containeritems{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 3vw;;
-    /* border: 3px solid red */
 }
 
-.containeritems h5{
-    display: flex;
-    color: rgb(255, 226, 8);
+.containeritems > h5{
     color: rgb(78, 14, 104);
+    text-align: center;
     font-size: 2.5vw;
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-bottom: 5vw;
-    margin-left: 4vw;
+    margin-bottom:9vh;
 }
 
 .pagination{
@@ -121,19 +121,27 @@
     color: #6e117f;;
     text-decoration: none;  
 }
-
+.containerCart{
+    /* background-color: red; */
+    text-align: center;
+    /* padding: 15px; */
+    margin-bottom: 30px;
+}
 .shoppingcart{
     transition: 0.3s;
     background-color: #6e117f;
     color: rgba(255, 255, 255, 0.876);
     border: none;
-    margin-right: 3vw;
-    margin-bottom: 1.5vw;
-    border-radius: 5px;
-    font-size: 1vw;
+    /* margin-right: 3vw;
+    margin-bottom: 1.5vw; */
+    border-radius: 50%;
+    height: 66px;
+    width: 66px;
+    padding: 9px;
+    /* font-size: 1vw; */
     cursor: pointer;
-    width: 8vw;
-    height: 2vw;
+    /* width: 8vw;
+    height: 3vw; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -157,6 +165,8 @@
 
 .orders{
     display: flex;
+    /* border: 2px solid red; */
+    width: 90%;
     justify-content: flex-end;
     margin-bottom: 1vw;    
     margin-right: 2.3vw;
@@ -170,7 +180,7 @@
 
 .orders label {
     font-size: 1.3vw;
-    color: rgb(78, 14, 104);
+    color: white;
     font-weight: bold;
 }
 
@@ -183,7 +193,6 @@
     cursor: pointer;
     background-color: transparent;
     color: white;
-    color: rgb(78, 14, 104);
     font-size: 1.3vw;
     margin-left: 0.3vw;
 }
@@ -200,7 +209,7 @@
     font-size: 1.3vw;
     width: 12vw;
     color: white;
-    color: rgb(78, 14, 104);
+    /* color: rgb(78, 14, 104); */
     margin-bottom: 1vw;
     font-weight: bold;
     /* text-align: center; */
@@ -217,7 +226,7 @@
 .typefilters h2{
     padding-bottom: 5px;
     border-bottom: 1px solid white;  
-    border-bottom: 1px solid rgb(78, 14, 104);  
+    /* border-bottom: 1px solid rgb(78, 14, 104);   */
 }
 
 .typefilters select:focus{
@@ -226,7 +235,7 @@
 
 .typefilters option{
     color: white;
-    color: rgb(78, 14, 104);
+    /* color: rgb(78, 14, 104); */
     margin-bottom: 1vw;
 }
 
@@ -239,7 +248,7 @@
 .categoryfilters h2{
     padding-bottom: 5px;
     border-bottom: 1px solid white;
-    border-bottom: 1px solid rgb(78, 14, 104);  
+    /* border-bottom: 1px solid rgb(78, 14, 104);   */
 }
 
 .categoryfilters select{
@@ -257,7 +266,7 @@
 
 .categoryfilters option{
     color: white;
-    color: rgb(78, 14, 104);
+    /* color: rgb(78, 14, 104); */
     margin-bottom: 1vw;
 }
 
