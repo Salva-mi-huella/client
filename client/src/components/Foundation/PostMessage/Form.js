@@ -23,7 +23,7 @@ const dispatch = useDispatch();
           
           //VALIDACION NOMBRE
           if (!values.name) {
-            errores.name = "Por favor ingrese un nombre";
+            errores.name = "Ingrese un nombre";
           } else if(values.name.length < 3){
             errores.name = "El nombre debe incluir más de 3 caracteres";
           }else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
@@ -33,12 +33,12 @@ const dispatch = useDispatch();
           //VALIDACION CORREO
           if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
             errores.email =
-            "Por favor escribe un correo válido ej:correo@correo.com";
+            "Escribe un correo válido";
           }
           
           //VALIDACION MENSAJE
           if(!values.textarea){
-            errores.textarea="Por favor escríbenos porque te gustaría adoptar"
+            errores.textarea="Contanos porque te gustaría adoptar"
           } else if (values.textarea.length > 400) errores.textarea="Máximo 400 caracteres";
 
           

@@ -79,6 +79,7 @@ label{
     display: inline-block;
     /* padding: 10px 20px; */
     color: white;
+    padding: 8px;
     font-size: 1.8vw;
     font-weight: 700;
     text-decoration: none;
@@ -97,19 +98,19 @@ label{
     background: white;
     color: rgb(99, 59, 218);
     border-radius: 5px;
-    opacity:0.8;
     cursor: pointer
 }
 
 .error{
     color: white;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.568);
     font-size: 1vw;
     font-weight: 500;
     border-radius: 1vw;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     text-align: center;
     padding: 0.2vw;
-    margin-top: 1vw;
 }
 
 .success{
@@ -120,7 +121,14 @@ label{
 
 .inputsForm {
     color: white !important;
-    background-color: #CBB1E1 !important;
-    border: none !important;
+    background-color: rgba(41,24,91,0.3954175420168067) !important;
+    border: none ;
+    border-bottom: 0.5px solid white;
     font-weight: bold;
+}
+.inputsForm:focus{
+    outline: none;
+    border: none!important ;
+    border-bottom: 0.5px solid white;
+
 }
