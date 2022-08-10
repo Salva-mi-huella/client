@@ -99,7 +99,8 @@ label{
     color: white;
     font-size: 1.8vw;
     font-weight: 700;
-    width: 44vw;
+    /* width: 22vw; */
+    padding: 10px;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
@@ -119,7 +120,7 @@ label{
                 0 0 25px #FCEC4F,
                 0 0 50px #FCEC4F,
                 0 0 100px#FCEC4F; */
-    opacity:0.8;
+    /* opacity:0.8; */
 }
 
 .error{
@@ -147,11 +148,11 @@ label{
     /* background: rgb(41,24,91); */
     border: 30px;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius:0 ;
     background-color: transparent;
-    background: linear-gradient(0deg, rgba(41,24,91,0.3954175420168067) 0%, rgba(99,59,218,1) 97%);
+    background:rgba(41,24,91,0.3954175420168067);
      border: none;
      border-bottom: 0.7px solid rgb(255, 255, 255);
     /* border-bottom: 1px solid purple; */
