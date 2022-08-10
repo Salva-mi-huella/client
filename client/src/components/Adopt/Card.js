@@ -45,7 +45,7 @@ export default function Card({id, name,img,age}){
     }
  
     return(
-        <div >
+        <div className={style.cardDiv}>
             <div className={style.card}>
                 <div className={style.header}>
                     <Link  className={style.link} to={`/huella/${id}`}>

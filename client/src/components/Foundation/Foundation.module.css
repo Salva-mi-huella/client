@@ -34,7 +34,7 @@
 .description h3 {
     color: azure;
     font-weight: bold;
-    text-align: center;
+    /* text-align: center; */
     margin-right: 6vw;
     margin-bottom: 2vw;
     /* margin-top: 3vw; */
@@ -55,11 +55,12 @@
 .description p {
     color: azure;
     font-weight: bold;
-    text-align: center;
+    /* text-align: center; */
     font-size: 1.35vw;
     /* margin-top: 2vw; */
     /* margin-bottom: 3vw; */
     margin-right: 6vw;
+    width: 45vw;
 }
 
 .title {
@@ -180,10 +181,14 @@
     margin-left: 4.5vw;
 }
 
+
 .containerPets h2 {
     color: rgb(255, 230, 0);
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 4.5vw;
+    margin-bottom: 3vw;
+    letter-spacing: -0.2vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .containerPets p {

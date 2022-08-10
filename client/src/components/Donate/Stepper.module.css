@@ -4,7 +4,9 @@
     color: azure;
     /* margin-left: 5.5vw; */
     display:flex;
+    font-size: 1.7rem;
     justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
 .buttonStepper {
@@ -13,17 +15,18 @@
 }
 
 .foundations {
+    width: 30vw;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     margin-top: 40px;
+
 }
 
 .foundations div {
     margin-top: 20px;
-    margin-left: 25px;
-    margin-right: 25px;
+/*     margin-left: 25px;
+    margin-right: 25px; */
     margin-bottom: 40px;
 }
 
@@ -40,7 +43,7 @@
 }
 
 .foundations h5 {
-    font-size: 1.1vw;
+    font-size: 1vw;
     text-align: center;
     margin-top: 0.3vw;
     margin-left: 0.4vw;
@@ -49,9 +52,9 @@
 }
 
 .foundation  {
-    width: 100px;
-    height: 100px;
-    border: 2px groove purple;
+    width: 6rem;
+    height: 6rem;
+    border: 2px groove rgba(217, 120, 255, 0.906);
     border-radius: 200px;
 }
 

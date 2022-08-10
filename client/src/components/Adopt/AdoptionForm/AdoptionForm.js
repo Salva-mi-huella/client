@@ -5,7 +5,6 @@ import Formulario from './Form'
 import TermsAndConditions from "./TermsAndConditions";
 import hand_paws from "../../../assets/cat-form.jpg";
 
-
 export default function AdoptionForm() {
 
    useEffect(() => {
