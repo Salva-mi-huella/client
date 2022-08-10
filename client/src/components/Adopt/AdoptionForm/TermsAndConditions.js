@@ -14,7 +14,7 @@ export default function TermsAndConditions({setModal, setCheck}) {
     }
 
   return (
-    <>           
+    <>
          <div className={styles.termsSection}>
                 <h1 className={styles.terms_header}>ACUERDO DE ADOPCIÓN</h1>
 
