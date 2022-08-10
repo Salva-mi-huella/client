@@ -69,7 +69,21 @@
   font-weight: bold;
   color: azure;
 } */
-
+.favsAdded{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2vw;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  padding-bottom: 5rem;
+  font-weight: bold;
+  color: azure;
+}
+.favs{
+  margin-left: -5rem;
+}
 .favsTitle {
   font-size: 4vw;
   /* margin-left: 45vw;
