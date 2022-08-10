@@ -114,12 +114,12 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
         <Box sx={{ maxWidth: 400 }}>
         <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((step, index) => (
-            <Step key={step.label} >
+            <Step  key={step.label} >
                 <StepLabel >
                 <h5 className={style.label}>{step.label}</h5>
                 </StepLabel>
                 <StepContent>
-                <Typography color='common.white'>{step.description}</Typography>
+                <Typography fontSize="1.2rem" color='common.white'>{step.description}</Typography>
                 {step.label === 'Elegí la fundación' && 
                 <div className={style.foundations}>
                 {foundations.filter(f=> f.status==='Activa').map(f=>(

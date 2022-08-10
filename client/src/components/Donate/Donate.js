@@ -10,7 +10,11 @@ import paypal from '../../assets/paypal1.png'
 import mercadoPago from '../../assets/mercadopago.png'
 import Paypal from './Paypal/Paypal';
 import Footer from '../Footer/Footer';
-import paw from '../../assets/yellow-paw.png'
+import paw from '../../assets/yellow-paw.png';
+import hands from "../../assets/donate.png";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 
 export default function Donate(){
@@ -69,18 +73,19 @@ export default function Donate(){
                     <p>¡Hacelo gratis y empezá a sumar huellitas!</p>
                     <button onClick={()=>loginWithRedirect()}>REGISTRARSE</button>
                 </div> :
-                <img src={paw} alt='paws'></img>}
+                <img  src={paw} alt='paws'></img>}
             </div>
 
-            <h2 className={style.title}>Doná en tres simples pasos</h2>
+            <h2 data-aos="fade-right" data-aos-duration="1500" className={style.title}>Doná en tres simples pasos</h2>
 
+        <div className={style.contDonar}>
             <div className={style.donate}>
                 <Stepper isAuthenticated={isAuthenticated} donation={donation} setDonation={setDonation} setCheckout={setCheckout} foundation={foundation} loginWithRedirect={loginWithRedirect} ></Stepper>
             </div>
 
             <div className={style.renders}>
             <div>
-                <h4>1. Fundación a donar</h4>
+                <h4 id={style.id1}>1. Fundación a donar</h4>
                 <div className={style.renderFoundation}>
                     {donation.foundation.length>0 && <img className={style.foundation} src={donation.foundation} alt='foundation'></img>}
                     {foundation.name?.length && <span>{foundation.name}</span>}
@@ -88,16 +93,23 @@ export default function Donate(){
             </div>
 
             <div>
-                <h4>2. Método de pago</h4>
+                <h4 id={style.id2}>2. Método de pago</h4>
                 {donation.method === 'paypal' && <img className={style.paypal} src={paypal} alt='paypal'></img>}
                 {donation.method === 'mercadoPago' && <img className={style.mp} src={mercadoPago} alt='mercadoPago'></img>}
             </div>
 
             <div>
-                <h4>3. Importe</h4>
+                <h4  id={style.id3}>3. Importe</h4>
                 <p className={style.amount}>{donation.amount}</p>
             </div>
+            <div data-aos="fade-left" data-aos-duration="1500" className={style.contAporte}>
+                <h2  className={style.aporte}>¡Ayudanos con tu aporte!</h2> 
+            <div className={style.contIMG}>
+            <img className={style.img} src={hands}></img>
+            </div>
+            </div>
         </div>
+    </div>
         <Footer/>
         </>
         : 
