@@ -18,7 +18,7 @@ export default function Card(props) {
         if (isAuthenticated) {
             dispatch(addToCart(props.id))
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Producto agregado al carrito',
                 showConfirmButton: false,
@@ -49,8 +49,14 @@ export default function Card(props) {
                 {/* FRONT */}
                 <Link className={styles.linkTag} to={`/tienda/${props.id}`}>
                     <div className={styles.front}>
-                        <img src={props.images} alt={'Failed loading '} />
-                        <h3>{props.name}</h3>
+                        <div>
+                            <img src={props.images} alt={'Failed loading '} />
+                            <h3>{props.name}</h3>
+                        </div>
+                    <div className={styles.detail}>
+                        <span className={styles.pawsIcon}><i class="fa-solid fa-paw"></i></span>
+                        <h5>{props.points}</h5>
+                    </div>
                     </div>
                 </Link>
 
@@ -60,17 +66,16 @@ export default function Card(props) {
                     <Link className={styles.linkTag} to={`/tienda/${props.id}`}>
                         <h4>{props.name}</h4>
                     </Link>
-                    <h5>{props.points}</h5>
-                    <img className={styles.paws} src={img} alt='points'></img>
-
-                    <div className={styles.link}>
-                        <Link className={styles.linkTag} to={`/tienda/${props.id}`}>
-                            <a href='Details'> Details </a>
-                        </Link>
-                        <button className={styles.button} onClick={handleAddToCart}>
-
+                    <span className={styles.pawsIconBack}><i class="fa-solid fa-paw">{" "}{props.points}</i></span>
+                    <p>
+                        {props.desc}
+                    </p>
+                    <div className={styles.containerBtn}>
+                    <button className={styles.button} onClick={handleAddToCart}>
+                            Agregar
                         </button>
                     </div>
+                  
                 </div>
 
             </div>
