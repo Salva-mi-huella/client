@@ -7,7 +7,6 @@ import Swal from 'sweetalert2';
 import { getAllProducts, updateUser, storeFilters } from "../../redux/actions";
 
 import ProductCard from './ProductCard/ProductCard.jsx';
-import ItemCard from "./ItemCard";
 import SearchBar from "./SearchBar";
 import ShoppingCart from "./ShoppingCart";
 import Footer from "../Footer/Footer";
@@ -189,7 +188,7 @@ export default function Store() {
         </div>
 
         <div className={styles.containeritems}>
-          <h5>¡Encontrá los mejores productos para tu huella!</h5>
+          <h2>¡Encontrá los mejores productos para tu huella!</h2>
           <div className={styles.orders}>
             <label>Ordenar por:</label>
             <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
@@ -218,6 +217,7 @@ export default function Store() {
                     points={new Intl.NumberFormat().format(product.points)}
                     type={product.type}
                     category={product.category}
+                    desc = {product.description}
                   />
                 ))
                 :

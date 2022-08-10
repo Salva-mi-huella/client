@@ -35,7 +35,6 @@ function App() {
         <Route exact path='/pago-paypal'>  <NavBar/> <Paypal/></Route>
         <Route exact path='/formulario-adopcion'> <NavBar/> <AdoptionForm/> </Route>
         <Route exact path='/tienda'> <NavBar/> <PetStore/></Route>
-        <Route exact path='/tienda/:id'> <NavBar/> <ProductDetail/></Route>
         <Route exact path='/huellitas'> <NavBar/> <Huellitas/></Route>
         <Route exact path='/contacto'> <NavBar/> <Contact/> </Route>
         <Route exact path='/a'> <NavBar/> <PostPet/> </Route>

@@ -5,6 +5,7 @@
     height: 35vw;
     justify-content: space-between;
     margin-top: 2vw;
+    z-index: 10000;
 }
 
 .title{
@@ -27,6 +28,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     color: black;
+    
 
 }
 
