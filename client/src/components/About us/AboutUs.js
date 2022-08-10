@@ -32,7 +32,7 @@ export default function AboutUs(){
                 </div>
                 <div className={styles.missionInfo}>
                 <h2 className={styles.titles}>Nuestra misión</h2>
-                <p>Salvar a todos aquellos animales que se encuentran necesitados de un hogar y del cariño que se merecen. Por eso decidimos crear este espacio donde blablabla</p>
+                <p>Vencer la superpoblación, abandono e indiferencia que sufren millones de animales en nuestro país. Para ello creamos este espacio en donde las fundaciones y vos puedan trabajar en conjunto para seguir salvando a todos aquellas huellas que se encuentran necesitadas de un hogar y del cariño que se merecen.</p>
                 </div>
             </div>
             <div >

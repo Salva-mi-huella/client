@@ -67,7 +67,6 @@ export default function PaginateStore(){
                     <li onClick={() => handleArrow("right")} className={style.arrow}>
                         <i className="fa-solid fa-circle-right"></i>
                     </li>
-
                 }
             </ul>
             }

@@ -64,7 +64,6 @@ export default function Foundation () {
             <div className={styles.containerPets}>
                 <div className={styles.subPets}>
                     <h2>Nuestras huellas</h2>
-                    <p>En este apartado va una breve descripción para captar atención. </p>
                 </div>
                 {/* <Aside/> */}
                 <PetSlick foundation={foundation}/>

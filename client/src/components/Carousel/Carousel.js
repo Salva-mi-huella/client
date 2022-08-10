@@ -17,7 +17,7 @@ export default function ControlledCarousel({foundations}) {
     return (
         <Carousel className={styles.carousel} activeIndex={index} onSelect={handleSelect}>
 
-        <Carousel.Item> 
+        <Carousel.Item className={styles.caru25}> 
         <div className={styles.container}>
             <div className={styles.containerimg}>               
                 <img  
@@ -36,7 +36,7 @@ export default function ControlledCarousel({foundations}) {
         </div>
         </Carousel.Item>
 
-        <Carousel.Item>
+        <Carousel.Item className={styles.caru25}>
         <div className={styles.container}>
             <div className={styles.shelter}>
                 <img src={shelter} alt='foundation'></img>
@@ -49,7 +49,7 @@ export default function ControlledCarousel({foundations}) {
         </div>
         </Carousel.Item>
 
-        <Carousel.Item>
+        <Carousel.Item className={styles.caru25}>
         <div className={styles.containerDonate}>
             <div className={styles.containertext2}>
                 <h1 className={styles.titles}>Donaciones</h1>
