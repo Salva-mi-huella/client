@@ -18,11 +18,11 @@ export default function Card(props) {
         if (isAuthenticated) {
             dispatch(addToCart(props.id))
             Swal.fire({
-                position: 'center',
+                position: 'top-start',
                 icon: 'success',
                 title: 'Producto agregado al carrito',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1000
             })
         } else {
             Swal.fire({
@@ -42,7 +42,6 @@ export default function Card(props) {
 
     return (
         <div className={styles.body}>
-
 
             <div className={styles.card}>
 
@@ -66,7 +65,7 @@ export default function Card(props) {
                     <Link className={styles.linkTag} to={`/tienda/${props.id}`}>
                         <h4>{props.name}</h4>
                     </Link>
-                    <span className={styles.pawsIconBack}><i class="fa-solid fa-paw">{" "}{props.points}</i></span>
+                    {/* <span className={styles.pawsIconBack}><i class="fa-solid fa-paw">{" "}{props.points}</i></span> */}
                     <p>
                         {props.desc}
                     </p>
@@ -75,7 +74,6 @@ export default function Card(props) {
                             Agregar
                         </button>
                     </div>
-                  
                 </div>
 
             </div>

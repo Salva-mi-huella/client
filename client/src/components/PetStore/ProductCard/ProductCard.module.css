@@ -31,20 +31,16 @@
 .detail{
     position: absolute;
     z-index: 1000;
-    top: -10px;
+    top: 140px;
     right: 14px;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-evenly; */
-    /* gap:5px; */
-    
 }
 .detail span{
     padding: 0;
     margin: 0;
-    height: 60px;
 }
 .detail h5{
     font-weight: bold;
@@ -52,9 +48,16 @@
     padding: 0;
     margin: 0;
 }
+
 .pawsIcon{
-    color: rgb(99, 59, 218);
-    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(99, 59, 218);
+    border-radius: 80%;
+    color: rgb(255, 230, 0);
+    font-size: 25px;
+    height: 40px;
     width: 40px;
 }
 
@@ -79,14 +82,6 @@
     width: 250px;
     height: 175px;
     /* object-fit: cover; */
-}
-
-.paws {
-    /* width: 2.7vw;
-    height: 2.7vw;
-    margin-top: 0.3vw; */
-
-    /* margin-bottom: 3vw; */
 }
 
 .card .front h3 {

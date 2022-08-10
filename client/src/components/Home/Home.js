@@ -104,11 +104,10 @@ export default function Home() {
                 <SliderFoundation />
             </div>
 
-
+            
             <div className={styles.top}>
-                    <News></News>
-                
-                <div className={styles.esloganFooter}>
+                    <News></News>                
+                {/* <div className={styles.esloganFooter}>
                     <div id='imagen'>
                         <img className={styles.esloganFooter} src={eslogan} alt='eslogan'></img>
                     </div>
@@ -116,17 +115,12 @@ export default function Home() {
                     <div>
                         <p>vos también podes <span>todos los días</span></p>
                         <h2> Salvar mi huella</h2>
-                    </div>
-            
-                </div>
-            
+                    </div>            
+                </div> */}            
             </div>
-
-
             <div>
                 <Footer />
             </div>
-
         </div>
     )
 }
