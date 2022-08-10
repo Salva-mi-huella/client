@@ -120,7 +120,7 @@ export default function AddFoundations() {
                         images: [file.secure_url]
                     }))
 
-                    Swal.fire('Posteado!', '', 'success')
+                    Swal.fire('¡La fundación se ha agregado con éxito!', '', 'success')
                     setInputs({
                         name: '',
                         email:'',

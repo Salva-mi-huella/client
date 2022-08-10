@@ -121,7 +121,7 @@ export default function PostPet({ foundation }) {
                   foundation: foundation.id
                 }))
 
-                Swal.fire({title: `¡${values.name} ha sido agregada con éxito!', text:'Podrás visualizarl@ en Mis huellas y en la sección Adoptar.`, icon:'success'})
+                Swal.fire({title: `¡${values.name} ha sido agregada con éxito!`, text:'Podrás visualizarl@ en Mis huellas y en la sección Adoptar.', icon:'success'})
                 resetForm();
 
               }
