@@ -313,3 +313,54 @@
   color: rgb(255, 230, 0);
   font-weight: bold;
 }
+
+@media(max-width: 768px){
+  .img1 {
+    width: 35px;
+    height: 35px;
+  }
+  .container2 p{
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 375px){
+  .img1 {
+    width: 6vw;
+    height: 6vw;
+  }
+  .containerWhy{
+    width: 200px;
+    height: 200px;
+  }
+  .container2 p{
+      font-size: 3vw;
+      width: 200px;
+      height: 50px;
+      margin-right: 70px;
+  }
+  .h1a {
+    font-size: 15px;
+    width: 120px;
+  }
+  .h1{
+    font-size: 12px;
+  }
+  .label {
+    font-size: 10px;
+  }
+  .contactContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .leftCol {
+    margin-left: 25%;
+  }
+  .rightCol {
+    margin-left: 18%;
+    width: 250px;
+  }
+  .input {
+    font-size: 8px;
+  }
+}

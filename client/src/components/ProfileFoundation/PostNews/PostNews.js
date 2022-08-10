@@ -13,7 +13,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import paw from '../../../assets/yellow-paw.png'
+import logo from '../../../assets/logo-YW.png'
 
 export default function PostNews({ foundation }) {
 
@@ -26,7 +26,7 @@ export default function PostNews({ foundation }) {
         news: '',
         image: '',
         campaign: false,
-        foundationsImage: foundation.images[0]
+        foundationsImage: foundation?.images[0],
     })
     const [renderImg, setRenderImg] = useState('')
 
@@ -60,10 +60,10 @@ export default function PostNews({ foundation }) {
     function handleSubmit(e) {
         e.preventDefault()
         Swal.fire({
-            title: 'Quieres postear esta noticia?',
+            title: '¿Estás seguro de querer postear esta noticia?',
             showDenyButton: true,
-            confirmButtonText: 'Si, postear',
-            denyButtonText: `No, cancelar`,
+            confirmButtonText: 'Confirmar',
+            denyButtonText: `Cancelar`,
         }).then(
             async (result) => {
                 if (result.isConfirmed) {
@@ -87,11 +87,12 @@ export default function PostNews({ foundation }) {
                         title: input.title,
                         campaign: input.campaign,
                         description: input.news,
-                        foundationsImage: foundation.images[0],
-                        images: [file.secure_url] //location of public URL
+                        foundationsImage: foundation?.images[0],
+                        images: [file.secure_url], //location of public URL,
+                        foundationId: foundation?.id,
                     }))
 
-                    Swal.fire('Posteado!', '', 'success')
+                    Swal.fire({title:'¡Tu noticia ha sido posteada con éxito!', text:'Podrás visualizarla en el home en la sección de noticias.', icon:'success'})
                     setRenderImg('')
                     setInputs({
                         title: '',
@@ -127,7 +128,7 @@ export default function PostNews({ foundation }) {
                 </div>
                 <div>
 
-                    <label className={style.label} >Campaña</label>
+                    <label className={style.label} >Urgente</label>
                     <input
                         id="campaign"
                         onChange={(e) => hanldeCheck(e)}
@@ -168,12 +169,13 @@ export default function PostNews({ foundation }) {
                             subheader={<div className={style.date}>{formatDate()}</div>}
                             sx={{ color: "white"}}
                             />
-                            <CardMedia
+                            {/* <CardMedia
                                 component="img"
-                                height="250"
-                                image={renderImg ? renderImg : paw}
+                                height="20"
+                                image={renderImg ? renderImg : logo}
                                 alt="newsImage"
-                            />
+                            /> */}
+                            <img  className={style.picture} src={renderImg ? renderImg : logo} alt='picture'></img>
                             <CardContent>
                                 <Typography sx={{width: '28vw', textOverflow: "ellipsis", overflow: "auto", wordBreak: "break-all"}}>
                                 {input.news}

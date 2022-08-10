@@ -38,64 +38,67 @@ function handleChange(e) {
 
           //VALIDACION NOMBRE
           if (!values.name) {
-            errores.name = "Por favor ingrese un nombre";
+            errores.name = "Por favor ingrese un nombre.";
           } else if (values.name.length < 3) {
-            errores.name = "El nombre debe incluir mas de 3 caracteres";
+            errores.name = "El nombre debe incluir más de 3 caracteres.";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
-            errores.name = "El nombre solo puede contener letras y espacios";
+            errores.name = "El nombre solo puede contener letras y espacios.";
           }
 
           //VALIDACION CBU
           if (!values.cbu) {
-            errores.cbu = "Por favor ingresa el cbu de la fundacion";
-          } else if (values.cbu.length < 22) {
+            errores.cbu = "Por favor ingresa tu CBU.";
+          } else if (values.cbu.length < 22 || values.cbu.length > 22) {
             errores.cbu =
-              "Por favor ingresa un cbu valido (Debe contener 22 digitos)";
+              "Por favor ingresa un CBU válido (debe contener 22 dígitos).";
           }
 
           //VALIDACION BANCO
           if (!values.bank) {
-            errores.bank = "Por favor escribe el banco";
-          } else if (values.bank.length < 5) {
-            errores.description = "Por favor ingresa un banco valido ";
+            errores.bank = "Por favor escribe el nombre de tu banco.";
+          } else if (values.bank.length < 3) {
+            errores.description = "Por favor ingresa un banco válido.";
           }
 
           //VALIDACION ALIAS
           if (!values.alias) {
-            errores.alias = "Por favor escribe el nickname de la fundacion";
+            errores.alias = "Por favor escribe tu alias.";
           } else if (values.alias.length < 5) {
-            errores.description = "Por favor ingresa un alias valido ";
+            errores.description = "Por favor ingresa un alias válido.";
           }
 
           //VALIDACION DIRECCION
           if (!values.address) {
             errores.address =
-              "Por favor escribe la direccion donde se encuentra ubicada la fundacion";
+              "Por favor escribe la dirección donde se encuentran ubicada la fundación.";
           }
 
           //VALIDACION CIUDAD
           if (!values.city) {
             errores.city =
-              "Por favor escribe la ciudad donde se encuentra ubicada la fundacion";
+              "Por favor escribe la ciudad donde se encuentra ubicada la fundación.";
           }
 
           //VALIDACION TELEFONO
           if (!values.telephone_number) {
             errores.telephone_number =
-              "Por favor escribe un telefono para la fundacion";
+              "Por favor escribe un teléfono para la fundación.";
           } else if (values.telephone_number.length < 10) {
             errores.telephone_number =
-              "Por favor ingrese un telefono valido (10 digitos)";
+              "Por favor ingrese un teléfono válido (mínimo 10 dígitos)";
+          } else if (values.telephone_number.length > 14) {
+            errores.telephone_number =
+              "Por favor ingrese un teléfono válido (máximo 14 dígitos)"
           }
 
           return errores;
         }}
         onSubmit={async (values) => {
           Swal.fire({
-            title: "Quieres actualizar tus datos?",
+            title: "¿Estás seguro de querer actualizar tus datos?",
             showDenyButton: true,
-            confirmButtonText: "Si, postear",
-            denyButtonText: `No, cancelar`,
+            confirmButtonText: 'Confirmar',
+            denyButtonText: `Cancelar`,
           }).then(async (result) => {
             if (result.isConfirmed) {
               const data = new FormData();
@@ -109,13 +112,15 @@ function handleChange(e) {
                   }
                 );
                 let file = await res.json();
+                console.log(file);
+                console.log(values)
 
                 dispatch(updateFoundation({
                       name: values.name,
                       description: values.description,
-                      images: [file.secure_url],
+                      images: file?.url?.length && [file.secure_url],
                       email: values.email,
-                      cbu: values.cbu,
+                      CBU: values.cbu,
                       bank: values.bank,
                       alias: values.alias,
                       address: values.address,
@@ -123,7 +128,7 @@ function handleChange(e) {
                       telephone_number: values.telephone_number
                 },foundation.id))                
                 
-                Swal.fire("Perfil Actualizado!", "", "success");
+                Swal.fire("¡Tus datos han sido actualizados con éxito!", "", "success");
 
                 setTimeout(() => {
                   history.push("/perfil")                  
@@ -139,8 +144,9 @@ function handleChange(e) {
               <div className={styles.imgcontainer}>
                 <img
                   className={styles.btnUploadImage}
-                  src={foundation?.images}
+                  src={foundation?.images} alt='profilePicture'
                 ></img>
+                <label>Elige tu foto de perfil</label>
                 <input type="file" name="images" id="images" onChange={handleChange}></input>
               </div>
               <div className={styles.description}>
@@ -150,7 +156,7 @@ function handleChange(e) {
                   name="description"
                   id="description"
                   className={styles.inputDescription}
-                  placeholder="Descripcion o historia de la fundacion"
+                  placeholder="Cuéntanos tu historia."
                 ></Field>
               </div>
             </div>
@@ -162,7 +168,7 @@ function handleChange(e) {
               <div className={styles.groupinputs}>
                 <div className="w-100 text-dark mt-3">
                   <Field
-                    className="form-control opacity-50"
+                    className={`form-control opacity-50, ${styles.fields}`}
                     type="text"
                     name="name"
                     id="name"
@@ -178,7 +184,7 @@ function handleChange(e) {
                 {/* EMAIL */}
                 <div className="w-100 text-dark mt-3">
                   <Field
-                    className="form-control opacity-50"
+                    className={`form-control opacity-50, ${styles.fields}`}
                     type="text"
                     name="email"
                     id="email"
@@ -188,11 +194,11 @@ function handleChange(e) {
                 {/* CBU */}
                 <div className="w-100 text-dark mt-3">
                   <Field
-                    className="form-control opacity-50"
+                     className={`form-control opacity-50, ${styles.fields}`}
                     type="text"
                     name="cbu"
                     id="cbu"
-                    placeholder="Cbu"
+                    placeholder="CBU"
                   />
                   <ErrorMessage
                     name="cbu"
@@ -204,7 +210,7 @@ function handleChange(e) {
                 {/* BANCO */}
                 <div className="w-100 text-dark mt-3">
                   <Field
-                    className="form-control opacity-50"
+                    className={`form-control opacity-50, ${styles.fields}`}
                     type="text"
                     name="bank"
                     id="bank"
@@ -220,7 +226,7 @@ function handleChange(e) {
                 {/* Alias */}
                 <div className="w-100 text-dark mt-3">
                   <Field
-                    className="form-control opacity-50"
+                    className={`form-control opacity-50, ${styles.fields}`}
                     type="text"
                     name="alias"
                     id="alias"
@@ -236,7 +242,7 @@ function handleChange(e) {
                 {/* BANCO */}
                 <div className="w-100 text-dark mt-3">
                   <Field
-                    className="form-control opacity-50"
+                    className={`form-control opacity-50, ${styles.fields}`}
                     type="text"
                     name="address"
                     id="address"
@@ -252,7 +258,7 @@ function handleChange(e) {
                 {/* CIUDAD */}
                 <div className="w-100 text-dark mt-3">
                   <Field
-                    className="form-control opacity-50"
+                    className={`form-control opacity-50, ${styles.fields}`}
                     type="text"
                     name="city"
                     id="city"
@@ -268,7 +274,7 @@ function handleChange(e) {
                 {/* TELEFONO */}
                 <div className="w-100 text-dark mt-3">
                   <Field
-                    className="form-control opacity-50"
+                    className={`form-control opacity-50, ${styles.fields}`}
                     type="text"
                     name="telephone_number"
                     id="telephone_number"

@@ -50,38 +50,38 @@ export default function PostPet({ foundation }) {
 
           //VALIDACION NOMBRE
           if (!values.name) {
-            errores.name = "Por favor ingrese un nombre";
+            errores.name = "Por favor ingrese un nombre.";
           } else if (values.name.length < 3) {
-            errores.name = "El nombre debe incluir mas de 3 caracteres";
+            errores.name = "El nombre debe incluir más de 3 caracteres.";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
-            errores.name = "El nombre solo puede contener letras y espacios";
+            errores.name = "El nombre solo puede contener letras y espacios.";
           }
 
           //VALIDACION RADIO
           if (values.type === "") {
-            errores.type = "Selecciona su tipo"
+            errores.type = "Selecciona su tipo."
           }
 
           if (values.gender === "") {
-            errores.gender = "Selecciona el genero"
+            errores.gender = "Selecciona el género."
           }
 
           //VALIDACION EDAD
           if (!values.age) {
-            errores.age = "Por favor ingresa la edad"
+            errores.age = "Por favor ingresa la edad."
           } else if (values.age < 0 || values.age > 20) {
-            errores.age = "Por favor ingresa una edad valida"
+            errores.age = "Por favor ingresa una edad válida."
           }
 
           //VALIDACION MENSAJE
           if (!values.description) {
-            errores.description = "Por favor cuentanos mas sobre la huella"
+            errores.description = "Por favor cuéntanos más sobre tu huella."
           } else if (values.description.length > 400) {
-            errores.description = "Superaste el limite de caracteres: " + (values.description.length - 1)
+            errores.description = "Superaste el límite de caracteres: " + (values.description.length - 1)
           }
 
           if (imag.length < 3) {
-            errores.images = "Por favor selecciona 3 imagenes"
+            errores.images = "Por favor selecciona 3 imágenes."
           }
 
           return errores;
@@ -90,10 +90,10 @@ export default function PostPet({ foundation }) {
         onSubmit={async (values, { resetForm }) => {
 
           Swal.fire({
-            title: 'Quieres postear esta mascota?',
+            title: `¿Estás seguro de querer agregar a ${values.name} a tus huellas?`,
             showDenyButton: true,
-            confirmButtonText: 'Si, postear',
-            denyButtonText: `No, cancelar`,
+            confirmButtonText: 'Confirmar',
+            denyButtonText: `Cancelar`,
           }).then(
             async (result) => {
               if (result.isConfirmed) {
@@ -121,7 +121,7 @@ export default function PostPet({ foundation }) {
                   foundation: foundation.id
                 }))
 
-                Swal.fire('Posteado!', '', 'success')
+                Swal.fire({title: `¡${values.name} ha sido agregada con éxito!', text:'Podrás visualizarl@ en Mis huellas y en la sección Adoptar.`, icon:'success'})
                 resetForm();
 
               }
@@ -135,15 +135,14 @@ export default function PostPet({ foundation }) {
             {/* TITULO */}
             <div className={styles.postPetForm}>
               <div className={styles.titles}>
-                <h1 className={styles.postPetTitle} > Mis Huellas </h1>
+                <h1 className={styles.postPetTitle} >Agregar huella </h1>
               </div>
 
 
               {/* NOMBRE */}
               <div className={styles.inputNameContainer}>
                 <div className="w-100 text-dark">
-                  <label htmlFor="name">Nombre</label>
-                  <Field className="form-control opacity-50" type="text" name="name" id="name" />
+                  <Field className={`form-control opacity-50, ${styles.inputs}`} type="text" name="name" id="name" placeholder='Nombre' />
                   <ErrorMessage name="name" component={() => (<div className={styles.error}>{errors.name}</div>)}></ErrorMessage>
                 </div>
               </div>
@@ -173,9 +172,9 @@ export default function PostPet({ foundation }) {
 
                   <div className={styles.checkbox}>
                     <label className={styles.checkboxLabels} htmlFor="dog">Perro</label>
-                    <Field className="form-check-input mx-3" type="radio" name="type" id="dog" value="Perro" />
+                    <Field className={`form-check-input, ${styles.inputs}`} type="radio" name="type" id="dog" value="Perro" />
                     <label className={styles.checkboxLabels} htmlFor="cat">Gato</label>
-                    <Field className="form-check-input mx-3" type="radio" name="type" id="cat" value="Gato" />
+                    <Field className={`form-check-input, ${styles.inputs}`} type="radio" name="type" id="cat" value="Gato" />
                   </div>
 
                   <div className={styles.errorBox}>
@@ -219,7 +218,7 @@ export default function PostPet({ foundation }) {
                 </label>
                 <Field
                   as="textarea"
-                  className="form-control opacity-50"
+                  className={`form-control opacity-50, ${styles.inputs}`}
                   id="description"
                   name="description"
                   rows="4"
@@ -257,7 +256,7 @@ export default function PostPet({ foundation }) {
 
 
               <div className={styles.btnContainer}>
-                <button className={styles.bot}>Enviar</button>
+                <button className={styles.btnPost}>Enviar</button>
               </div>
             </div>
           </Form>

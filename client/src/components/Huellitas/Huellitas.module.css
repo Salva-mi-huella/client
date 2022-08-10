@@ -263,13 +263,16 @@ width: 80%;
 
 @media(max-width: 1280px){
     .banner img {
-        width: 30.1vw;
-        height: 30.44vw;
+        margin-left: 1vw;
+        margin-top: 13.8vw;
+        width: 38.1vw;
+        height: 35.44vw;
     }
 }
 
 @media(max-width: 768px){
     .banner img {
+        margin-top: 19vw;
         width: 50.5vw;
         height: 30.33vw;
     }
@@ -277,7 +280,9 @@ width: 80%;
 
 @media(max-width: 375px){
     .banner img {
-        width: 29.5vw;
+        margin-top: 18.5vw;
+        margin-left: 1vw;
+        width: 30.5vw;
         height: 30.5vw;
     }
 }

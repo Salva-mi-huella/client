@@ -3,6 +3,7 @@
     grid-template-columns: 1fr 1fr;
     text-align: center;
     max-height: 80vh;
+    margin-top: 3vw;;
 }
 
 .postNewsForm {
@@ -29,11 +30,11 @@
 .postNewsTitle {
     /* margin: 1rem; */
     position: relative;
-
     font-size: 2.5vw;
     font-weight: 500;
-    color: white;
+    /* color: white; */
     font-weight: bold;
+    color: rgb(99, 59, 218);
 
 }
 
@@ -83,7 +84,7 @@
 }
 
 .btnPostNew {
-    background-color: #9C27B0;
+    background-color: rgb(99, 59, 218);
     color: #fff;
     font-size: 22px;
     font-weight: bold;
@@ -101,6 +102,12 @@
         -4px -4px 5px 0px #fff9,
         7px 7px 20px 0px #0002,
         4px 4px 5px 0px #0001;
+}
+
+.picture {
+    width: 30vw;
+    height: 17vw;
+
 }
 
 @media screen and (max-width: 800px) {

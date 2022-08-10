@@ -10,8 +10,7 @@
   flex-direction: column;
   width: 40%;
   height: 100%;
-  margin-top: 2vw;  
-  padding-top: 5rem;
+  margin-top: 1vw;  
 }
 
 .imgcontainer{
@@ -19,8 +18,13 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 2vw;
-  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.56);
   padding: 1rem;
+}
+
+.fields {
+  background-color: rgba(99, 59, 218, 0.109);
+  margin-bottom: 0.5vw;
+
 }
 
 
@@ -32,6 +36,14 @@
   max-width: 10rem;
   max-height: 10rem;
   margin-bottom: 1vw;
+  border: 2px solid rgb(24, 24, 110);
+}
+
+.imgcontainer label {
+  color: rgb(99, 59, 218);
+  font-size: 1.3rem;
+  margin-bottom: 0.5vw;
+  font-weight: bold;
 }
 
 .description{
@@ -44,6 +56,7 @@
   background-color: transparent;
   height: 19rem;
   border: none;
+
 }
 .div2{
   padding: 2vw;
@@ -52,6 +65,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.div2 h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(99, 59, 218);
 }
 
 .groupinputs{
@@ -66,28 +85,25 @@
   margin-top: 2rem;
 }
 
-.button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 1.4vw;
-  width: 12vw;
-  height: 4vw;
-  color: white;
-  background: #ad5389;
-  background: linear-gradient(0deg, rgb(117, 12, 94) 0%, rgb(168, 11, 155) 100%);  border: none;
+.button {
+  background-color: rgb(99, 59, 218);
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 40px;
+  /* border: 1px solid #fff; */
   border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em #b90fe498;
-  letter-spacing: 0.05em;
-  border-radius: 0.7vw;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  border: 2px solid black;
-  opacity: 0.85;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #7B1FA2;
+  box-shadow:
+      -7px -7px 20px 0px #fff9,
+      -4px -4px 5px 0px #fff9,
+      7px 7px 20px 0px #0002,
+      4px 4px 5px 0px #0001;
 }
 
 .error{

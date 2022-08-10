@@ -25,7 +25,8 @@
 
 .inboxTable {
     width: 100%;
-    margin-left: 2rem;
+    margin-left: 10vw;
+    margin-top: 2vw;
     min-height: 85vh;
     overflow-y: hidden;
 }

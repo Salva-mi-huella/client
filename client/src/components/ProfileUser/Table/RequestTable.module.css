@@ -1,8 +1,9 @@
 .requestTableTitle {
     margin: 1rem 0rem;
-    font-size: 3rem;
-    font-weight: 500;
-    color: #F1F15B;
+    color: rgb(99, 59, 218);
+    font-size: 3vw;
+    font-weight: bold;
+    letter-spacing: -0.1vw;;
 }
 
 .MuiTableRow-root>* {
@@ -15,10 +16,11 @@
 
 
 .tableRequests {
-    width: 100%;
-    margin-left: 2rem;
-    min-height: 85vh;
-    overflow-y: hidden;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    min-height: 80vh;
+    max-height: 90vh;
+    overflow-y: none;
 }
 
 .tableRequests td, th {
@@ -95,9 +97,10 @@
 }
 
 .empty h3 {
-    color: white;
     color: rgb(99, 59, 218);
     font-size: 2.3vw;
+    font-weight: bold;
+    letter-spacing: -0.1vw;;
 }
 
 .empty div {

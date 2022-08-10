@@ -185,17 +185,30 @@ export default function EditProfile() {
     const regPhone = /^-?[0-9]*$/
 
 
-    if (input.name && input.name.length < 3) error.name = 'mínimo 3 caracteres'
+    if (input.name && input.name.length < 3) error.name = 'Mínimo 3 caracteres.'
 
-    if (input.name && !regExpName.test(input.name)) error.name = 'Solo Letras'
+    if (input.name && !regExpName.test(input.name)) error.name = 'Solo Letras.'
+    if (input.name && input.name.length > 15) error.name = 'Máximo 15 caracteres.'
 
-    if (input.lastname && !regExpName.test(input.lastname)) error.lastname = 'Solo Letras'
 
-    if (input.telephone_number && !regPhone.test(input.telephone_number)) error.telephone_number = 'teléfono invalido'
+    if (input.lastname && !regExpName.test(input.lastname)) error.lastname = 'Solo Letras.'
+    if (input.lastname && input.lastname.length > 15) error.lastname = 'Máximo 15 caracteres.'
 
-    if (input.city && input.city.length > 10) error.city = 'ciudad invalida'
+
+    if (input.telephone_number && !regPhone.test(input.telephone_number)) error.telephone_number = 'Teléfono inválido.'
+    else if (input.telephone_number && input.telephone_number.length < 10) error.telephone_number = 'Mínimo 10 caracteres.'
+    else if (input.telephone_number && input.telephone_number.length > 14) error.telephone_number = 'Máximo 14 caracteres.'
+
+    if (input.city && input.city.length > 20) error.city = 'Máximo 20 caracteres.'
+    if (input.city&& !regExpName.test(input.city)) error.city = 'Solo Letras.'
+
+    if (input.address && input.address.length > 40) error.address = 'Máximo 40 caracteres.'
     
-    if (input.city&& !regExpName.test(input.city)) error.city = 'Solo Letras'
+
+    if (input.dni && input.dni.length > 8 ) error.dni = 'El DNI debe tener 8 caracteres.'
+    else if (input.dni && input.dni.length < 8 ) error.dni = 'El DNI debe tener 8 caracteres.'
+
+
 
 
     return error;
@@ -229,7 +242,7 @@ export default function EditProfile() {
 
           dispatch(updateUser(input, user.email))
 
-          Swal.fire('¡Tus datos han sido actualizados, los veras reflejados en un instante!', '', 'success')
+          Swal.fire('¡Tus datos han sido actualizados, los verás reflejados en un instante!', '', 'success')
         }
         else if (result.isDenied) {
           Swal.fire('Cambios no actualizados', '', 'info')
@@ -244,65 +257,72 @@ export default function EditProfile() {
     <div className={style.postProductContainer}>
 
       <form onSubmit={handleSubmit} className={style.form}>
-        <h3 className={style.h3title}> Mis Datos </h3>
+        <h3 className={style.h3title}> Mis datos </h3>
+
+        {/* NOMBRE */}
+        <div className={style.inputsGroups}>
+            <div className={style.inputDiv}>
+              <label className={style.label} htmlFor="name">Nombre:</label>
+              <input className={style.input} defaultValue={userDetail.name} placeholder='Nombre' onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />
+              {error.name && <p className={`${style.error}`}>{error.name}</p>}
+            </div>
+        {/* APELLIDO*/}
+            <div className={style.inputDiv}>
+              <label className={style.label} htmlFor="lastname">Apellido:</label>
+              <input className={style.input} defaultValue={userDetail.lastname} placeholder='Apellido' onChange={(e) => handleChange(e)} type="text" id="lastname" name="lastname" value={input.lastname} />
+              {error.lastname && <p className={`${style.error}`}>{error.lastname}</p>}
+            </div>
         {/* EMAIL */}
         <div className={style.cont}>
           <label className={style.label} htmlFor="email">Email:</label>
           <p className={style.mail}>{userDetail.email}</p>
         </div>
-
-        {/* NOMBRE */}
-        <div className={style.div}>
-          <label className={style.label} htmlFor="name">Nombre:</label>
-          <input className={style.input} defaultValue={userDetail.name}  onChange={(e) => handleChange(e)} type="text" id="name" name="name" value={input.name} />
-          {error.name && <p className={`${style.error}`}>{error.name}</p>}
         </div>
 
-        {/* APELLIDO*/}
-        <div className={style.div}>
-          <label className={style.label} htmlFor="lastname">Apellido:</label>
-          <input className={style.input} defaultValue={userDetail.lastname}  onChange={(e) => handleChange(e)} type="text" id="lastname" name="lastname" value={input.lastname} />
-          {error.lastname && <p className={`${style.error}`}>{error.lastname}</p>}
+        <div className={style.inputsGroups}>
+            {/* CITY */}
+            <div className={style.inputDiv}>
+              <label className={style.label} htmlFor="city">Ciudad:</label>
+              <input className={style.input} onChange={(e) => handleChange(e)} placeholder='Ciudad'type="text" id="city" name="city" value={input.city} />
+              {error.city && <p className={`${style.error}`}>{error.city}</p>}
+            </div>
+
+            {/* ADDRESS */}
+            <div className={style.inputDiv}>
+              <label className={style.label} htmlFor="addres">Dirección:</label>
+              <input className={style.input} onChange={(e) => handleChange(e)} placeholder='Dirección'type="text" id="address" name="address" value={input.address} />
+              {error.address && <p className={`${style.error}`}>{error.address}</p>}
+            </div>
         </div>
 
+        <div className={style.inputsGroups}>
+            {/* TELEPHONE_NUMBER */}
+            <div className={style.inputDiv}>
+              <label className={style.label} htmlFor="telephone_number">Teléfono:</label>
+              <input className={style.input} defaultValue={userDetail.telephone_number} placeholder='Teléfono'onChange={(e) => handleChange(e)} type="text" id="telephone_number" name="telephone_number" value={input.telephone_number} />
+              {error.telephone_number && <p className={`${style.error}`}>{error.telephone_number}</p>}
+            </div>
 
-        {/* TELEPHONE_NUMBER */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="telephone_number">Teléfono:</label>
-          <input className={style.input} defaultValue={userDetail.telephone_number} onChange={(e) => handleChange(e)} type="text" id="telephone_number" name="telephone_number" value={input.telephone_number} />
-          {error.telephone_number && <p className={`${style.error}`}>{error.telephone_number}</p>}
-        </div>
 
-        {/* CITY */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="city">Ciudad:</label>
-          <input className={style.input} onChange={(e) => handleChange(e)} type="text" id="city" name="city" value={input.city} />
-          {error.city && <p className={`${style.error}`}>{error.city}</p>}
-        </div>
+            {/* DNI*/}
+            <div className={style.inputDiv}>
+              <label className={style.label} htmlFor="dni">DNI N°:</label>
+              <input className={style.input} defaultValue={userDetail.dni}  placeholder='DNI °'onChange={(e) => handleChange(e)} type="number" id="dni" name="dni" value={input.dni} />
+              {error.dni && <p className={`${style.error}`}>{error.dni}</p>}
+              
+            </div>
 
-        {/* ADDRESS */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="addres">Dirección:</label>
-          <input className={style.input} onChange={(e) => handleChange(e)} type="text" id="address" name="address" value={input.address} />
-          
-        </div>
+            {/* FECHA DE NACIMIENTO */}
+            <div className={style.inputDiv}>
+              <label className={style.label} htmlFor="dni">Fecha de Nacimiento:</label>
+              <input className={style.input} defaultValue={userDetail.birthday}  onChange={(e) => handleChange(e)} type="date" id="birthday" name="birthday" value={input.birthday} />
+            </div>
 
-        {/* DNI*/}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="dni">DNI N°:</label>
-          <input className={style.input} defaultValue={userDetail.dni}  onChange={(e) => handleChange(e)} type="number" id="dni" name="dni" value={input.dni} />
-          
-        </div>
-
-        {/* FECHA DE NACIMIENTO */}
-        <div className={style.cont}>
-          <label className={style.label} htmlFor="dni">Fecha de Nacimiento:</label>
-          <input className={style.input} defaultValue={userDetail.birthday}  onChange={(e) => handleChange(e)} type="date" id="birthday" name="birthday" value={input.birthday} />
         </div>
         
+
         <div>
           <label>¿Te gustaria ofrecerte como persona de tránsito?</label>
-          {console.log(userDetail.transit)}
               {userDetail.transit === "Si"?
               <div className={style.transit}>
                 <label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' defaultChecked value='Si' type='radio' name='transit'/>Sí</label>
@@ -313,6 +333,7 @@ export default function EditProfile() {
                 <label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' defaultChecked value='No' type='radio' name='transit'/>No</label>              
             </div> }
         </div>      
+
         <button className={style.post} type="submit">Guardar Datos</button>
       </form>
 

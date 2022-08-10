@@ -64,8 +64,7 @@
 }
 
 .paypal {
-    width: 150px;
-    margin: 40px
+    width: 15vw;
 }
 
 .payment button:focus {

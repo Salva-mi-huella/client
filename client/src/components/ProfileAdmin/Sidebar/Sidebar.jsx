@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SidebarData } from '../Data/Data.js';
 import { MdLogout } from 'react-icons/md';
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import styles from '../Sidebar/Sidebar.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserByEmail } from '../../../redux/actions/index.js';
 
 
 
 const Sidebar = ({ optionSelection, setOptionSelection }) => {
 
     const [selected, setSelected] = useState(0);
+    const dispatch = useDispatch();
 
     const changeOption = (index) => {
         setSelected(index);
@@ -17,14 +20,19 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
     }
 
     const {user, logout} = useAuth0();
-    const userName = user.name.split(" ")
+    const userDetail = useSelector(state => state.user);
+    // const userName = user.name.split(" ")
+    useEffect(() => {
+        dispatch(getUserByEmail(user?.email));
+    }, [dispatch])
+
     return (
         <div className={styles.sideBar}>
 
             {/* LOGO */}
             <div className={styles.logo}>
-            <img className={styles.img} src={user.picture}  />
-                {/* <span>Hola, {userName[0]}</span> */}
+            <img className={styles.img} alt="logo" src={user.picture}  />
+                <span>Hola, {userDetail?.name}</span>
             </div>
 
             {/* MENU */}

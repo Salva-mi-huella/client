@@ -13,7 +13,9 @@ export default function FilterByFoundation(){
         dispatch(getFoundations())
     },[dispatch])
     
-    const arrFoundationsnames = useSelector(state=> state.foundations).map(foundantions => foundantions.name)
+    const arrFoundationsnames = useSelector(state=> state.foundations).filter(p => p.status === "Activa").map(foundantions => foundantions.name)
+
+
 
     
     function handleChange(e){
