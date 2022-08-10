@@ -35,17 +35,25 @@ export default function EditProfile() {
     const regPhone = /^-?[0-9]*$/
 
 
-    if (input.name && input.name.length < 3) error.name = 'mínimo 3 caracteres'
+    if (input.name && input.name.length < 3) error.name = 'Mínimo 3 caracteres'
 
     if (input.name && !regExpName.test(input.name)) error.name = 'Solo Letras'
 
     if (input.lastname && !regExpName.test(input.lastname)) error.lastname = 'Solo Letras'
 
-    if (input.telephone_number && !regPhone.test(input.telephone_number)) error.telephone_number = 'teléfono invalido'
+    if (input.telephone_number && !regPhone.test(input.telephone_number)) error.telephone_number = 'Teléfono invalido'
 
-    if (input.city && input.city.length > 10) error.city = 'ciudad invalida'
+    if (input.telephone_number.length > 15) error.telephone_number = 'Máximo 15 caracteres'
+
+    if (input.telephone_numer && input.telephone_number.length < 10) error.telephone_number = 'Mínimo 10 caracteres'
+
+    if (input.dni.length > 8) error.dni = 'Máximo 8 caracteres'
+
+    if (input.city && input.city.length > 20) error.city = 'Máximo 20 caracteres'
     
     if (input.city&& !regExpName.test(input.city)) error.city = 'Solo Letras'
+
+    if (input.address.length > 30) error.address = 'Solo Letras'
 
     return error;
   }
@@ -62,26 +70,27 @@ export default function EditProfile() {
   function handleSubmit(e) {
     e.preventDefault()
     if(!Object.keys(error).length){
-    for (let prop in input) {
-      if (input[prop] === '') delete input[prop]
-    }
+      for (let prop in input) {
+        if (input[prop] === '') delete input[prop]
+      }
       if(input.dni) input.dni = parseInt(input.dni)
       Swal.fire({
         title: '¿Estás seguro de querer guardar los cambios?',
         showDenyButton: true,
         confirmButtonText: 'Guardar',
         denyButtonText: `Cancelar`,
-
+        
       }).then((result) => {
         if (result.isConfirmed) {
-
+          
+          console.log(input)
           dispatch(updateUser(input, user.email))
-
+          
           Swal.fire('¡Tus datos han sido actualizado con éxito!', '', 'success')
         }
         else if (result.isDenied) {
           Swal.fire('Cambios no actualizados', '', 'info')
-
+          
         }
       })
     }
@@ -92,7 +101,7 @@ export default function EditProfile() {
     <div className={style.postProductContainer}>
 
       <form onSubmit={handleSubmit} className={style.form}>
-        <h3 className={style.h3title}> Mis Datos </h3>
+        <h3 className={style.h3title}> Mis datos </h3>
 
         <div className={style.div}>
          {/* NOMBRE  Y APELLIDO*/}
@@ -153,6 +162,7 @@ export default function EditProfile() {
           
         {/* FECHA DE NACIMIENTO */}
           <input className={style.input} defaultValue={userDetail.birthday}  onChange={(e) => handleChange(e)} type="date" id="birthday" name="birthday" value={input.birthday} />
+          {error.dni && <p className={`${style.error}`}>{error.dni}</p>}
         </div>
 
 

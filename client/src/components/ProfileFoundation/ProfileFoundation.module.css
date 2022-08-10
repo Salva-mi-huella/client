@@ -2,6 +2,7 @@
     /* padding: 0.5rem 2.5rem; */
     /* background-color: rgb(117, 255, 117); */
     color: var(--black);
+    color: var(--black);
     /* margin-top: ; */
     height: 90vh;
     display: flex;
@@ -13,7 +14,8 @@
     display: grid;
     height: 97%;
     width: 97%;
-    background: var(--glass);
+    /* background: var(--glass); */
+    background-color: white;
     border-radius: 2rem;
     gap: 16px;
     grid-template-columns: 13rem auto 20rem;

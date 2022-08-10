@@ -40,7 +40,8 @@ const Users = () => {
     const handleAdmin = (e, email) => {
         dispatch(updateUser({ admin: e.target.value }, email))
         Swal.fire({
-            title: '¡Proceso de solicitud enviado!',
+            title: 'Solicitud en proceso.',
+            text: 'El estado puede demorar unos minutos en actualizar.',
             imageWidth: 100,
             imageHeight: 100,
             imageAlt: 'Custom image',
@@ -127,7 +128,7 @@ const Users = () => {
                         )}
                     </TableBody>
                 </Table>
-                <TablePagination
+                <TablePagination sx={{marginTop: '1vw'}}
                     className={styles.pagination}
                     component="div"
                     count={users.length}

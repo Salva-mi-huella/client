@@ -15,28 +15,6 @@ import Swal from 'sweetalert2'
 import styles from '../Inbox/Inbox.module.css'
 
 
-const makeStyles = (status) => {
-    if (status === 'Aprobado') {
-        return {
-            background: 'rgb(145 254 159 / 47%)',
-            color: 'green'
-        }
-    }
-    else if (status === 'Rechazado') {
-        return {
-            background: '#ffadad8f',
-            color: 'red'
-        }
-    }
-    else if (status === 'Pendiente') {
-        return {
-            background: '#59bfff',
-            color: 'white'
-        }
-    }
-}
-
-
 const Inbox = () => {
 
     const [page, setPage] = React.useState(0);
@@ -66,18 +44,11 @@ const Inbox = () => {
     return (
         <div className={styles.inboxTable} >
             <TableContainer className={styles.cont} component={Paper}
-                style={{
-                    // boxShadow: '0px, 13px, 20px, 0px #80808029',
-                    height: '90%',
-                    marginTop: '2%',
-                    // border: '1px solid gray',
-                    backgroundColor: '#633BDA',
-                    color: 'white',
-                }}>
+                 style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%', marginTop: '2%', border: '1px solid gray' }}>
                 <Table sx={{ minWidth: 650}} aria-label="simple table">
                     <TableHead >
                         <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Usuario</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Nombre</TableCell>
                             <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Email</TableCell>
                             <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Mensaje</TableCell>
                         </TableRow>
@@ -96,9 +67,9 @@ const Inbox = () => {
                                         {r.pet.name}
                                     </TableCell> */}
 
-                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.tableCell} align="left">{r.name}</TableCell>
-                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.tableCell} align="left">{r.email}</TableCell>
-                                    <TableCell sx={{color: 'white', fontWeight: '500', fontSize: '16px'}} className={styles.ciudad} align="left" >
+                                    <TableCell sx={{color: 'black', fontWeight: '500', fontSize: '16px'}} className={styles.tableCell} align="left">{r.name}</TableCell>
+                                    <TableCell sx={{color: 'black', fontWeight: '500', fontSize: '16px'}} className={styles.tableCell} align="left">{r.email}</TableCell>
+                                    <TableCell sx={{color: 'black', fontWeight: '500', fontSize: '16px'}} className={styles.ciudad} align="left" >
                                         {r.message ? <button className={styles.boton} onClick={() => {
                                             Swal.fire({
                                                 title: r.message,

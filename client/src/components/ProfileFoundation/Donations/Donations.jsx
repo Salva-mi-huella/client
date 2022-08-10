@@ -86,11 +86,12 @@ const Donations = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }}> Nombre del Usuario </TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Email </TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Fecha de Donacion</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Metodo Utilizado</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left" > Cantidad </TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }}> Donante</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Email 
+                            </TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Fecha de donación</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Método utilizado</TableCell>
+                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left" > Monto </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
