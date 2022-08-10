@@ -121,29 +121,6 @@ export default function Store() {
     dispatch(getAllProducts())
   }
 
-
-
-  //PAGINADO
-
-  // const displayProducts = products
-  //   .slice(pagesVisited, pagesVisited + productsPerPage)
-  //   .map((product) => {
-  //     return (
-  //       <ItemCard
-  //         key={product.id}
-  //         id={product.id}
-  //         images={product.images}
-  //         name={product.name}
-  //         points={new Intl.NumberFormat().format(product.points)}
-  //         type={product.type}
-  //         category={product.category}
-  //       />
-  //     );
-  //   });
-
-  // const pageCount = Math.ceil(products.length / productsPerPage);
-
-
   //Contadores
   const countTodos = allProducts
   const countPerros = allProducts.filter(p => p.type === "Perro" || p.type === "Todos")

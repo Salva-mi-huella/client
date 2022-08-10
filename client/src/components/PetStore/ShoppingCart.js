@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { delFromCart, clearCart, addToCart} from '../../redux/actions'
 import styles from './ShoppingCart.module.css'
@@ -7,18 +7,48 @@ export default function ShoppingCart() {
     
     const dispatch = useDispatch();
     const data = useSelector(state => state.cart)
+    const [lS, setLocalStorage] = useState(false)
+    const [lsData, setLsData] = useState({
+        info: JSON.parse(localStorage.getItem("cart"))
+    })
 
+    // "cart " = 1234 12345 
+    // 
+    useEffect(()=>{
+        if(data.length){
+            localStorage.setItem("cart", JSON.stringify(data))
+            if(lS) setLocalStorage(false)
+            else setLocalStorage(true)
+        }
+        if(data.length === 1 ){
+            console.log("as")
+        }
+
+        
+    },[data])
+    
+    useEffect(()=>{
+        setLsData({info: JSON.parse(localStorage.getItem("cart"))})
+    },[lS])
+
+    // useEffect(()=>{
+    //     return ()=>{
+    //         setLsData({info: JSON.parse(localStorage.getItem("cart"))})
+    //     }
+    // },[lS])
+
+    
     let total = 0;
-    data.map(d => total+= (d.points*d.quantity))
+    lsData.info?.map(d => total+= (d.points*d.quantity))
 
     ShoppingCart.total = total;
-    ShoppingCart.data = data;
+    ShoppingCart.data = lsData.info ;
 
   return (
     <div className={styles.main}>
         <div className={styles.itemContainer}>
-            {data.map(d=>(
-                <div className={styles.mainitems}>
+            {lsData.info?.map(d=>(
+                <div key={d.name} className={styles.mainitems}>
                     <div className={styles.containerimagecart}>
                         <img src={d.images}/>
                     </div>

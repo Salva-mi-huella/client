@@ -129,6 +129,7 @@ export default function rootReducer(state = initialState, action) {
 
         case DELETE_ONE_FROM_CART:{
             let itemToDelete = state.cart.find(item => item.id === action.payload)
+            console.log(itemToDelete)
 
             return itemToDelete.quantity > 1 ? 
             {...state, 

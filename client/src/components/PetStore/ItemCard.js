@@ -23,7 +23,7 @@ export default function ItemCard(props) {
         if(isAuthenticated){
             dispatch(addToCart(props.id))
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Producto agregado al carrito',
                 showConfirmButton: false,
