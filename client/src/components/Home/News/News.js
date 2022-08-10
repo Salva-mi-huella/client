@@ -33,7 +33,7 @@ export default function ControlledCarousel({foundations}) {
         <div>
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 {campaignNews.map((n) => (
-                    <Carousel.Item>
+                    <Carousel.Item className={styles.caru25}>
                         <CampaignCard news={n} />
                     </Carousel.Item>
                 ))}

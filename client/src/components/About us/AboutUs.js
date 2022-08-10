@@ -46,7 +46,7 @@ export default function AboutUs() {
             <div >
                 <div data-aos="fade-bottom"
                     data-aos-duration="1500">
-                    <h2 className={styles.titles}>Nuestro equipo</h2>
+                    <h2 className={styles.titleFounder}>Nuestro equipo</h2>
                 </div>
                 <div className={styles.devs} data-aos="fade-bottom" data-aos-duration="1500">
                     <div className={styles.primeraFila}>

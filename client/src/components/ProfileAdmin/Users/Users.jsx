@@ -115,7 +115,7 @@ const Users = () => {
                                     </TableCell>
                                     <TableCell align="left">
 
-                                        {user.admin === false ? <button value={user.admin === false ? true : false} onClick={e => handleAdmin(e, user.email)} className={styles.btn1} key={user.id} >Admin </button> : <button value={user.admin === false ? true : false} onClick={e => handleAdmin(e, user.email)} className={styles.btn} key={user.id} >Sacar Admin </button>}
+                                        {user.admin === false ? <button value={user.admin === false ? true : false} onClick={e => handleAdmin(e, user.email)} className={styles.btn1} key={user.id} >Admin </button> : <button value={user.admin === false ? true : false} onClick={e => handleAdmin(e, user.email)} className={styles.btn} key={user.id} >Eliminar Admin </button>}
 
                                     </TableCell>
                                 </TableRow>
