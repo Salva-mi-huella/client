@@ -95,10 +95,10 @@
 .allAnimals{
     margin-top: 50px;
     text-align: center;
-    position: -webkit-sticky;
-    position: sticky;
+    /* position: -webkit-sticky; */
+    /* position: sticky; */
     /* backdrop-filter: blur(5px); */
-    top: 10px;
+    /* top: 10px; */
     justify-content: center;
     align-items: center;
 
@@ -122,11 +122,14 @@
     min-height: 50vh;
     justify-content: center;
     padding: 10px 3% 3% 10px;
-
+    /* width: 100vw; */
     gap: 1.5vw;
-    margin-left: 6vw;
+    width: 100%;
+    margin-left: 3vw;
 }
-
+.cardDiv{
+    width: 290px;
+}
 .card{
     text-align: center;
     width: 270px;
@@ -137,8 +140,9 @@
     margin: 0px 7px 88px 7px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     /* background-color: rgba(154, 121, 255, 0.488); */
-    background-color: rgb(99, 59, 218);
+    background-color: rgba(78, 80, 214, 0.496);
     transition: 0.5s;
+    
 
 }
 .card:hover{
@@ -223,16 +227,14 @@
     margin-left:calc(10vw/2) ;
     width: 90vw;
     margin-bottom: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    /* background-color: rgba(154, 121, 255, 0.488); */
-    background-color: rgb(99, 59, 218);
+    background-color: rgba(78, 80, 214, 0.496);
     border-radius: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .filtersBy{ 
     padding: 10px;
@@ -263,6 +265,7 @@
     border: none;
     color: white;
     font-weight: bold;
+    margin-right: 10px;
 }
 .btnFilterType:hover{
     color:rgb(255, 230, 0);
@@ -363,7 +366,7 @@ ul .pages{
     font-size: 1.5rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     /* background-color: rgba(154, 121, 255, 0.488); */
-    background-color: rgb(99, 59, 218);
+    background-color: rgba(78, 80, 214, 0.496);
     color: rgb(255, 145, 145);
     box-shadow: rgba(0, 0, 0, 0.236) 0px 5px 15px;
     width: 3.5rem;
