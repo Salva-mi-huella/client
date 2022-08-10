@@ -210,6 +210,7 @@ export default function EditProfile() {
 
 
 
+
     return error;
   }
 
@@ -318,26 +319,21 @@ export default function EditProfile() {
             </div>
 
         </div>
+        
 
-        
-        <div >
-          <label className={style.transit}>¿Te gustaría ofrecerte como persona de tránsito?</label>
-    {userDetail.transit === "Si" ? 
-       <div className={style.transit}>
-          <label htmlFor='Si' className={style.label}>Sí
-          <input defaultChecked onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/></label>
-          <label htmlFor='No' className={style.label}>No
-          <input onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/></label>
-          </div> : 
-          
-        <div className={style.transit}>
-          <label htmlFor='Si'>Sí
-          <input onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/></label>
-          <label className={style.label} htmlFor='No'>No
-          <input defaultChecked onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/></label>
-          </div>}
-        </div>
-        
+        <div>
+          <label>¿Te gustaria ofrecerte como persona de tránsito?</label>
+              {userDetail.transit === "Si"?
+              <div className={style.transit}>
+                <label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' defaultChecked value='Si' type='radio' name='transit'/>Sí</label>
+                <label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' value='No' type='radio' name='transit'/>No</label>              
+              </div> : 
+              <div className={style.transit}>
+                <label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si'  value='Si' type='radio' name='transit'/>Sí</label>
+                <label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' defaultChecked value='No' type='radio' name='transit'/>No</label>              
+            </div> }
+        </div>      
+
         <button className={style.post} type="submit">Guardar Datos</button>
       </form>
 
