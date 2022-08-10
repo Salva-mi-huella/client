@@ -12,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { removeUserSession } from "../../utils";
+import { getUserSession, removeUserSession } from "../../utils";
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -30,7 +30,7 @@ export default function AccountMenu() {
     removeUserSession();
   }
 
-
+  const userLocal = getUserSession();
   
   return (
     <React.Fragment>
@@ -44,7 +44,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 45, height: 45, marginRight: 2}}><img className={style.user} src={user?.picture} ></img></Avatar>
+            <Avatar sx={{ width: 45, height: 45, marginRight: 2}}><img className={style.user} alt="" src={userLocal?.picture} ></img></Avatar>
           </IconButton>
         </Tooltip>
       </Box>

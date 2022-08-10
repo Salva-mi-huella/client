@@ -48,9 +48,9 @@ export default function Home() {
                     picture
                 }));
             }
-            setUserSession(user);
             dispatch(getUserByEmail(user?.email));
         }
+        user && setUserSession(user);
 
     }, [user, isAuthenticated, dispatch]);
 

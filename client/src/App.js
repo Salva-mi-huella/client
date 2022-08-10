@@ -15,7 +15,6 @@ import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
 import Paypal from './components/Donate/Paypal/Paypal';
 import Huellitas from './components/Huellitas/Huellitas';
-import ProductDetail from './components/ProductDetail/ProductDetail';
 // import Payment from './components/Donate/Payment';
 import PostPet from './components/PostPet/PostPet';
 
