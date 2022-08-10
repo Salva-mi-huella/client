@@ -7,6 +7,7 @@ import { getAllNews } from '../../../redux/actions';
 import NewsCard from './NewsCard';
 import NewsSlider from './NewsSlider';
 import CampaignCard from './CampaignCard';
+
 import styles from './NewsCard.module.css';
 
 
