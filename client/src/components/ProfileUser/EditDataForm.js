@@ -197,6 +197,7 @@ export default function EditProfile() {
     
     if (input.city&& !regExpName.test(input.city)) error.city = 'Solo Letras'
 
+
     return error;
   }
 
@@ -299,14 +300,19 @@ export default function EditProfile() {
           <input className={style.input} defaultValue={userDetail.birthday}  onChange={(e) => handleChange(e)} type="date" id="birthday" name="birthday" value={input.birthday} />
         </div>
         
-        <div >
+        <div>
           <label>¿Te gustaria ofrecerte como persona de tránsito?</label>
-    {userDetail.transit === "Si" ? <div className={style.transit}><label htmlFor='Si'><input defaultChecked onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/>Sí</label><label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/>No</label></div> : <div className={style.transit}><label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/>Sí</label><label htmlFor='No'><input defaultChecked onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/>No</label></div>}
-          {/* <label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' value='Si' type='checkbox' name='transit'/>Sí</label>
-          <label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' value='No' type='checkbox' name='transit'/>No</label> */}
-        </div>
-
-      
+          {console.log(userDetail.transit)}
+              {userDetail.transit === "Si"?
+              <div className={style.transit}>
+                <label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' defaultChecked value='Si' type='radio' name='transit'/>Sí</label>
+                <label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' value='No' type='radio' name='transit'/>No</label>              
+              </div> : 
+              <div className={style.transit}>
+                <label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si'  value='Si' type='radio' name='transit'/>Sí</label>
+                <label htmlFor='No'><input onChange={(e)=>handleChange(e)} id='No' defaultChecked value='No' type='radio' name='transit'/>No</label>              
+            </div> }
+        </div>      
         <button className={style.post} type="submit">Guardar Datos</button>
       </form>
 
