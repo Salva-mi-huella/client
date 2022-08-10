@@ -104,9 +104,9 @@ export default function Donate(){
             </div>
             <div data-aos="fade-left" data-aos-duration="1500" className={style.contAporte}>
                 <h2  className={style.aporte}>¡Ayudanos con tu aporte!</h2> 
-            <div className={style.contIMG}>
+            {/* <div className={style.contIMG}> */}
             <img className={style.img} src={hands}></img>
-            </div>
+            {/* </div> */}
             </div>
         </div>
     </div>
