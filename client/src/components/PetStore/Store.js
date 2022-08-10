@@ -20,80 +20,16 @@ export default function Store() {
   const { isAuthenticated } = useAuth0();
 
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user)
-  const products = useSelector((state) => state.allProductsFiltered);
   const allProducts = useSelector((state) => state.allProducts);
   const { pages } = useSelector((state) => state.productsFilterd);
-  const cart = useSelector(state => state.cart);
-  const productsId = cart.map(product => product.id);
+
+
+  const [cartStatus, setCartStatus] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getAllProducts());
   }, [dispatch]);
-
-
-  function updatePoints() {
-    let actualPoints = user.points;
-    let totalCompra = ShoppingCart.total;
-    let totalItems = ShoppingCart.data;
-
-    let newBalance = actualPoints - totalCompra
-
-    if (totalItems < 1) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Parece que aun no has añadido nada a tu carrito!',
-      })
-    }
-    else if (newBalance > 0) {
-      const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-      })
-
-      swalWithBootstrapButtons.fire({
-        title: 'Seguro quieres canjear estos productos?',
-        text: "Despues de esto no hay marcha atras!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Canjear productos!',
-        cancelButtonText: 'Cancelar canje!',
-        reverseButtons: true,
-      }).then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(
-            'Canje exitoso!',
-            `Tus productos fueron canjeados, te avisaremos para coordinar el envio. Tu nuevo saldo de huellitas es ${newBalance}`,
-            'success',
-            dispatch(updateUser({ points: newBalance, products: productsId }, user.email)),
-            setTimeout(() => window.location.reload(), 5000)
-
-          )
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            'Cancelado',
-            'Canje cancelado :)',
-            'error'
-          )
-        }
-      })
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Parece que no tienes huellitas suficientes para este canje! :(',
-      })
-    }
-
-  }
 
   //FILTROS
   const [filterByAZ, setFilterByAZ] = useState("");
@@ -122,6 +58,10 @@ export default function Store() {
     setFilterByCategory("")
     dispatch(getAllProducts())
   }
+  function handleCart () {
+    if(cartStatus) setCartStatus(false)
+    else setCartStatus(true)
+  }
 
   //Contadores
   const countTodos = allProducts
@@ -135,17 +75,25 @@ export default function Store() {
 
   return (
     <div>
+      <div className={`${styles.containerModal} ${cartStatus? styles.flex : styles.none}`}>
+        <div className={styles.mainmodal}>
+                <button  className={styles.close} onClick={handleCart} ><i class="fa-solid fa-xmark"></i></button>
+                <ShoppingCart/>
+          </div>
+      </div>
       <div className={styles.main}>
         <div className={styles.sidebar}>
         <div className={styles.containerCart}>
-        {isAuthenticated?<button type="button" className={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <ShoppingCartIcon sx={{ fontSize:'50px'}}/>
-        </button>:null}        
+        {isAuthenticated?
+          <button type="button" className={styles.shoppingcart} onClick={handleCart}>
+          <ShoppingCartIcon sx={{ fontSize:'50px'}}/>
+          </button>
+          :null}        
 
 
-          <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog ">
-              <div className="modal-content">
+          {/* <div className={`${styles.a } modal fade`} id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" >
+            <div className={`${styles.a } modal-dialog`} tabindex="100">
+              <div className={`${styles.a } modal-content`}>
                 <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">Carrito de compras</h5>
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -159,7 +107,8 @@ export default function Store() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+     
         </div>  
           <div className={styles.searchbar}>
             <SearchBar />
