@@ -65,12 +65,12 @@ const InfoPets = () => {
                 <Table sx={{ minWidth: 650, }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left" >Huella </TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Tipo</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Género</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Edad</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Fecha de alta</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Estado</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left" >Huella </TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Tipo</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Género</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Edad</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Fecha de alta</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Estado</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

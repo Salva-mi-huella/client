@@ -13,6 +13,10 @@
   box-shadow: none !important;
 }
 
+.spanTitle {
+ margin-left: -1.7vw
+}
+
 /* radial bar */
 .radialBar {
   flex: 1 1;

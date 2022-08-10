@@ -37,7 +37,7 @@ export default function ProductsTable({ userDetail, foundations }) {
   return (
     <div className={styles.tableRequests}>
 
-    {products?.length > 0 &&<h3 className={styles.requestTableTitle}> Tabla de productos </h3>}
+    {products?.length > 0 &&<h3 className={styles.requestTableTitle}>Mis productos</h3>}
 
       {products?.length === 0 ?
         <div className={styles.empty}>
@@ -50,17 +50,17 @@ export default function ProductsTable({ userDetail, foundations }) {
           <img className={styles.adoptMe} src={adopt} alt='adoptMe'></img>
         </div>
         :
-        <TableContainer component={Paper}
-          style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%', width: '80%', border: '1px solid black' }}
+        <TableContainer component={Paper} sx={{border: "1px solid #e5e5e5" }}
+        style={{  background:"transparent",maxHeight: '60vh', maxWidth: '70vw' }}
         >
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead >
-              <TableRow sx={styles.TableRow} >
+              <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }} >
 
-                <TableCell align='left'>Nombre </TableCell>
-                <TableCell align="left">Huellitas</TableCell>
-                <TableCell align="left">Categoria</TableCell>
-                <TableCell align="left">Fecha</TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align='left'>Nombre </TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Huellitas</TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Categoria</TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Fecha</TableCell>
 
                 {/*  <TableCell align="left">Status</TableCell> */}
               </TableRow>
@@ -76,10 +76,10 @@ export default function ProductsTable({ userDetail, foundations }) {
                     {r.pet.name}
                   </TableCell> */}
 
-                  <TableCell className={styles.tableCell} align="left">{p.name}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">{p.points}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">{p.category}</TableCell>
-                  <TableCell className={styles.tableCell} align="left">{p.post_date}</TableCell>
+                  <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{p.name}</TableCell>
+                  <TableCell sx={{color:'black', fontWeight:'500'}}align="left">{p.points}</TableCell>
+                  <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{p.category}</TableCell>
+                  <TableCell sx={{color:'black', fontWeight:'500'}} align="left">{p.post_date}</TableCell>
 
                 </TableRow>
               ))}

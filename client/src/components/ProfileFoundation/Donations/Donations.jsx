@@ -86,12 +86,12 @@ const Donations = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }}> Donante</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Email 
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}> Donante</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left"> Email 
                             </TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Fecha de donación</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left"> Método utilizado</TableCell>
-                            <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left" > Monto </TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left"> Fecha de donación</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left"> Método utilizado</TableCell>
+                            <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left" > Monto </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -107,7 +107,7 @@ const Donations = () => {
                                         align="left">{row.method === 'paypal' ? `$ ${new Intl.NumberFormat().format(row.amount)} USD ` : `$ ${new Intl.NumberFormat().format(row.amount)} ARS `}</TableCell>
                                 </TableRow>
                             )) :
-                            <TableCell component="th" scope="row"> Aun no hay donaciones </TableCell>}
+                            <TableCell component="th" scope="row"> Aún no has recibido donaciones. </TableCell>}
                         {emptyRows > 0 && (
                             <TableRow style={{ height: 62.5 * emptyRows }}>
                                 <TableCell colSpan={6} />

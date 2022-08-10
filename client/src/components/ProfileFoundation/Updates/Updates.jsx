@@ -3,11 +3,11 @@ import styles from './Updates.module.css';
 
 const Updates = ({foundation}) => {
 
-
     return (
         <div className={styles.updatedNewsContainer}>
+            <h1>Mis noticias</h1>
 
-            {foundation?.news.map((update) => 
+            {foundation?.news?.length && foundation.news.map((update) => 
                     <div className={styles.singleUpdateContainer}>
 
                         <div className={styles.singleNew}>

@@ -73,27 +73,27 @@ export default function Huellitas(){
                 <h1>Conocé nuestro catálogo de productos</h1>
                 <div>
                     <div>
-                        <Link to='/tienda/22' ><div className={style.imgContainer}>
+                    <div className={style.imgContainer}>
                              <img className={style.products}src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659552637/Huellas_folder/2023bbdf2b9fe10ebc9c7fbbbb7e94ab_rgfyg8-removebg-preview_ti3lvk.png" alt='product_a'></img>
-                        </div></Link>
+                        </div>
                         <div>
                             <span>4070</span>
                             <img className={style.paw} src={paw} alt='paw'></img>
                         </div>
                     </div>
                     <div>
-                    <Link to='/tienda/14' ><div className={style.imgContainer}>
+                    <div className={style.imgContainer}>
                              <img className={style.products} src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659544674/Huellas_folder/colchon-liso21-3018197b3f1c52563d15890266038627-640-0_ahetau-removebg-preview_pelypx.png" alt='product_c'></img>
-                        </div></Link>
+                        </div>
                         <div>
                             <span>10775</span>
                             <img className={style.paw} src={paw} alt='paw'></img>
                         </div>
                     </div>
                     <div>
-                    <Link to='/tienda/21'><div className={style.imgContainer}>
+                   <div className={style.imgContainer}>
                             <img className={style.products} src="https://res.cloudinary.com/djasy7hxk/image/upload/v1659552548/Huellas_folder/156157-1_g2rczl-removebg-preview_wlmg7t.png" alt='product_b'></img>
-                        </div></Link>
+                        </div>
                         <div>
                             <span>18610</span>
                             <img className={style.paw} src={paw} alt='paw'></img>

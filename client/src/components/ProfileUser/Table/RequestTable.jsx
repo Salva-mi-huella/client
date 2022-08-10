@@ -57,16 +57,16 @@ export default function RequestTable({ userId, foundations, userDetail, allReque
           <img className={styles.adoptMe} src={adopt} alt='adoptMe'></img>
         </div>
         :
-        <TableContainer component={Paper}
-          style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '85%', width: '80%', border: '1px solid black' }}
+        <TableContainer component={Paper} sx={{border: "1px solid #e5e5e5" }}
+        style={{  background:"transparent",maxHeight: '60vh', maxWidth: '70vw' }}
         >
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead >
-              <TableRow sx={styles.TableRow} >
-                <TableCell>Huellita </TableCell>
-                <TableCell align="left">Fundacion</TableCell>
-                <TableCell align="left">Fecha</TableCell>
-                <TableCell align="left">Estado</TableCell>
+              <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }} >
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align="left">Huellita </TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align="left">Fundacion</TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align="left">Fecha</TableCell>
+                <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }}align="left">Estado</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -78,10 +78,10 @@ export default function RequestTable({ userId, foundations, userDetail, allReque
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
 
-                    <TableCell className={styles.tableCell} align="left">{r.pet.name}</TableCell>
-                    <TableCell className={styles.tableCell} align="left">{r.foundation.name}</TableCell>
-                    <TableCell className={styles.tableCell} align="left">{r.post_date}</TableCell>
-                    <TableCell className={styles.tableCell} align="left">{r.status} </TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}}  align="left">{r.pet.name}</TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}}  align="left">{r.foundation.name}</TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}}  align="left">{r.post_date}</TableCell>
+                    <TableCell sx={{color:'black', fontWeight:'500'}}  align="left">{r.status} </TableCell>
                   </TableRow>
                 ))}
               {emptyRows > 0 && (

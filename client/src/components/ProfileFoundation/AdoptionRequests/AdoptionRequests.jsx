@@ -132,23 +132,26 @@ const AdoptionRequests = () => {
   return (
     <div className={styles.tableRequests}>
 
-      <TableContainer className={styles.cont} component={Paper}
-        style={{ boxShadow: '0px, 13px, 20px, 0px #80808029', height: '90%', marginTop: '2%', border: '1px solid gray' }}
-      >
+      <TableContainer className={styles.cont} component={Paper}            style={{
+                    boxShadow: '0px, 13px, 20px, 0px #80808029',
+                    height: '90%',
+                    marginTop: '2%',
+                    border: '1px solid gray'
+                }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead >
             <TableRow sx={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.067)' }}>
-              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} >Huella </TableCell>
-              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Nombre</TableCell>
-              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Email</TableCell>
-              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Teléfono</TableCell>
-              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Ciudad</TableCell>
-              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Fecha</TableCell>
-              <TableCell sx={{ color: 'purple', fontWeight: '700', fontSize: '16px' }} align="left">Estado</TableCell>
+              <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} >Huella </TableCell>
+              <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Nombre</TableCell>
+              <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Email</TableCell>
+              <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Teléfono</TableCell>
+              <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Ciudad</TableCell>
+              <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Fecha</TableCell>
+              <TableCell sx={{ color: 'rgb(99, 59, 218)', fontWeight: '700', fontSize: '1.1vw' }} align="left">Estado</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {requests && requests
+            {requests?.length ? requests
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((r) => (
                 <TableRow className={styles.row} key={r.name} sx={{ '&:last-child td, &:last-child th': { border: 1 } }}
@@ -205,7 +208,7 @@ const AdoptionRequests = () => {
 
                   </TableCell>
                 </TableRow>
-              ))}
+              )) :<TableCell component="th" scope="row"> Aún no has recibido solicitudes de adopción. </TableCell>}
             {emptyRows > 0 && (
               <TableRow style={{ height: 62.5 * emptyRows }}>
                 <TableCell colSpan={6} />
