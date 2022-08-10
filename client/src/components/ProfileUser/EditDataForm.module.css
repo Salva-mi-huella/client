@@ -1,7 +1,14 @@
 .postProductContainer{
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-right: 10vw;
+  /* margin-top: 2rem; */
+}
+
+.inputDiv {
+  margin-bottom: 1vw;
+  height: 7.5vw;;
+
 }
 
 .contactContainer {
@@ -11,11 +18,12 @@
 }
 
 .h3title{
-  color: white;
+  color: rgb(99, 59, 218);
   font-size: 2.7rem;
   display: flex;
-  justify-content: center;
   margin-bottom: 2rem;
+  font-weight: bold;
+  letter-spacing: -0.1vw;
 }
 
 .label, .button, .description {
@@ -25,16 +33,21 @@
 
 
 .label, .description {
-  color: azure;
+  color: rgb(99, 59, 218);
   text-transform: uppercase;
   font-size: 1rem;
   margin-bottom: 0.2rem;
   font-weight: bold;
 }
 
+.inputsGroups {
+  display: flex;
+  flex-direction: row
+}
+
 
 .input, .textarea, .label {
-  width: 30vw;
+  width: 18vw;
   display: block;
 }
 
@@ -46,19 +59,39 @@
   color: #0107129c;
 }
 
+.transit {
+  color: rgb(99, 59, 218);
+  text-transform: uppercase;
+  font-size: 1.2vw;
+  margin-bottom: 1vw;
+  font-weight: bold;
+}
+.transit label {
+  color: rgb(99, 59, 218);
+  text-transform: uppercase;
+  font-size: 1.2vw;
+  margin-bottom: 0.2rem;
+  font-weight: 900;
+  margin-left: 13vw
+}
+
+.transit input {
+  margin-left: 0.5vw;
+}
+
 
 .input {
   color: #010712;
   font-weight: 500;
-  background: #FCFDFD;
+  background-color: rgba(99, 59, 218, 0.109);
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.334);
   padding: 0.5rem 0.5rem;
   outline: none;
   resize: none;
-  margin-bottom: 6px;
+  /* margin-bottom: 3vw; */
   position: relative;
-  margin-right: 10rem;
+  margin-right: 3vw;
 }
 .pictures{
   margin-bottom: 2rem;
@@ -83,37 +116,42 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   
 }
-.post{
-  width: 30vw; 
-  overflow: hidden;
-  display: flex;
-  font-size: 1.5rem;
-  justify-content: center;
-  border: none;
-  border-radius: 10px;
-  padding: 3px;
-  background-color: rgba(149, 19, 185, 0.678);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  color: white;
-  margin-top: 3rem;
-}
-.post:hover{
-  background-color: azure;
-  color: rgba(149, 19, 185, 0.678);
 
+.post {
+  background-color: rgb(99, 59, 218) !important;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  margin-left: 22vw;
+  margin-top: 1vw;
 }
+
+.post {
+  background-color: #7B1FA2;
+  box-shadow:
+      -7px -7px 20px 0px #fff9,
+      -4px -4px 5px 0px #fff9,
+      7px 7px 20px 0px #0002,
+      4px 4px 5px 0px #0001;
+}
+
+
 .form{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   margin-bottom: 2rem;
   padding: 1rem 5rem;
 }
+
 .error{
 color: red;
 font-size: 0.8rem;
-margin-left: 32rem;
-position: relative;
-top: -2rem;
-margin-bottom: -1.2rem;
+/* margin-left: 32rem; */
+/* position: relative; */
+/* top: -2rem; */
+margin-top: 0.5vw;
 }
 .transit{
   display: flex;

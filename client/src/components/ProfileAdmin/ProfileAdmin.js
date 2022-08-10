@@ -44,61 +44,54 @@ export default function ProfileAdmin() {
                 {
                     optionSelection === 0 && (
                         <>
-                            <MainDash requests_foundations={requests_foundations} />
+                            <EditProfile />
                         </>
                     )
                 }
                 {
                     optionSelection === 1 && (
                         <>
-                            <EditProfile />
-                        </>
-                    )
-                }
-                {
-                    optionSelection === 2 && (
-                        <>
                             <Users />
                         </>
                     )
                 }
                                 {
-                    optionSelection === 3 && (
+                    optionSelection === 2 && (
                         <>
                             <AddFoundations/>
                         </>
                     )
                 }
                 {
-                    optionSelection === 4 && (
+                    optionSelection === 3 && (
                         <>
                             <Foundations />
                         </>
                     )
                 }
                 {
-                    optionSelection === 5 && (
+                    optionSelection === 4 && (
                         <>
                             <Request requests_foundations={requests_foundations} />
                         </>
                     )
                 }
                 {
-                    optionSelection === 6 && (
+                    optionSelection === 5 && (
                         <>
                             <AddProducts />
                         </>
                     )
                 }
                 {
-                    optionSelection === 7 && (
+                    optionSelection === 6 && (
                         <>
                             <Products />
                         </>
                     )
                 }
                 {
-                    optionSelection === 8 && (
+                    optionSelection === 7 && (
                         <>
                             <Donations />
                         </>

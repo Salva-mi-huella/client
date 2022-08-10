@@ -54,7 +54,7 @@ export const SidebarData = [
     },
     {
         icon: MdPerson,
-        heading: "Transito"
+        heading: "Tránsitos"
     },
     {
         icon: MdOutgoingMail,
@@ -97,44 +97,4 @@ export const CardsData = [
             },
         ],
     },
-    // {
-    //     title: "Gastos",
-    //     color: {
-    //         backGround:
-    //             "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
-    //         boxShadow: "0px 10px 20px 0px #F9D59B",
-    //     },
-    //     barValue: 60,
-    //     value: "48,600",
-    //     png: MdPaid,
-    //     series: [
-    //         {
-    //             name: "Gastos",
-    //             data: [3, 4, 2, 5, 4, 10, 10]
-    //         },
-    //     ],
-    // },
 ];
-
-export const UpdatesData = [
-    {
-        img: 'https://media-exp1.licdn.com/dms/image/C4E03AQG9fkb-aure_w/profile-displayphoto-shrink_800_800/0/1598918678672?e=1663804800&v=beta&t=zh4Mdtor8b7ajDKu_X4tghqY14Egm2czyMvn2_2n7DI',
-        name: "Usuario 1",
-        news: "Gracias al Usuario 1 por su gran contribucion!",
-        time: "Hace unos segundos..."
-    },
-    {
-        img: 'https://media-exp1.licdn.com/dms/image/C4E03AQG9fkb-aure_w/profile-displayphoto-shrink_800_800/0/1598918678672?e=1663804800&v=beta&t=zh4Mdtor8b7ajDKu_X4tghqY14Egm2czyMvn2_2n7DI',
-
-        name: "Usuario 2",
-        news: "Ahri esta con su nueva familia. Gracias Usuario 2!",
-        time: "Ayer..."
-    },
-    {
-        img: 'https://media-exp1.licdn.com/dms/image/C4E03AQG9fkb-aure_w/profile-displayphoto-shrink_800_800/0/1598918678672?e=1663804800&v=beta&t=zh4Mdtor8b7ajDKu_X4tghqY14Egm2czyMvn2_2n7DI',
-        name: "Usuario 3",
-        news: "Gracias al Usuario 3 por su gran contribucion!",
-        time: "Hace algunas horas..."
-    },
-
-]

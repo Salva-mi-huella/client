@@ -1,8 +1,9 @@
 .MDTableTitle {
     margin: -4rem 0 1rem 0;
 
-    font-size: 3rem;
+    font-size: 2vw;
     font-weight: 500;
+    margin-top: 0.1vw;
 }
 
 .bodyRow {

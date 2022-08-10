@@ -1,13 +1,11 @@
 .postPetsContainer {
-
   display: flex;
   /* justify-content: center; */
-
   width: 84vw;
-  height: 85vh;
+  margin-left: 10vw;
+  height: 90vh;
   padding: .5rem;
   gap: 1rem;
-  /* margin: .5rem; */
 
 }
 
@@ -23,11 +21,8 @@
   height: 95%;
   padding: 2rem;
   margin: 1rem;
-  /* gap: .5rem; */
 
-  border: 1px solid #FCEC4F;
-  border-radius: .8rem;
-  box-shadow: 0px 5px 26px 0px #FCEC4F;
+  /* gap: .5rem; */
 
 }
 
@@ -42,12 +37,19 @@
 }
 
 .postPetTitle {
-  color: #FCEC4F;
+  color: rgb(99, 59, 218);
   font-weight: 700;
+  margin-bottom: 2vw !important;
 }
 
 .inputNameContainer {
   display: flex;
+}
+
+.inputs {
+  background-color: rgba(99, 59, 218, 0.109);
+  color: black;
+
 }
 
 .secondContainer {
@@ -55,6 +57,7 @@
 
   margin-top: 2rem;
   gap: 2rem;
+  
 
   display: flex;
   justify-content: space-between;
@@ -73,23 +76,27 @@
   justify-content: space-around;
   align-items: center;
   text-align: justify;
+  
 
 }
 
 .checkboxLabels {
   font-size: 1rem;
   max-width: 90px;
+  color:rgb(99, 59, 218);
+  margin-right: 0.5vw;
+  margin-left: 0.5vw;
 }
 
 
 .firstCheckboxContainer {
-  background-color: rgba(0, 0, 0, 0.108);
+  background-color: rgba(99, 59, 218, 0.109);
+
   border-radius: 1rem;
 
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* gap: .3rem; */
 
   padding: .7rem;
 
@@ -98,19 +105,21 @@
   justify-content: space-between;
 
   min-width: 100px;
+  width: 13.5vw;
 
 }
 
 .checkbox {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around !important;
+  align-items: space-around !important;
 
 }
 
 
 .secondCheckboxContainer {
-  background-color: rgba(0, 0, 0, 0.108);
+  background-color: rgba(99, 59, 218, 0.109);
+
   border-radius: 1rem;
 
   padding: .7rem;
@@ -125,6 +134,11 @@
 
 .textarea {
   margin: 15px 0 15px 0;
+  color:rgb(99, 59, 218);
+}
+
+.textarea label {
+  color:rgb(99, 59, 218);
 }
 
 .imageTitleContainer {
@@ -136,82 +150,40 @@
 .imageContainer {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 2vw;
 
 }
 
 
 
 /* BOTON ENVIAR */
+
 .btnContainer {
-  /* background-color: #fff; */
-  display: flex;
-  align-items: center;
+  display:flex;
   justify-content: center;
+  align-items: center;
 }
 
-.bot {
-  width: 10rem;
-  min-width: 10rem;
-  min-height: 1rem;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1.3px;
-  font-weight: 700;
-  color: #FCEC4F;
-  background: linear-gradient(90deg, #c450f6 0%, rgb(200, 119, 209) 100%);
+.btnPost {
+  background-color: rgb(99, 59, 218);
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 40px;
+  /* border: 1px solid #fff; */
   border: none;
-  border-radius: 1000px;
-  box-shadow: 12px 12px 24px #c450f6;
-  transition: all 0.3s ease-in-out 0s;
-  cursor: pointer;
-  outline: none;
-  position: relative;
-  padding: 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
-.bot::before {
-  content: '';
-  border-radius: 1000px;
-  min-width: calc(190px + 12px);
-  min-height: calc(46px + 12px);
-  border: 4px solid #FCEC4F;
-  box-shadow: 0 0 60px #c450f6;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: all .3s ease-in-out 0s;
+.btnPost:hover {
+  background-color: #7B1FA2;
+  box-shadow:
+      -7px -7px 20px 0px #fff9,
+      -4px -4px 5px 0px #fff9,
+      7px 7px 20px 0px #0002,
+      4px 4px 5px 0px #0001;
 }
-
-.button:hover, .button:focus {
-  color: #313133;
-  transform: translateY(-6px);
-}
-
-.bot:hover::before, .bot:focus::before {
-  opacity: 1;
-}
-
-.bot::after {
-  content: '';
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  border: 2px solid #FCEC4F;
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* animation: ring 1.5s infinite; */
-}
-
-.bot:hover::after, .bot:focus::after {
-  animation: none;
-  display: none;
-}
-
 /* ERRORS */
 .errorBox {
   margin-top: 1rem;

@@ -20,10 +20,11 @@
   
 .h3title{
   color: rgb(99 59 218);
-    font-size: 2rem;
+    font-size: 2.5vw;
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    font-weight: bold;
   }
 
 .label, .button, .description {

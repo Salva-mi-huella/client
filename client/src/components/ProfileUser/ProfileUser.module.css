@@ -102,6 +102,8 @@
   color: white;
   color: rgb(99, 59, 218);
   font-size: 2.6vw;
+  font-weight: bold;;
+  letter-spacing: -0.1vw;;
 }
 
 .empty div {
