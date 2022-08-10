@@ -302,7 +302,6 @@ export default function EditProfile() {
         
         <div>
           <label>¿Te gustaria ofrecerte como persona de tránsito?</label>
-          {console.log(userDetail.transit)}
               {userDetail.transit === "Si"?
               <div className={style.transit}>
                 <label htmlFor='Si'><input onChange={(e)=>handleChange(e)} id='Si' defaultChecked value='Si' type='radio' name='transit'/>Sí</label>
