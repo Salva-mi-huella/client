@@ -1,13 +1,11 @@
 import React from 'react';
-
 import Cards from '../Cards/Cards';
 import Table from '../Table/Table';
-
-import '../MainDash/MainDash.css';
+import styles from '../MainDash/MainDash.module.css';
 
 const MainDash = ({ requests_foundations }) => {
     return (
-        <div className='MainDash'>
+        <div className={styles.MainDash}>
 
             <h1> Movimientos del Mes </h1>
 

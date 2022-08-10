@@ -54,9 +54,6 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                 {/* LOGO */}
                 <div className="profileFoundationLogo">
                     <img src={foundation?.images[0]} alt='Foundation logo' />
-                    <span>
-                        H<span>o</span>me
-                    </span>
                 </div>
 
                 {/* MENU */}

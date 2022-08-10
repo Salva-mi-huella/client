@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import Footer from '../Footer/Footer.js';
 import Carousel from '../Carousel/Carousel';
-import { getFoundations, postUser, getUserByEmail, getAllPets } from '../../redux/actions';
+import { getFoundations, postUser, getUserByEmail, getAllPets, getUsers } from '../../redux/actions';
 import { SliderFoundation } from '../SliderFoundation/SliderFoundation';
 import banner from '../../assets/banner-home.jpg';
 import yellow_paw from '../../assets/yellow-paw.png';
@@ -14,7 +14,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import eslogan from '../../assets/eslogan2.png'
 import register from '../../assets/register1.png';
 import gift from '../../assets/gift-2png.png';
-import { setUserSession, getUserSession } from "../../utils";
+import { setUserSession } from "../../utils";
 import News from './News/News';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
@@ -27,15 +27,18 @@ export default function Home() {
 
     const dispatch = useDispatch();
     const foundations = useSelector(state => state.foundations)
+    let users = useSelector(state => state.users);
 
     useEffect(() => {
         dispatch(getAllPets())
         dispatch(getFoundations());
+        dispatch(getUsers());
+        const userFound = users?.find(u => u.email === user.email);
 
-        if (isAuthenticated) {
-            const { name, email, nickname, picture } = user;
+        if (isAuthenticated && !userFound) {
+            const { given_name, family_name, email, nickname, picture } = user;
             if (user.hasOwnProperty("family_name")) {
-                dispatch(postUser({ name, email, picture, nickname }));
+                dispatch(postUser({ name: given_name, lastname: family_name, email, picture, nickname }));
             }
             else {
                 dispatch(postUser({
@@ -45,11 +48,9 @@ export default function Home() {
                     picture
                 }));
             }
-
             setUserSession(user);
             dispatch(getUserByEmail(user?.email));
         }
-        
 
     }, [user, isAuthenticated, dispatch]);
 
@@ -106,15 +107,19 @@ export default function Home() {
 
             <div className={styles.top}>
                     <News></News>
+                
                 <div className={styles.esloganFooter}>
                     <div id='imagen'>
                         <img className={styles.esloganFooter} src={eslogan} alt='eslogan'></img>
                     </div>
+                
                     <div>
                         <p>vos también podes <span>todos los días</span></p>
                         <h2> Salvar mi huella</h2>
                     </div>
+            
                 </div>
+            
             </div>
 
 

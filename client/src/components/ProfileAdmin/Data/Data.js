@@ -17,10 +17,7 @@ import {
 
 // Sidebar Data
 export const SidebarData = [
-    {
-        icon: MdReceipt,
-        heading: "Dashboard"
-    },
+
     {
         icon: MdSettings,
         heading: "Mis Datos"

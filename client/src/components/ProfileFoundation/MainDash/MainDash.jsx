@@ -6,13 +6,14 @@ import Table from '../Table/Table';
 
 import styles from '../MainDash/MainDash.module.css';
 
-const MainDash = ({ requests }) => {
+const MainDash = ({ requests, foundation }) => {
+
     return (
         <div className={styles.MainDash}>
 
-            <h1 className={styles.h1Dash} > Movimientos del Mes </h1>
+            <h2 className={styles.h1Dash} > Resumen </h2>
 
-            <Cards />
+            <Cards foundation={foundation && foundation} />
             <Table requests={requests} />
 
         </div>

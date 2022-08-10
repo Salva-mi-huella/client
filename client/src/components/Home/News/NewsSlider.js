@@ -13,7 +13,7 @@ export default function NewsSlider ({news}) {
     const settings = {
         dots: true,
         infinite: false,
-        speed: 400,
+        speed: 800,
         slidesToShow: 3,
         slidesToScroll: 3,
         initialSlide: 0,

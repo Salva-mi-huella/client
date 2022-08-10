@@ -13,11 +13,9 @@
 
 .banner {
     margin-top: 6vw;
-    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     padding-top: 6vw;
     height: 43vw;
-    /* border: 3px solid red */
-    /* padding-bottom: 2.5vw; */
 }
 
 .sectionTitle{
@@ -99,8 +97,8 @@
     text-align: center;
     position: -webkit-sticky;
     position: sticky;
-    backdrop-filter: blur(5px);
-    top: 0;
+    /* backdrop-filter: blur(5px); */
+    top: 10px;
     justify-content: center;
     align-items: center;
 
@@ -378,7 +376,7 @@ ul .pages{
     position: sticky;
     backdrop-filter: blur(5px);
     right: 0;
-    top: 70px;
+    top: 120px;
     margin-bottom: 20px;
 }
 .itemAside:hover  {
