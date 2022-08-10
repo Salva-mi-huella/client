@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts, updateUser, storeFilters } from "../../redux/actions";
-import ItemCard from "./ItemCard";
-import SearchBar from "./SearchBar";
-import styles from "./Store.module.css";
-import ShoppingCart from "./ShoppingCart";
+import { useAuth0 } from '@auth0/auth0-react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Swal from 'sweetalert2';
-import { useAuth0 } from '@auth0/auth0-react';
+
+import { getAllProducts, updateUser, storeFilters } from "../../redux/actions";
+
+import ProductCard from './ProductCard/ProductCard.jsx';
+import ItemCard from "./ItemCard";
+import SearchBar from "./SearchBar";
+import ShoppingCart from "./ShoppingCart";
 import Footer from "../Footer/Footer";
 import PaginateStore from "./PaginateStore";
 
+import styles from "./Store.module.css";
 
 
 export default function Store() {
@@ -93,25 +96,25 @@ export default function Store() {
 
   }
 
-   //FILTROS
-   const [filterByAZ, setFilterByAZ] = useState("");
-   const [filterByPrice, setFilterByPrice] = useState("");
-   const [filterByType, setFilterByType] = useState("");
-   const [filterByCategory, setFilterByCategory] = useState("");
+  //FILTROS
+  const [filterByAZ, setFilterByAZ] = useState("");
+  const [filterByPrice, setFilterByPrice] = useState("");
+  const [filterByType, setFilterByType] = useState("");
+  const [filterByCategory, setFilterByCategory] = useState("");
 
-   function handleFilterByPrice(e){  
-     setFilterByPrice(e.target.value)
-     dispatch(storeFilters(e.target.value,filterByType,filterByCategory))
-   }
+  function handleFilterByPrice(e) {
+    setFilterByPrice(e.target.value)
+    dispatch(storeFilters(e.target.value, filterByType, filterByCategory))
+  }
 
-   function handleFilterByType(e){       
+  function handleFilterByType(e) {
     setFilterByType(e.target.value)
-    dispatch(storeFilters( filterByPrice, e.target.value, filterByCategory))
+    dispatch(storeFilters(filterByPrice, e.target.value, filterByCategory))
   }
 
   function handleFilterByCategory(e) {
     setFilterByCategory(e.target.value)
-    dispatch(storeFilters( filterByPrice, filterByType, e.target.value))
+    dispatch(storeFilters(filterByPrice, filterByType, e.target.value))
   }
 
   function handleAll(e) {
@@ -162,65 +165,74 @@ export default function Store() {
             <SearchBar />
           </div>
           <div className={styles.typefilters}>
-              <div>
-                <h2>TIPO DE HUELLA</h2>
-                <select onClick={handleFilterByType} name="type" size={3}>
-                  <option value='Perro'>Perros ({countPerros.length})</option>
-                  <option value='Gato'>Gatos ({countGatos.length})</option>
-                </select>            
-              </div> 
-          </div>
-              <div className={styles.categoryfilters}>
-                <h2>CATEGORÍA</h2>
-                <select onClick={handleFilterByCategory} name="category" size={5}>
-                  <option value='Alimento'>Alimentos ({countAlimentos.length})</option>
-                  <option value='Indumentaria'>Indumentaria ({countIndumentaria.length})</option>
-                  <option value='Juguetes'>Juguetes ({countJuguetes.length})</option>
-                  <option value='Accesorios'>Accesorios ({countAccesorios.length})</option>
-                </select>
-              <select onClick={handleAll} name="type" size={2}>
-                  <option value='Unordered'>Todos ({countTodos.length})</option>
+            <div>
+              <h2>TIPO DE HUELLA</h2>
+              <select onClick={handleFilterByType} name="type" size={3}>
+                <option value='Perro'>Perros ({countPerros.length})</option>
+                <option value='Gato'>Gatos ({countGatos.length})</option>
               </select>
+            </div>
+          </div>
+          <div className={styles.categoryfilters}>
+            <h2>CATEGORÍA</h2>
+            <select onClick={handleFilterByCategory} name="category" size={5}>
+              <option value='Alimento'>Alimentos ({countAlimentos.length})</option>
+              <option value='Indumentaria'>Indumentaria ({countIndumentaria.length})</option>
+              <option value='Juguetes'>Juguetes ({countJuguetes.length})</option>
+              <option value='Accesorios'>Accesorios ({countAccesorios.length})</option>
+            </select>
+            <select onClick={handleAll} name="type" size={2}>
+              <option value='Unordered'>Todos ({countTodos.length})</option>
+            </select>
           </div>
         </div>
 
         <div className={styles.containeritems}>
           <h5>¡Encontrá los mejores productos para tu huella!</h5>
-              <div className={styles.orders}>
-                <label>Ordenar por:</label>
-                  <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
-                      <option disabled value='Huellitas'>Huellitas</option>
-                      <option value='High'>Mayor puntaje</option>
-                      <option value='Low'> Menor puntaje</option>                    
-                  </select>
-              </div>
+          <div className={styles.orders}>
+            <label>Ordenar por:</label>
+            <select defaultValue='Huellitas' onChange={e => handleFilterByPrice(e)}>
+              <option disabled value='Huellitas'>Huellitas</option>
+              <option value='High'>Mayor puntaje</option>
+              <option value='Low'> Menor puntaje</option>
+            </select>
+          </div>
           <div className={styles.items}>
-          {
-            pages?
-                pages.map((product) =>(
-                  <ItemCard
+            {
+              pages ?
+                pages.map((product) => (
+                  // <ItemCard
+                  //   key={product.id}
+                  //   id={product.id}
+                  //   images={product.images}
+                  //   name={product.name}
+                  //   points={new Intl.NumberFormat().format(product.points)}
+                  //   type={product.type}
+                  //   category={product.category}/>
+                  <ProductCard
                     key={product.id}
                     id={product.id}
                     images={product.images}
                     name={product.name}
                     points={new Intl.NumberFormat().format(product.points)}
                     type={product.type}
-                    category={product.category}/>
-                     ))
-                     :
-                     <h2>Pensando..</h2>
-          }
+                    category={product.category}
+                  />
+                ))
+                :
+                <h2>Pensando..</h2>
+            }
 
           </div>
-          <PaginateStore/>
+          <PaginateStore />
         </div>
 
 
-      <div>
-      
-      {isAuthenticated?<button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
-      <ShoppingCartIcon sx={{color: 'yellow'}}/>
-      </button>:null}        
+        <div>
+
+          {isAuthenticated ? <button type="button" class={styles.shoppingcart} data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <ShoppingCartIcon sx={{ color: 'yellow' }} />
+          </button> : null}
 
 
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -240,9 +252,9 @@ export default function Store() {
               </div>
             </div>
           </div>
-        </div>      
+        </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
