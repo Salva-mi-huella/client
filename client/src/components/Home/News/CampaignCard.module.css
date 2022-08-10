@@ -1,76 +1,189 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 10vw;
-    padding-top: 5vw;
-    /* border: 3px solid red; */
-    /* width: 80%; */
-    margin-left: 10vw;
-    height: 45vw;;
-  }
+  /* background-color: #ffeb375b; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding-bottom: 10vw; */
+  /* padding-top: 5vw; */
+  /* border: 3px solid red; */
+  /* width: 80%; */
+  /* margin-left: 10vw; */
+  height: 45vw;
 
-  .subContainer {
-    margin-left: 3vw;
-    width: 55vw;
-    margin-right: 6vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-  }
-  .campaignImage {
-    width: 40vw;
-    height: 25vw;
-  }
+}
 
-  .foundationImage {
-    width: 5vw;
-    height: 5vw;
-    border-radius: 7vw;
-    border: 2px solid rgb(18, 18, 119);
-  }
+.campaignImageContainer {
+  /* background-color: green; */
 
-  .titleSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 50vw;
-  }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-  .titleSection h1 {
-   text-align: center;
-   color:rgb(255, 226, 8);
-   font-weight: bold;
-  }
-  
- .container span {
-    color: white;
-    font-weight: bold;
-    font-size: 1vw;
- }
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
- .container p {
-    color: white;
-    font-weight: bold;
-    font-size: 1.4vw;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
- }
+  margin-left: 7vw;
 
- .container button {
-    background-color: white;
-    color: rgb(99, 59, 218);
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1.3vw;
-    font-weight: bold;
-    cursor: pointer;
- }
+  width: 45vw;
+  height: 90vh;
 
- .container button:hover {
-    background-color: rgb(255, 226, 8);
- }
+}
+
+.campaignImage {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  /* flex-direction: column; */
+  /* position: relative; */
+  /* top: 5rem; */
+
+  border-radius: 50%;
+  padding: .2rem;
+  width: 40vw;
+  height: 38vw;
+  background-color: #110044;
+
+
+}
+
+
+
+.subContainer {
+  /* background-color: rgb(33, 199, 33); */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 2rem;
+
+  margin-left: 5vw;
+  margin-right: 6vw;
+
+  width: 55vw;
+
+}
+
+
+.titleSection {
+  /* background-color: #fff; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 50vw;
+  height: 20vh;
+
+  margin-bottom: -2vw;
+
+}
+
+.titleContainer {
+  /* background-color: red; */
+
+  display: flex;
+
+  justify-content: left;
+  align-content: center;
+  align-items: center;
+  text-align: start;
+
+  width: 100%;
+  height: 90%;
+
+  /* padding: .5rem; */
+}
+
+.titleSection h1 {
+  text-align: start;
+  /* color: rgb(255, 226, 8); */
+  /* color: rgb(255, 226, 8); */
+
+  color: #190063;
+
+  stroke: #513d8f;
+  stroke-width: 0.3vw;
+  filter: drop-shadow(2px 4px 12px #5e4c96d2);
+
+  /* color: #27009c; */
+
+  font-size: 2.8vw;
+  font-weight: 700;
+
+}
+
+.foundationImageContainer {
+  /* background-color: black; */
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+
+  margin: .5rem;
+  padding: 1rem;
+
+  width: 15rem;
+  height: 90%;
+
+}
+
+
+.foundationImage {
+  width: 5vw;
+  height: 5vw;
+  border-radius: 7vw;
+  border: 2px solid rgb(18, 18, 119);
+}
+
+.container span {
+  color: #110044;
+  font-weight: bold;
+  font-size: 1vw;
+}
+
+.container p {
+  color: #220088;
+  font-weight: 500;
+  font-size: 1.4vw;
+
+  /* margin-top: 2vw; */
+  margin-bottom: 2vw;
+}
+
+.btnContainer {
+  /* background-color: gray; */
+
+  margin: 1rem;
+  margin-top: -2rem;
+  width: 100%;
+
+}
+
+.container button {
+  background-color: #190063;
+  color: white;
+  font-size: 1.2vw;
+  font-weight: bold;
+
+  border: none;
+  border-radius: 5px;
+
+  /* margin-left: 1rem; */
+  padding: 1rem;
+
+  cursor: pointer;
+
+}
+
+.container button:hover {
+  background-color: rgb(255, 226, 8);
+}

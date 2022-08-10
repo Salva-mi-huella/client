@@ -33,7 +33,7 @@ export default function Home() {
         dispatch(getAllPets())
         dispatch(getFoundations());
         dispatch(getUsers());
-        const userFound = users.find(u => u.email === user.email);
+        const userFound = users?.find(u => u.email === user.email);
 
         if (isAuthenticated && !userFound) {
             const { given_name, family_name, email, nickname, picture } = user;
@@ -107,15 +107,19 @@ export default function Home() {
 
             <div className={styles.top}>
                     <News></News>
+                
                 <div className={styles.esloganFooter}>
                     <div id='imagen'>
                         <img className={styles.esloganFooter} src={eslogan} alt='eslogan'></img>
                     </div>
+                
                     <div>
                         <p>vos también podes <span>todos los días</span></p>
                         <h2> Salvar mi huella</h2>
                     </div>
+            
                 </div>
+            
             </div>
 
 
