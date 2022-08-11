@@ -38,7 +38,6 @@ export default function Home() {
 
         var templateParams = {
             name: user?.name,
-            notes: 'Bienvenido crack',
             email:user?.email
         };
     
