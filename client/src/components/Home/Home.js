@@ -16,6 +16,7 @@ import register from '../../assets/register1.png';
 import gift from '../../assets/gift-2png.png';
 import { setUserSession } from "../../utils";
 import News from './News/News';
+import emailjs from 'emailjs-com';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 AOS.init();
@@ -35,10 +36,22 @@ export default function Home() {
         dispatch(getUsers());
         const userFound = users?.find(u => u.email === user.email);
 
+        var templateParams = {
+            name: user?.name,
+            email:user?.email
+        };
+    
         if (isAuthenticated && !userFound) {
             const { given_name, family_name, email, nickname, picture } = user;
             if (user.hasOwnProperty("family_name")) {
                 dispatch(postUser({ name: given_name, lastname: family_name, email, picture, nickname }));
+
+                emailjs.send('service_q0212bn', 'template_b1658cp', templateParams,'Aq8UicE7cYgpn5IXB' )
+                .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                console.log('FAILED...', error);
+                });
             }
             else {
                 dispatch(postUser({
@@ -47,6 +60,12 @@ export default function Home() {
                     nickname,
                     picture
                 }));
+                emailjs.send('service_q0212bn', 'template_b1658cp', templateParams,'Aq8UicE7cYgpn5IXB' )
+                .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                console.log('FAILED...', error);
+                });
             }
             dispatch(getUserByEmail(user?.email));
         }
