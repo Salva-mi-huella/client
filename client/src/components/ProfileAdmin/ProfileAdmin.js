@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar/Sidebar.jsx'
-import MainDash from './MainDash/MainDash.jsx';
+// import MainDash from './MainDash/MainDash.jsx';
 import EditProfile from './EditProfile/EditProfile.jsx';
 import Users from './Users/Users.jsx';
 import Foundations from './Foundations/Foundations.jsx';

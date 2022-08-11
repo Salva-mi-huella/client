@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth0 } from '@auth0/auth0-react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Swal from 'sweetalert2';
 
-import { getAllProducts, updateUser, storeFilters } from "../../redux/actions";
+
+import { getAllProducts, storeFilters } from "../../redux/actions";
 
 import ProductCard from './ProductCard/ProductCard.jsx';
 import SearchBar from "./SearchBar";
@@ -32,7 +32,6 @@ export default function Store() {
   }, [dispatch]);
 
   //FILTROS
-  const [filterByAZ, setFilterByAZ] = useState("");
   const [filterByPrice, setFilterByPrice] = useState("");
   const [filterByType, setFilterByType] = useState("");
   const [filterByCategory, setFilterByCategory] = useState("");

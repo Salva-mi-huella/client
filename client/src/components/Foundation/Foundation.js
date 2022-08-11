@@ -10,7 +10,6 @@ import instagram from '../../assets/instagram.png';
 import email from '../../assets/email-2.png';
 import web from '../../assets/web (2).png';
 import Form from './PostMessage/Form';
-import Aside from './Aside.js'
 import Footer from '../Footer/Footer.js'
 
 

@@ -10,8 +10,6 @@ import emailjs from 'emailjs-com';
 
 export default function Formulario({setModal, setCheck, check}) {
 
-const [submittedForm, , setSubmittedForm] = useState(false);
-
 const {isAuthenticated, user, loginWithRedirect} = useAuth0();
 
 
@@ -28,7 +26,7 @@ useEffect(() => {
   if (isAuthenticated && user.email) {
     dispatch(getUserByEmail(user?.email))
   }
-}, [dispatch]);
+}, [dispatch,isAuthenticated,user.email]); //CAMBIO DE WARNINGS - AGREGAR DEPENDENCIAS ISAUTHENTICATED Y USER.EMAIL
 
 
 const [foundationSelected, setFoundationSelected] = useState(true)
@@ -120,8 +118,8 @@ return (
         
         onSubmit={(values, { resetForm }) => {  
           
-          const petSelected = pets.find(p => p.id == values.pet)?.name
-          const foundationSelected = foundations.find(f => f.id == values.foundation)?.name
+          const petSelected = pets.find(p => p.id === values.pet)?.name
+          const foundationSelected = foundations.find(f => f.id === values.foundation)?.name
 
           
           values.petSelected=petSelected
@@ -272,7 +270,7 @@ return (
                 <Field defaultValue={foundationSelected ? (petDetail.id ? petDetail.id : foundations[0]?.pets[0]?.id) : 'Elegí tu huella'} as="select" className={`w-75 ${styles.inputsForm}`} name="pet" id="pet">
                   {/* {pets && pets.map((pet) => ref.current?.values?.foundation == pet.foundationId?(<option  value={pet.id}>{pet.name}</option>):null)} */}
                   <option>Elegí tu huella</option>
-                  {foundations && foundations.filter(f => f.id == ref.current?.values?.foundation).map((foundation) =>
+                  {foundations && foundations.filter(f => f.id === ref.current?.values?.foundation).map((foundation) =>
                    foundation.pets.map((pet) => <option value={pet.id}>{pet.name}</option>))}
                 </Field>
               </div>

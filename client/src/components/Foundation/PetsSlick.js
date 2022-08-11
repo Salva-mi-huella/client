@@ -1,8 +1,6 @@
-import React, { useState, useEffect} from "react";
+import React from "react";
 import Slider from "react-slick";
 import styles from './Foundation.module.css'
-import { Link } from 'react-router-dom';
-import style from './Card.module.css'
 import Card from './Card.js'
 
 export default function PetSlick ({foundation}) {

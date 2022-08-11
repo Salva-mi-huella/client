@@ -29,8 +29,7 @@ import RequestTable from './Table/RequestTable';
 import DonationTable from './Table/DonationTable';
 import EditDataForm from './EditDataForm';
 import ProductsTable from './Table/ProductsTable';
-import { getUserSession } from '../../utils/index.js';
-import { getAllPets, getDonations, getRequestsAdopt, getUserByEmail } from '../../redux/actions';
+import { getDonations, getRequestsAdopt, getUserByEmail } from '../../redux/actions';
 import Card from '../Adopt/Card'
 import adopt from "../../assets/dog-adopt5.png";
 

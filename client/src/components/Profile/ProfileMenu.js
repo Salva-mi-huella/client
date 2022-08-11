@@ -16,7 +16,7 @@ import { getUserSession, removeUserSession } from "../../utils";
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const { logout, user } = useAuth0();
+  const { logout } = useAuth0();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
