@@ -6,20 +6,20 @@ import { postNews } from "../../../redux/actions";
 
 import style from "./PostNews.module.css"
 
-import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+
+// import { styled } from '@mui/material/styles';
+// import IconButton from '@mui/material/IconButton';
+// import Typography from '@mui/material/Typography';
+
 import logo from '../../../assets/logo-YW.png'
 
 export default function PostNews({ foundation }) {
 
     const dispatch = useDispatch()
-
-    // console.log(foundation, '')
 
     const [input, setInputs] = useState({
         title: '',
@@ -76,23 +76,17 @@ export default function PostNews({ foundation }) {
                             body: data
                         })
                     let file = await res.json()
-                    // console.log({
-                    //     title: input.title,
-                    //     campaign: input.campaign,
-                    //     description: input.news,
-                    //     images: [file.secure_url]
-                    // })
 
                     dispatch(postNews({
                         title: input.title,
                         campaign: input.campaign,
                         description: input.news,
                         foundationsImage: foundation?.images[0],
-                        images: [file.secure_url], //location of public URL,
+                        images: [file.secure_url],
                         foundationId: foundation?.id,
                     }))
 
-                    Swal.fire({title:'¡Tu noticia ha sido posteada con éxito!', text:'Podrás visualizarla en el home en la sección de noticias.', icon:'success'})
+                    Swal.fire({ title: '¡Tu noticia ha sido posteada con éxito!', text: 'Podrás visualizarla en el home en la sección de noticias.', icon: 'success' })
                     setRenderImg('')
                     setInputs({
                         title: '',
@@ -113,11 +107,9 @@ export default function PostNews({ foundation }) {
             <form onSubmit={e => handleSubmit(e)} className={style.postNewsForm}>
                 <h3 className={style.postNewsTitle}> Escribe una nueva noticia</h3>
                 <div className={style.firstSection}>
-                    {/* <label className={style.label} htmlFor="title">Titulo</label> */}
-                    <input placeholder="Titulo..." className={style.inputText} required onChange={(e) => handleChange(e)} type="text" id="title" name="title" value={input.title} />
+                    <input maxLength="60" title="60 caracteres maximo" placeholder="Titulo..." className={style.inputText} required onChange={(e) => handleChange(e)} type="text" id="title" name="title" value={input.title} />
                 </div>
                 <div>
-                    {/* <label className={style.label} htmlFor="news">Noticia:</label> */}
                     <textarea
                         placeholder="Describe la noticia. Máximo 500 caracteres..."
                         className={style.textarea}
@@ -139,7 +131,6 @@ export default function PostNews({ foundation }) {
                         title='Selecciona si tu noticia es urgente'
                     />
 
-                    {/* <label className={style.label} htmlFor="image"> Foto: </label> */}
                     <input className={style.inputText} required onChange={(e) => handleChange(e)} type="file" id="image" name="image" />
                 </div>
                 <input className={style.btnPostNew} type="submit" value="Postear" />
@@ -147,41 +138,58 @@ export default function PostNews({ foundation }) {
 
             <div className={style.resultContainer}>
 
+                <div className={style.container}>
 
-                {/* {input.title
-                    ? <h3 className={style.h1} >{input.title}</h3>
-                    : <h3 className={style.h1} >Titulo</h3>}
-                <div className={style.newDescriptionContainer} >
-                    {input.news
-                        ? <p className={style.inputTextResult} >{input.news}</p>
-                        : <p>Texto</p>}
-                </div>
-                <div className={style.resultImageContainer} >
-                    {renderImg
-                        ? <img src={renderImg} alt='your img' className={style.resultImage} />
-                        : <p>Imagen</p>}
-                </div> */}
+                    <Card sx={{
+                        width: '25vw',
+                        height: '32vw',
+                        backgroundColor: "#fff",
+                        borderRadius: '25px'
+                    }}>
 
-                <Card sx={{ maxWidth: '30vw', maxHeight: '100vw', width: '30vw', height: '30vw', backgroundColor: "rgba(99, 59, 218, 0.485)"}}>
                         <CardHeader
-                            avatar={<div><img className={style.avatar} src={foundation.images[0]} alt=""/></div>}
-                            title={<div className={style.title}>{input.title}</div>}
-                            subheader={<div className={style.date}>{formatDate()}</div>}
-                            sx={{ color: "white"}}
-                            />
-                            {/* <CardMedia
-                                component="img"
-                                height="20"
-                                image={renderImg ? renderImg : logo}
-                                alt="newsImage"
-                            /> */}
-                            <img  className={style.picture} src={renderImg ? renderImg : logo} alt='picture'></img>
-                            <CardContent>
-                                <Typography sx={{width: '28vw', textOverflow: "ellipsis", overflow: "auto", wordBreak: "break-all"}}>
-                                {input.news}
-                                </Typography>
-                            </CardContent>
+                            title={
+                                <div className={style.titleContainer}>
+                                    <span  >{input.title}</span>
+                                </div>}
+                            avatar={
+                                <div className={style.imgContainer}>
+                                    <img className={style.avatar} src={foundation.images[0]} alt="" />
+                                    <div className={style.dateContainer}>
+                                        <span>{formatDate()}</span>
+                                    </div>
+                                </div>
+                            }
+                            sx={{ color: "white" }}
+                        />
+
+                        <CardMedia sx={{ justifyContent: "center", alignItems: "center", alignContent: "center", backgroundColor: "#f2f2f2" }}>
+                            <img className={style.image} src={renderImg ? renderImg : logo} alt='newImage'></img>
+                        </CardMedia>
+
+                        <CardContent>
+                            <p className={style.description}>{input.news}</p>
+                        </CardContent>
                     </Card>
+                </div>
+
+
+                {/* <Card sx={{ maxWidth: '30vw', maxHeight: '100vw', width: '30vw', height: '30vw', backgroundColor: "rgba(99, 59, 218, 0.485)" }}>
+                    <CardHeader
+                        avatar={<div><img className={style.avatar} src={foundation.images[0]} alt="" /></div>}
+                        title={<div className={style.title}>{input.title}</div>}
+                        subheader={<div className={style.date}>{formatDate()}</div>}
+                        sx={{ color: "white" }}
+                    />
+
+                    <img className={style.picture} src={renderImg ? renderImg : logo} alt='picture'></img>
+                    <CardContent>
+                        <Typography sx={{ width: '28vw', textOverflow: "ellipsis", overflow: "auto", wordBreak: "break-all" }}>
+                            {input.news}
+                        </Typography>
+                    </CardContent>
+                </Card> */}
+
             </div>
 
         </div>

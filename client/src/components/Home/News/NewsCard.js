@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
+
 import styles from './NewsCard.module.css';
 
 export default function News({ news }) {
@@ -25,8 +27,6 @@ export default function News({ news }) {
                             </div>
                         </div>
                     }
-
-                    // subheader={<div className={styles.date}>{news.post_date}</div>}
                     sx={{ color: "white" }}
                 />
 
@@ -34,11 +34,6 @@ export default function News({ news }) {
                     <img className={styles.image} src={news.images} alt='newImage'></img>
                 </CardMedia>
 
-                {/* component="img"
-                                height="250"
-                                image={news.images}
-                                alt="newsImage"
-                            /> */}
                 <CardContent>
                     <p className={styles.description}>{news.description}</p>
                 </CardContent>
