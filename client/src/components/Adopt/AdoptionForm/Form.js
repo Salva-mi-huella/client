@@ -23,10 +23,10 @@ const userDetail = useSelector(state => state.user)
 useEffect(() => {
   dispatch(getAllPets())
   dispatch(getFoundations())
-  if (isAuthenticated && user.email) {
+  if (isAuthenticated && user?.email) {
     dispatch(getUserByEmail(user?.email))
   }
-}, [dispatch,isAuthenticated,user.email]); //CAMBIO DE WARNINGS - AGREGAR DEPENDENCIAS ISAUTHENTICATED Y USER.EMAIL
+}, [dispatch]); //CAMBIO DE WARNINGS - AGREGAR DEPENDENCIAS ISAUTHENTICATED Y USER.EMAIL
 
 
 const [foundationSelected, setFoundationSelected] = useState(true)
@@ -40,6 +40,8 @@ const handleOnCheck = () => {
 }
 
 const handleOnChange = (e) => {
+  console.log(e.target.value)
+  console.log(ref.current?.values?.foundation)
   setFoundationSelected(false)
 }
 
@@ -118,8 +120,8 @@ return (
         
         onSubmit={(values, { resetForm }) => {  
           
-          const petSelected = pets.find(p => p.id === values.pet)?.name
-          const foundationSelected = foundations.find(f => f.id === values.foundation)?.name
+          const petSelected = pets.find(p => p.id == values.pet)?.name
+          const foundationSelected = foundations.find(f => f.id == values.foundation)?.name
 
           
           values.petSelected=petSelected
@@ -267,10 +269,10 @@ return (
 
               <div className={styles.pet}>
                 <label htmlFor="pet"></label>
+
                 <Field defaultValue={foundationSelected ? (petDetail.id ? petDetail.id : foundations[0]?.pets[0]?.id) : 'Elegí tu huella'} as="select" className={`w-75 ${styles.inputsForm}`} name="pet" id="pet">
-                  {/* {pets && pets.map((pet) => ref.current?.values?.foundation == pet.foundationId?(<option  value={pet.id}>{pet.name}</option>):null)} */}
                   <option>Elegí tu huella</option>
-                  {foundations && foundations.filter(f => f.id === ref.current?.values?.foundation).map((foundation) =>
+                  {foundations && foundations.filter(f => f.id == ref.current?.values?.foundation).map((foundation) =>
                    foundation.pets.map((pet) => <option value={pet.id}>{pet.name}</option>))}
                 </Field>
               </div>
@@ -278,9 +280,7 @@ return (
               <div className={styles.foundation}>
                 <label htmlFor="foundation"></label>
                 <Field as="select" onClick={handleOnChange} className={` w-100 ${styles.inputsForm}`} type="text" name="foundation" id="foundation" defaultValue={petDetail.foundationId ? petDetail.foundationId : foundations[0]?.id}>
-                {/* {petDetail.foundation && petDetail.foundation.name && <option value={petDetail.foundation.id}>{petDetail.foundation.name}</option>} */}
-                  {/* {foundations && foundations.filter(f => f.id !== petDetail.foundationId).map((foundation)=> (<option value={foundation.id}>{foundation.name}</option>))} */}
-                  {foundations && foundations.map((foundation)=> (<option onClick={handleOnChange} value={foundation.id}>{foundation.name}</option>))}
+                  {foundations && foundations.map((foundation)=> (<option onClick={e => handleOnChange(e)} value={foundation.id}>{foundation.name}</option>))}
                 </Field>                                  
               </div>
             </div>
