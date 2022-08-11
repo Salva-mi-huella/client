@@ -140,18 +140,18 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
                   (donation.method === 'paypal' ?
                 <div className={style.donate}>
                     <div>
-                        <button onClick={(e) => handleOnClick(e)}>1usd</button>
-                        <button onClick={(e) => handleOnClick(e)}>5usd</button>
-                        <button onClick={(e) => handleOnClick(e)}>10usd</button>
-                        <button onClick={(e) => handleOnClick(e)}>20usd</button>
-                        <button onClick={(e) => handleOnClick(e)}>50usd</button>
-                        <button onClick={(e) => handleOnClick(e)}>100usd</button>
+                        <button onClick={(e) => handleOnClick(e)}>1 USD</button>
+                        <button onClick={(e) => handleOnClick(e)}>5 USD</button>
+                        <button onClick={(e) => handleOnClick(e)}>10 USD</button>
+                        <button onClick={(e) => handleOnClick(e)}>20 USD</button>
+                        <button onClick={(e) => handleOnClick(e)}>50 USD</button>
+                        <button onClick={(e) => handleOnClick(e)}>100 USD</button>
                     </div>
                     <div className={style.amount}>
                         <label>Otro importe:</label>
                         <input onChange={handleOnChange} value={donation.amount} name='amount' type='number' placeholder='$0,00'></input>
                     </div> 
-                        <span>{`1usd = $${currency.length>0 && currency[1].casa.venta} = ${conversion} huellitas`}</span>
+                        <span>{`1 USD = $${currency.length>0 && currency[1].casa.venta} = ${conversion} huellitas`}</span>
                         {}
                   </div>
                     :

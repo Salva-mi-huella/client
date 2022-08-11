@@ -11,7 +11,7 @@ export default function Paypal({amount, foundation, user}){
     let amount1 = function(){
         let newAmount = ''
        for(let i = 0; i < amount.length; i++){
-              if(amount[i] !== '$' && amount[i] !== 'u' && amount[i] !== 's' && amount[i] !== 'd'){
+              if(amount[i] !== '$' && amount[i] !== 'U' && amount[i] !== 'S' && amount[i] !== 'D', amount[i] !== ' '){
                 newAmount = newAmount.concat(amount[i])
               }
        } return parseInt(newAmount)
