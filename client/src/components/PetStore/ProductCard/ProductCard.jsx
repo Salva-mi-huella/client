@@ -44,7 +44,7 @@ export default function Card(props) {
             <div className={styles.card}>
 
                 {/* FRONT */}
-                <Link className={styles.linkTag} to={`/tienda/${props.id}`}>
+            
                     <div className={styles.front}>
                         <div>
                             <img src={props.images} alt={'Failed loading '} />
@@ -55,15 +55,11 @@ export default function Card(props) {
                         <h5>{props.points}</h5>
                     </div>
                     </div>
-                </Link>
 
 
                 {/* BACK */}
                 <div className={styles.back}>
-                    <Link className={styles.linkTag} to={`/tienda/${props.id}`}>
                         <h4>{props.name}</h4>
-                    </Link>
-                    {/* <span className={styles.pawsIconBack}><i class="fa-solid fa-paw">{" "}{props.points}</i></span> */}
                     <p>
                         {props.desc}
                     </p>

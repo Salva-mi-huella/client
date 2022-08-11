@@ -7,7 +7,6 @@ import { getFoundations, getUserByEmail } from '../../redux/actions/index.js';
 import Stepper from './Stepper';
 import banner from '../../assets/paw-hand1.png'
 import paypal from '../../assets/paypal1.png'
-import mercadoPago from '../../assets/mercadopago.png'
 import Paypal from './Paypal/Paypal';
 import Footer from '../Footer/Footer';
 import paw from '../../assets/yellow-paw.png';
@@ -95,7 +94,6 @@ export default function Donate(){
             <div>
                 <h4 id={style.id2}>2. Método de pago</h4>
                 {donation.method === 'paypal' && <img className={style.paypal} src={paypal} alt='paypal'></img>}
-                {donation.method === 'mercadoPago' && <img className={style.mp} src={mercadoPago} alt='mercadoPago'></img>}
             </div>
 
             <div>

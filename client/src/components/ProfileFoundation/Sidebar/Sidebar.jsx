@@ -70,9 +70,9 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                         );
                     })}
 
-                    <div className="menuItem" onClick={() => logout({ returnTo: `${window.location.origin}/home` })}>
+                    <div className="logOut" onClick={() => logout({ returnTo: `${window.location.origin}/home` })}>
                         <MdLogout />
-                        <span>
+                        <span >
                             Cerrar Sesion
                         </span>
                     </div>
