@@ -94,6 +94,7 @@
     margin-left: 13vw;
     display: flex;
     flex-direction: row;
+    
 }
 
 .empty h3 {
@@ -101,6 +102,8 @@
     font-size: 2.3vw;
     font-weight: bold;
     letter-spacing: -0.1vw;;
+  width: 33vw;
+
 }
 
 .empty div {

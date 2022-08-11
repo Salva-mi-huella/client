@@ -10,7 +10,7 @@
     letter-spacing: -0.3vw;
     font-weight: bold;
     color: rgb(255, 230, 0);
-    margin-bottom: 7vw;
+    margin-bottom: 5vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -42,8 +42,8 @@
 
 .logo {
     border-radius: 50%;
-    width: 9vw;
-    height: 9vw;
+    width: 12vw;
+    height: 12vw;
     margin-top: 1vw;
     margin-bottom: 1vw;
     border: 3px groove rgb(18, 18, 119);
@@ -52,12 +52,11 @@
 
 
 .title {
-    /* background-color: red; */
     justify-content: center;
     text-align: center;
     color: azure;   
-    font-size: 2.3vw;
-    letter-spacing: -0.3vw;
+    font-size: 2.7vw;
+    letter-spacing: -0.2vw;
     font-weight: bold;
     stroke: black;
     stroke-width: 0.3vw;

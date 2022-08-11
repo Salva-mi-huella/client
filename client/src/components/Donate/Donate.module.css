@@ -123,17 +123,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 5rem;
+    margin-left: 4vw;
 }
 .title {
-    font-size: 4vw;
+    font-size: 3.7vw;
     letter-spacing: -0.3vw;
     font-weight: bold;
-    margin-bottom: 80px;
+    margin-bottom: 2vw;
     color: azure;
     display: flex;
     justify-content: flex-start;
-    margin-left: 5rem;
+    margin-left: 4vw
 }
 
 .foundations {
@@ -158,7 +158,7 @@
 
 .renders {
  display: flex;
- width: 83vw;
+ width: 60vw;
  flex-direction: row;
  height: 120vh;
  justify-content: space-evenly;
@@ -166,6 +166,7 @@
  margin-left: 3rem;
  flex-wrap: wrap;
  color: azure;
+ border-left: 3px solid white;
 }
 
 .renders h4 {
@@ -174,25 +175,17 @@
     margin-bottom: 1vw;
 }
 
-.mp {
-    width: 250px;
-    margin-top: 30px;
-    /* margin-right: 30px; */
-}
-
 .paypal {
-    width: 9vw;
-    height: 6vw;
-    margin-left:3vw;
-    /* margin: 30px */
+    width: 15vw;
+    margin-top:1vw;
 }
 
 .amount {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
-    font-size: 30px;
+    margin-top: 3vw;
+    font-size: 3vw;
     color: #f5f5f5
 }
 
@@ -206,44 +199,47 @@
         font-weight: bold;
         color: rgb(255, 230, 0);
 }
-#id2{
-    margin-bottom: 4.5rem;
-}
-#id3{
-    margin-bottom: 6rem;
-}
+
 .img{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60rem;
-    height: 30rem;
-    border-radius: 0 0 0rem 3rem;
+    width: 45vw !important;
+    height: 25vw !important;
+    border-radius: 1rem 0 0 0;
+    margin-left: -16vw;
+    margin-top: -0.5vw;
+    border-radius: 1rem 1rem 1rem 1rem;
 }
 .contAporte{
     display: flex;
-    margin-top: 6rem;
     flex-direction: column;
     align-items: center;
+    margin-top: -7vw;;
     height: 28rem;
     border-radius: 3rem;
     margin-left: 25rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+   
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
 .aporte{
     display: flex;
     justify-content: center;
-    border-radius: 3rem 0 0 0;
+    border-radius: 1rem 0 0 0;
     padding: 2rem;
-    letter-spacing: -0.1rem;
+    letter-spacing: -0.2vw;
     font-weight: bold;
     align-items: center;
-   width: 60rem;
-   height: 5rem;
-   background-color: #f5d857;
+    width: 60rem;
+    height: 5rem;
+    background-color: white;
+    background-color: transparent;
+    /* background-color: rgb(255, 230, 0); */
     color: rgb(79, 50, 165);
-    font-size: 2.5rem;
+    color: white;
+    font-size: 3.5vw;
     margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 @media screen and (max-width: 1440px) {

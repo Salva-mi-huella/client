@@ -176,7 +176,7 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
                         disabled={((donation.foundation === '' && index === 0) || (donation.method === '' && index === 1) || (donation.amount === '' && index === 2))}
                         variant="contained"
                         onClick={handleNext}
-                        sx={{ color: 'rgb(99, 59, 218)', backgroundColor: 'white', fontWeight: 900 }}
+                        sx={{ color: 'rgb(99, 59, 218)', backgroundColor: 'white', fontWeight: 900, marginLeft: '-7vw' }}
                         // sx={{ mt: 1, mr: 1 }}
                     >
                         {index === steps.length - 1 ?
@@ -188,7 +188,7 @@ export default function VerticalLinearStepper({donation, setDonation, setCheckou
                         <Button
                             // disabled={index === 0}
                             onClick={handleBack}
-                            sx={{ color: 'azure', backgroundColor: 'transparent'}}
+                            sx={{ color: 'azure', backgroundColor: 'transparent' }}
 
                         >
                             Atrás
