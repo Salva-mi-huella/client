@@ -1,5 +1,5 @@
 import React from 'react';
-import { CDBFooter, CDBFooterLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
+import { CDBFooter, CDBBox } from 'cdbreact';
 // import logo from '../../assets/logo.png'
 import logo from '../../assets/yellow-paw.png'
 import { Link } from 'react-router-dom';
@@ -7,10 +7,12 @@ import { Link } from 'react-router-dom';
 import styles from '../Footer/Footer.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
-import ProfileMenu from '../Profile/ProfileMenu';
+// import ProfileMenu from '../Profile/ProfileMenu';
 
-import ig from '../../assets/instagram.png'
-import mail from '../../assets/email-2.png'
+// import ig from '../../assets/instagram.png'
+import ig from '../../assets/NewMediaIcons/instagram.svg'
+// import mail from '../../assets/email-2.png'
+import mail from '../../assets/NewMediaIcons/mailing.svg'
 
 
 
@@ -30,19 +32,22 @@ export default function Footer() {
             <CDBBox display="flex" justifyContent="around" className="flex-wrap">
 
               <CDBBox className={styles.containerLogo}>
+
                 <a href="/" className="d-flex align-items-center p-0 text-dark text-decoration-none">
+
                   <img className={styles.logo} alt="logo" src={logo} />
+
                   <div className={styles.mision}>
                     <span>Salva mi huella</span>
                   </div>
                 </a>
 
-                <p>
+                <p className={styles.missionText}>
                   Nuestra misión es cambiar el destino no solo de muchos animales, sino también el tuyo. Este sitio propone conectar a tu futuro mejor amigo con vos. Sumate!
                 </p>
 
                 {/* MEDIA ICONS */}
-                <CDBBox display="flex" className="mt-4 me-5 justify-content-center">
+                <CDBBox display="flex" className="mt-4 me-5 justify-content-fa-4x">
 
                   <div className={styles.iconContainer}>
                     <a href='mailto:salvamihuella.10@gmail.com' target="_blank" rel="noreferrer"><img src={mail} title="salvamihuella.10@gmail.com" className={styles.icons} alt='mail' ></img></a>
@@ -93,7 +98,7 @@ export default function Footer() {
 
                     {isAuthenticated ?
                       <div className={styles.links}>
-                          <Link to='/perfil'><button>MI CUENTA</button></Link>
+                        <Link to='/perfil'><button>MI CUENTA</button></Link>
                       </div>
                       :
                       <div className={styles.links}>
@@ -110,9 +115,9 @@ export default function Footer() {
 
 
         </CDBFooter>
-      <div className={styles.copyright}>
-        <small className="text-center mt-5">&copy; SALVA MI HUELLA, 2022. All rights reserved.</small>
-      </div>
+        <div className={styles.copyright}>
+          <small className="text-center mt-5">&copy; SALVA MI HUELLA, 2022. All rights reserved.</small>
+        </div>
       </div>
     </>
   );

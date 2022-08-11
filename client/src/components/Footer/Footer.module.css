@@ -1,7 +1,7 @@
 .top {
     /* box-shadow: 0px 4px 24px 0px rgb(255, 230, 0); */
     box-shadow: 0px -12px 24px 0px rgba(218, 206, 103, 0.727), 0px 25px 57px 0px rgba(91, 13, 94, 0.637);
-    ;
+
     border-top: 1vw solid rgba(0, 0, 0, 0.295);
     border-bottom: 1vw solid rgba(0, 0, 0, 0.295);
     /* background-color: rgba(255, 242, 122, 0.76); */
@@ -17,14 +17,17 @@
 .containerLogo {
     color: #fff;
     margin-right: -7vw;
-    margin-top: 1vw;
+    /* margin-top: 1vw; */
 }
 
 .mision {
-    color: azure
+    /* position: relative; */
+    /* top: 2rem; */
+    color: azure;
 }
 
 .iconContainer {
+    /* background-color: #fff; */
     margin-bottom: -2vw;
 }
 
@@ -32,8 +35,9 @@
     background-color: transparent;
     border-radius: 50px;
     border: none;
-    width: 40px;
-    margin-left: 40px;
+    /* width: 40px; */
+    /* margin-left: 40px; */
+    margin-right: 1rem;
     cursor: pointer;
 }
 
@@ -46,7 +50,7 @@
     margin-top: 15px;
     padding: 10px;
     border-radius: 10px;
-    color:azure;
+    color: azure;
     /* color: rgb(255, 230, 0); */
     font-weight: bold;
     justify-content: center;
@@ -57,7 +61,7 @@
 
 
 .links button {
-    color:azure;
+    color: azure;
     font-size: 13px;
     transition: 0.4s;
     cursor: pointer;
@@ -72,7 +76,7 @@
     transform: scale(1.1);
 }
 
-.logo{
+.logo {
     width: 3vw;
     height: 3vw;
     margin-right: 2vw;
@@ -81,24 +85,28 @@
 .mision span {
     font-size: 1.8vw;
     font-weight: bold;
+    margin-bottom: 3rem;
 }
 
 .containerLogo p {
-    font-size: 1.1vw;
+    font-size: .9vw;
     width: 20vw;
-    margin-top: 1vw;;
-    /* font-weight: bold; */
+    margin-top: 1vw;
+
 }
+
 .containerInfo p {
     font-size: 1.5vw;
     margin-top: -0.4vw;
 }
+
 .containerInfo button {
     font-size: 1vw;
 }
 
-@media(max-width: 375px){
-    .links button{
+
+@media(max-width: 375px) {
+    .links button {
         margin: 0%;
     }
 }

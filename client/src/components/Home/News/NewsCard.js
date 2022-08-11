@@ -10,7 +10,7 @@ export default function News({ news }) {
     return (
         <div className={styles.container}>
 
-            <Card sx={{ width: '25vw', height: '32vw', backgroundColor: "#190063" }}>
+            <Card sx={{ width: '25vw', height: '32vw', backgroundColor: "#fff", borderRadius: '25px' }}>
 
                 <CardHeader
                     title={
