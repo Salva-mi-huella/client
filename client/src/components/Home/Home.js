@@ -34,7 +34,7 @@ export default function Home() {
         dispatch(getAllPets())
         dispatch(getFoundations());
         dispatch(getUsers());
-        const userFound = users?.find(u => u.email === user.email);
+        const userFound = users?.find(u => u.email === user?.email);
 
         var templateParams = {
             name: user?.name,
