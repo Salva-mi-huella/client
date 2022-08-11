@@ -6,6 +6,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import styles from '../Sidebar/Sidebar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserByEmail } from '../../../redux/actions/index.js';
+import { getUserSession, removeUserSession } from "../../../utils";
+
 
 
 
@@ -18,6 +20,12 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
         setSelected(index);
         setOptionSelection(index);
     }
+
+    const handleLogout = () => {
+        logout({returnTo: `${window.location.origin}/home`});
+        localStorage.clear();
+        removeUserSession();
+      }
 
     const {user, logout} = useAuth0();
     const userDetail = useSelector(state => state.user);
@@ -50,7 +58,7 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                 })}
 
             </div>
-            <div className={styles.menuItem} onClick={()=>logout({returnTo:`${window.location.origin}/home`})}>
+            <div className={styles.menuItem} onClick={handleLogout}>
                          <MdLogout />
                          <span> Cerrar Sesion </span>
                 </div>

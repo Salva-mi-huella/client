@@ -9,6 +9,8 @@ import { SidebarData } from '../Data/Data.js';
 import { MdLogout, MdList } from 'react-icons/md';
 import '../Sidebar/Sidebar.css'
 import { useAuth0 } from '@auth0/auth0-react';
+import { getUserSession, removeUserSession } from "../../../utils";
+
 
 
 const Sidebar = ({ optionSelection, setOptionSelection }) => {
@@ -17,13 +19,19 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
     let foundation = useSelector(state => state.foundations);
 
     if (user) {
-        foundation = foundation.find(f => f.email === user.email);
+        foundation = foundation.find(f => f.email == user.email);
     }
 
     const [selected, setSelected] = useState(0);
     const [expanded, setExpaned] = useState(true)
 
     const { logout } = useAuth0();
+
+    const handleLogout = () => {
+        logout({returnTo: `${window.location.origin}/home`});
+        localStorage.clear();
+        removeUserSession();
+      }
 
 
     const sidebarVariants = {
@@ -70,7 +78,7 @@ const Sidebar = ({ optionSelection, setOptionSelection }) => {
                         );
                     })}
 
-                    <div className="logOut" onClick={() => logout({ returnTo: `${window.location.origin}/home` })}>
+                    <div className="menuItem" onClick={handleLogout}>
                         <MdLogout />
                         <span >
                             Cerrar Sesion
