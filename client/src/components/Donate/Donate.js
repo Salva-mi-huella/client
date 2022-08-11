@@ -11,7 +11,7 @@ import mercadoPago from '../../assets/mercadopago.png'
 import Paypal from './Paypal/Paypal';
 import Footer from '../Footer/Footer';
 import paw from '../../assets/yellow-paw.png';
-import hands from "../../assets/donate.png";
+import hands from "../../assets/cute-dog.jpg";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
@@ -103,10 +103,7 @@ export default function Donate(){
                 <p className={style.amount}>{donation.amount}</p>
             </div>
             <div data-aos="fade-left" data-aos-duration="1500" className={style.contAporte}>
-                <h2  className={style.aporte}>¡Ayudanos con tu aporte!</h2> 
-            {/* <div className={style.contIMG}> */}
-            <img className={style.img} src={hands} alt="img-donate"></img>
-            {/* </div> */}
+              <img className={style.img} src={hands} alt="img-donate"></img>
             </div>
         </div>
     </div>
