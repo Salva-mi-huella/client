@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styles from "./AboutUs.module.css";
-import githubpng from "../../assets/pngegg.png";
 import fotolauti from "../../assets/fotoLauti.jpeg";
 import henry from "../../assets/henry-logo2.png";
 import logo from "../../assets/logo-YW.png";

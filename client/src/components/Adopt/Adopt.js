@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Card from './Card.js'
 import banner from '../../assets/banner-adopt1.png'
-import banner2 from '../../assets/banner-cat2.png'
 import step1 from '../../assets/step-1.png'
 import step2 from '../../assets/step-2.png'
 import { useSelector } from 'react-redux';

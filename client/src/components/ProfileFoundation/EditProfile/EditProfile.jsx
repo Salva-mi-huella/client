@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Form, Formik, Field, ErrorMessage } from "formik";
-import { updateFoundation, getFoundationDetail } from "../../../redux/actions";
+import { updateFoundation } from "../../../redux/actions";
 import Swal from "sweetalert2";
 import styles from "./EditDataForm.module.css";
 

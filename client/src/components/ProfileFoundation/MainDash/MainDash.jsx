@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Loading from '../../Loading/Loading.js';
 import Cards from '../Cards/Cards';
 import Table from '../Table/Table';
 

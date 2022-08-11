@@ -6,7 +6,7 @@
 .sliderTitle {
     justify-content: center;
     text-align: center;
-    font-size: 5.5vw;
+    font-size: 4.5vw;
     letter-spacing: -0.3vw;
     font-weight: bold;
     color: rgb(255, 230, 0);
@@ -42,8 +42,8 @@
 
 .logo {
     border-radius: 50%;
-    width: 13vw;
-    height: 13vw;
+    width: 9vw;
+    height: 9vw;
     margin-top: 1vw;
     margin-bottom: 1vw;
     border: 3px groove rgb(18, 18, 119);
@@ -56,7 +56,7 @@
     justify-content: center;
     text-align: center;
     color: azure;   
-    font-size: 3.5vw;
+    font-size: 2.3vw;
     letter-spacing: -0.3vw;
     font-weight: bold;
     stroke: black;

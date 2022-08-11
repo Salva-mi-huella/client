@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from '../Card/Card.jsx';
-import { CardsData } from '../Data/Data';
 import { useSelector } from 'react-redux';
 
 import styles from '../Cards/Cards.module.css';
@@ -23,7 +22,7 @@ const Cards = () => {
         foundation = foundation.find(f => f.email === user.email);
     }
 
-    const totalDonations = foundation?.donations?.filter(d => d.date.slice(5, -3) == month).reduce((acc, curr) => acc + curr.amount, 0);
+    const totalDonations = foundation?.donations?.filter(d => d.date.slice(5, -3) === month).reduce((acc, curr) => acc + curr.amount, 0);
     const amountsDonations = foundation?.donations?.map(d => d.amount);
     const dates = foundation?.donations?.map(d => d.date);
 
