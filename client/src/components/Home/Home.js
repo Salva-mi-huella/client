@@ -33,7 +33,7 @@ export default function Home() {
         dispatch(getAllPets())
         dispatch(getFoundations());
         dispatch(getUsers());
-        const userFound = users?.find(u => u.email === user.email);
+        const userFound = users?.find(u => u.email === user?.email);
 
         if (isAuthenticated && !userFound) {
             const { given_name, family_name, email, nickname, picture } = user;
