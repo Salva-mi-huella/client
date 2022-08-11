@@ -65,10 +65,8 @@ export default function Profile() {
 
     else if (decode && decode.permissions[0] === "read:adminProfile") return <ProfileAdmin />
 
-    return (
-        <>
-            <ProfileUser />
-        </>
-    )
+    else  return <> <ProfileUser />
+</>
+    
 
 }
