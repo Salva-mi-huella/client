@@ -40,6 +40,12 @@
 .icons {
     width: 2.5vw;
     height: 2..5vw;
+    
+}
+.iconsIg{
+    width: 2.7vw;
+    height: 2.7vw;
+    border-radius: 50%;
 }
 
 .containerInfo {

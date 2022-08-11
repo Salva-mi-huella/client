@@ -9,7 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import ProfileMenu from '../Profile/ProfileMenu';
 
-import ig from '../../assets/instagram.png'
+import ig from '../../assets/ig5.jpg'
 import mail from '../../assets/email-2.png'
 
 
@@ -46,7 +46,7 @@ export default function Footer() {
 
                   <div className={styles.iconContainer}>
                     <a href='mailto:salvamihuella.10@gmail.com' target="_blank" rel="noreferrer"><img src={mail} title="salvamihuella.10@gmail.com" className={styles.icons} alt='mail' ></img></a>
-                    <a href="https://www.instagram.com/salva_mi_huella/" target="_blank" rel="noreferrer"><img src={ig} className={styles.icons} alt='ig' ></img></a>
+                    <a href="https://www.instagram.com/salva_mi_huella/" target="_blank" rel="noreferrer"><img src={ig} className={styles.iconsIg} alt='ig' ></img></a>
                   </div>
 
                 </CDBBox>
