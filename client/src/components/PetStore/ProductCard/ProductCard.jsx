@@ -5,8 +5,6 @@ import Swal from "sweetalert2";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/actions";
-
-import img from "../../../assets/yellow-paw.png";
 import styles from '../ProductCard/ProductCard.module.css';
 
 export default function Card(props) {

@@ -1,7 +1,7 @@
 //  Sidebar Imports 
 import {
     MdSettings,
-    MdReceipt,
+    // MdReceipt,
     MdRule,
     MdHome,
     MdHowToVote,

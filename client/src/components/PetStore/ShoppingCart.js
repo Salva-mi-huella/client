@@ -107,7 +107,7 @@ export default function ShoppingCart() {
                 <div key={d.name} className={styles.mainitems}>
                     <div className={styles.containerimagecart}>
                         <button className={styles.takeOut} onClick={()=>dispatch(delFromCart(d.id, true))}>X</button>
-                        <img src={d.images}/>
+                        <img src={d.images} alt='img shoppingcart'/>
                     </div>
                     <div className={styles.priceitem}>
                         <p>{d.name}{" "}</p> 

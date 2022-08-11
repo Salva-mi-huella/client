@@ -11,7 +11,6 @@ import yellow_paw from '../../assets/yellow-paw.png';
 
 import paw from '../../assets/yellow-paw.png';
 import { useAuth0 } from '@auth0/auth0-react';
-import eslogan from '../../assets/eslogan2.png'
 import register from '../../assets/register1.png';
 import gift from '../../assets/gift-2png.png';
 import { setUserSession } from "../../utils";

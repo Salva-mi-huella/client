@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getRequestsAdopt } from '../../../redux/actions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import TablePagination from '@mui/material/TablePagination';
 import Table from '@mui/material/Table';
@@ -39,8 +38,6 @@ export default function BasicTable({ requests }) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(4);
 
-    const dispatch = useDispatch()
-
     const user = JSON.parse(localStorage.getItem('user'));
     let foundation = useSelector(state => state.foundations);
 
@@ -48,7 +45,6 @@ export default function BasicTable({ requests }) {
 
     if (user) {
         foundation = foundation.find(f => f.email === user.email);
-        // console.log(foundation, 'Foundation');
     }
 
     // useEffect(() => {
@@ -56,7 +52,7 @@ export default function BasicTable({ requests }) {
     // }, [dispatch])
 
     // requests = requests.filter(r => r.foundationId === foundation.id)
-    // console.log(requests, 'requests_adopt');
+    
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);

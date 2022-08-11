@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { postUser } from '../../redux/actions/index';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileFoundation from '../ProfileFoundation/ProfileFoundation';
 import ProfileUser from '../ProfileUser/ProfileUser';
@@ -10,8 +8,8 @@ import jwt from "jsonwebtoken";
 export default function Profile() {
 
     // const dispatch = useDispatch();
-    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-    const [userMetadata, setUserMetadata] = useState(null);
+    const { user, getAccessTokenSilently } = useAuth0();
+    // const [userMetadata, setUserMetadata] = useState(null);
     const [decode, setDecode] = useState(null);
 
 
