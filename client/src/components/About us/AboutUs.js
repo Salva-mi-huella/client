@@ -163,8 +163,8 @@ export default function AboutUs() {
 
                         {/*LISANDO LANDABURU */}
                         <div className={styles.info}>
-                            <img alt="foto-perfil" className={styles.devImg} src="https://media-exp1.licdn.com/dms/image/C4E03AQEhNFEeaTgERw/profile-displayphoto-shrink_400_400/0/1658521157185?e=1663804800&v=beta&t=vUt5ZSrvLcSnLBuLBaUo35mQHqrCBrpNuywHLp1yWq4"></img>
-                            <h3 className={styles.name}>Lisandro Landaburu</h3>
+                            <img alt="foto-perfil" className={styles.devImg} src="https://media-exp1.licdn.com/dms/image/D4D35AQGRePiSWoqOcg/profile-framedphoto-shrink_400_400/0/1660676195595?e=1663189200&v=beta&t=voEcoGNk7sD6n8EZrIHEj_BWehtjL7lMYRzNOrgLJFI"></img>
+                            <h3 className={styles.name}>Lisandro Landaburu</h3> 
 
 
                             <div className={styles.wrapper}>
@@ -175,7 +175,7 @@ export default function AboutUs() {
                                     </div>
                                 </a>
 
-                                <a id={styles.a} className={styles.button} href="https://github.com/Lichi96">
+                                <a id={styles.a} className={styles.button} href="https://github.com/LichiLandaburu">
                                     <div className={styles.icon}>
                                         <i class="fa-brands fa-github"></i>
                                     </div>
