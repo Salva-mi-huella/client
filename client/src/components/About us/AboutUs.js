@@ -163,7 +163,7 @@ export default function AboutUs() {
 
                         {/*LISANDO LANDABURU */}
                         <div className={styles.info}>
-                            <img alt="foto-perfil" className={styles.devImg} src="https://media-exp1.licdn.com/dms/image/D4D35AQGRePiSWoqOcg/profile-framedphoto-shrink_400_400/0/1660676195595?e=1663189200&v=beta&t=voEcoGNk7sD6n8EZrIHEj_BWehtjL7lMYRzNOrgLJFI"></img>
+                            <img alt="foto-perfil" className={styles.devImg} src="https://avatars.githubusercontent.com/u/66653514?v=4"></img>
                             <h3 className={styles.name}>Lisandro Landaburu</h3> 
 
 
