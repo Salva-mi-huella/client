@@ -110,6 +110,7 @@ export default function Contact() {
       }).then((result) => {
         if (result.isConfirmed) {
                 history.push('/home')
+                
             }})
       setInput({
             name: '',

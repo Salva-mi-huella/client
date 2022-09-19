@@ -5,7 +5,8 @@
 
     position: relative;
     /* top: 7rem; */
-    margin-top: -5vw;;
+    margin-top: -5vw;
+    ;
     max-height: 74.5vh;
     width: 90%;
     /* margin: 1rem; */
@@ -22,9 +23,18 @@
 .singleUpdateContainer {
     background-color: rgba(63, 63, 63, 0.058);
     display: flex;
+    flex-direction: row-reverse;
     border-radius: 20px;
     padding: 1rem;
     gap: 1rem;
+}
+
+.deleteIcon:hover {
+    cursor: pointer;
+}
+
+.deleteIcon {
+    font-size: 1rem;
 }
 
 .singleNew {

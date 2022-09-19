@@ -9,17 +9,18 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .Cards {
+  .analyticsCards {
     flex-direction: column;
+    gap: .5rem;
   }
 
   .parentContainer {
-    height: 9rem;
+    height: 6rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .Cards {
+  .analyticsCards {
     width: 90%;
   }
 }
