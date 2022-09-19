@@ -33,6 +33,7 @@ export const POST_FOUNDATION = 'POST_FOUNDATION';
 export const UPDATE_REQUEST_ADOPT = "UPDATE_REQUEST_ADOPT";
 export const UPDATE_PET_STATUS = "UPDATE_PET_STATUS";
 export const PRODUCTS_FILTERED = "PRODUCTS_FILTERED";
+export const DELETE_NEW = "DELETE_NEW";
 
 
 export function getFoundationDetail(id) {
@@ -107,6 +108,19 @@ export function getAllNews() {
     }
 }
 
+export function deleteNew(id) {
+    return async function (dispatch) {
+        try {
+            const msg = await axios.delete(`/news/${id}`)
+            return dispatch({
+                type: DELETE_NEW,
+                payload: msg.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
 
 export function getPetDetail(id) {
     return async function (dispatch) {
@@ -202,7 +216,7 @@ export function updateFoundation(data, id) {
 
 export function updateUser(data, email) {
     return async function (dispatch) {
-       
+
         try {
             const updatedUser = await axios.put(`/users/${email}`, data);
 
@@ -426,7 +440,7 @@ export const storeFilters = (fByPrice, fByType, fByCategory) => {
     return function (dispatch) {
         return dispatch({
             type: STORE_FILTERS,
-            payload: {  fByPrice, fByType, fByCategory }
+            payload: { fByPrice, fByType, fByCategory }
         });
     };
 };
