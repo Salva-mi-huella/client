@@ -114,7 +114,6 @@ export function deleteNew(id) {
             const msg = await axios.delete(`/news/${id}`)
             return dispatch({
                 type: DELETE_NEW,
-                payload: msg.data
             })
         } catch (error) {
             console.log(error)

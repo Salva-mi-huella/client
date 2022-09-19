@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './Updates.module.css';
 
+import { useHistory } from 'react-router-dom';
+
 import { BsTrash } from 'react-icons/bs'
-import { useDispatch } from 'react-redux';
+import { useDispatch, } from 'react-redux';
 import { deleteNew } from '../../../redux/actions';
 import Swal from 'sweetalert2';
 
@@ -10,9 +12,13 @@ import Swal from 'sweetalert2';
 
 const Updates = ({ foundation }) => {
 
+
+
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const handleDelete = (id) => {
+       
         Swal.fire({
             title: 'Estas seguro?',
             text: "Esta accion no se puede deshacer!",
@@ -23,14 +29,18 @@ const Updates = ({ foundation }) => {
             confirmButtonText: 'Si, eliminalo!'
         }).then((result) => {
             if (result.isConfirmed) {
+                console.log(id)
                 dispatch(deleteNew(id));
+                history.push('/home#news');
                 Swal.fire(
                     'Eliminado!',
                     'Tu Noticia ha sido eliminada correctamente.',
-                    'Exitoso'
+                    'success'
                 )
             }
         })
+       
+        
 
     }
 
@@ -40,7 +50,8 @@ const Updates = ({ foundation }) => {
 
             {foundation?.news?.length && foundation.news.map((update) =>
                 <div className={styles.singleUpdateContainer}>
-                    <span onClick={(id) => handleDelete(id)} > <BsTrash className={styles.deleteIcon} /> </span>
+
+                    <span onClick={(id) => handleDelete(update.id)} > <BsTrash className={styles.deleteIcon} /> </span>
 
                     <div className={styles.singleNew}>
 
