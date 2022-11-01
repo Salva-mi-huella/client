@@ -6,11 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from "./redux/store/index";
-import FormValidation from "reactjs-forms";
 import { Auth0Provider} from "@auth0/auth0-react";
 import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
+// import FormValidation from "reactjs-forms";
 
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:4000";
 
@@ -22,9 +22,9 @@ ReactDOM.render(
     scope="read:message">
     <Provider store={store}>
       <BrowserRouter>
-      <FormValidation>
+//       <FormValidation>
         <App />
-      </FormValidation>
+//       </FormValidation>
       </BrowserRouter>
     </Provider>
   </Auth0Provider>
