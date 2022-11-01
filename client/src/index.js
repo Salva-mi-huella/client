@@ -22,9 +22,9 @@ ReactDOM.render(
     scope="read:message">
     <Provider store={store}>
       <BrowserRouter>
-//       <FormValidation>
+      {/* <FormValidation> */}
         <App />
-//       </FormValidation>
+      {/* </FormValidation> */}
       </BrowserRouter>
     </Provider>
   </Auth0Provider>
